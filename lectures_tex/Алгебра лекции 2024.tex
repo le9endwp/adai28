@@ -1,0 +1,1781 @@
+\documentclass[14pt, letter paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{textcomp}
+\usepackage[dvipsnames]{xcolor}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[unicode, pdftex]{hyperref}
+\usepackage{listings}
+
+\DeclareRobustCommand{\divby}{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp
+\end{flushright}
+
+\begin{center}
+    \section*{Теория чисел и основные алгебраические структуры}
+\end{center}
+
+\begin{itemize}
+    \item $\mathds{Z}$ - целые числа $+$ $-$ $\cdot$ $>$
+    \item $\mathds{N}$ - натуральные числа
+    \item $\mathds{R}$ - вещественные числа
+\end{itemize}
+
+\textbf{Аксиома индукции.} $A \subset \mathds{N}; A \neq \o \Rightarrow$ в $A$ есть наименьший элемент
+
+\textbf{Th.} о делении с остатком
+
+\begin{cases}
+    $a, b \in \mathds{Z}$ \\
+    $b \neq 0$
+\end{cases}
+$\Rightarrow \exists ! q, r \in \mathds{Z}: a = b \cdot q + r, 0 \leq r < |b|$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{itemize}
+    \item Существование
+
+    \begin{enumerate}
+        \item $a > 0, b > 0$ fix $b$
+
+        Пусть не так, есть плохие $a$ (множество плохих $a \neq \o)$
+
+        Пусть $a_0$ - наименьшее плохое, значит $a_0 - 1$ - хорошее, можно разделить с остатком
+
+        $a_0 - 1 = b \cdot q + r, 0 \leq r < b$, тогда 
+        
+        $a_0 = (b \cdot q + r) + 1, r + 1 < b$
+
+        $a_0 = b \cdot (q + 1)$, т.е. $a_0$ - хорошее
+
+        \item $a < 0, b > 0$
+
+        $-a = b \cdot q + r, 0 \leq r < b$
+
+        $a = -b \cdot q - r$
+
+        \begin{enumerate}
+            \item[2.1.] $r = 0$
+
+            $a = b \cdot (-q) + 0$
+
+            \item[2.2.] $r > 0$
+
+            $a = b \cdot (-q) - b + b - r = b \cdot (-q - 1) + b - r, 0 < r < b \Rightarrow 0 < b - r < b$
+        \end{enumerate}
+
+        \item $b < 0, -b > 0$
+
+        $a = -b \cdot q + r = b \cdot (-q) + r, 0 \leq r < b$
+    \end{enumerate}
+
+    \item Единственность
+
+    Пусть $q, q', r, r'$
+
+    $a = b \cdot q + r$
+
+    $a = b \cdot q' + r'$
+
+    $a - a = b \cdot q + r - b \cdot q' - r'$
+
+    $0 = b \cdot (q - q') + (r - r')$
+
+    $r' - r = b \cdot (q - q'), q \neq q', |q - q'| \geq 1$
+
+    $|b \cdot (q - q')| \geq |b|$
+
+    $r', r \in [0 ; |b| - 1]$
+
+    $|r - r'| < |b| - 1$ Противоречие $\Rightarrow q = q', r = r'$
+\end{itemize}
+
+\textbf{Def.} $a, b \in \mathds{Z}, a \divby b (b | a)$, если $\exists c \in \mathds{Z}: a = bc$
+
+\textbf{Rem.} $0 \divby 0$ $\forall x \in \mathds{Z} 0 = 0 \cdot x$
+
+\textbf{Основные свойства делимости:}
+\begin{enumerate}
+    \item $0 \divby a$
+    \item $a \divby 1$
+    \item $a, b \divby c \Rightarrow a + b \divby c$
+    \item $a, k \divby c \Rightarrow k \cdot a \divby c$
+    \item $a \divby a$
+    \item $a \divby b, b \divby a \Rightarrow a = \pm b$
+    \item $a \divby b, b \divby c \Rightarrow a \divby c$
+    \item $ac \divby bc, c \neq 0 \Rightarrow a \divby b$
+\end{enumerate}
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{enumerate}
+    \item[3.] $a \divby c \Rightarrow \exists q_a: a = q_a \cdot c$
+
+    $b \divby c \Rightarrow \exists q_b: b = q_b \cdot c$
+
+    $a + b = (q_a + q_b) \cdot c$
+
+    \item[6.] $a = bx$
+
+    $b = ay$
+
+    $a = ayx$
+
+    $a = a(xy) \Rightarrow \left[ \begin{gathered} a = 0, b \neq 0 \\ a \neq 0, xy = 1 \Rightarrow x, y = \pm 1, a = \pm b \end{gathered} \right.$
+
+    \item[8.] $ac \divby bc, c \neq 0$ 
+    
+    $ac = bc \cdot x$
+
+    $c \cdot a = c \cdot bx \Rightarrow a = bx$ $(a \divby b)$
+\end{enumerate}
+
+\textbf{Задача:} при каких $a, b, c \in \mathds{Z}$ уравнение $ax + by = c$ имеет решение в целых числах ($\Leftrightarrow$ из чего состоит $<a, b>$? $c \in <a, b>$?)
+
+\textbf{Def.} Идеалом называется подмножество $I \subset \mathds{Z}$:
+\begin{enumerate}
+    \item $I \neq \o$
+    \item $a, b \in I \Rightarrow a + b \in I$
+    \item $a \in I, k \in \mathds{Z} \Rightarrow a \cdot k \in I$
+\end{enumerate}
+
+\textbf{Ex. 1} $c \in \mathds{Z}$
+
+$<c> = \{n \cdot c\} = \{ x \in \mathds{Z} | x \divby c\}$ - идеал, порожденный $c$ - главный идеал
+
+\textbf{Ex. 2} $c_1, c_2 \cdots c_k \in \mathds{Z}$
+
+$<c_1, c_2 \cdots c_k> = \{n_1 c_1 + n_2 c_2 + \cdots + n_k c_k | n_i \in \mathds{Z} \}$
+
+{\textbf{Th.} в $\mathds{Z}$ любой идеал - главный}
+
+\begin{center}
+    Доказательство
+\end{center}
+
+$I$ - идеал в $\mathds{Z}$, хотим $b \in \mathds{Z}, I = <b>$
+
+\begin{enumerate}
+    \item $I = \{0\} = <0>$
+    \item $\exists a \in I, a \neq 0 \Rightarrow a \in I, a \in \mathds{N}$. Рассмотрим наименььший натуральный $b \in I$
+
+    Докажем $I = <b>$
+
+    $<b> \subset I, b \in I, k \cdot b \in I$
+
+    $a \in I$ делим с остатком
+
+    $a = bq + r, 0 \leq r < b$
+
+    $r = a - bq$ $b \in I \Rightarrow -bq \in I \Rightarrow a - bq \in I \Rightarrow r \in I$
+
+    $r \in \mathds{N}$ - противоречие ($b$ - наименььшее) $\Rightarrow r \notin \mathds{N} \Rightarrow r = 0$
+\end{enumerate}
+
+В частности $\forall a, b \in \mathds{Z}$ $\exists d: <a, b> = <d>$
+
+\textbf{Def.} $a, b \in \mathds{Z}$ НОД$(a, b) = gcd(a, b) = (a, b)$ - такое $d \in \mathds{Z}$, что:
+\begin{enumerate}
+    \item $a \divby d, b \divby d$
+    \item $\forall d': a \divby d', b \divby d' \Rightarrow d \divby d'$
+\end{enumerate}
+
+\textbf{Rem.} НОД определен однозначно с точностью до знака
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{cases}
+$d_1 = (a, b) \Rightarrow a \divby d_1, b \divby d_1, d_2 \divby d_1$ \\
+$d_2 = (a, b) \Rightarrow a \divby d_2, b \divby d_2, d_1 \divby d_2$
+\end{cases}
+$\Rightarrow d_1 = \pm d_2$
+
+\textbf{Th.} $a, b \in \mathds{Z}$
+
+\begin{enumerate}
+    \item $\exists (a, b) = d$
+    \item $\exists x, y \in \mathds{Z}: ax + by = d$ - линейное представление НОДа
+    \item $ax + by = c$ имеет решение $\Leftrightarrow c \divby d$
+\end{enumerate}
+
+\begin{center}
+    Доказательство 1
+\end{center}
+
+Рассмотрим $I = <a, b>$ - по предыдущей теореме он главный
+
+$<d> = <a, b>$
+
+$d = d \cdot 1 \in I \Rightarrow d \in <a, b>$, т.е. $\exists x, y : ax + by = d$
+
+$d = (a, b)$ \begin{cases}
+    $a \divby d' \Rightarrow ax \divby d'$
+    $b \divby d' \Rightarrow by \divby d'$
+\end{cases}
+$\Rightarrow d \divby d'$
+
+$a = a \cdot 1 + b \cdot 0 \in <a, b> = <d> \Leftrightarrow a \divby d$
+
+Аналогично $b \divby d$
+
+\begin{center}
+    Доказательство 3
+\end{center}
+
+\begin{itemize}
+    \item[$\Rightarrow$:] $c = ax + by \begin{cases} a \divby (a, b) \\ b \divby (a, b) \end{cases} \Rightarrow c = ax + by \divby (a, b)$
+    \item[$\Leftarrow$:] Пусть $c \divby (a, b) = d$, т.е. $c = d \cdot k, k \in \mathds{Z}$
+    
+    $ax + by = d$
+
+    $a_{new} = ak, b_{new} = bk$ 
+
+    $a_{new}x + b_{new}y = dk$
+\end{itemize}
+
+\textbf{Lem.} $(a, b) = (a, b - a)$
+
+\begin{cases}
+    $a, b \divby d \Rightarrow b - a \Rightarrow d$ \\
+    $a, b-a \divby d \Rightarrow b = a + (b - a) \divby d$
+\end{cases}
+$\Rightarrow$ одинаковые общие делители
+
+\textbf{Следствие:} $b = aq + r \Rightarrow (a, b) = (a, r)$. Доказывается аналогично лемме
+
+\textbf{Алгоритм Евклида:}
+\begin{enumerate}
+    \item $a = bq + r_1$ 
+    
+    $b = r_1 q + r_2$
+
+    $\cdots$
+    
+    \item $(a, b) = (r_1, b) = (r_1, r_2) \cdots$, $\exists i \in \mathds{N}: r_i = 0$
+    \item $(a, b) = \cdots = (r_k, r_k+1) = (r_k, 0) = r_k$
+\end{enumerate}
+
+\textbf{Rem.} $a_1, a_2 \cdots a_k \in \mathds{Z}$
+
+$\exists (a_1, a_2 \cdots a_k) = d$ $\exists x_1 \cdots x_k \in \mathds{Z}:$
+
+$d = x_1 a_1 + x_2 a_2 + \cdots + x_k a_k$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+Рассмотрим идеал $<a_1, a_2 \cdots a_k>$ $\exists d: <d> = <a_1 \cdots a_k>$. Далее все как при $k = 2$
+
+\textbf{Def.} $a, b \in \mathds{Z}$ называются взаимнопростыми, если $(a, b) = 1$
+
+\textbf{Lm.} $a, b$ - взаимнопросты $\Leftrightarrow \exists x, y : ax + by = 1$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $(a, b) = 1 \Rightarrow \exists x, y : ax + by = 1$
+    \item[$\Leftarrow$] $ax + by = 1 \Rightarrow 1 \divby (a, b)$ $(a, b) = 1$
+\end{itemize}
+
+\textbf{Lm.} об отбрасывании взаимнопростого множителя
+
+$a, b, c \in \mathds{Z}$ $\begin{cases} ab \divby c \\ (a, c) = 1 \end{cases} \Rightarrow b \divby c$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+$ab = cx$
+
+$ay + cz = 1 \Rightarrow aby + cbz = b \divby c$
+
+\textbf{Def.} $p \in \mathds{Z}$. $p$ называется простым, если
+
+\begin{enumerate}
+    \item $|p| > 1$
+    \item $p \neq xy$ $|x|, |y| < |p|$
+\end{enumerate}
+
+Ясно, что это равносильно тому, что $p$ имеет ровно 4 делителя ($\pm 1, \pm p$)
+
+\textbf{Lm.} $p$ - простое $\Leftrightarrow ab \divby p \Rightarrow \left [ \begin{gathered} a \divby p \\ b \divby p \end{gathered} \right. , |p| > 1$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{itemize}
+    \item[$\Leftarrow$] $p = xy \Rightarrow xy \divby p \Rightarrow \left [ \begin{gathered} x \divby p \\ y \divby p \end{gathered} \right. \Rightarrow \left [ \begin{gathered} |x| \geq p \\ |y| \geq p \end{gathered} \right.$ 
+
+    \item[$\Rightarrow$] Пусть $p$ - простое, $ab \divby p$
+
+    $\left [ \begin{gathered} (a, p) = 1 \Rightarrow b \divby p\\ (a, p) = p \Rightarrow a \divby p\end{gathered} \right.$
+\end{itemize}
+
+\textbf{Основная теорема арифметики}
+
+$x \in \mathds{Z}, x \neq 0$
+
+\begin{enumerate}
+    \item $\exists p_1, p_2 \cdots p_k$ - простые $> 0$
+
+    $\varepsilon = sgn(n)$
+
+    $a_1, a_2 \cdots a_k \in \mathds{N}$
+
+    $x = \varepsilon p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}, p_i \neq p_j$
+
+    \item Это разложение единственное с точностью до порядка сомножителей
+
+    $x = \varepsilon_1 p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$
+
+    $x = \varepsilon_2 q_1^{b_1} q_2^{b_2} \cdots q_k^{b_k}$
+
+    $p_i, q_i > 0$, тогда $\varepsilon_1 = \varepsilon_2, k = l$
+
+    $\exists \{i_1, i_2 \cdots i_k\} = \{1, 2 \cdots k\}:$
+
+    $p_{i_1} = q_1$ $a_{i_1} = b_1, p_{i_2} = q_2$ $a_{i_2} = b_2$
+\end{enumerate}
+
+\begin{center}
+    Доказательство
+\end{center}
+
+Будем доказывать единственность и существование разложения $n = p_1 p_2 \cdots p_s, p_i$ - простые, $n \in \mathds{N}$
+
+\begin{enumerate}
+    \item Существование:
+
+    Пусть есть плохие $n$ (множество плохих непусто)
+
+    $n_0$ - наименьшее плохое
+
+    \begin{itemize}
+        \item $n_0$ - простое
+
+        $p_1 = n_0, s = 1$
+
+        $n_0 = p_1$ ?? $\Rightarrow n_0$ - хорошее
+
+        \item $n_0$ - составное $\Rightarrow n_0 = n_1 n_2$ $n_1, n_2 < n_0$
+
+        $n_1, n_2$ - хорошие $\Leftrightarrow \begin{cases} n_1 = p_1 p_2 \cdots p_k, p_i$ - простое $ \\ n_2 = q_1 q_2 \cdots q_s, q_i$ - простое $\end{cases} \Rightarrow n_0 = n_1 n_2 = p_1 p_2 \cdots p_k q_1 q_2 \cdots q_s \Rightarrow n_0$ - хорошее
+    \end{itemize}
+
+    \item Единственность:
+
+    Пусть есть плохие $n$
+
+    $n_0$ - наименьшее из плохих
+
+    $\begin{cases}
+        n_0 = p_1 p_2 \cdots p_k \\
+        n_0 = q_1 q_2 \cdots q_s
+    \end{cases}$
+    $p_i, q_i$ - простые
+
+    $p_1 p_2 \cdots p_k = n_0 \divby q_1 \Rightarrow \left[ \begin{gathered} p_1 \divby q_1 \\ p_2 \cdots p_k \divby q_1 \end{gathered} \right. \Rightarrow \left[ \begin{gathered} p_1 \divby q_1 \\ p_2 \divby q_1 \\ p_3 \cdots p_k \divby q_1 \end{gathered} \right. \Rightarrow \cdots \Rightarrow \left[ \begin{gathered} p_1 \divby q_1 \\ p_2 \divby q_1 \\ \cdots \\ p_k \divby q_1 \end{gathered} \right.$
+
+    $\exists p_i \divby q_1$
+
+    $p_i, q_1 > 0$ $q_1 \neq 1 \Rightarrow q_1 = p_i$
+
+    Итак: $\exists i : p_i = q_1 \Rightarrow p_1 p_2 \cdots p_{i-1} p_{i+1} \cdots p_k = q_2 q_3 \cdots q_s = n_1$, $n_1 < n_0 \Rightarrow n_1$ - хорошее $\Rightarrow$ разложения $p_1 p_2 \cdots p_{i-1} p_{i+1} \cdots p_k$ и $q_2 q_3 \cdots q_s$ совпадают ??
+\end{enumerate}
+
+$n = \varepsilon p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}, p_1 < p_2 < \cdots < p_k$ - каноническое разложение
+
+$n = \prod\limits_{p \in \mathds{P}} p^{v_p(n)}$, почти все $v_p(n) = 0$
+
+$v_p(n)$ - степеньь вхождения $p$ в $n$
+
+Свойства степени вхождения:
+
+\begin{enumerate}
+    \item $v_p(ab) = v_p(a) + v_p(b)$
+    \item $v_p(a + b) \geq min(v_p(a), v_p(b))$
+
+    если $v_p(a) \neq v_p(b)$, то $v_p(a+b) = min(v_p(a), v_p(b))$
+\end{enumerate}
+
+\textbf{Rem.} $v_p(a)$ - это такое $n$, что $a \divby p_n, a \not\divby p^{n+1}$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{enumerate}
+    \item Напишем разложения:
+
+    $a = p^{v_p(a)} \cdot \prod\limits_{q \neq p} q^{v_q(a)}$
+
+    $b = p^{v_p(b)} \cdot \prod\limits_{q \neq p} q^{v_q(b)}$
+
+    $ab = p^{v_p(a) + v_p(b)} \cdot \prod\limits_{q \neq p} q^{v_q(a) + v_q(b)}$
+
+    $a = p^n x$, $b = p^m y$
+
+    НУО $n \geq m$
+
+    $a + b = p^m p^{n-m} x + p^m y = p^m (p^{n-m} x + y) \divby p^m = p^{min(n, m)}$
+
+    $n \neq m$ $p^{n-m} x \divby p \Rightarrow p^{n-m} x + y \not\divby p \Rightarrow p^m(p^{n-m} x + y) \not\divby p^{m+1}$
+
+    $m = v_p(a+b)$
+\end{enumerate}
+
+\textbf{Следствия из ОТА}
+
+Утверждение: $a = \prod\limits_{p_i \in \mathds{P}} p_i^{a_i}$, $b = \prod\limits_{p_i \in \mathds{P}} p_i^{b_i}$
+
+Тогда 
+
+\begin{enumerate}
+    \item $a \divby b \Leftrightarrow a_i \geq b_i \forall i$
+    \item $\exists c : a = c^k \Leftrightarrow a_i \divby k \forall i$
+    \item Число $a$ имеет $\tau (a) = \prod (a_i + 1)$ натуральных делителей
+\end{enumerate}
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{enumerate}
+    \item $a = bx, x = \prod p_i^{x_i}$
+
+    $\prod p_i^{a_i} = \prod p_i^{b_i} \cdot \prod p_i^{x_i} = \prod p_i^{b_i + x_i} \Leftrightarrow a_i = b_i + x_i \forall i \Leftrightarrow a_i \geq b_i \forall i$
+
+    \item Упражнение
+
+    \item |\{ делители $a$ \}| = $|\{ p_1^{b_1} p_2^{b_2} \cdots p_s^{b_s} | \begin{gathered} b_1 \in \{ 0, 1 \cdots a_1\} \\ b_2 \in \{ 0, 1 \cdots a_2 \} \\ \cdots \\ b_s \in \{ 0, 1 \cdots a_s \} \end{gathered} \}| = |\{(b_1 \cdots b_s) | b_i \leq a_i \}| = |\{0 \cdots a_1\} \times \{ 0 \cdots a_2 \} \times \cdots \times \{ 0 \cdots a_s \}| = (a_1 + 1)(a_2 + 1) \cdots (a_s + 1)$
+\end{enumerate}
+
+\textbf{Def.} $c$ - наименьшее общее кратное $a, b$
+
+$a, b, c \in \mathds{Z}$ если 
+
+\begin{enumerate}
+    \item $c \divby a, c \divby b$
+    \item $c' \divby a, c' \divby b \Rightarrow c' \divby c$
+\end{enumerate}
+
+Утверждение $a = \prod p_i^{a_i}, b = \prod p_i^{b_i}$
+
+$(a, b) = \prod p_i^{min(a_i, b_i)}$
+
+$\exists [a, b] = \prod p_i^{max(a_i, b_i)}$
+
+\begin{center}
+    Доказательство
+\end{center}
+
+\begin{enumerate}
+    \item $min(a_i, b_i) \begin{gathered} \leq a_i \\ \leq b_i \end{gathered}$
+
+    $\begin{gathered} \prod p_i^{a_i} \\ \prod p_i^{a_i} \end{gathered} \divby \prod p_i^{min(a_i, b_i)}$, т.е. $a, b \divby \prod p_i^{min(a_i, b_i)}$
+
+    $a, b \divby \prod p_i^{c_i}$ $\forall i$ $\begin{gathered} c_i \leq a_i \\ c_i \leq b_i \end{gathered} \Rightarrow c_i \leq min(a_i, b_i) \Rightarrow \prod p_i^{min(a_i, b_i)} \divby \prod p_i^{c_i}$
+
+    \item НОК - аналогично
+\end{enumerate}
+
+\textbf{Отступление}
+
+Решаем диофантовы уравнения
+
+$x^2 - y^2 = 100$ $(x-y)(x+y) = 2^2 \cdot 5^2 \Rightarrow$ знаем $(x - y)$, $(x + y)$ (находим их из разложения 100) $\Rightarrow$ находим $x, y$
+
+\textbf{Отступление от теории чисел}
+
+\begin{center}
+    \section*{Основные алгебраические структуры}
+\end{center}
+
+\textbf{Def.} Группой называется пара $(G, *)$, где $G$ - множество, $*$ - бинарная операция на $G$, такая, что:
+\begin{enumerate}
+    \item $(a * b) * c = a * (b * c)$ - ассоциативность
+    \item $\exists e: a * e = e * a = a, e$ - нейтральный элемент
+    \item $\forall a \in G \exists a^{-1}: a * a^{-1} = a^{-1} * a = e$
+\end{enumerate}
+
+Если $a * b = b * a$ (коммутативность), то $G$ - абелева (коммутативная) группа
+
+\textbf{Rem.} Простейшие свойства группы
+
+\begin{enumerate}
+    \item Нейтраьный элемент единственный
+    \item Обратный элемент единственный
+    \item $a, b \in G$
+    \begin{itemize}
+        \item $a*x = b*x \Rightarrow a = b$ -- свойство сокращения
+        \item Уравнения $a * x = b$ и $x * a = b$ имеют единственное решение
+    \end{itemize}
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство (?)}
+\end{center}
+
+\begin{itemize}
+    \item $a*x=b*x$
+
+    $(a*x)*x^{-1} = (b*x)*x^{-1}$
+
+    $a*(x*x^{-1}) = b * (x*x^{-1})$
+
+    $a*e=b*e$
+
+    $a = b$
+
+    \item $a*x=b$
+
+    $a^{-1}*(a*x) = a^{-1}*b$
+    
+    $(a^{-1}*a)*x = a^{-1}*b$
+
+    $e*x=a^{-1}*b$
+
+    $x = a^{-1} * b$
+
+    \item $x*a=b$
+
+    $\cdots$
+
+    $x = b * a^{-1}$
+\end{itemize}
+
+Главний пример ассоциативной, но не коммутативной операции -- композиция
+
+$f:A \rightarrow B$
+
+$\{ (a, f(a)) | \begin{gathered} a \in A \\ f(a) \in B \end{gathered}\}$
+
+$g:B \rightarrow C$
+
+$b \in B; g(b) \in C$
+
+$a \rightarrow f(a) \rightarrow g(f(a)) \in C$
+
+$g \circ f : A \rightarrow C$
+
+$(g \circ f)(x) = g(f(x))$ $\forall x \in A$
+
+\textbf{Rem.} Если $C \neq A$, то $f \circ g$ не существует
+
+$A \rightarrow B \rightarrow C \rightarrow D$
+
+$h \circ (g \circ f) : A \rightarrow D$
+
+$(h \circ g) \circ f : A \rightarrow D$
+
+и $h \circ (g \circ f) = (h \circ g) \circ f$
+
+$\forall a \in A$ $(h \circ (g \circ f))(a) = h(g \circ f)(a) = h(g(f(a))) = ((h \circ g) \circ f)(a)$
+
+\textbf{Def.} $M$ -- множество
+
+$End(M) = \{ f : M \rightarrow M\}$
+
+Тогда на $End(M)$ определена бинарная ассоциативная операция $\circ$
+
+$f, g : M \rightarrow M$; $f \circ g$; $M \rightarrow M \rightarrow M$
+
+$End(M)$ замкнуто относительно композиции
+
+\textbf{Аксиомы:}
+
+\begin{enumerate}
+    \item Ассоциативность есть
+    \item $id_m(x) = x$ $\forall x \in M$
+
+    $(f \circ id_m)(x) = f(id_m(x)) = f(x)$
+
+    $(id \circ f)(x) = id(f(x)) = f(x)$
+
+    Т.е. $f \circ id = f$ и $id \circ f = f$
+
+    $id_m$ -- нейтральный элемент
+\end{enumerate}
+
+\textbf{Rem.} Если в определение группы взять только аксиомы 1 и 2, то $G$ -- моноид. $End(M)$ -- моноид
+
+$fix$ $f(x) = a$
+
+$g(f(x)) = f(a) - fix$
+
+$g \circ f \neq id_m$ $\forall g$
+
+\textbf{Th.} $f : M \rightarrow M$ имеет обратное $\Leftrightarrow f$ -- биекция
+
+Т.е. $\forall y \in M$ $f(x) = y$ имеет единственно решение
+
+$f^{-1}(y) = x$
+
+$f^{-1} \circ f(x) = f^{-1}(y) = x$
+
+$f \circ f^{-1}(y) = f(x) = y$
+
+$\begin{cases}
+f^{-1} \circ f = id \\
+f \circ f^{-1} = id
+\end{cases}$
+$\Rightarrow f^{-1}$ -- биекция
+
+\textbf{Def.} $M$ -- множество
+
+$S(M) \subset End(M)$
+
+$S(M) = \{ f \in End(M)| f$ -- биекция$\}$
+
+$S(M)$ -- симметрическая группа на множестве $M$, группа относительно $\circ$
+
+\textbf{Rem.} $id$ -- биекция; $id^{-1} = id$
+
+$M = \{ 1, 2 \cdots n\}$
+
+$S(M) = S_n$ -- симметричная группа (группа перестановок)
+
+\textbf{Def.} Кольцом называется тройка $(R, +, \cdot)$, где
+
+$R$ -- множество
+
+$+, \cdot$ -- бинарные операции на $R$ ($|R| > 1$)
+
+Такие, что:
+
+\begin{enumerate}
+    \item $(R, +)$ -- абелева группа
+
+    \begin{itemize}
+        \item $a + b = b + a$
+        \item $(a + b) + c = a + (b + c)$
+        \item $\exists 0: a + 0 = a$
+        \item $\forall a \exists (-a) : a + (-a) = 0$
+    \end{itemize}
+
+    \item[5.] $\begin{gathered}
+        a \cdot (b + c) = a \cdot b + a \cdot c \\
+        (b + c) \cdot a = b \cdot a + c \cdot a
+    \end{gathered}$
+    -- дистрибутивность
+
+    \item[6.] $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ -- у нас выполняется всегда
+
+    \item[7.] $\exists 1 : a \cdot 1 = 1 \cdot a = a$
+
+    \item[8.] $a \cdot b = b \cdot a$
+
+    \item[9.] $\forall a \in R, a \neq 0$ $\exists a^{-1} : a \cdot a^{-1} = 1$
+\end{enumerate}
+
+Если выполняется 1-6, это ассоциативное кольцо
+
+Если выполняется 1-7, это ассоциативное кольцо с 1
+
+Если выполняется 1-6 и 8, это (ассоциативное) коммутативное кольцо
+
+Если выполняется 1-8, это (ассоциативное) коммутативное кольцо с 1
+
+Если выполняется 1-9, это поле
+
+Если выполняется 1-7 и 9, это тело
+
+\textbf{Простейшие свойства колец:}
+
+\begin{enumerate}
+    \item $a \cdot 0 = 0$
+    \item $a \cdot (-1) = -a$
+\end{enumerate}
+
+\textbf{Rem.} $R$ -- поле $\Rightarrow \forall a, b \neq 0$ $a \divby b$
+
+$a = b \cdot \frac{a}{b} = b \cdpt (a \cdot b^{-1})$
+
+Значит бессмыслены понятия простых, разложения на простые
+
+\begin{center}
+    \section*{Кольца вычетов}
+\end{center}
+
+$M, \{ (a, b) \} \subset M \times M$ -- отноешния на множестве $M$
+
+$aRb$
+
+\begin{itemize}
+    \item $aRb \Rightarrow bRa$ -- симметричность
+    \item $aRb, bRc \Rightarrow aRc$ -- транзитивность
+    \item $aRa$ -- рефлексивность
+\end{itemize}
+
+Если выполняются все 3 пункта, то это отношения эквивалентности
+
+$R$ -- отноешние эквивалентности
+
+$a \in M$
+
+$\overline{a} = \{b \in M | aRb \}$ -- класс Эквивалентности $a$
+
+\textbf{Th.} Любые два класса эквивалентности $\overline{a}, \overline{b} : \left[ \begin{gathered}
+    \overline{a} \bigcap \overline{b} = \o \\
+    \overline{a} = \overline{b}
+\end{gathered} \right.$
+
+В итоге $M = \bigcup \overline{a}$ -- разбиение на классы
+
+\textbf{Def.} $a, b, n \in \mathds{Z}$ $a$ сравнимо с $b$ по модулю $n$, если $(a-b) \divby n$ обозначается $a \equiv b (mod n) \Rightarrow \mathds{Z}$ разбивается на классы эквивалентности. Обозначение: $R$ -- отношение, $M/R$ -- множество классов эквивалентности, $\sim$ -- эквивалентность $M/\sim$ -- множество классов эквивалентности -- фактормножество
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[Р:] $a - a = 0 \divby n \Rightarrow a = a$
+    \item[С:] $a \equiv b \Rightarrow a - b \divby n \Rightarrow b - a \divby n \Rightarrow b \equiv a$
+    \item[Т:] $\begin{cases}
+        a \equiv b \\
+        b \equiv c
+    \end{cases} \Rightarrow \begin{cases}
+        a - b \divby n \\
+        b - c \divby n
+    \end{cases} \Rightarrow a - c = (a - b) + (b - c) \divby n \Rightarrow a \equiv c$
+\end{itemize}
+
+\textbf{Rem.} $a \equiv b \Leftrightarrow$ $a$ и $b$ имеют одинаковые остатки от деления на $n$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$\Leftarrow$] Упражнение
+    \item[$\Rightarrow$] $\begin{cases}
+        a = q_a \cdot n + r \\
+        b = q_b \cdot n + r 
+    \end{cases} \Rightarrow a - b = n(q_a - q_b) + 0 \Rightarrow a \equiv b$
+
+    $(r_1 - r_2 \neq 0 \Rightarrow 0 < |r_1 - r_2| < n; r_1 - r_2 \not\divby n)$
+\end{itemize}
+
+Элементы $\mathds{Z}/\equiv$ -- вычеты (классы вычетов) по модулю $n$
+
+$\overline{3} = \{ 3; 3 \pm n; 3 \pm 2n \cdots \}$
+
+Из Rem $\Rightarrow |\mathds{Z}/\equiv$| = n
+
+$\mathds{Z}/\equiv = \{ \overline{0}; \overline{1} \cdots \overline{n - 1} \}$
+
+Обозначается $Z/nZ$
+
+\textbf{Свойства сравнений:}
+
+$\begin{cases}
+    a \equiv b \\
+    c \equiv d
+\end{cases} \Rightarrow \begin{cases}
+    a + c \equiv b + d \\
+    ac \equiv bd
+\end{cases}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $(a + c) - (b + d) = (a - b) + (c - d) \divby n$
+    \item $ac \equiv bc$, т.к. $ac - bc = c(a - b) \divby n$
+
+    $ad \equiv bd$, т.к. $ad - bd = d(a-b) \divby n$
+
+    По транзитивности $ac \equiv bc \equiv bd$
+\end{enumerate}
+
+$a \equiv b \Leftrightarrow \overline{a} = \overline{b}$ в $Z/nZ$
+
+Каноническое отображение:
+
+$\mathds{Z} \rightarrow \mathds{Z}/n\mathds{Z}$
+
+$a \rightarrow \overline{a} = \{ a + nk | k \in \mathds{Z}\}$
+
+$\mathds{Z}/n\mathds{Z} = \{ \overline{0}, \overline{1}, \overline{2} \cdots \overline{n-1} \}$
+
+$\begin{cases}
+    a \equiv b \\
+    c \equiv d
+\end{cases} \Rightarrow \begin{cases}
+    a + c \equiv b + d \\
+    ac \equiv bd
+\end{cases}$
+
+Эти свойства позволяют перенести на $\mathds{Z}/n\mathds{Z}$ структуру кольца:
+
+$\overline{a} + \overline{b} := \overline{a + b}$
+
+$\overline{a} \cdot \overline{b} = \overline{a \cdot b}$
+
+Зачем для этго свойства?
+
+Пусть $x, y$ -- классы
+
+Строим $x + y:$ выбираем $\begin{gathered}
+    a : \overline{a} = x \\
+    b : \overline{b} = y
+\end{gathered} x + y := \overline{a + b}$
+
+Нужно показать, что результат не зависит от выбора $a$ и $b$
+
+$\begin{cases}
+    \overline{a} = \overline{c} \\
+    \overline{b} = \overline{d}
+\end{cases} \Leftrightarrow \begin{cases}
+    a \equiv c \\
+    b \equiv d
+\end{cases} \Rightarrow a + c \equiv c + d \Leftrightarrow \overline{a + b} = \overline{c + d}$
+
+С умножением аналогично
+
+\textbf{Th.} ($\mathds{Z}/n\mathds{Z}, +, \cdot$) -- коммутативное ассоциативное кольцо с 1
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Надо проверить 8 аксиом, очев
+
+\vspace{5mm}
+
+Пусть $v \in \mathds{Z}/n\mathds{Z}\ f(x) = bx$
+
+$f : \mathds{Z}/n\mathds{Z} \rightarrow \mathds{Z}/n\mathds{Z}$
+
+Как устроена?
+
+В $\mathds{Q}$: $f(x) = bx$ -- биекция ($b \neq 0$)
+
+В $\mathds{Z}$: $f(x) = bx$ -- инъекция, но не сюрьекция
+
+\begin{itemize}
+    \item $bx = by \Rightarrow x = y$
+    \item Не все числа вида $bx$
+\end{itemize}
+
+\textbf{Утверждение} $f$ -- биекция $\Leftrightarrow (a, n) = 1;\ \overline{a} = b$, иначе это даже не инъекция
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item $(b,n) = 1 \Rightarrow \exists y, z: by + nz = 1$
+
+    $\mathds{Z}/n\mathds{Z} = \{ \overline{0}, \overline{1} \cdots \overline{n-1} \}\ b = \overline{a}$
+
+    Значения $f$: $\overline{0a}, \overline{1a} \cdots \overline{(n-1)a}$
+
+    Заметим, что если $\overline{ka} = \overline{la}$, т.е. $ka \equiv la$, то $\begin{cases}
+        (k-l)a \divby n \\
+        (a,n) = 1
+    \end{cases} \Rightarrow k-l \divby n \Rightarrow \overline{k} = \overline{l}$
+
+    Таким образом $f$ -- инъективно $\Rightarrow \overline{0a}, \overline{1a} \cdots \overline{(n-1)a}$ -- попарно различные классы $\Rightarrow$ это $\{ \overline{0}, \overline{1} \cdots \overline{n-1}\} \Rightarrow f$ -- сюрьекция
+    
+    \textbf{Упражнение:} доказать сюрьективность напрямую через $ay + bz = 1$
+
+    \item Пусть $(a,n) = d \neq 1$
+
+    $a = dz;\ n = dy$
+
+    Положим $x = \overline{y} \in \mathds{Z}/n\mathds{Z}$
+
+    Тогда $f(x) = vx = \overline{dz} \cdot \overline{y} = \overline{dzy} = \overline{dy} \cdot \overline{z} = 0 \cdot \overline{z} = 0$ и $f(0) = 0$
+
+    $x \neq \overline{0} = \{ 0 + nk | k \in \mathds{Z}\} = <n> \Rightarrow f$ -- неинъективна
+\end{itemize}
+
+\textbf{Следствие} $p$ -- простое, $\mathds{Z}/p\mathds{Z}$ -- поле
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Пусть $\overline{a} \neq \overline{0}$, т.е. $a \not\divby p \Rightarrow (a,p) = 1$, т.е. $x \rightarrow \overline{a} \cdot x$ сюрьективно
+
+то есть $\exists b \in \mathds{Z} : \overline{a} \cdot \overline{b} = 1 \Rightarrow \overline{b} = \overline{a}^{-1}$, т.е. у $\overline{a}$ есть обратный $\Rightarrow \mathds{Z}/p\mathds{Z}$ -- поле
+
+Как найти этот обратный?
+
+$\overline{a} \cdot \overline{x} = \overline{1};\ ax \equiv 1 \Leftrightarrow ax = 1 + py \Leftrightarrow ax - py = 1$ -- линейное представление НОДа, т.е. $x, y$ существуют
+
+Пусть $n$ -- составное: $n = pq;\ p,q > 1$
+
+$\overline{p} \cdot \overline{q} = \overline{0}$
+
+$\overline{p}, \overline{q} \neq \overline{0}$ -- кольцо с делителями нуля
+
+\textbf{Def.} Область целостности -- кольцо без делителей нуля
+
+\textbf{Lem.}
+
+\begin{enumerate}
+    \item Любое поле -- область целостности
+
+    \item В области целостности $\begin{cases}
+        ab = ac \\
+        a \neq 0
+    \end{cases} \Rightarrow b = c$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $K$ -- поле; $a, b \in K : ab = 0$
+
+    Пусть $a \neq 0 \Rightarrow \exists a^{-1}$
+
+    $a^{-1} \cdot ab = a^{-1} \cdot 0 = 0$, т.е. $b = 0$
+
+    Итак $ab = 0 \Rightarrow \left[ \begin{gathered}
+        a = 0 \\
+        b = 0
+    \end{gathered}\right.$
+
+    \item $ab = ac;\ a \neq 0 \Rightarrow ab-ac = 0 \Rightarrow a(b-c) = 0 \Rightarrow b - c = 0 \Rightarrow b = c$
+
+    
+\end{enumerate}
+
+\textbf{Rem.} $\mathds{Z}/0\mathds{Z} = \mathds{Z}$
+
+    $ax + by = c;\ (a,b) = 1$
+
+    $ax = c - by$
+
+    $ax \equiv c$
+
+    $\overline{a} \cdot \overline{x} = \overline{c}$ в $\mathds{Z}/b\mathds{Z}$
+
+    $\exists!\overline{x_0} : (a,b) = 1$
+
+    $ax \equiv c \Leftrightarrow x \equiv x_0$, т.е. $x = x_0 + bk, k \in \mathds{Z}$
+
+    Тогда $y = \cdots$
+
+\textbf{Утверждение} $\begin{cases}
+    (m,n) = 1 \\
+    a, b \in \mathds{Z}
+\end{cases} \Rightarrow$
+
+\begin{enumerate}
+    \item $\exists x \in \mathds{Z} : \begin{cases}
+        \overline{x} = \overline{a} $в $\mathds{Z}/m\mathds{Z}\\
+        \overline{x} = \overline{b} $в $\mathds{Z}/n\mathds{Z}
+    \end{cases} \Leftrightarrow \begin{cases}
+        x-a \divby m \\
+        x-b \divby n
+    \end{cases}$
+
+    \item Пусть $x_0$ -- такое, тогда все $x$, удовлетворяющие условию, это $\overline{x_0}$ в $\mathds{Z}/mn\mathds{Z}$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $x-a \divby m$, т.е. $\begin{cases}
+        x-a = my \\
+        x-b = nz
+    \end{cases}$
+
+    $my + a = x = nz + b \Rightarrow my - nz = b - a$ -- имеет решение, т.к. $(m,n) = 1 \Rightarrow \exists$ соответствующие $x, y$
+
+    \item В $\mathds{Z}/m\mathds{Z}$ $\overline{x} = \overline{a} = \overline{x_0}$
+
+    В $\mathds{Z}/n\mathds{Z}$ $\overline{x} = \overline{b} = \overline{x_0}$
+
+    Т.е. $\begin{cases}
+        x \equiv x_0\ (mod\ m) \\
+        x \equiv x_0\ (mod\ n)
+    \end{cases} \Leftrightarrow \begin{cases}
+        x - x_0 \divby m \\
+        x - x_0 \divby n \\
+        (a,b) = 1
+    \end{cases} \Leftrightarrow x - x_0 \divby mn \Leftrightarrow \overline{x} = \overline{x_0}$ в $\mathds{Z}/mn\mathds{Z}$
+\end{enumerate}
+
+Смысл: каждой паре остатков по модулю $m$ и по модулю $n$ соответствует единственный остаток по модулю $mn$
+
+$m = 3;\ n = 5$
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        & 0 & 1 & 2 & 3 & 4 \\
+        \hline
+        0 & 0 & 6 & 12 & 3 & 9 \\
+        \hline
+        1 & 10 & 1 & 7 & 13 & 4 \\
+        \hline
+        2 & 5 & 11 & 2 & 8 & 14 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Биекция между $\mathds{Z}/15\mathds{Z}$ и $\mathds{Z}/5\mathds{Z} \times \mathds{Z}/3\mathds{Z}$
+
+\textbf{Отступление:} произведение групп и колец
+
+\textbf{Def.} $R_1, R_2$ -- кольца
+
+Их произведение -- это $(R_1 \times R_2, +, \cdot)$, где $(a_1,a_2) + (b_1,b_2) = (a_1 + b_1, a_2 + b_2)$
+
+$(a_1, a_2) \cdot (b_1, b_2) = (a_1b_1, a_2b_2)$
+
+\textbf{Утверждение} это и правда кольцо (аксиомы наследуются)
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Очев
+
+\textbf{Rem.} $R_1 \times R_2$ -- не область целостности $(1,0) \cdot (0, 1) = (0, 0)$
+
+с группами аналогично:
+
+$G_1, G_2$ -- группы $\Rightarrow G_1 \times G_2$ -- группа
+
+$(g_1,g_2)\cdot(g_1',g_2') = (g_1g_1',g_2g_2')$
+
+Хотим сказать
+
+$(m,n) > 1 \Rightarrow \mathds{Z}/mn\mathds{Z}$ и $\mathds{Z}/m\mathds{Z} \times \mathds{Z}/n\mathds{Z}$ -- это одно и то же
+
+\textbf{Def.} $R_1, R_2$ -- кольца
+
+Изоморфизм между $R_1$ и $R_2$ -- биекция
+
+$f:R_1 \rightarrow R_2$ такая, что
+
+\begin{enumerate}
+    \item $f(a + b) = f(a) + f(b)$
+    \item $f(ab) = f(a)f(b)$
+    \item $f(1)=1$
+\end{enumerate}
+
+$R_1$ и $R_2$ изоморфны, если существует изоморфизм
+
+$G_1, G_2$ -- группы
+
+Изоморфизм $f: G_1 \rightarrow G_2$ -- биекция:
+
+$f(xy) = f(x) \cdot f(y)\ \forall x, y \in G_1$
+
+$G_1$ и $G_2$ изоморфны, если $\exists$ изоморфизм $f : G_1 \rightarrow G_2$
+
+$G_1 \cong G_2$. Аналогично $R_1 \cong R_2\ (R_1, R_2$ -- кольца)
+
+\textbf{Rem.} $e_1, e_2$ -- нейтральные элементы в $G_1, G_2; f$ -- изоморфизм $\Rightarrow f(e_1) = e_2$
+
+$e_1 \cdot e_1 = e_1$
+
+$\begin{cases}
+    f(e_1 \cdot e_1) = f(e_1) \\
+    f(e_1 \cdot e_1) = f(e_1) \cdot f(e_1)
+\end{cases} \Rightarrow f(e_1) \cdot f(e_1) = f(e_1) \cdot e_2 \Rightarrow f(e_1) = e_2$
+
+Аналогично $f(a^{-1}) = f(a)^{-1}$
+
+\textbf{Rem2.} Здесь биективность не важна
+
+\textbf{Def.} Гомоморфизм отображение $f : G_1 \rightarrow G_2 : f(xy) = f(x) \cdot f(y)\ \forall x, y \in G_1$
+
+\textbf{Def.} Гомоморфизм колец: $f: R_1 \rightarrow R_2$
+
+$\begin{gathered}
+    f(xy) = f(x) \cdot f(y) \\
+    f(x + y) = f(x) + f(y)
+\end{gathered} \forall x, y \in R_1$
+
+\textbf{Def.} Гомоморфизм колец с 1: требуем еще $f(1_{R_1}) = 1_{R_2}$
+
+\textbf{Def.} Изоморфизм между множествами $f: M_1 \rightarrow M_2$ -- биекция
+
+$f : \mathds{Z} \rightarrow \mathds{Z}\ f(x) = kx\ x \in \mathds{Z}$
+
+$\begin{cases}
+    k(x+y) = kx + ky \\
+    k(xy) \neq kx \cdot ky
+\end{cases} \Rightarrow f$ -- не гомоморфизм колец ($k \neq 1$), но гомоморфизм групп
+
+А если $k = \pm 1 \Rightarrow$ изоморфизм
+
+$G$ -- группа $f: G \rightarrow G\ f(g) = g^{-1}$ -- биекция $\Rightarrow$ изоморфизм, если $G$ -- абелева
+
+$\begin{cases}
+    f: \mathds{R} \rightarrow \mathds{R} \\
+    f(x) = e^x \\
+    e^{x+y} = e^x \cdot e^y
+\end{cases} \Rightarrow f$ -- гомоморфизм, но точнее это $f : (\mathds{R}, +) \rightarrow (\mathds{R}^*, \cdot)$, но не изоморфизм
+
+$g: (\mathds{R}, +) \rightarrow (\mathds{R}_+, \cdot)$ -- изоморфизм
+
+$g(x) = e^x$
+
+\textbf{Th.} Китайская теорема об остатках
+
+\begin{enumerate}
+    \item $(m, n) = 1\ Z/mnZ \cong Z/mZ \times Z/nZ$
+    \item $m_1, m_2 \cdots m_k \in Z\ (m_i, m_j) = 1$
+
+    $Z/m_1m_2\cdots m_kZ \cong Z/m_1Z \times \cdots \times Z/m_kZ$
+
+    \item $\forall a_1, a_2 \cdots a_n \in Z;\ m_1, m_2 \cdots m_n \in Z : (m_i, m_j) = 1$
+
+    $\begin{cases}
+        x \equiv a_1\ (mod\ m1) \\
+        x \equiv a_2\ (mod\ m2) \\
+        \divby \\
+        x \equiv a_n\ (mod\ mn) \\
+    \end{cases}$ -- имеет решение в $Z$, единственное по модулю $m_1 m_2 \cdots m_n$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Индукция по $k$. База $k = 2$
+
+\begin{itemize}
+    \item База: строим $\varphi : Z/mnZ \rightarrow Z/mZ \times Z/nZ$
+
+    $\overline{a_{mn}} \rightarrow (\overline{a_m}, \overline{a_n})$
+    
+    $(\overline{a_{mn}} = \overline{b_{nm}} \Rightarrow \overline{a_m} = \overline{b_m})$
+    
+    $\varphi$ -- гомоморфизм:
+    
+    $\varphi(x + y) = \varphi(\overline{a_{mn}} + \overline{b_{mn}}) = \varphi (\overline{a + b_{mn}}) = (\overline{a + b_m}, \overline{a + b_n}) = (\overline{a_m} + \overline{b_m}, \overline{a_n} + \overline{b_n}) = (\overline{a_m}, \overline{a_n}) + (\overline{b_m}, \overline{b_n}) = \varphi(x) + \varphi(y)$
+    
+    $\varphi$ -- биекция (смотри утверждение перед табличкой $3 \times 5$)
+    
+    $\forall a, b\ \exists x :\begin{cases}
+        x \equiv a\ mod\ m \\
+        x \equiv b\ mod\ n 
+    \end{cases}$ и все такие $x$ имеют вид $x = x_0 + kmn$
+
+    \item Переход $k \rightarrow k + 1$
+
+    $m_1, m_2 \cdots m_{k+1}$ попарно взаимнопросты $\Rightarrow (m1m2\cdots m_k, m_{k+1}) = 1 \Rightarrow$ по базе
+
+    $Z/m_1m_2\cdots m_{k+1}Z \cong Z/m_1m_2 \cdots m_kZ \times Z/m_{k+1}Z$
+
+    По индукционному предположению $Z/m_1\cdots m_k \cong Z/m_1Z \times \cdots \times Z/m_kZ$
+
+    Итого $Z/m_1\cdots m_{k+1}Z \cong Z/m_1\cdots m_kZ \times Z/m_{k+1}Z \cong (Z/m_1Z \times Z/m_2Z \times \cdots \times Z/m_kZ) \times Z/m_{k+1}Z \cong Z/m_1 \times \cdots \times Z/m_kZ \times Z/m_{k+1}Z$
+
+    \textbf{Rem.} $(A \times B) \times C \neq A \times B \times C$
+
+    $((a, b), c) \rightarrow (a, b, c)$
+
+    \item $\varphi$ -- сюръективно, т.е. $\forall y_1 \cdots y_n\ y_i \in Z/m_iZ$
+
+    $\exists z \in Z/m_1\cdots m_nZ : \varphi(z) = (y_1, y_2 \cdots y_n)$
+
+    Возьмем $y_i = \overline{a_1}\ a_i \in Z\ z = \overline{xm_1}\cdots m_n \Rightarrow \begin{cases}
+        \overline{x_{m_1}} = y_1 \\
+        \overline{x_{m_2}} = y_2 \\
+        \cdots
+    \end{cases}$, т.е. $\begin{cases}
+        x \equiv a_1\ mod\ m_1 \\
+        x \equiv a_2\ mod\ m_2 \\
+        \cdots
+    \end{cases}$
+
+    Единственность $x$ по модулю $m_1 \cdots m_n$ -- инъективность $\varphi$
+\end{itemize}
+
+"Явная формула" для $\varphi^{-1}$
+
+Найдем $\varphi^{-1}(1_{m_1}, 0_{m_2} \cdots 0_{m_k})$ это $\overline{a} : \begin{gathered}
+    a - 1 \divby m_1 \\
+    a \divby m_2, \cdots , m_k \Leftrightarrow a \divby m_2\cdots m_k\\
+\end{gathered}$
+
+$a = m_2 \cdots m_k \cdot y;\ m_2 \cdots m_k \cdot y-1 = m_1x$
+
+$m_2 \cdots m_k \cdot y - m_1x = 1$. Далее ищем $y$
+
+$a = a_1\ \varphi(\overline{a_1}) = (1, 0 \cdots 0)$
+
+Аналогично находим $\varphi(\overline{a_i}) = (0, 0 \cdots 1_{m_i} \cdots 0)$
+
+Теперь $\forall \overline{b_1}, \overline{b_2}, \cdots \overline{b_k}\ (b_i \in Z/m_iZ)$
+
+$\varphi(\overline{a_1b_1} + \overline{a_2b_2} + \cdots + \overline{a_kb_k}) =\varphi(b\overline{a_1}) + \varphi(b_2\overline{a_2}) + \cdots + \varphi(b_k\overline{a_k}) = b_1 \varphi(\overline{a_1}) + b_2 \varphi(\overline{a_2}) + \cdots + b_k \varphi(\overline{a_k}) = b_1(1, 0 \cdots 0) + b_2(0, 1, 0 \cdots 0) + \cdots + b_k(0 \cdots 0, 1)$
+
+\textbf{Rem.} $\varphi(\overline{3x}) = \varphi(\overline{x} + \overline{x} + \overline{x}) = \overline{3 \varphi(x)}$
+
+\textbf{Def.} $G$ -- группа. $a \in G$, порядок $a$ -- $\min{k} \in N : a^k = e$. Если такого $k$ нет, то порядок $= \infty$. Обозначение: $ord(a)$
+
+\textbf{Lm.}
+
+\begin{enumerate}
+    \item $ord(a)$ -- количество различных элементов в последовательности $(e, a, a^2, a^3 \cdots)$
+
+    \item $ord(a) = \infty \Rightarrow$ все элементы различны
+
+    \item $ord(a) = k \in N,$ тогда $a^m = a^n \Leftrightarrow m \equiv n\ (mod\ k)$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item 2, 3 $\Rightarrow$ 1 -- упражнение
+
+    \item $ord(a) = \infty\ a^m = a^n$, НУО $m > 0$
+
+    $a^m \cdot a^{m-n} = a^n \cdot e \Rightarrow a^{m-n} = e;\ m - n \in N$, но $ord(a) = \infty$ ???
+
+    \item $ord(a) = k\ m,n \in N$
+
+    $m = q_m \cdot k + r_m;\ n = q_n \cdot k + r_n$
+
+    $\begin{cases}
+        a^m = a^{q_m \cdot k + r_m} = (a^k)^{q_m} \cdot a^{r_m} = a^{r_m} \\
+        a^n = a^{r_n} \\
+        r_m = r_n
+    \end{cases} \Rightarrow a^m = a^n \Rightarrow a^{r_m} = a^{r_n} \Rightarrow a^{r_m - r_n} = e$ ???
+\end{enumerate}
+
+\textbf{Th.} Теорема Лагранжа 
+
+$G$ -- группа, $|G| = n\ (|G|$ -- порядок группы)
+
+$a \in G;\ ord(a) = k \Rightarrow n \divby k$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Нарисуем орграф $\forall x \in G : x \rightarrow ax$
+
+$\forall x \rightarrow$ цикл $x \rightarrow ax \rightarrow a^2x \rightarrow \cdots \rightarrow a^kx = x$
+
+Все элементы $G$ разбились на циклы длины $k \Rightarrow n \divby k$
+
+\textbf{Следствие:} малая теорема Ферма
+
+$G = (Z/pZ)^*;\ |(Z/pZ)^*| = p - 1$
+
+$ord(\overline{a}) = k \Leftrightarrow \overline{a^k} = \overline{1};\ p - 1 \divby k$
+
+$a^{p-1} = (a^k)^ = (\overline{1})^l = 1$
+
+В $Z/pZ\ \begin{gathered}
+    \overline{a^{p-1}} = \overline{1} \\
+    \overline{a} \neq \overline{0}
+\end{gathered}$ $a \not\divby p \Rightarrow a^{p-1} \equiv 1\ (mod\ p) \Leftrightarrow a^{p-1} - 1 \divby p$
+
+\vspace{5mm}
+
+\textbf{Th.} Переформулировка теоремы Лагранжа
+
+$G$ -- конечная $\Rightarrow a^{|G|} = e$
+
+$e, a, a^2 \cdots$ преиодична с периодом $|G|$, но возможно это не наименьший период
+
+$G = (Z/pZ)^* \Rightarrow a^{p-1} = 1$ в $Z/pZ \Leftrightarrow a^{p-1} \equiv 1\ (mod\ p)\ (\forall a \not\divby p)$
+
+Или $a \in Z;\ a^p - a \divby p \Leftrightarrow a(a^{p-1}-1) \divby p \Leftrightarrow \left[ \begin{gathered}
+    a \divby p \\
+    a^{p-1} - 1 \divby p
+\end{gathered} \right.$
+\vspace{5mm}
+
+Что с произвольным $n$? Хотим $a^k \equiv 1\ (mod\ n)$
+
+$(a, n) \neq 1 \Rightarrow (a^k, n) \neq 1 \Rightarrow a^k \not\equiv 1\ (mod\ n)\ (\forall k > 0) \Rightarrow$ вопрос имеет смысл только для $(a, n) = 1 \Rightarrow \overline{a}$ -- обратим в $Z/nZ$
+
+По теореме Лагранжа $b \in (Z/nZ)^* \Rightarrow b^{|(Z/nZ)^*|} = 1$
+
+Переформулировка: $(a, n) = 1 \Rightarrow a^{|(Z/nZ)^*|} \equiv 1\ (mod\ n)$ -- теорема Эйлера
+
+\vspace{5mm}
+
+\textbf{Def.} Функция Эйлера $\varphi(n) = |(Z/nZ)^*|$
+
+\textbf{Rem.} $\varphi(n) = #\{x \in \{0, z \cdots n-1\} | (x, n) = 1\}$
+
+\textbf{Ex.} $p$ -- простое. Знаем $(Z/pZ)^* = (Z/pZ) \backslash \{0\}$
+
+$\varphi(p) = p - 1$
+
+Как найти $\varphi(n)$? $n = p_1^{a_1} p_2^{a_2} \cdots$
+
+\textbf{Rem1.} $p$ -- простое $\Rightarrow \varphi(p^k) = \{x \in \{0, 1 \cdots p^k-1\}| (p^k, x) = 1\} = #\{x = 0 \cdots p^k-1| x \not\divby p\} = p^k - \{x = 0 \cdots p^k-1| x \divby p\} = p^k - \frac{p^k}{p} = p^k = p^{k-1}$
+
+\textbf{Rem2.} Мультипликативность $\varphi$
+
+$m, n \in N\ (m, n) = 1 \Rightarrow \varphi(mn) = \varphi(m) \cdot \varphi(n)$
+
+$\varphi$ -- мультипликативная функция
+
+\textbf{Remrem.} $\tau(n)$ -- количество делителей, $\sigma(n)$ -- сумма делителей. Обе эти функции тоже мультипликативны (упражнение)
+
+\vspace{5mm}
+
+\textbf{Явная формуля для функции Эйлера}
+
+$\varphi(n) = \varphi(p_1^{a_1} \cdots p_k^{a_k}) = \varphi(p_1^{a_1}) \cdots \varphi(p_k^{a_k}) = (p_1^{a_1} - p_1^{a_1-1}) \cdots(p_k^{a_k} - p_k^{a_k-1}) = p_1^{a_1}(1 - \frac{1}{p_1}) \cdots p_k(1 - \frac{1}{p_k}) = p_1^{a_1}p_2^{a_2} \cdots p_k^{a_k}(1 - \frac{1}{p_1}) \cdots (1 - \frac{1}{p_k}) = n(1 - \frac{1}{p_1}) \cdots (1 - \frac{1}{p_k}) = n \prod\limits_{p \in P; p | n} (1 - \frac{1}{p})$
+
+\textbf{Ex.} $\varphi(600) = 600 \cdot \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{4}{5} = 160$
+
+\textbf{Rem.} $a^{\varphi(n)} = 1\ (\forall a \in (Z/nZ)^*)$
+
+$n \divby p, q \Rightarrow$ показатель $\varphi(n)$ можно улучшить
+
+$n = 105 = 3 \cdot 5 \cdot 7 \Rightarrow \varphi(n) = 2 \cdot 4 \cdot 6 = 48$
+
+По теореме Эйлера $(a, 105) = 1 \Rightarrow a^{48} \equiv 1\ (mod\ 105)$
+
+На самом деле (применим МТФ) $(a, 105) = 1 \Rightarrow a \not\divby 3, 5, 7 \Rightarrow \begin{cases}
+    a^2 \equiv 1\ (mod3) \\
+    a^4 \equiv 1\ (mod5) \\
+    a^6 \equiv 1\ (mod 7)
+\end{cases} \Rightarrow \begin{cases}
+    a^{12} \equiv 1\ (mod3) \\
+    a^{12} \equiv 1\ (mod5) \\
+    a^{12} \equiv 1\ (mod7) \\
+\end{cases} \Rightarrow \\ \Rightarrow a^{12} \equiv 1\ (mod 105)$
+
+\begin{center}
+    \textbf{Доказательство мультипликативности}
+\end{center}
+
+Знаем: $(m, n) = 1 \Rightarrow Z/mnZ \cong Z/mZ \times Z/nZ \Rightarrow \varphi(ab) = \varphi(a) \cdot \varphi(b)$
+
+$\varphi$ -- изоморфизм. $x$ -- обратим $\Leftrightarrow \varphi(n)$ -- обратим
+
+$x$ -- обратим $\Leftrightarrow \exists y : x \cdot y = 1$. $\varphi(xy) = \varphi(x) \cdot \varphi(y) = 1 = \varphi(1) \Rightarrow \varphi$ -- обратим
+
+Обратно: $\varphi(x)$ -- обратим. $\varphi(x) \cdot z = 1 \Rightarrow \varphi^{-1}(\varphi(x) \cdot z) = \varphi^{-1}(1)$. $\varphi^{-1}(\varphi(x)) \cdot \varphi^{-1}(z) = \varphi^{-1}(1) \Rightarrow x$ -- обратим
+
+\textbf{Следствие:} $(Z/mnZ)^* = (Z/mZ \times Z/nZ)^*$
+
+\textbf{Утверждение.} $R_1, R_2$ -- кольца. $(R_1 \times R_2)^* = R_1^* \times R_2^*$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$(r_1, r_2) \in R_1 \times R_2$ -- обратим $\Leftrightarrow \exists (s_1, s_2) : (r_1, r_2)(s_1, s_2) = 1_{R_1 \times R_2} \Leftrightarrow (r_1s_1, r_2s_2) = (1_{R_1}, 1_{R_2}) \Leftrightarrow \begin{cases}
+    \exists s_1 : r_1s_1 = 1 \\
+    \exists s_2 : r_2s_2 = 1
+\end{cases} \Leftrightarrow \\ \Leftrightarrow \begin{cases}
+    r_1 \in R_1^* \\
+    r_2 \in R_2^*
+\end{cases}$
+
+\textbf{Следствие:} $|(Z/mZ \times Z/nZ)^*| = |(Z/mZ)^* \times (Z/nZ)^*| = |(Z/mZ)^*| \cdot |(Z/nZ)^*|$
+
+Итого: $\varphi(mn) = \varphi(m) \cdot \varphi(n)$
+
+\vspace{5mm}
+
+Вопрос: $p \in P$. $\exists$ ли $\overline{a} \in Z/pZ : \{\overline{a}, \overline{a^2} \cdots\} = \{\overline{1}, \overline{2} \cdots \overline{p-1}\}$
+
+\textbf{Def.} $(G, \cdot)$ -- группа; $a \in G$
+
+$<a> = \{ a^k| k \in Z\}$ -- группа, порожденная элементом $a$
+
+\textbf{Утверждение.} Это действительно группа (относительно $\cdot$)
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item Замкнутость. $x, y \in <a>$
+
+    $x = a^e; y = a^m \Rightarrow xy = a^{e+m} \in <a>$
+
+    \item Ассоциативность -- очев
+
+    \item $\exists e \in G;\ e = a^0 \in <a>$
+
+    \item $x \in <a> \Rightarrow x = a^k \Rightarrow x^{-1} = a^{-k} \in <a>$
+\end{itemize}
+
+\vspace{5mm}
+
+$<a>$ -- подгруппа в $G$. Может быть $<a> = G$ или $<a> \neq G$
+
+\textbf{Def.} Если $\exists a \in G : <a> = G \Rightarrow G$ называется циклической
+
+\textbf{Th.} $G$ -- циклическая
+
+\begin{enumerate}
+    \item $|G| = \infty \Rightarrow G \cong (Z, +)$
+
+    \item $|G| = n < \infty \Rightarrow G \cong (Z/nZ, +)$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$G = <a>$. Знаем: $ord(a) = k \Rightarrow$ в $<a>\ k$ элементов. Иначе $(ord(a) = \infty) \Rightarrow$ все $\{a^k| k \in Z\}$ попарно различны
+
+\begin{enumerate}
+    \item Строим гомоморфизм
+
+    $\varphi Z \rightarrow G;\ k \rightarrow a^k$
+
+    Это биекция (см. выше) и $\varphi(x + y) = a^{x + y} = a^x \cdot a^y = \varphi(x) + \varphi(y)$ -- точно гомоморфизм
+
+    \item $(k = n)\ ord(a) = n$. $<a> = \{ e, a, a^2 \cdots a^{n-1}\}$
+
+    $(a^n = e;\ a^{-1} = a^{n-1})$
+
+    $\varphi : Z/nZ \rightarrow <a>;\ \overline{p} \rightarrow a^p$ -- биекция и гомоморфизм (упражнение)
+
+    Корректность: $q : \overline{p} = \overline{q} \Rightarrow p - q \divby n$
+
+    $p = q + ln \Rightarrow a^p = a^{q + ln} = a^q \cdot (a^n)^l = a^q \Rightarrow a^p = a^q$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Ex.} $(Z/3Z)^* = <2> : \overline{2}^2 = 1\ (ord(\overline{2}) = 2)$
+
+Изоморфизм: $(Z/2Z, +) \rightarrow (Z/3Z, \cdot)$
+
+$\overline{0}_2 \leftrightarrow \overline{1}_3$
+
+$\overline{1}_2 \leftrightarrow \overline{2}_3$
+
+$(Z/5Z)^* = \{1, 2, 3, 4\} = <\overline{2}>\ (ord(2) = 4)$. Поэтому $(Z/5Z)^* \cong (Z/4Z, +)$
+
+\vspace{5mm}
+
+\textbf{Th.} $p \in P \Rightarrow (Z/pZ)^*$ -- циклическая
+
+\textbf{Следствие.} $(Z/pZ)^* \cong (Z/(p-1)Z, +)$
+
+$\exists a \in Z : <\overline{a}> = \{1, 2 \cdots p-1\}$
+
+$a$ называется первообразным корнем по модулю $p$
+
+$a$ -- первообразный корень $mod\ p \Leftrightarrow ord(\overline{a}) = p - 1$, т.е. $|<\overline{a}>| = p - 1 = |(Z/pZ)^*|$
+
+\vspace{5mm}
+
+\textbf{Lm.} $G$ -- группа $|G| = N$. $f : G \rightarrow G : f(a) = a^k$
+
+Тогда $f_k$ -- биекция $\Leftrightarrow (k, N) = 1$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Только $\Leftarrow$:
+
+$(k, N) = 1 \Rightarrow \exists x, y : xk + yN = 1 \Rightarrow \forall a \in G;\ a = a^1 = a^{xk + yN} = (a^k)^x \cdot (a^N)^y$ по переформулировке теоремы Лагранжа $= (a^k)^x \Rightarrow f_x$ -- обратное к $f_k$
+
+\begin{center}
+    \section*{Алгоритм RSA (шифрование с открытым ключом)}
+\end{center}
+
+Алиса (А) хочет получать сообщения от Боба (В)
+
+А придумывает $p, q$ -- простые (достаточно большие) $N = pq$
+
+$\varphi(N) = (p-1)(q-1)$. А выбирает $x : (x, \varphi(N)) = 1$ и $y : (x - y) \equiv 1\ (mod \varphi(N))$
+
+Тогда как в Lm. $f_x(a) = a^x;\ f_y(a) = a^y$ -- взаимно обратные отображения
+
+А сообщает В $x$
+
+В хочет послать А сообщение. $a \in (Z/NZ)^*$
+
+Шифрование: $a \rightarrow a^x = b$ и посылает А
+
+А получает $b = a^x$, вычисляет $b^y = a$
+
+\vspace{5mm}
+
+Что нужно чтобы дешифровать $b$? Надо знать $y$
+
+$N, x$ известны всем. $xy \equiv 1\ (mod \varphi(N))$
+
+$yx + \varphi(N)z = 1$ -- линейное Диофантово уравнение. Легко решается зная $x, \varphi(N)$
+
+Нужно сделать так, чтобы $\varphi(N)$ было сложно узнать
+
+\vspace{5mm}
+
+Вопрос: как найти большие простые числа?
+
+$p$ -- большое натуральное число. Как проверить, что $p$ -- простое?
+
+Рассмотрим $n \in \mathds{N}$. $n - 1 = p_1^{a_1} \ldots p_5^{a_5}$, т.е. $n = \prod p_i^{a_i} + 1$. Простое ли $n$?
+
+\vspace{5mm}
+
+\textbf{Th.} Тест Люка
+
+Пусть $n = \prod p_i^{a_i} + 1. a \in \mathds{Z}$
+
+$\begin{cases}
+    a^{n-1} = 1\ (mod\ n)\\
+    a^\frac{n-1}{p_i} \neq 1\ (mod\ n)
+\end{cases} \Rightarrow n$ -- простое
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+В $(Z/mZ)^*\ ord(a) = ?$
+
+$\begin{cases}
+    a^{n-1} \equiv 1 \Leftrightarrow n - 1 \divby ord(a) \\
+    a^\frac{n-1}{p_i} \neq 1 \Leftrightarrow \frac{n-1}{p_i} \not\divby ord(a)
+\end{cases} \Rightarrow n - 1 = ord(a) \Rightarrow |(Z/nZ)^*| \geq |<a>| = n - 1$
+
+$\varphi(n) \geq n - 1 \Leftrightarrow 1, 2 \ldots n-1$ взаимнопросты с $n \Rightarrow n$ -- простое
+
+\vspace{5mm}
+
+Вопрос: какая доля $a \in \{1, 2 \ldots n\}$ удовлетворяет условию Люка, если $n$ -- простое?
+
+$a \in \{1 \ldots n-1\} \Rightarrow \overline{a} \in (Z/nZ)^*$. Какова вероятность: $ord(\overline{a}) = n - 1$?
+
+\vspace{5mm}
+
+Знаем: $n$ -- простое $\Rightarrow (Z/nZ)^*$ -- циклическая. $(Z/nZ)^* = <b>\ ord(b) = n - 1$
+
+$\forall a \in (Z/nZ)^*\ \exists k : b^k = a;\ k \in \{1, 2 \ldots n-1\}$
+
+\textbf{Утверждение:} $ord(a) = n - 1 \Leftrightarrow (k, n-1) = 1$
+
+\textbf{Следствие:} Доля подходящих под тест Люка $a\ \ = \frac{\varphi(n-1)}{n-1} = p \in [0; 1]$
+
+Делаем тест Люка $s$ раз $\Rightarrow \left[ \begin{gathered}
+    \text{попадется хорошее } a \Rightarrow n \text{ -- простое} \\
+    \text{все время плохие } a \Rightarrow (1-p)^s \rightarrow 0
+\end{gathered} \right.$
+
+\textbf{Lm.} $ord(x) = n \Rightarrow ord(x^k) = \frac{n}{(n, k)}$ (утверждение: частный случай)
+
+$(n, k) = d \Rightarrow \begin{cases}
+    n = dn_1 \\
+    k = dk_1
+\end{cases} \Rightarrow (x^k)^\frac{n}{(n,k)} = (x^{dk_1})^{n_1} = 1^{n_1} = 1$
+
+Пусть $(x^k)^l = 1;\ x^{kl} = 1 \Leftrightarrow kl \divby ord(x) \Leftrightarrow dk_1l \divby dn_1 \Leftrightarrow k_1b \divby n_1 \Leftrightarrow l \divby n_1$, т.е. $n_1 = min(l)$
+
+\vspace{5mm}
+
+\textbf{Нестойкость простых из теста Люка}
+
+Пусть $p, q$ -- простые получены тестом Люка, т.е. у $p - 1$ и $q - 1$ маленькие простые множители
+
+$N = pq$. Как зная все разложить $N$?
+
+$a \in N;\ \begin{cases}
+    ord_p(a) = p_1^{b_1}\ldots p_k^{b_k} \\
+    ord_q(a) = p_1^{c_1}\ldots p_k^{c_k}
+\end{cases}$
+
+$\begin{cases}
+    A = min(x | x! \divby ord_p(a)) \\
+    B = min(x | x! \divby ord_q(a))
+\end{cases} \Rightarrow A, B$ не очень большие, скорее всего $A \neq B$
+
+\vspace{1mm}
+
+Враг считает $d_k = (a^{k!} - 1, n)$. НУО $A < B$. Тогда $d_A = p;\ a := \frac{N}{b}$. Взломано
+
+\vspace{5mm}
+
+\textbf{Тест Ферма:}
+
+$n \in Z;\ a \in Z;\ a \in \{1 \ldots n-1\}$. $n$ тестируем, $a$ -- случайное
+
+$a^{n-1} \not\equiv 1\ (mod\ n) \Rightarrow n$ -- составное
+
+$a^{n-1} \equiv 1\ (mod\ n) \Rightarrow n$ -- может быть простое
+
+\vspace{2mm}
+
+($n = 15;\ n-1 = 14;\ 4^{14} \equiv 1\ (mod\ 15)$, но $15$ не простое)
+
+\vspace{2mm}
+
+$a$ -- свидетель простотые $mod\ n$, если $a^{n-1} \equiv 1\ (mod\ n)$
+
+\textbf{Утверждение:} (упражнение) если не все числа $\{1 \ldots n-1\}$ -- свидетели, то свидетелей $\leq$ половины
+
+$a$ -- свидетель, $b$ не свидетель $\Rightarrow ab$ не свидетель. В этом случае за $s$ тестов $p(\text{неудачи}) \leq (\frac{1}{2})^s \rightarrow 0$
+
+Проблема: $\exists n$ -- составные $: \forall a \in (Z/nZ)^*$ -- свидетель простоты
+
+Это числа Кармайкла. Наименьшее такое число $n = 561 = 3 \cdot 11 \cdot 17$
+
+$a \not\divby 3, 11, 17;\ \begin{cases}
+    a^2 \equiv 1\ (mod\ 3) \\
+    a^{10} \equiv 1\ (mod\ 11) \\
+    a^{16} \equiv 1\ (mod\ 17)
+\end{cases} \Rightarrow a \equiv 1\ (mod\ 561) \Rightarrow a^{560} \equiv 1\ (mod\ 561)$, но 561 не простое
+
+\vspace{5mm}
+
+\textbf{Тест Рабина-Миллера:}
+
+$p \in Z;\ p - 1 = 2^m \cdot l;\ l \not\divby 2$
+
+$a \in Z;\ a \not\divby p$. Рассмотрим в $Z/pZ$ последовательность $\overline{a}^l, \overline{a}^{2l} \ldots \overline{a}^{2^ml} = a^{p-1} = 1$
+
+\textbf{Утверждение:} Если $p$ -- простое, то $\left[ \begin{gathered}
+    \overline{a}^l = 1 \\
+    \exists k : \overline{a}^{2^kl} = \overline{-1}
+\end{gathered} \right.\ (*)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Пусть $a^l \neq 1;\ a^{p-1} = 1 \Rightarrow \exists k : \overline{a}^{2^kl} \neq 1;\ \overline{a}^{2^{k+1}l} = 1$
+
+$\Rightarrow$ в $Z/pZ\ x \neq 1;\ x^2 = 1 \Rightarrow (x-1)(x+1) = 0 \Rightarrow \left[ \begin{gathered}
+    x - 1 = 0 \\
+    x + 1 = 0
+\end{gathered} \right. \Rightarrow x = -1$
+
+$*$ -- условия Рабина-Миллера для числа $a$
+
+Знаем: $\exists a \not\divby p$. Рабин-Миллер для $a$ не выполнен $\Rightarrow p$ -- составные
+
+\vspace{5mm}
+
+\textbf{Th.} Если все $a = 1, 2 \ldots \sqrt[7]{p}$ свидетели Рабина-Миллера $\Rightarrow p$ -- простое
+
+\textbf{Th.} Если все $a = 1, 2 \ldots c \cdot \log^2{p}$ свидетели $\Rightarrow p$ -- простое. (следует из гипотезы Римана)
+
+\textbf{Th.} $n$ -- составное $\Rightarrow$ свидетелей Рабина-Миллера $\leq \frac{\varphi(n)}{4}$
+
+\textbf{Следствие:} делаем $s$ ходов. $p(\text{неудачи}) = (\frac{1}{4})^s \rightarrow 0$
+
+\begin{center}
+    \section*{Квадратичные вычеты}
+\end{center}
+
+$Z \rightarrow Z/nZ \rightarrow Z/pZ$. Как решать уравнения в $Z/pZ$?
+
+\begin{enumerate}
+    \item Линейные $\overline{ax} = \overline{b} \Leftrightarrow ax \equiv b\ (mod\ p) \Leftrightarrow ax - py = b$
+
+    \item Квадратные $ax^2 + bx + c = 0;\ a \neq 0$
+
+    $x^2 + sx + q = 0$. Если $p \neq 2$, то
+
+    $(x + \frac{s}{2})^2 + (q - \frac{s^2}{4}) = 0 \Leftrightarrow y^2 = k$, где $y = x + \frac{s}{2};\ -k = q - \frac{s^2}{4}$
+
+    Как понять, что $\exists y : y^2 \equiv k$ в $Z/pZ$
+
+    Или для каких $p\ \exists y : (y^2 - k \divby p)$
+
+    Если такой $y$ существует, $k$ называется квадратичным вычетом по модулю $p$. $(k \neq 0)$
+
+    Символ Лежандра ${a \choose p} = \left[ \begin{gathered}
+        1,\ a \text{-- квадратичные вычет} \\
+        -1,\ a \text{-- не квадратичные вычет} \\
+        0,\ a \divby p
+    \end{gathered} \right.$
+
+    \textbf{Утверждение:} $\exists$ ровно $\frac{p-1}{2}$ квадратичных вычетов и $\frac{p-1}{2}$ квадратичных неравенства
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    $1, 2 \ldots p-1$
+
+    $1^2, 2^2 \ldots (p-1)^2$
+
+    Сколько различный вычетов во второй строке? Заметим: $x^2 = y^2 \Rightarrow (x-y)(x+y) = 0 \Leftrightarrow \left[ \begin{gathered}
+        x = y \\
+        x = -y
+    \end{gathered} \right. \Rightarrow$ при возведении в квадрат вычеты склеиваются, попадая $\Rightarrow$ ровно $\frac{p-1}{2}$ квадратов $\Rightarrow p-1 - \frac{p-1}{2} = \frac{p-1}{2}$ не квадратов
+
+    \vspace{5mm}
+
+    Мультипликативность: $\forall a, b. {ab \choose p} = {a \choose p}{b \choose p}$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    ${ab \choose p} = 0 \Leftrightarrow ab \divby p \Leftrightarrow \left[ \begin{gathered}
+        a \divby p \\
+        b \divby p
+    \end{gathered} \right. \Leftrightarrow \left[ \begin{gathered}
+        {a \choose p} = 0 \\
+        {b \choose p} = 0
+    \end{gathered} \right.$
+
+    ${a \choose p}{b \choose p} = 1 \Rightarrow \begin{cases}
+        a = x^2 \\
+        b = y^2
+    \end{cases} \Rightarrow ab = (xy)^2 \Rightarrow {ab \choose p} = 1$
+
+    ${a \choose p} = 1;\ {b \choose p} = 1 \Rightarrow \exists x : a = x^2;\ b \neq y^2\ \forall y$
+
+    Пусть $\begin{cases}
+        ab = z^2 \\
+        a = x^2
+    \end{cases} \Rightarrow b = (\frac{z}{x})^2$ ????
+
+    ${a \choose p} = -1;\ {b \choose p} = -1$
+
+    $b_1, b_2 \ldots b_\frac{p-1}{2}$ -- квадраты, все остальные не квадраты
+
+    Идем $ab_1, ab_2 \ldots ab_\frac{p-1}{2}$ -- не квадраты (все, т.к. их $\frac{p-1}{2}$) $\Rightarrow$ все остальные квадраты
+
+    $\{ab_1, ab_2 \ldots ab_{p-1}\} = \{1, 2 \ldots p-1\}$
+
+    \textbf{Утверждение:} Квадратичный закон взаимности
+
+    Если $p, q$ -- нечетные простые $\Rightarrow {p \choose q}{q \choose p} = (-1)^{\frac{p-1}{2} \cdots \frac{q-1}{2}}$
+\end{enumerate}
+
+\end{document}

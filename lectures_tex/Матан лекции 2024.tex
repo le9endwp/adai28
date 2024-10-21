@@ -1,0 +1,2272 @@
+\documentclass[14pt, letter paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{textcomp}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[unicode, pdftex]{hyperref}
+\usepackage{listings}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp
+\end{flushright}
+
+\begin{center}
+\section*{Глава 1. Введение} \\
+\subsection*{\S 1. Множества и их отношения}
+\end{center}
+
+
+\textbf{Def.} Множество - набор каких-то элементов, т.е. либо $x \in A$, либо $x \notin A (\forall x)$
+
+\textbf{Def.} A, B - множества. $A \subset B$ - А подмножество В, т.е. $\forall x \in A \Rightarrow x \in B$
+
+\textbf{Def.} $A = B \Leftrightarrow \begin{cases} A \subset B \\ B \subset A \end{cases}$
+
+\textbf{Def.} $\O$ - пустое множество, т.е. $\forall x, x \notin \O$
+
+\textbf{Rem.} $\forall A \O \subset A$
+
+\textbf{Def.} $\begin{cases} A \subset B \\ A \neq B \end{cases} \Leftrightarrow A \subsetneq B \Leftrightarrow$ А - собственное подмножество
+
+\textbf{Операции:}
+\begin{itemize}
+    \item Пересечение $A \bigcap B = \{ x | \begin{cases} x \in A \\ x \in B \end{cases} \}$
+    \item Объединение $A \bigcup B = \{x | x \in A$ или $x \in B \}$
+    \item Разность $A \backslash B = \{x | \begin{cases} x \in A \\ x \notin B \end{cases} \}$
+    \item Симметрическая разность $A \triangle B = (A \backslash B) \bigcup (B \backslash A)$
+\end{itemize}
+
+\textbf{Способы задания множеств:}
+\begin{itemize}
+    \item Перечисление
+    \item Неполное перечисление
+    \item Словесно
+    \item С помощью функции
+\end{itemize}
+
+\textbf{Канонические обозначения:}
+\begin{itemize}
+    \item $\mathds{N}$ - натуральные числа
+    \item $\mathds{Z}$ - целые числа
+    \item $\mathds{Q}$ - рациональные числа
+    \item $\mathds{R}$ - вещественные числа
+    \item $\mathds{C}$ - комплексные числа
+    \item $\mathds{P}$ - простые числа
+\end{itemize}
+
+\textbf{Def.} $<a, b> (a \in A, b \in B)$ - упорядоченная пара \par $<a, b> = <p, q> \Leftrightarrow \begin{cases} a = p \\ b = q \end{cases}$
+
+\textbf{Def.} $<a_1, a_2 \ldots a_n> (a_k \in A_k \forall k)$ - кортеж (упорядоченная n-ка)\par $<a_1 \ldots a_n> = <b_1 \ldots b_n> \Leftrightarrow a_k = b_k \forall k$
+
+\textbf{Def.} Декартово произведение $A \times B = \{ <a, b> | a \in A, b \in B\}$
+
+\textbf{Правила Д'Моргана:}
+\begin{enumerate}
+    \item $A \backslash (\bigcap\limits_{\alpha \in I} B_\alpa) = \bigcup\limits_{\alpha \in I} (A \backslash B_\alpha)$
+    \item $A \backslash (\bigcup\limits_{\alpha \in I} B_\alpha) = \bigcap\limits_{\alpha \in I} (A \backslash B_\alpha)$
+\end{enumerate}
+
+\begin{center} \textbf{Доказательство 2} \end{center}
+\[x \in A \backslash (\bigcup\limits_{\alpha \in I} B_\alpha) \Leftrightarrow \begin{cases} x \in A \\ x \notin \bigcup\limits_{\alpha \in I} B_\alpha \end{cases} \Leftrightarrow \begin{cases} x \in A \\ x \notin B_\alpha, \forall \alpha \in I \end{cases} \Leftrightarrow x \in A \backslash B_\alpha, \forall \alpha \in I \Leftrightarrow x \in \bigcap\limits_{\alpha \in I} (A \backslash B_\alpha)\]
+
+\begin{center}\textbf{Теорема}\end{center}
+\begin{itemize}
+    \item $A \bigcup (\bigcap\limits_{\alpha \in I} B_\alpha) = \bigcap\limits_{\alpha \in I} (A \bigcup B_\alpha)$
+    \item $A \bigcap (\bigcup\limits_{\alpha \in I} B_\alpha) = \bigcup\limits_{\alpha \in I} (A \bigcap B_\alpha)$
+\end{itemize}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\[x \in A \bigcap (\bigcup\limits_{\alpha \in I} B_\alpha) \Leftrightarrow \begin{cases} x \in A \\ x \in \bigcup\limits_{\alpha \in I} B_\alpha \end{cases} \Leftrightarrow \begin{cases} x \in A \\ \exists \alpha \in I : x \in B_\alpha \end{cases} \Leftrightarrow \exists \alpha \in I : x \in A \bigcap B_\alpha \Leftrightarrow x \in \bigcup\limits_{\alpha \in I} (A \bigcap B_\alpha)\]
+
+\textbf{Def.} Бинарным отношением R на $A \times B$ называется $R \subset A \times B$ \par
+$R = \{<a, b> | a \in A, b \in B\}$ \par
+$<a, b> \in R \Leftrightarrow aRb$
+
+\textbf{Def.} $\sigma_R = \{a \in A | \exists b \in B : <a, b> \in R\}$ - область определения бинарных отношений
+
+\textbf{Def.} $\rho_R = \{b \in B | \exists a \in A : <a, b> \in R\}$ - множество значений бинарных отношений
+
+\textbf{Def.} $R^{-1} = \{<b, a> | <a, b> \in R\}$ - обратное отношение
+
+\textbf{Def.} $R_1 \circ R_2 \subset A \times C; \begin{cases} R_1 \subset A \times B \\ R_2 \subset B \times C \end{cases}$ \par
+$R_1 \circ R_2 = \{<a, c> | \exists b \in B \begin{cases} <a, b> \in R_1 \\ <b, c> \in R_2 \end{cases} \}$
+
+\textbf{Свойства бинарных отношений: }
+\begin{enumerate}
+    \item R - рефлексивное, если $\forall a \in A <a, a> \in R$
+    \item R - иррефлексивное, если $\forall a \in A <a, a> \notin R$
+    \item R - симметричное, если $<a, b> \in R \Rightarrow <b, a> \in R$
+    \item R - антисимметричное, если $\begin{cases} <a, b> \in R \\ <b, a> \in R \end{cases} \Rightarrow a = b$
+    \item R - транзитивное, если $\begin{cases} <a, b> \in R \\ <b, c> \in R \end{cases} \Rightarrow <a, c> \in R$
+\end{enumerate}
+
+\textbf{Def.} R - отношение эквивалентности, если R рефлексивно, симметрично, транзитивно
+
+\textbf{Def.} R - нестрогий частичный порядок, если R - рефлексивно, антисимметрично, транзитивно
+
+\textbf{Def.} R - строгий частичный порядок, если R - иррефлексивно, транзитивно
+
+\textbf{Def.} $\begin{cases} <a, b> \in R \\ <a, c> \in R \end{cases} \Rightarrow b = c$, тогда R - функция f
+
+\textbf{Def.} f - инъективная, если $\begin{cases} f(x_1) = a \\ f(x_2) = a \end{cases} \Rightarrow x_1 = x_2$
+
+\textbf{Def.} f - сюрьективная, если $\forall y \in Y \exists x \in X : f(x) = y$
+
+\textbf{Def.} f - биективная, если f - инъективная и сюрьективная
+
+\begin{center} \subsection*{\S 2. Вещественные числа} \end{center}
+
+\textbf{Две операции в $\mathds{R}$}
+\begin{itemize}
+    \item[1.] Сложение
+    \begin{itemize}
+        \item[$A_1$] $a + b = b + a$ - коммутативность
+        \item[$A_2$] $(a + b) + c = a + (b + c)$ - ассоциативность
+        \item[$A_3$] $\exists 0 \in \mathds{R} : a + 0 = a; \forall a \in \mathds{R}$ - существование нейтрального
+        \item[$A_4$] $\forall a \in \mathds{R} \exists -a : a + (-a) = 0$ - существование обратного
+    \end{itemize}
+    \item[2.] Умножение
+    \begin{itemize}
+        \item[$M_1$] $a \cdot b = b \cdot a$- коммутативность
+        \item[$M_2$] $(a \cdot b) \cdot c = a \cdot (b \cdot c)$- ассоциативность
+        \item[$M_3$] $\exists 1 \in \mathds{R} : a \cdot 1 = a; \forall a \in \mathds{R}$ - существование нейтрального
+        \item[$M_4$] $\forall a \neq 0 \in \mathds{R} \exists a^{-1} \in \mathds{R} : a \cdot a^{-1} = 1$ - существование обратного
+    \end{itemize}
+    \item[$AM$] $\forall a, b, c \in \mathds{R} (a + b) \cdot c = a \cdot c + b \cdot c$ - дистрибутивность
+\end{itemize}
+
+\textbf{Rem.} Если соблюдаются все эти аксиомы, то поле
+
+\textbf{Аксиомы порядка:}
+\begin{itemize}
+    \item $\forall x, y \in \mathds{R} x \leq y$ или $y \leq x$
+    \item $OA$ $a \leq b \Rightarrow a + c \leq b + c$
+    \item $OM$ $\begin{cases} a \geq 0 \\ b \geq 0 \end{cases} \Rightarrow 0 \leq a \cdot b$
+\end{itemize}
+
+\textbf{Аксиома полноты:}
+
+$A \neq \o$, $B \neq \o$, $A, B \subset R$
+
+$\begin{gathered} \forall a \in A \\ \forall b \in B \end{gathered}$ $a \leq b \Rightarrow \exists c \in R: a \leq c \leq b (\forall a \in A, \forall b \in B)$
+
+$\mathds{Q}$ не удовлетворяет аксиоме полноты:
+
+$A = \{ x \in \mathds{Q} | x^2 < 2 \}$
+
+$B = \{ x \in \mathds{Q} | x^2 > 2 \}$
+
+Между ними только $\sqrt{2} \notin \mathds{Q}$
+
+\textbf{Следствие (принцип Архимеда):}
+
+$\begin{gathered}
+    \forall x \in \mathds{R} \\
+    \forall y \in \mathds{R}, y > 0
+\end{gathered}$
+$\exists n \in \mathds{N} : x < ny$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$fix$ $y > 0$
+
+$A = \{ x \in \mathds{R} | \exists n : x < ny\}$
+
+Пусть $A \neq \mathds{R} \Rightarrow \mathds{R} \backslash A = B \neq \o$
+
+$A \neq \o$, т.к. $0 \in A$
+
+Левее ли $A$, чем $B$
+
+Пусть $\begin{gathered} b \in B \\ a \in A \end{gathered}: b < a < ny \Rightarrow b < ny \Rightarrow b \in A$, но из $\mathds{R} \backslash A = B \Rightarrow A \bigcap B = \o \Rightarrow$ 
+
+$\begin{cases}
+\Rightarrow \forall a \in A, b \in B, a \leq b \\
+A, B \subset \mathds{R} \\ 
+A \neq \o \\
+B \neq \o 
+\end{cases}$
+$\Rightarrow \exists c \in \mathds{R}: a \leq b \leq c (\forall a \in A, b \in B)$
+
+\begin{cases}
+$c - y < c \Rightarrow c - y \in A \Rightarrow \exists n \in \mathds{N} : c - y < ny \Rightarrow c < (n+1)y$ \\
+$c < c + y \Rightarrow c \in B$
+\end{cases}
+$\Rightarrow c + y < (n+2)y \Rightarrow c + y \in A$ - противоречие $A \bigcap B = \o \Rightarrow A = \mathds{R}$
+
+\textbf{Следствие:}
+
+$\forall \varepsilon > 0$ $\exists n \in \mathds{N}: \frac{1}{n} < \varepsilon$
+
+$\frac{1}{n} < \varepsilon \Leftrightarrow 1 < n \varepsilon$ - принцип Архимеда $x = 1, y = \varepsilon$
+
+\textbf{Аксиома индукции} (метод математической индукции; принцип математической индукции)
+
+$P_1, P_2, \ldots P_n \ldots$ - последователььностьь утверждений
+
+\begin{cases}
+$P_1$ - истина (база) \\
+$P_n$ - истина $\Rightarrow P_{n+1}$ - истина (переход)
+\end{cases}
+$\Rightarrow \forall n \in \mathds{N}$ $P_n$ - истина
+
+\textbf{Th.} Во всяком конечном множестве вещественных чисел есть наибольший и наименьший элементы
+
+$a = maxA \Leftrightarrow \begin{cases} a \in A \\ \forall x \in A \end{cases} x \leq a$
+
+$b = minA \Leftrightarrow \begin{cases} b \in A \\ \forall x \in A \end{cases} x \geq b$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$P_n$ - в множестве из $n$ элементов есть наибольший и наименьший элементы
+
+\begin{enumerate}
+    \item $P_1$ - истина, т.к. в множестве из 1 элемента он и наибольший, и наименьший
+    \item $P_n \Rightarrow P_{n+1}$
+
+    $A = \{ a_1, a_2 \ldots a_{n+1} \}$
+
+    $B = \{ b_1, b_2 \ldots b_n \}$ - $n$ элементов $\Rightarrow \exists maxB = \tilde{a}$
+
+    $\tilde{a} \in B \Rightarrow \tilde{a} \in A$
+
+    $\forall k, 1 \leq k \leq n$ $a_k \leq \tilde{a}$
+
+    Случаи:
+    \begin{itemize}
+        \item $a_k \leq \tilde{a} \leq a_{n+1} \Rightarrow a_{n+1} = maxA$
+        \item $a_{n+1} \leq \tilde{a} \Rightarrow \tilde{a} = maxA$
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Def.} Множество $A$ называется ограниченным сверху, если $\exists c \in \mathds{R}: a \leq c, \forall a \in A$
+
+\textbf{Def.} Множество $A$ называется ограниченным снизу, если $\exists c \in \mathds{R}: a \geq c, \forall a \in A$
+
+\textbf{Def.} Множество $A$ называется ограниченным, если оно ограничено и сверху, и снизу
+
+$\exists c_1, c_2: c_1 \leq a \leq c_2, \forall a \in A$
+
+\textbf{Th.}
+
+\begin{enumerate}
+    \item В любом непустом ограниченном сверху множестве целых чисел есть наибольший элемент
+    \item В любом непустом ограниченном снизу множестве целых чисел есть наименьший элемент
+    \item В любом непустом ограниченном сверху множестве натуральных чисел есть наибольший и наименьший элементы
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$A; a \in \mathds{Z}, \forall a \in A$
+
+$b$ - верхняя граница
+
+$\forall a \in A$ $a \leq b$. Возьмем $\tilde{a} \in A$
+
+$\begin{cases}
+    B = \{ a \in A | a \geq \tilde{a} \} \\
+    B$ - конечное множество 
+$\end{cases}
+\Rightarrow \exists maxB = \tilde{\tilde{a}}$
+
+$\tilde{\tilde{a}} = maxA$, т.к. $\tilde{a} \leq \beta \in B \leq \tilde{\tilde{a}}$
+
+\textbf{Def.} $x \in \mathds{R}; [x] = \lfloor x \rfloor$ - целая часть числа
+
+$[x]$ - наибольшее целое число, не превосходящее $x$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $[x] \leq x \leq [x] + 1$
+    \item $x - 1 \leq [x] \leq x$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $[x] \leq x$ - определение
+    \item Пусть $x \geq [x] + 1 \in \mathds{Z}$, тогда $[x]$ не наиболььшее, что противоречит определению
+\end{enumerate}
+
+\textbf{Th.} $x, y \in \mathds{R}: y > x \Rightarrow \begin{gathered}
+    1) \exists r \in \mathds{Q}: x < r < y \\
+    2) \exists s \notin \mathds{Q}: x < s < y
+\end{gathered}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $x < y \Rightarrow y - x > 0 \Rightarrow$ (по следствию из принципа Архимеда) $\exists n \in N: \frac{1}{n} < y - x \Leftrightarrow \frac{1}{n} + x < y$
+
+    $r = \frac{[nx]+1}{n} > \frac{nx}{n} = x$
+
+    $r = \frac{[nx]+1}{n} = \frac{[nx]}{n} + \frac{1}{n} \leq \frac{nx}{n} + \frac{1}{n} = x + \frac{1}{n} < y$
+
+    $x < r < y$
+
+    \item $\sqrt{2} \notin \mathds{Q}$
+
+    $x < y \Rightarrow x - \sqrt{2} < y - \sqrt{2} \Rightarrow$ (по п.1) $\exists r \in \mathds{Q}: x - \sqrt{2} < r < y - \sqrt{2} \Rightarrow x < r + \sqrt{2} < y$
+
+    $s = r + \sqrt{2} \notin \mathds{Q}$
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 3. Супремум и инфимум}
+\end{center}
+
+\textbf{Def.} $A \subset \mathds{R}, A \neq \o, A$ - ограничено сверху
+
+$supA$ - наименьшая (точная) верхняя граница
+
+\textbf{Def.} $A \subset \mathds{R}, A \neq \o, A$ - ограничено снизу
+
+$infA$ - наибольшая (точная) нижняя граница
+
+\textbf{Th.}
+\begin{enumerate}
+    \item У любого непустого ограниченного сверху множества вещественных чисел существует единственный супремум
+    \item У любого непустого ограниченного снизу множества вещественных чисел существует единственный инфимум
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item Единственность - очевидно
+    \item Существование:
+
+    $A \neq \o, A \subset \mathds{R}$
+
+    $B$ - множество всех верхних границ
+
+    $B \neq \o, B \subset \mathds{R}$
+
+    $\begin{gathered}
+        \forall a \in A \\
+        \forall b \in B
+    \end{gathered}$
+    $a \leq b$
+
+    Тогджа по аксиоме полноты $\exists c \in \mathds{R}: a \leq c \leq b (\forall a \in A, \forall b \in B)$
+
+    $\forall a \in A$ $a \leq c \Rightarrow c$ - верхняя граница $A \Rightarrow c \in B$
+
+    $\forall b \in B$ $c \leq b \Rightarrow c = minB \Rightarrow c = supA$
+\end{enumerate}
+
+\textbf{Следствия:}
+\begin{enumerate}
+    \item $\begin{cases}
+        A \neq \o \\
+        A \subset B \subset \mathds{R} \\
+        B$ - ограничено сверху
+    $\end{cases}
+    \Rightarrow supA \leq supB$
+
+    \item $\begin{cases}
+        A \neq \o \\
+        A \subset B \subset \mathds{R} \\
+        B$ - ограничено снизу
+    $\end{cases}
+    \Rightarrow infA \geq infB$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\begin{cases}
+    B \neq \o \\
+    B \subset \mathds{R} \\ 
+    B$ - ограничено сверху
+$\end{cases}
+\Rightarrow \exists supB \Rightarrow \forall b \in B$ $b \leq supB \Rightarrow \forall a \in A$ $a \leq supB \Rightarrow \exists supA \Rightarrow supA \leq supB$
+
+\textbf{Обозначения:}
+\begin{enumerate}
+    \item $A$ не является ограниченным сверху $\Rightarrow supA = + \infty$
+    \item $A$ не ограничено снизу $\Rightarrow infA = - \infty$
+\end{enumerate}
+
+\textbf{Th.} (характеристика супремума и инфимума)
+\begin{enumerate}
+    \item $a = supA \Leftrightarrow \begin{cases}
+        \forall x \in A, x \leq a \\
+        \forall \varepsilon > 0, \exists x \in A: x > a - \varepsilon
+    \end{cases}$
+    \item $b = infA \Leftrightarrow \begin{cases}
+        \forall x \in A, x \geq b \\
+        \forall \varepsilon > 0, \exists x \in A: x < b + \varepsilon
+    \end{cases}$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+\begin{enumerate}
+    \item $\forall x \in A, x \geq b \Rightarrow b$ - нижняя граница $A$
+    \item $\forall \varepsilon > 0, \exists x \in A: x < b + \varepsilon \Rightarrow$ все числа $> b$ не являются нижними гранциами множества $A \Rightarrow b$ - наибольшая нижняя граница $\Rightarrow b = infA$
+\end{enumerate}
+
+\textbf{Th.} о вложенных отрезках
+
+$[a_1; b_1] \supset [a_2;b_2] \supset \ldots \supset [a_n;b_n] \supset \ldots$, тогда $\exists c \in \mathds{R}: c \in [a_n;b_n] \forall n \in \mathds{N}$
+
+Другими словами $\bigcap\limits_{n=1}^{+ \infty} [a_n;b_n] \neq \o$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$a_1 \leq a_2 \leq a_3 \ldots$, $A = \{ a_1, a_2 \ldots \}$
+
+$b_1 \geq b_2 \geq b_3 \ldots$, $B = \{ b_1, b_2 \ldots \}$
+
+$A \neq \o, B \neq \o; A, B \subset R$
+
+$\forall a_n \leq b_n$
+
+$?a_k \leq b_m$
+\begin{enumerate}
+    \item $k < m$, $a_k \leq a_m \leq b_m$
+    \item $k > m$. $a_k \leq b_k \leq b_m$
+    \item $k = m$, $a_k \leq b_m$
+\end{enumerate}
+
+По аксиоме полноты $\exists c \in \mathds{R}: a \leq c \leq b (\forall a \in A, \forall b \in B) \Rightarrow \forall n$ $a_n \leq c \leq b_n \Rightarrow c \in [a_n;b_n] \forall n \in \mathds{N}$
+
+\textbf{Замечания:}
+\begin{enumerate}
+    \item Таких точек может быть много
+    \item Интервалов недостаточно
+    \item Лучей недостаточно
+\end{enumerate}
+
+\begin{center}
+    \section*{Глава 2. Последовательности вещественных чисел}
+
+    \subsection*{\S 1. Пределы последовательности}
+\end{center}
+
+\textbf{Def.} Последовательность - функция натурального аргумента
+
+$f: \mathds{N} \rightarrow \mathds{R} \Leftrightarrow \{f_n\}_{n=1}^{+\infty}$
+
+$f(1) \leftrightarrow f_1$
+
+Как задавать последовательность?
+
+\begin{itemize}
+    \item Формулой (форму общего члена последовательности)
+    \item Описательно
+    \item Рекуррентно
+    \item График последовательности (двумерный или одномерный, но второй неудобен, если какие-то точки дублируются)
+\end{itemize}
+
+\textbf{Def.} $x_n$ называется ограниченной сверху, если $\exists M \in \mathds{R}: \forall n \in \mathds{N}$ $x_n \leq M$
+
+\textbf{Def.} $y_n$ называется ограниченной снизу, если $\exists m \in \mathds{R} : \forall n \in \mathds{N}$ $y_n \geq m$
+
+\textbf{Def.} $z_n$ называется ограниченной, если она ограничена и сверху, и снизу $\Leftrightarrow \exists c > 0 : \forall n \in \mathds{N}$ $|z_n| < c$
+ 
+\textbf{Def.} $x_n$ называется монотонно возрастающей, если $\forall n \in \mathds{N}$ $x_{n+1} \geq x_n$
+
+\textbf{Def.} $y_n$ строго монотонно возрастает, если $\forall n \in \mathds{N}$ $y_{n+1} > y_n$
+
+\textbf{Def.} $x_n$ монотонно убывает, если $\forall n \in \mathds{N}$ $x_{n+1} \leq x_n$
+
+\textbf{Def.} $y_n$ строго монотонно убывает, если $\forall n \in \mathds{N}$ $y_{n+1} < y_n$
+
+\textbf{Def.} $z_n$ монотонная, если она мотонно возрастает или монотонно убывает
+
+\textbf{Def.} $z_n$ строго монотонная, если она строго монотонно возрастает или строго монотонно убывает
+
+\textbf{Def.(1)} (неклассическое)
+
+$a \in \mathds{R}$
+
+$a = \lim\limits_{n \rightarrow \infty}{x_n} \Leftrightarrow$ вне любого интервала, содержащего точку $a$ находится лишь коненчое число членов ппоследовательности
+
+\textbf{Rem.} Можно рассматривать тольько симметричные интервалы
+
+\textbf{Def.(2)} (классическое)
+
+$a \in \mathds{R}$
+
+$a = \lim\limits_{n \rightarrow \infty}{x_n} \Leftrightarrow \forall \varepsilon > 0 \exists N \in \mathds{N}: \forall n \geq N$ $|x_n - a| < \varepsilon$
+
+Последнее неравенство равносильно выбору симметричного интервала, отсюда равносильность определений
+
+$\exists N \in \mathds{N} \Leftrightarrow N = N(\varepsilon)$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item Если предел существует, то он единственный
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    От противного: $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{x_n} = b \\
+        a \neq b
+    \end{cases}$
+
+    Пусть $\varepsilon = \frac{|b-a|}{3}$, тогда окрестности будут непересекающимися $\Rightarrow$ либо вне $(a - \varepsilon, a + \varepsilon)$ бесконечно много членов и вне $(b - \varepsilon, b + \varepsilon)$ бесконечно много членов, либо число $n$ - конечно, оба варианта неверны
+
+    \item Если из последовательности удалить конечное число членов, то предел не изменится
+
+    \item Если переставить члены последовательности, то предел не изменится
+
+    \item Если записать некоторые члены последовательности с конечной кратностью, то предел не изменится
+
+    \item Если добавить конечное число членов последовательности, то предел не изменится
+
+    \item Если изменить конечное число членов последовательности, то предел не изменится
+
+    \item Если последовательность имеет предел, то она ограничена
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    Окрестность $(a - 1, a + 1)$
+
+    Снаружи лишь конечное число членов, в их множестве существует наибольший и наименьший элемент
+
+    Пусть $x_{\tilde{N}}$ - наибольший, а $x_{\tilde{\tilde{N}}}$ - наименьший, тогда
+
+    $M = max\{a+1, x_{\tilde{N}}\}$ и $m = min\{a-1, x_{\tilde{\tilde{N}}}\}$
+
+    \textbf{Lem.}
+
+    $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = b
+    \end{cases}$
+    $\Rightarrow \forall \varepsilon > 0 \exists N : \forall n \geq N \begin{cases}
+        |x_n - a| < \varepsilon \\
+        |y_n - b| < \varepsilon
+    \end{cases}$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    Для $x_n$ $\forall \varepsilon_1 > 0$ $\exists N_1 : \forall n \geq N_1$ $|x_n - a| < \varepsilon_1$
+
+    Для $y_n$ $\forall \varepsilon_2 = \varepsilon_1$ $\exists N_2 : \forall n \geq N_2$ $|y_n - b| < \varepsilon_2$
+
+    $\varepsilon = \varepsilon_2 = \varepsilon_1$; $N = max\{N_1, N_2\}$
+
+    \item Предельный переход в неравенстве
+
+    $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = b \\
+        \forall n \in \mathds{N}; x_n \leq y_n
+    \end{cases}$
+    $\Rightarrow a \leq b$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    Пусть $b < a$
+
+    Возьмем $\varepsilon = \frac{|a-b|}{3}$, окрестности не пересекаются
+
+    По лемме для нашего $\varepsilon$ $\exists N:\forall n \geq N \begin{cases}
+        |x_n - a| < \varepsilon \\
+        |y_n - b| < \varepsilon
+    \end{cases}$
+
+    Рассмотрим $\begin{cases}
+        x_N \in (a - \varepsilon, a + \varepsilon) \\
+        y_N \in (b - \varepsilon, b + \varepsilon)
+    \end{cases}$
+    $\Rightarrow x_N > y_N$ ??
+
+    Значит $a \leq b$
+
+    \textbf{Rem.} $\forall n$ $x_n < y_n \not\Rightarrow a < b$
+
+    \textbf{Rem.} Необязательно $\forall n$ $x_n \leq y_n$, можно использовать $x_n \leq y_n$ $\forall n \geq N_0$
+
+    \item Стабилизация знака
+
+    $\lim\limits_{n \rightarrow \infty}{x_n} = a \neq 0 \Rightarrow \exists N : \forall n \geq N$ $x_n \cdot a > 0$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    Пусть $\varepsilon = \frac{|a|}{3}$
+
+    $\exists N : \forall n \geq N$ $|x_n - a| < \varepsilon$
+
+    \item Принцип двух миллиционеров (теорема о сжатой переменной)
+
+    $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{z_n} = a \\
+        \forall n; x_n \leq y_n \leq z_n
+    \end{cases}$
+    $\Rightarrow \exists \lim\limits_{n \rightarrow \infty}{y_n} = a$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    Хотим $\varepsilon > 0$ $\exists N : n \geq N$ $|y_n - a| < \varepsilon$
+
+    $fix \varepsilon > 0$
+
+    По лемме $\exists N : \forall n \geq N \begin{cases}
+        |x_n - a| < \varepsilon \\
+        |z_n - a| < \varepsilon
+    \end{cases}$
+    $\Leftrightarrow \begin{cases}
+        a - \varepsilon < x_n < a + \varepsilon \\
+        a - \varepsilon < z_n < a + \varepsilon
+    \end{cases}$
+
+    Возьмем $\begin{cases}
+        a - \varepsilon < x_n \\
+        z_n < a + \varepsilon \\
+        x_n \leq y_n \leq z_n
+    \end{cases}$
+    $\Rightarrow a - \varepsilon < x_n \leq y_n \leq z_n < a + \varepsilon \Rightarrow a - \varepsilon < y_n < a + \varepsilon \Leftrightarrow |y_n - a| < \varepsilon \Rightarrow \exists \lim\limits_{n \rightarrow \infty}{y_n} = a$
+
+    \textbf{Rem.} Можно вместо $\forall n \in \mathds{N}$ использовать $\exists N_0 : \forall n \geq N_0$
+
+    \textbf{Следствие:} $\forall n \in \mathds{N} \begin{cases}
+        |y_n| \leq z_n \\
+        \lim\limits_{n \rightarrow \infty}{z_n} = 0
+    \end{cases}$
+    $\Rightarrow \lim\limits_{n \rightarrow \infty}{y_n} = 0$
+
+    \begin{center}
+        Доказательство
+    \end{center}
+
+    $|y_n| \leq z_n \Leftrightarrow -z_n \leq y_n \leq z_n$, дальше очев
+
+    \textbf{Rem.} Вместо $\forall n \in \mathds{N}$ можно $\exists N_0 : \forall n \geq N_0$
+\end{enumerate}
+
+\textbf{Теорема о пределе монотонной последовательности}
+
+\begin{enumerate}
+    \item Если $x_n$ монотонно возрастает и ограничена сверху, то у нее существует пределе
+    \item Если $y_n$ монотонно убывает и ограничена снизу, то у нее есть предел
+    \item Если $z_n$ монотонна, то существование предела равносильно ограниченности $z_n$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\begin{cases}
+        \{x_1, x_2, x_3 \ldots x_n \ldots \} = X \\
+        \exists M : \forall n; x_n \leq M
+    \end{cases}$
+    $\Rightarrow X$ - Ограничена сверху $\Rightarrow \exists supX = a$
+
+    Докажем, что $\lim\limits_{n \rightarrow \infty}{x_n} = supX = a$
+
+    $\forall \varepsilon > 0$ $\exists N : \forall n \geq N$ $|x_n - a| < \varepsilon \Leftrightarrow a - \varepsilon < x_n < a + \varepsilon$
+
+    При этом правая часть верна всегда, докажем левую
+
+    $fix \varepsilon > 0$
+
+    $a = supX \Rightarrow a \cdot \varepsilon \neq supX \Rightarrow \exists x_{\tilde{N}} : x_{\tilde{N}} > a - \varepsilon \Rightarrow \forall n \geq \tilde{N}$ $x_n > a - \varepsilon$, так как $x_n$ монотонно возрастает
+
+    \item \begin{itemize}
+        \item[$\Rightarrow$] уже доказано (свойство 7)
+        \item[$\Leftarrow$] $\begin{cases}
+            \exists m, M; m \leq z_n \leq M \\
+            z_n - $монотонная$
+        \end{cases}$
+        $\Rightarrow \left[ \begin{gathered}
+            z_n \uparrow \Rightarrow z_n \leq M \\
+            z_n \downarrow \Rightarrow m \leq z_n
+        \end{gathered} \right .$
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Def.} Последовательность $x_n$ называется бесконечно малой, если $\lim\limits_{n \rightarrow \infty}{x_n} = 0$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $\begin{cases}
+        x_n - $б/м$ \\
+        y_n - $ограничена$
+    \end{cases}$
+    $\Rightarrow x_n \cdot y_n$ - б/м
+
+    \item $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = 0 \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = 0
+    \end{cases}$
+    $\Rightarrow \lim\limits_{n \rightarrow \infty}{x_n + y_n} = 0$
+
+    \item $\lim\limits_{n \rightarrow \infty}{x_n} = a \Leftrightarrow x_n = a + \alpha_n$, где $\alpha_n$ - б/м
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $y_n$ - ограничена $\Rightarrow \exists M > 0 : |y_n| \leq M$ $\forall n \in \mathds{N}$
+
+    $\lim\limits_{n \rightarrow \infty}{x_n} = 0 \Leftrightarrow \forall \varepsilon > 0$ $\exists N : \forall n \leq N$ $|x_n| < \frac{\varepsilon}{M}$
+
+    Хотим $\forall \varepsilon > 0$ $\exists N : \forall n \geq N$ $|x_n \cdot y_n - 0| < \varepsilon$
+
+    $fix \varepsilon > 0$
+
+    Знаем, что $\exists N : \forall n \geq N$ $\begin{cases}
+        |x_n| < \frac{\varepsilon}{M} \\
+        |y_n| \leq M
+    \end{cases}$
+    $\Rightarrow |x_n \cdot y_n| < \varepsilon$
+
+    \item $fix \varepsilon > 0$
+
+    $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = 0 \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = 0
+    \end{cases}$
+    $\Rightarrow$ по лемме $\varepsilon > 0$ $\exists N : \forall n \geq N \begin{cases}
+        |x_n| < \frac{\varepsilon}{2} \\
+        |y_n| < \frac{\varepsilon}{2}
+    \end{cases}$
+
+    $|x_n + y_n| \leq |x_n| + |y_n| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \Rightarrow \forall \varepsilon > 0$ $\exists N : \forall n \geq N$ $|(x_n + y_n) - 0| < \varepsilon \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n + y_n} = 0 \Rightarrow (x_n + y_n)$ - б/м
+
+    \item $\forall \varepsilon > 0$ $\exists N : \forall n \geq N$ $|x_n - a| < \varepsilon \Leftrightarrow |(x_n - a) - 0| < \varepsilon$
+
+    Обозначение $x_n - a = \alpha_n$, тогда 
+
+    $|\alpha_n - 0| < \varepsilon$
+
+    $|\alpha_n| < \varepsilon$, т.е. $\lim\limits_{n \rightarrow \infty}{\alpha_n} = 0 \Rightarrow \alpha_n$ - б/м, а $x_n = a + \alpha_n$, где $\alpha_n$ - б/м
+\end{enumerate}
+
+\textbf{Th.} об арифметических действиях с пределами
+
+\begin{enumerate}
+    \item $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = b
+    \end{cases}$
+    $\Rightarrow \exists \lim\limits_{n \rightarrow \infty}{x_n + y_n} = a + b$
+
+    \item $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = b
+    \end{cases}$
+    $\Rightarrow \exists \lim\limits_{n \rightarrow \infty}{x_n \cdot y_n} = a \cdot b$
+
+    \item $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \\
+        \lim\limits_{n \rightarrow \infty}{y_n} = b \neq 0
+    \end{cases}$
+    $\Rightarrow \exists \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = \frac{a}{b}$
+
+    \item $\lim\limits_{n \rightarrow \infty}{x_n} = a \Rightarrow \lim\limits_{n \rightarrow \infty}{|x_n|} = |a|$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\lim\limits_{n \rightarrow \infty}{x_n} = a \Leftrightarrow x_n = a + \alpha_n, \alpha_n$ -- б/м
+
+    $\lim\limits_{n \rightarrow \infty}{y_n} = b \Leftrightarrow y_n = b + \beta_n, \beta_n$ -- б/м
+
+    $x_n + y_n = a + \alpha_n + b + \beta_n = (a + b) + (\alpha_n + \beta_n) = a + b + \gamma_n \rightarrow a + b$
+
+    \item $\lim\limits_{n \rightarrow \infty}{x_n} = a \Leftrightarrow x_n = a + \alpha_n$
+
+    $\lim\limits_{n \rightarrow \infty}{y_n} = b \Leftrightarrow y_n = b + \beta_n$
+
+    $x_n \cdot y_n = (a + \alpha_n)(b + \beta_n) = ab + a\beta_n + b\alpha_n + \alpha_n\beta_n = ab + \gamma_n \rightarrow ab$
+
+    \item $\lim\limits_{n \rightarrow \infty}{y_n} = b \neq 0 \Rightarrow \exists N : \forall n \geq N$ $y_n \neq 0$
+
+    $\frac{x_n}{y_n}$ -- определено $\forall n \geq N$
+
+    $\lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = \lim\limits_{n \rightarrow \infty}{x_n \cdot \frac{1}{y_n}}$
+
+    Хотим $\lim\limits_{n \rightarrow \infty}{\frac{1}{y_n}} = \frac{1}{b}$
+
+    $\frac{1}{y_n} - \frac{1}{b} = \frac{1}{b = \beta_n} - \frac{1}{b} = \frac{b - b - \beta_n}{b(b+\beta_n)} = (-\beta_n) \cdot \frac{1}{b(b + \beta_n)}$
+
+    Можем выбрать окрестность $(b - \varepsilon, b + \varepsilon); \varepsilon = \frac{|b|}{2}$
+
+    $|b(b + \beta_n)| = |b| \cdot |b + \beta_n|$ $\exists N : \forall n \geq N$ $|\beta_n| < \frac{|b|}{2}$
+
+    $|b| \cdot |b + \beta_n| \leq |b| \cdot (|b| + \frac{|b|}{2}) = k$
+
+    $|b| \cdot |b + \beta_n| \geq |b| \cdot (|b| - |\beta_n|) \geq |b| \cdot \frac{|b|}{2} = M > 0$
+
+    $0 < M \leq |b(b + \beta_n)| \leq k$
+
+    $\frac{1}{k} \leq \frac{1}{|b(b + \beta_n)|} \leq \frac{1}{M} \Rightarrow \frac{1}{|b(b + \beta_n)|}$ -- ограничена $\Rightarrow (-\beta_n) \cdot \frac{1}{b(b + \beta_n)}$ -- б/м $\Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{1}{y_n}} = \frac{1}{b} \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n \cdot \frac{1}{y_n}} = a \cdot \frac{1}{b} = \frac{a}{b}$
+
+    \item $\lim\limits_{n \rightarrow \infty}{x_n} = a$
+
+    $x_n = a + \alpha_n$
+
+    $|a| - |\alpha_n| \leq |x_n| = |a + \alpha_n| \leq |a| + |\alpha_n|$
+
+    По принципу двух милиционеров
+
+    $\begin{cases}
+        |a| - |\alpha_n| \rightarrow a \\
+        |a| + |\alpha_n| \rightarrow a
+    \end{cases} \Rightarrow |x_n| \rightarrow a \Leftrightarrow \lim\limits_{n \rightarrow \infty}{|x_n|} = |a|$
+\end{enumerate}
+
+\begin{center}
+    \subsubsection*{Бесконечные пределы}
+\end{center}
+
+\textbf{Def.} $\lim\limits_{n \rightarrow \infty}{x_n} = +\infty \Leftrightarrow \forall E \in \mathds{R}$ $\exists N : \forall n \geq N$ $x_n > E$
+
+или $\forall E \in \mathds{R}$ вне луча $(E;+ \infty)$ лежит лишь конечное число членов
+
+\textbf{Rem.} Можно рассматривать только $E > 0$
+
+\textbf{Def.} $\lim\limits_{n \rightarrow \infty}{x_n} = - \infty \Leftrightarrow \forall E \in \mathds{R}$ $\exists N : \forall n \geq N$ $x_n < E$
+
+или вне любого луча вида $(-\infty; E)$ лежит лишь конечное число членов
+
+\textbf{Rem.} Можно рассматривать только $E < 0$
+
+\textbf{Def.} $\lim\limits_{n \rightarrow \infty}{x_n} = \infty \Leftrightarrow \forall E > 0$ $\exists N : \forall n \geq N$ $|x_n| > E$
+
+или вне любого множества вида $(-\infty; -E) \bigcup (E; +\infty)$ лежит лишь конечное число членов
+
+\textbf{Наблюдение.} $\lim\limits_{n \rightarrow \infty}{x_n} = + \infty \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = \infty$
+
+$\lim\limits_{n \rightarrow \infty}{x_n} = - \infty \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = \infty$
+
+\textbf{Def.} $x_n$ -- б/б $\Leftrightarrow \lim\limits_{n \rightarrow \infty}{x_n} = \infty$
+
+\textbf{Наблюдение.} $x_n$ -- б/б $\Rightarrow x_n$ не является ограниченной
+
+\textbf{Утверждение.} $x_n \neq 0$ $\forall n \in \mathds{N}$
+
+$x_n$ -- б/м $\Leftrightarrow \frac{1}{x_n}$ -- б/б
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\lim\limits_{n \rightarrow \infty}{x_n} = 0 \Leftrightarrow \forall \varepsilon > 0$ $\exists N : \forall n \geq N$ $|x_n| < \varepsilon \Leftrightarrow \frac{1}{|x_n|} > \frac{1}{\varepsilon}$
+
+т.е. $\forall E > 0$ $\exists N : \forall n \geq N$ $|\frac{1}{x_n}| > E \Leftrightarrow \frac{1}{x_n}$ -- б/б
+
+\textbf{Def.} $\overline{\mathds{R}} = \mathds{R} \bigcup \{-\infty\} \bigcup \{+\infty\}$
+
+\textbf{Свойства пределов в $\overline{\mathds{R}}$}
+
+\begin{enumerate}
+    \item Предел в $\overline{\mathds{R}}$ -- единственный
+
+    $\begin{cases}
+        \lim\limits_{n \rightarrow \infty}{x_n} = a \in \overline{\mathds{R}} \\
+        \lim\limits_{n \rightarrow \infty}{x_n} = b \in \overline{\mathds{R}}
+    \end{cases} \Rightarrow a = b$
+
+    \item Все свойства про добавить/убрать/переставить сохраняются
+
+    \item \begin{itemize}
+        \item $\begin{cases}
+            \forall n; x_n \leq y_n \\
+            \lim\limits_{n \rightarrow \infty}{x_n} = + \infty
+        \end{cases} \Rightarrow \exists \lim\limits_{n \rightarrow \infty}{y_n} = + \infty$
+
+        \item $\begin{cases}
+            \forall n; x_n \leq y_n \\
+            \lim\limits_{n \rightarrow \infty}{y_n} = -\infty
+        \end{cases} \Rightarrow \exists \lim\limits_{n \rightarrow \infty}{x_n} = - \infty$
+    \end{itemize}
+    
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    $\lim\limits_{n \rightarrow \infty}{y_n} = -\infty \Leftrightarrow \forall E \in \mathds{R}$ $\exists N : \forall n \geq N$ $|y_n| < E$
+
+    $x_n \leq y_n < E \Rightarrow \forall E \in \mathds{R}$ $\exists N: \forall n \geq N$ $|x_n| < E \Leftrightarrow \lim\limits_{n \rightarrow \infty}{x_n} = -\infty$
+
+    \item Арифметические действия с пределами в $\overline{\mathds{R}}$
+
+    Смотрите нудный, но нужный видос Александра Игоревича
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 2. Экспонента}
+\end{center}
+
+\textbf{Неравенство Бернулли}
+
+$\forall n \in \mathds{N}$ $\forall x \in \mathds{R}$ $(x > -1)$
+
+$(1 + x)^n \geq 1 + nx$, причем равенство достигается при $x = 0$ или $n = 1$
+
+\begin{center}
+    \textbf{Доказательство по ММИ}
+\end{center}
+
+База: $n = 1$
+
+$1 + x \geq 1 + 1 \cdot x$ -- верно
+
+Переход: $n \rightarrow n + 1$
+
+$(1 + x)^n \geq 1 + nx$
+
+$(1 + x)^{n+1} \geq (1+x)(1 + nx) = 1 + nx + x + x^2n = 1 + (n+1)x + x^2n \geq 1 + (n+1)x$
+
+\textbf{Наблюдение}
+
+\begin{enumerate}
+    \item $|a| < 1 \Rightarrow \lim\limits_{n \rightarrow \infty}{a^n} = 0 \Leftrightarrow a^n$ -- б/м
+
+    \item $|a| > 1 \Rightarrow \lim\limits_{n \rightarrow \infty}{a^n} = \infty \Leftrightarrow a^n$ -- б/б
+\end{enumerate}
+
+\textbf{Rem:} $a > 1 \Rightarrow \lim\limits_{n \rightarrow \infty}{a^n} = + \infty$
+
+\textbf{Rem:} Из пункта 2 $\Rightarrow$ пункт 1
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item[2.] $|a| > 1 \Rightarrow |a| = 1 + x,\ x > 0$
+
+    $|a|^n = (1 + x)^n \geq 1 + nx$ -- б/б $(\lim\limits_{n \rightarrow \infty}{(1 + nx)} = + \infty) \Rightarrow \lim\limits_{n \rightarrow \infty}{|a|^n} = + \infty \Leftrightarrow a^n$ -- б/б
+\end{enumerate}
+
+\textbf{Th.}
+
+$a \in \mathds{R}$
+
+$x_n = (1 + \frac{a}{n})^n$
+
+\begin{itemize}
+    \item $\{x_n\}$возрастает при  $n > -a \Leftrightarrow n + a > 0$ (строго при $a \neq 0$)
+    \item $\{x_n\}$ -- ограничено сверху
+\end{itemize}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[Возрастание.] $\frac{x_n}{x_{n-1}} = \frac{(1 + \frac{a}{n})^n}{(1 + \frac{a}{n-1})^{n-1}} = \frac{(n + a)^n \cdot (n - 1)^n}{n^n(n - 1 + a)^{n-1}} = (\frac{(n+a)(n-1)}{n(n-1+a)})^n \cdot \frac{n-1+a}{n-1} = \frac{n-1+a}{n-1} \cdot (1 + \frac{-a}{n(n-1+a)})^n \geq \frac{n-1+a}{n-1} \cdot (1 + \frac{-a}{n(n+1-a)}) = \frac{n-1+a}{n-1} \cdot \frac{n-1+a-a}{n-1+a} = 1$
+
+    $\frac{x_n}{x_{n-1}} \geq 1$, но нужно доказать: $\frac{-a}{n(n-1+a)} > -1$
+
+    $\frac{a}{n(n-1+a)} < 1$
+
+    $a < n(n-1+a)$
+
+    $n^2 - n + an - a > 0$
+
+    $n(n-1) + a(n-1) > 0$
+
+    $(n-1)(n+a) > 0$
+
+    Из того, что у нас есть нужно 
+
+    $(n+a) > 0 \Leftrightarrow n > -a$, что дано, значит Бернулли разрешен
+
+    \item[Ограниченность.] $y_n = (1 + \frac{-a}{n})^n$ монотонно возрастает при $n > a$
+
+    $x_n \cdot y_n = (1 + \frac{a}{n})^n \cdot (1 + \frac{-a}{n})^n = (1 - \frac{a^2}{n})^n \leq 1$
+
+    $x_n \leq \frac{1}{y_n} \leq \frac{1}{y_{min}} = const$
+\end{itemize}
+
+\textbf{Следствие} $\exists \lim\limits_{n \rightarrow \infty}{x_n} \in \mathds{R}$ (монотонность + ограниченность)
+
+\textbf{Def.} $a \in \mathds{R}\ exp(a) = \lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{(1 + \frac{a}{n})^n}$
+
+\textbf{Def.} $e = \lim\limits_{n \rightarrow \infty}{(1 + \frac{1}{n})^n} = exp(1)$
+
+\textbf{Rem.} $z_n = (1 + \frac{1}{n})^{n+1}$
+
+\begin{enumerate}
+    \item $z_n$ строго убывает
+    \item $\lim\limits_{n \rightarrow \infty}{z_n} = e$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item[2.] $\lim\limits_{n \rightarrow \infty}{z_n} = \lim\limits_{n \rightarrow \infty}{((1 + \frac{1}{n})^n(1 + \frac{1}{n}))} = e \cdot 1 = e$ 
+    \item[1.] $z_n = (1 + \frac{1}{n})^{n+1} = (\frac{n+1}{n})^{n+1} = \frac{1}{(\frac{n}{n+1})^{n+1}} = \frac{1}{(1 - \frac{1}{n+1})^{n+1}} = \frac{1}{(1 + \frac{-1}{n+1})^{n+1}}$
+
+    Знаменатель строго возрастает $\Rightarrow$ дробь строго убывает
+\end{enumerate}
+
+\textbf{Свойства экспоненты:}
+
+\begin{enumerate}
+    \item $exp(1) = e;\ exp(a) = 1$
+    \item Монотонность:
+
+    $a \leq b \Rightarrow exp(a) \leq exp(b)$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    $1 + \frac{a}{n} \leq 1 + \frac{b}{n}$ -- верно $\forall n:$ обе дроби $> 0$
+
+    $\Rightarrow (1 + \frac{a}{n})^n \leq (1 + \frac{b}{n})^n \Rightarrow exp(a) \leq exp(b)$
+
+    \item $exp(a) > 0\ \forall a \in \mathds{R}$
+
+    $(1 + \frac{a}{n})^n > 0$ НСНМ строго возрастает
+
+    $\exists \delta > 0: (1 + \frac{a}{n})^n > \delta > 0 \Rightarrow exp(a) > \delta > 0$
+
+    \item $exp(a) \cdot exp(-a) \leq 1$
+
+    $(1 + \frac{a}{n})^n \cdot (1 + \frac{-a}{n})^n = (1 + \frac{-a^2}{n})^n \leq 1 \Rightarrow exp(a) \cdot exp(-a) \leq 1$
+
+    \item $exp(a) \geq 1 + a\ \forall a \in \mathds{R}$
+
+    $(1 + \frac{a}{n})^n \geq 1 + n \frac{a}{n} = 1 + a; n > -a \Rightarrow exp(a) \geq 1 + a$
+
+    \item $a < 1$
+
+    $exp(a) \leq \frac{1}{1 - a}$
+
+    $\begin{cases}
+        exp(a) \cdot exp(-a) < 1 \Leftrightarrow exp(a) \leq \frac{1}{exp(-a)} \\
+        exp(-a) \geq 1 - a > 0
+    \end{cases} \Rightarrow \frac{1}{exp(-a)} \leq \frac{1}{1-a}$
+
+    \item $\forall n \in \mathds{N}$
+
+    $(1 + \frac{1}{n})^n < e < (1 + \frac{1}{n})^{n+1}$
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    \begin{itemize}
+        \item Правое:
+
+        $z_n = (1 + \frac{1}{n})^{n+1}$ строго убывает
+
+        $\lim\limits_{n \rightarrow \infty}{z_n} = e$
+
+        $fix\ n$
+
+        $(1 + \frac{1}{n+1})^{n+2} < (1 + \frac{1}{n})^{n+1}$
+
+        \item Левое:
+
+        Строго убывает и $\rightarrow e \Rightarrow e = inf(1 + \frac{1}{n+1})^{n+2} \Rightarrow e \leq (1 + \frac{1}{n+1})^{n+2} < (1 + \frac{1}{n})^{n+1}$
+    \end{itemize}
+
+    $(1 + \frac{1}{n})^n = 2\ (n = 1) \Rightarrow 2 < e$
+
+    $(1 + \frac{1}{n})^{n+1} = (1 + \frac{1}{5})^6\ (n = 5) < 3$
+
+    $2 < e < 3$
+
+    $e = 2,718281828459045 \ldots$
+\end{enumerate}
+
+\textbf{Lem.} $\lim\limits_{n \rightarrow \infty}{a_n} = a \Rightarrow \lim\limits_{n \rightarrow \infty}{(1 + \frac{a_n}{n})^n} = exp(a)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$A = 1 + \frac{a}{n};\ B = 1 + \frac{a_n}{n}$
+
+$a_n$ -- ограниченная $\Rightarrow \exists M : \begin{cases}
+    |A| \leq 1 + \frac{M}{n} \\
+    |B| \leq 1 + \frac{M}{n}
+\end{cases}$
+
+Докажем, что $\begin{cases}
+    A^n - B^n \rightarrow 0 \\
+    \lim\limits_{n \rightarrow \infty}{A^n} = exp(a)
+\end{cases} \Leftrightarrow \lim\limits_{n \rightarrow \infty}{B^n} = exp(a)$
+
+$0 \leq |A^n - B^n| = |(A-B)(A^{n-1} + A^{n-2}B + \ldots + B^{n-1}| = |A-B| \cdot |A^{n-1} + A^{n-2}B \ldots B^{n-1}| \leq |A-B| \cdot (|A^{n-1}| + |A^{n-2}B| + \ldots + |B^{n-1}|) \leq |A - B| \cdot n(1 + \frac{M}{n})^{n-1} = |1 + \frac{a}{n} - 1 - \frac{a_n}{n}| \cdot n \cdot (1 + \frac{M}{n})^{n-1} = \frac{|a - a_n|}{n} \cdot n \cdot (1 + \frac{M}{n})^{n-1} = |a - a_n| \cdot (1 + \frac{M}{n})^{n-1}$
+
+Модуль -- б/м, скобка ограничена $\Rightarrow$ выражение $\rightarrow 0 \Rightarrow A^n - B^n \rightarrow 0$
+
+\textbf{Следствие}
+
+$exp(a) \cdot exp(b) = exp(a + b)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$(1 + \frac{a}{n})^n \cdot ( 1 + \frac{b}{n})^n = ( 1 + \frac{a}{n} + \frac{b}{n} + \frac{ab}{n^2})^n = ( 1 + \frac{a + b + \frac{ab}{n}}{n})^n \Leftrightarrow exp(a) \cdot exp(b) = exp(a + b)$, т.к. $(a + b + \frac{ab}{n}) \rightarrow a + b$
+
+\textbf{Следствие:}
+
+\begin{enumerate}
+    \item $exp(n) = e^n, n \in \mathds{N}$
+    \item $f(x) = exp(x)$ -- строго возрастает
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $exp(n) = exp(1\ldots1) = exp(1) \cdot exp(1) \ldots = e^n$
+    \item $t > 0\ exp(x+t) = exp(x) \cdot exp(t) \geq (1 + t)exp(x)$
+\end{enumerate}
+
+\textbf{Теорема} $\begin{cases}
+    x_n > 0\ \forall n \in \mathds{N} \\
+    \lim\limits_{n \rightarrow \infty}{\frac{x_{n+1}}{x_n}} = a < 1
+\end{cases} \Rightarrow x_n$ -- б/м
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$a < 1$, возьмем окрестность радиусом $\frac{a+1}{2}$
+
+$\exists N : \forall n \geq N \frac{x_{n+1}}{x_n} < \frac{a+1}{2}$
+
+$fix\ n > N$
+
+$x_n = \frac{x_n}{x_{n-1}} \cdot \frac{x_{n-1}}{x_{n-2}} \ldots \frac{x_{N+1}}{x_N} \cdot x_N < (\frac{a+1}{2})^{n-N}\cdot x_N$
+
+$0 < x_n < (\frac{a+1}{2})^n \cdot \frac{x_N}{(\frac{a+1}{2})^N} \Rightarrow x_n \rightarrow 0$
+
+\textbf{Следствие}
+
+\begin{enumerate}
+    \item $\lim\limits_{n \rightarrow \infty}{\frac{n^k}{a^n}} = 0$
+    \item $\lim\limits_{n \rightarrow \infty}{\frac{a^n}{n!}} = 0$
+    \item $\lim\limits_{n \rightarrow \infty}{\frac{n!}{n^n}} = 0$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $x_n = \frac{n^k}{a^n} > 0$
+
+    $\frac{x_{n+1}}{x_n} = \frac{(n+1)^k \cdot a^n}{a^{n+1} \cdot n^k} = \frac{1}{a} \cdot (\frac{n+1}{n})^k = \frac{1}{a} \cdot (1 + \frac{1}{n})^k$
+
+    $\lim\limits_{n \rightarrow \infty}{\frac{1}{a} \cdot(1 + \frac{1}{n})^k} = \frac{1}{a} < 1 \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = 0$
+
+    \item $x_n = \frac{a^n}{n!}$
+
+    $\frac{x_{n+1}}{x_n} = \frac{a^{n+1} \cdot n!}{(n+1)! \cdot a^n} = \frac{a}{n+1}$
+
+    $\lim\limits_{n \rightarrow \infty}{\frac{a}{n+1}} = 0 < 1 \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = 0$
+
+    \item $x_n = \frac{n!}{n^n}$
+
+    $\frac{x_{n+1}}{x_n} = \frac{(n+1)! \cdot n^n}{(n+1)^{n+1} \cdot n!} = \frac{(n+1)n^n}{(n+1)^{n+1}} = \frac{n^n}{(n+1)^n} = \frac{1}{(1 + \frac{1}{n})^n}$
+
+    $\lim\limits_{n \rightarrow \infty}{\frac{1}{(1 + \frac{1}{n})^n}} = \frac{1}{e} < \frac{1}{2} \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = 0$
+\end{enumerate}
+
+\textbf{Теорема Штольца}
+
+$y_n$ строго возрастает и $\lim\limits_{n \rightarrow \infty}{y_n} = + \infty$
+
+Если $\exists \lim\limits_{n \rightarrow \infty}{\frac{x_n - x_{n-1}}{y_n - y_{n-1}}} = l \in \overline{\mathds{R}}$, то $\exists \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = l$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $l = 0$
+
+    $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} = z_n$ -- б/м $\Leftrightarrow \forall \varepsilon > 0\ \exists N : \forall n \geq N\ |z_n| < \varepsilon$
+
+    $fix\ \varepsilon > 0 \rightarrow N$
+
+    $N \leq m < n$
+
+    $x_n - x_{n-1} = z_n(y_n - y_{n-1})$
+
+    $x_n - x_m = (x_n - x_{n-1}) + (x_{n-1} - x_{n-2}) + \ldots + (x_{m+1} - x_m) = z_n(y_n - y_{n-1}) + z_{n-1}(y_{n-1} - y_{n-2}) + \ldots + z_{m+1}(y_{m+1} - y_m)$
+
+    $|x_n - x_m| = |\sum\limits_{k=m+1}^n z_k(y_k - y_{k-1})| \leq \sum\limits_{k=m+1}^n |z_k(y_k-y_{k-1})| < \varepsilon \sum\limits_{k=m+1}^n |y_k - y_{k-1}| = \varepsilon \sum\limits_{k=m+1}^n (y_k - y_{k-1}) = \varepsilon(y_n - y_m)$
+
+    $|x_n - x_m| < \varepsilon(y_n - y_m)$
+
+    $|x_n| - |x_m| \leq |x_n - x_m| < \varepsilon(y_n - y_m) < \varepsilon y_n$
+
+    $|x_n| < |x_m| + \varepsilon y_n$
+
+    $|\frac{x_n}{y_n}| < \varepsilon + \frac{|x_m|}{y_n}$
+
+    $fix\ m; n \rightarrow + \infty \Rightarrow |x_m| = const \Rightarrow \frac{|x_m|}{y_n}$ -- б/м $\Rightarrow \frac{|x_n|}{y_n} < \varepsilon \Rightarrow |\frac{x_n}{y_n}| < 2 \varepsilon$
+
+    \item $l \in \mathds{R}; l \neq 0$
+
+    $\tilde{x_n} = x_n - l y_n$
+
+    $\frac{\tilde{x_n} - \tilde{x_{n-1}}}{y_n - y_{n-1}} = \frac{x_n - l y_n - (x_{n-1} - l y_{n-1})}{y_n - y_{n-1}} = \frac{x_n - x_{n-1}}{y_n - y_{n-1}} - l \rightarrow 0 \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{\tilde{x_n}}{y_n}} = 0$
+
+    $\frac{\tilde{x_n}}{y_n} = \frac{x_n - l y_n}{y_n} = \frac{x_n}{y_n} - l \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = l$
+
+    \item $l = + \infty$
+
+    $\lim\limits_{n \rightarrow \infty}{\frac{x_n - x_{n-1}}{y_n - y_{n-1}}} = + \infty \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{y_n - y_{n-1}}{x_n - x_{n-1}}} = 0_+ \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{y_n}{x_n}} = 0_+ \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = + \infty$
+
+    Надо доказать:
+
+    \begin{itemize}
+        \item $x_n$ строго возрастает
+        \item $\lim\limits_{n \rightarrow \infty}{x_n} = + \infty$
+    \end{itemize}
+
+    $\frac{x_n - x_{n-1}}{y_n - y_{n-1}} \rightarrow + \infty \Rightarrow$ НСНМ $\frac{x_n - x_{n-1}}{y_n-y_{n-1}} > 1 \Rightarrow x_n - x_{n-1} > 0 \Rightarrow x_n > x_{n-1}$
+
+    НСНМ $(N)$ $N \leq m < n$
+
+    $\frac{x_n - x_{n-1}}{y_n - y_{n-1}} > 1 \Rightarrow x_n - x_{n-1} > y_n - y_{n-1}$
+
+    $x_n - x_m = (x_n - x_{n-1}) + (x_{n-1} - x_{n-2}) + \ldots + (x_{m+1} - x_m) > (y_n - y_{n-1}) + (y_{n-1} - y_{n-2}) + \ldots + (y_{m+1} - y_m) = y_n - y_m$
+
+    $x_n - x_m > y_n - y_m > y_n$
+
+    $x_n > x_m + y_n$
+
+    $fix\ m; n \rightarrow + \infty$
+
+    $x_n > x_m + y_n \Rightarrow \lim\limits_{n \rightarrow \infty}{x_n} = + \infty$
+
+    \item $l = - \infty$
+
+    $\tilde{x_n} = -x_n \rightarrow$ случай 3
+\end{enumerate}
+
+\textbf{Теорема Штольца (ver. 2)}
+
+$y_n : 0 < y_n < y_{n-1}\ \forall n \in \mathds{N}$
+
+$\lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{y_n} = 0$
+
+Если $\exists \lim\limits_{n \rightarrow \infty}{\frac{x_n-x_{n-1}}{y_n - y_{n-1}}} = l \in \overline{\mathds{R}}$, то $\exists \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = l$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $l = 0$
+
+    $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} = z_n$ -- б/м $\Rightarrow \forall \varepsilon > 0\ \exits N : \forall n \geq N\ |z_n| < \varepsilon$
+
+    $N \leq m < n$
+
+    $x_n - x_m = (x_n-x_{n-1}) + (x_{n-1} - x_{n-2}) + \ldots + (x_{m+1} - x_m) = z_n(y_n - y_{n-1}) + z_{n-1}(y_{n-1}-y_{n-2}) + \ldots + z_{m+1}(y_{m+1} - y_m)$
+
+    $|x_n - x_m| \leq \sum\limits_{k=m+1}^n |z_k| \cdot |y_k - y_{k-1}| \leq \varepsilon \sum\limits_{k=m+1}^n |y_k - y_{k-1}| = \varepsilon \sum\limits_{k=m+1}^n(y_{k-1} - y_k) = \varepsilon(y_m - y_n)$
+
+    $fix\ m; n \rightarrow + \infty$
+
+    $|x_n - x_m| \leq \varepsilon (y_m - y_n) \Rightarrow |x_m| \leq \varepsilon y_m$
+
+    $|\frac{x_m}{y_m}| \leq \varepsilon$
+
+    $\forall \varepsilon > 0\ \exists N : \forall m \geq N\ |\frac{x_m}{y_m}| \leq \varepsilon \Rightarrow \lim\limits_{n \rightarrow \infty}{\frac{x_n}{y_n}} = 0$
+
+    \item[2-4.] Упражнение
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 3. Подпоследовательности}
+\end{center}
+
+\textbf{Def.} $n_k$ строго возрастающая последовательность натуральных чисел
+
+$x_1, x_2, x_3 \ldots x_n \ldots$ -- последовательность
+
+$x_{n_1}, x_{n_2}, x_{n_3} \ldots x_{n_k} \ldots$ -- ее подпоследовательность
+
+\textbf{Rem.}
+
+\begin{enumerate}
+    \item $\exists \lim{x_n} = a \Rightarrow \forall x_{n_k}\ \lim{x_{n_k}} = a$
+    \item $n_k \bigcup m_l = \mathds{N}$
+
+    $\lim{x_{n_k}} = \lim{x_{m_l}} = a \Rightarrow \exists \lim{x_n} = a$
+\end{enumerate}
+
+\textbf{Rem.} $n_k$ возрастающая последовательность индексов (т.е. $\mathds{N}$) $\Rightarrow n_k \geq k$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+ММИ: 
+
+$n_1 \geq 1$
+
+$n_k \geq k \Rightarrow n_{k+1} > n_k \geq k \Rightarrow n_{k+1} > k \Rightarrow n_{k+1} \geq k + 1$
+
+\textbf{Теорема} о стягивающихся отрезках
+
+$[a_1;b_1] \supset [a_2;b_2] \supset \ldots \supset [a_n;b_n]$
+
+$\lim(b_n-a_n) = 0 \Rightarrow \exists! c \in [a_n;b_n]\ \forall n \in \mathds{N}$ и $\lim{a_n} = \lim{b_n} = c$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item $\exists c : c \in [a_n;b_n]\ \forall n \in \mathds{N}$ -- знаем из теоремы о вложенных отрезках
+
+    \item Пусть $\exists d : d \in [a_n;b_n]\ \forall n \in \mathds{N}$
+
+    $|c-d| \leq |a_n-b_n|$
+
+    $|c-d| \leq 0 \Rightarrow c = d$
+
+    \item $0 \leq |a_n - c| \leq |a_n - b_n|$
+
+    $|a_n - c| \rightarrow 0 \Rightarrow \lim{a_n} = c$
+\end{itemize}
+
+\textbf{Теорема} Больцано-Вейерштрасса
+
+Из любой ограниченной последовательности можно выделить сходящуюся подпоследовательность
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$x_n$ -- ограничена $\Rightarrow \exists a_0, b_0 : a_0 < x_n < b_n\ \forall n \in \mathds{N}$
+
+Возьмемь $\frac{a_0 + b_0}{2}$, выберем половину с бесконечным числом членов. Пусть левая $\Rightarrow a_1 = a_0; b_1 = \frac{a_0 + b_0}{2}$
+
+Возьмем $\frac{a_1 + b_1}{2}$, аналогично. Пусть правая $\Rightarrow a_2 = \frac{a_1 + b_1}{2}; b_2 = b_1$ итд
+
+Тогда $[a_0;b_0] \supset [a_1;b_1] \supset \ldots \supset [a_n;b_n] \supset \ldots$
+
+$|a_n - b_n| = |\frac{a_0 - b_0}{2^n}| \Rightarrow |a_n - b_n| \rightarrow 0$
+
+Значит это система стягивающихся отрезков
+
+На первом шаге выберем $x_{n_1} \in [a_0;b_0]$, на втором $x_{n_2} \in [a_1;b_1]\ (n_2 > n_1)$ и так далее
+
+Получили последовательность $x_{n_k}$
+
+$x_{n_k} \in [a_{k-1};b_{k-1}]$
+
+$a_{k-1} \leq x_{n_k} \leq b_{k-1} \Rightarrow x_{n_k} \rightarrow c$, где $c = \bigcap [a_n;b_n]$
+
+$\lim{x_{n_k}} = c$
+
+\textbf{Def.} $x_n$ -- фундаментальная, если $\forall \varepsilon > 0\ \exists N : \forall n, m \geq N\ |x_m - x_m| < \varepsilon$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $x_n$ -- сходится $\Rightarrow x_n$ -- фундаментальна
+    \item $x_n$ -- фундаментальна $\Rightarrow x_n$ -- ограничена
+    \item $x_n$ -- фундаментальна и $\exists n_k : \lim{x_{n_k}} = a \Rightarrow \lim{x_n} = a$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\lim{x_n} = a \Leftrightarrow \forall \varepsilon > 0\ \exists N : \forall n \geq N\ |x_n - a| < \varepsilon$
+
+    $m, n \geq N \begin{cases}
+        |x_n - a| < \varepsilon \\
+        |x_m - a| < \varepsilon
+    \end{cases}$
+
+    $|x_n - x_m| \ |(x_n - a) + (a - x_m)| \leq |x_n - a| + |a - x_m| < 2 \varepsilon \Rightarrow x_n$ -- фундаментальна
+
+    \item $x_n$ -- фундаментальна
+
+    $\forall \varepsilon > 0\ \exists N : \forall n, m \geq N\ |x_n - x_m| < \varepsilon$
+
+    $\varepsilon = 1\ \exists N : \forall n, m \geq N\ |x_n - x_m| < 1$
+
+    $\forall n\ |x_n - x_N| < 1$
+
+    $|x_n| - |x_N| \leq |x_n - x_N| < 1$
+
+    $\forall n \geq N\ |x_n| \leq 1 + |x_N|$
+
+    Значит НСНМ ограничена $\in [-(1 + |x_N|);1 + |x_n|]$
+
+    До $N$ конечное число, их можем просто сравнить с текущей границей, т.е.
+
+    $x_n \leq max\{x_1, x_2 \ldots x_{N-1}, 1 + |x_n|\}$
+
+    $x_n \geq min\{x_1, x_2 \ldots x_{N-1}, -(1 + |x_n)\}$
+
+    \item $fix\ \varepsilon > 0$
+
+    $\exists K : \forall k \geq K\ |x_{n_k} - a| < \varepsilon$
+
+    $\exists N : \forall m, n \geq N\ |x_n - x_m| < \varepsilon$
+
+    $k \geq max \{N;K\}$
+
+    $|x_n - a| = |x_n - x_{n_k} + x_{n_k} - a| \leq |x_n - x_{n_k}| + |x_{n_k} - a|$
+
+    $k \geq N \Rightarrow n_k \geq k \geq N \Rightarrow |x_n - x_{n_k}| + |x_{n_k} - a| < 2 \varepsilon \Rightarrow \lim{x_n} = a$
+\end{enumerate}
+
+Критерий Коши: $x_n$ -- сходится $\Leftrightarrow x_n$ -- фундаментальна
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$\Rightarrow$] уже доказано
+    \item[$\Leftarrow$] $x_n$ -- фундаментальна $\Rightarrow x_n$ -- ограничена $\Rightarrow$ существует сходящаяся подпоследовательность $\Rightarrow x_n$ -- сходится
+\end{itemize}
+
+\textbf{Th.}
+
+\begin{enumerate}
+    \item $x_n$ -- монотонная и не ограниченная сверху $\Rightarrow \lim{x_n} = + \infty$
+
+    $x_n$ -- монотонная и не ограниченная снизу $\Rightarrow \lim{x_n} = - \infty$
+
+    \item $x_n$ -- неограниченная сверху $\Rightarrow \exists x_{n_k} : \lim{x_{n_k}} = + \infty$
+
+    \item $x_n$ -- неограниченная снизу $\Rightarrow \exists x_{n_k} : \lim{x_{n_k}} = - \infty$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\begin{cases}
+        x_n\ \text{возрастает монотонно} \\
+        x_n\ \text{неограничена сверху} \Leftrightarrow \forall M\ \exists N : x_N > M
+    \end{cases} \Rightarrow \forall n \geq N\ x_n > M$
+
+    $\forall M\ \exists N : \forall n \geq N\ x_n > M \Leftrightarrow \lim{x_n} = + \infty$
+
+    \item $x_n$ неограничена сверху
+
+    $\exists n_1 : x_{n_1} > 1$
+
+    $\exists n_2 : x_{n_2} > 2 + x_{n_1};\ n_2 > n_1$
+
+    $\exists n_3 : x_{n_3} > 2 + x_{n_2};\ n_3 > n_2$
+
+    $\ldots$
+
+    $\forall k\ \exists x_{n_{k+1}} > 2 + x_{n_k}$
+
+    $x_{n_1} > 1 \Rightarrow \forall k\ x_{n_k} > k$
+
+    $\lim{x_{n_k}} = + \infty$
+
+    \item Аналогично второму пункту
+\end{enumerate}
+
+\textbf{Def.} $a \in \overline{R};\ a$ -- частичный предел последовательности $x_n$, если $\exists x_{n_k} : \lim{x_{n_k}} = a$
+
+\textbf{Th.} $a$ -- частичный предел $x_n \Leftrightarrow$ в любой окрестности точки $a$ содержится бесконечное число членов последовательности
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $a$ -- частичный предел $\Leftrightarrow \exists x_{n_k} \rightarrow a \Leftrightarrow \forall \varepsilon > 0$ в $(a - \varepsilon; a + \varepsilon)$ содержится бесконечное количество членов $x_{n_k}$
+
+    \item[$\Leftarrow$] Возьмем $(a-1; a+1)$, возьмем $x_{n_1} : a - 1 < x_{n_1} < a + 1$
+
+    Возьмем $(a - \frac{1}{2}; a + \frac{1}{2})$, возьмем $x_{n_2} : a - \frac{1}{2} < x_{n_2} < a + \frac{1}{2}$ и $n_2 > n_1$
+
+    \ldots
+
+    $\forall k\ \exists x_{n_k} : n_k > n_{k-1}$ и $a - \frac{1}{k} < x_{n_k} < a + \frac{1}{k} \Rightarrow \lim{x_{n_k}} = a$
+\end{itemize}
+
+\textbf{Def.} $x_n$ -- последовательность
+
+$\underline{\lim}x_n$ -- нижний предел последовательности $x_n$
+
+$\underline{\lim}x_n = \lim(infx_k) = \lim{inf\{x_k, x_{k+1} \ldots\}}$
+
+\textbf{Def.} $x_n$ -- последовательность
+
+$\overline{\lim}x_n$ -- верхний предел последовательности $x_n$
+
+$\overline{\lim}x_n = \lim(supx_k) = \lim{sup\{x_k, x_{k+1} \ldots\}}$
+
+\textbf{Договор:} $\lim{\pm \infty} = \pm \infty$
+
+$\begin{cases}
+    y_n = inf x_k \text{-- монотонно возрастает} \\
+    z_n = sup x_k \text{-- монотонно убывает}
+\end{cases} \Rightarrow \begin{cases}
+    \exists \lim{y_n} = \underline{\lim} x_n \\
+    \exists \lim{z_n} = \overline{\lim} x_n
+\end{cases}$
+
+\textbf{Th.}
+
+\begin{enumerate}
+    \item $\forall x_n\ \exists \overline{lim} x_n$ и $\underline{lim} x_n$ в $\overline{R}$
+    \item $\underline{lim} x_n \leq \overline{lim} x_n$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $y_n \uparrow;\ z_n \downarrow$
+    \item $\forall n\ y_n \leq z_n \Rightarrow \underline{lim} x_n \leq \overline{lim} x_n$
+\end{enumerate}
+
+\textbf{Th.}
+
+\begin{enumerate}
+    \item $\underline{lim} x_n$ -- наименьший из частичных пределов
+
+    \item $\overline{lim} x_n$ -- наибольший из частичных пределов
+
+    \textbf{Rem.} $\forall x_n$ множество частичных пределов непустое
+
+    \item $\underline{lim} x_n = \overline{lim} x_n \Leftrightarrow \exists \lim{x_n} = \underline{lim} x_n = \overline{lim} x_n$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item[2.] $x_n \rightarrow z = sup x_k;\ z_n \downarrow$
+
+    $\overline{lim} x_n = \lim{z_n} = a$
+
+    $z_n$ бежит к $a$ справа
+
+    Хотим $x_{n_k} : \lim{x_{n_k}} = a$
+
+    $(a - 1)$ не является верхней границей для $x_n \Rightarrow \exists x_{n_1} > a - 1$
+
+    $(a - \frac{1}{2})$ не является верхней границей для $\{x_{n_1} + 1, x_{n_1} + 2 \ldots\} \Rightarrow \exists x_{n_2} > a - \frac{1}{2}$
+
+    \ldots
+
+    $\forall k\ \exists x_{n_k} > a - \frac{1}{k}$, т.к. $a - \frac{1}{k}$ не может быть верхней граничей для $\{x_{n_{k-1}} + 1, x_{n_{k-1}} + 2 \ldots \}$
+
+    $a - \frac{1}{k} < x_{n_k} \leq z_{n_k} \Rightarrow \lim{x_{n_k}} = a \Rightarrow \overline{lim}x_n$ -- частичный предел
+
+    Пусть $x_{n_m} \rightarrow b$
+
+    $x_{n_m} \leq z_{n_m} \Rightarrow \lim{x_{n_m}} \leq \lim{z_{n_m}} \Rightarrow b \leq a$
+
+    Если $a = + \infty \Rightarrow x_n$ -- не ограничена свреху $\Rightarrow \exists x_{n_k} \rightarrow + \infty$
+
+    $x_{n_m} \leq z_{n_m}$
+
+    $b \leq + \infty$
+
+    \item $\underline{lim}x_n = \overline{lim}x_n \Leftrightarrow \exists \lim{x_n}$
+
+    \begin{itemize}
+        \item[$\Leftarrow$] $\exists \lim{x_n} = a \Rightarrow \forall x_{n_k} \rightarrow a$
+
+        \item[$\Rightarrow$] $\forall n\ y_n \leq x_n \leq z_n \Rightarrow \exists \lim{x_n} = \lim{y_n} = \lim{z_n}$
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Th.} Характеристика верхнего и нижнего пределов на языке $\varepsilon, N$
+
+$a = \underline{lim}x_n \Leftrightarrow \begin{cases}
+    \forall \varepsilon > 0\ \exists N : \forall n \geq N\ x_n > a - \varepsilon \\
+    \forall \varepsilon > 0\ \exists N : \forall n \geq N\ x_n < a + \varepsilon
+\end{cases}$
+
+$b = \overline{lim}x_n \Leftrightarrow \begin{cases}
+    \forall \varepsilon > 0\ \exists N : \forall n \geq N\ x_n < b + \varepsilon \\
+    \forall \varepsilon > 0\ \exists N : \forall n \geq N\ x_n > b - \varepsilon
+\end{cases}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$b = \lim{z_n}$
+
+$z_n = sup\{x_n, x_{n+1} \ldots\}$
+
+\begin{itemize}
+    \item[$\Leftarrow$] 
+
+    \begin{enumerate}
+        \item $\forall \varepsilon > 0\ \exists N : \forall n \geq N\ z_n \leq b + \varepsilon$
+        \item В любом хвосте есть элемент больший, чем $b - \varepsilon \Rightarrow \forall n\ z_n > b + \varepsilon$
+    \end{enumerate}
+
+    Тогда НСНМ $b - \varepsilon < z_n \leq b + \varepsilon \Rightarrow \lim{z_n} = b$
+
+    \item[$\Rightarrow$]
+
+    $\forall \varepsilon > 0\ \exists N : \forall n \geq N\ b - \varepsilon < z_n < b + \varepsilon$
+
+    $x_n \leq z_n \Rightarrow \exists x_N : x_N > b - \varepsilon$
+\end{itemize}
+
+\begin{center}
+    \subsection*{\S 4. Ряды}
+\end{center}
+
+\textbf{Def.} $\sum a_n$ -- ряд (числовой ряд); $a_n \in R$
+
+\textbf{Def.} $S_n = \sum a_k$ -- частичная сумма ряда
+
+$S_n = a_1 + a_2 + \ldots + a_n$
+
+$\{S_n\}$ -- последовательность частичных сумм
+
+Если $\exists \lim{S_n} = S \in \overline{R}$, то $S$ -- суммы ряда
+
+\textbf{Def.} $\sum a_n$ -- ряд -- сходящийся, если $S \in R$. Т.е. если $S = \pm \infty$ или $\not\exists \lim{S_n}$, то $\sum a_n$ -- расходящийся ряд
+
+\textbf{Th.} Необходимый признак сходимости числового ряда
+
+$\sum a_n$ -- сходится $\Rightarrow a_n \rightarrow 0$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\sum a_n$ сходится $\Leftrightarrow \exists \lim{S_n} = S \in R\ a_n = S_n - S_{n-1} \Rightarrow 0 = S - S$
+
+\vspace{5mm}
+
+Действия с числовыми рядами:
+
+\begin{enumerate}
+    \item $\begin{cases}
+        \sum a_n \text{-- сходится к } S \\
+        \sum b_n \text{-- сходится к } \tilde{S}
+    \end{cases} \Rightarrow \sum (a_n + b_n)$ -- сходится к $S + \tilde{S}$
+
+    \item $\begin{cases}
+        \sum a_n \text{-- сходится к } S \\
+        c \in R
+    \end{cases} \Rightarrow \sum c \cdot a_n$ -- cходится к $c \cdot S$
+
+    \item Сумма ряда, если существует, то удинственная
+
+    \item $\sum a_n$ сходится к $S$
+
+    $\begin{cases}
+        (a_1 + a_2) + (a_3) + (a_4 + a_5 + \ldots) \\
+        b_1 + b_2 + b_3
+    \end{cases} \Rightarrow \sum b_n$ -- сходится к $S$
+
+    \item Изменение (добавление, отбрасывание) конечного числа членов ряда не меняет сходимость, но может изменить сумму
+\end{enumerate}
+
+\begin{center}
+    \section*{Глава 3. Непрерывные функции}
+
+    \subsection*{\S 1. Предел функции}
+\end{center}
+
+\textbf{Def.}
+
+\begin{itemize}
+    \item $a \in R;\ U_a$ -- окрестность точки $a$
+
+    $U_a = (a - \varepsilon; a + \varepsilon)$ для некоторого $\varepsilon > 0$
+
+    $\mathring{U_a}$ -- проколотая окрестность точки $a$
+
+    $\mathring{U_a} = (a - \varepsilon; a) \bigcup (a; a + \varepsilon)$ для некоторого $\varepsilon > 0$
+
+    \item $a = + \infty \Rightarrow$ окрестность -- луч $(\varepsilon; + \infty)$
+
+    \item $a = - \infty \Rightarrow$ окрестность -- луч $(- \infty; \varepsilon)$
+\end{itemize}
+
+\textbf{Def.} $E \subset R;\ a \in R$
+
+$a$ -- предельная точка множества $E$, если $\forall \mathds{U_a} \bigcap E \neq \o$, т.е. в любой проколотой окрестности $a$ есть элемент из $E$
+
+\vspace{5mm}
+
+\textbf{Th.} Следующие условия равносильны:
+
+\begin{enumerate}
+    \item $a$ -- предельная точка $E$
+    \item В любой окрестности точки $a$ содержится бесконечное количество элементов множества $E$
+    \item $\exists x_n : \begin{gathered}
+        x_n \neq a \\
+        x_n \in E
+    \end{gathered} \lim{x_n} = a$
+
+    Более того, можно сделать так, что $|x_n - a|$ строго монотонно убывает
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item $2 \Rightarrow 1$ очев
+
+    \item $3 \Rightarrow 2$
+
+    $\exists x_n : \lim{x_n} = a$
+
+    $\forall \begin{gathered}
+        x_n \neq a \\
+        x_n \in E
+    \end{gathered}$
+
+    $\forall \varepsilon > 0\ \exists N : \forall n \geq N\ |x_n - a| < \varepsilon \Rightarrow \forall n \geq N\ \begin{gathered}
+        x_n \in U_a \\
+        x_n \in E
+    \end{gathered}$
+
+    Возьмем $b_1 = (a-1; a+1)\backslash\{a\}$ и $x_1 \in b_1$
+
+    Потом $\varepsilon_2 = min(\frac{1}{2}; |x_1 - a|)$, $b_2 = (a - \varepsilon_2; a + \varepsilon_2)\backslash\{a\}$ и $x_2 \in b_2$ итд
+
+    Знаем:
+    \begin{enumerate}
+        \item $x_n \neq a$
+        \item $|x_{n-1} - a| > |x_n - a|$
+        \item $|x_n - a| < \frac{1}{n}$
+
+        $\lim{x_n} = a$
+    \end{enumerate}
+\end{itemize}
+
+\textbf{Def.} $f : E \rightarrow R; a$ -- предельная точка $E$
+
+$A = \lim\limits_{x \rightarrow a}{f(x)} \Leftrightarrow$
+
+\begin{enumerate}
+    \item $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x \in E : 0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon$ -- определение предела по Коши
+
+    \item $\forall$ окрестности $U_A\ \exists U_a : f(\mathring{U_a} \bigcap E) \subset U_A$ -- на языке окрестностей
+
+    \item $\forall \{x_n\} : \begin{cases}
+        x_n \in E \\
+        x_n \neq a \\
+        \lim{x_n} = a
+    \end{cases} \Rightarrow \lim{f(x_n)} = A$ -- по Гейне
+\end{enumerate}
+
+$1 \Leftrightarrow 2$
+
+    $x \in (a - \delta; a) \bigcup (a; a + \delta) = \mathring{U_a}$
+
+    $U_A = (A - \varepsilon; A + \varepsilon)$
+
+    Дальше по определению
+
+\vspace{5mm}
+
+\textbf{Rem.} 
+
+\begin{enumerate}
+    \item Значение функции $f(x)$ в точке $a$ в окрестности не участвует
+    \item Предел в точке -- локальное свойство
+    \item В определении по Гейне: если все последовательности $f(x_n)$ имеют предел $\forall x_n : \begin{cases}
+        x_n \neq a \\
+        x_n \in E \\
+        x_n \rightarrow a
+    \end{cases}$, то все последовательности $\{f(x_n)\}$ имеют равные пределы
+
+    \begin{center}
+        \textbf{Доказательство}
+    \end{center}
+
+    \begin{cases}
+        $x_n \rightarrow a; y_n \rightarrow a$ \\
+        $f(x_n) \rightarrow A; f(y_n) \rightarrow B$
+    \end{cases}
+
+    $z_n = x_1, y_1, x_2, y_2 \ldots$
+
+    $z_n \rightarrow a \Rightarrow f(z_n) \rightarrow C \Rightarrow \begin{cases}
+        A = C \\
+        B = C
+    \end{cases} \Rightarrow A = B$
+\end{enumerate}
+
+\textbf{Th.} Определение предела по Коши и по Гейне равносильны
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[К $\Rightarrow$ Г.] $x_n : \begin{cases}
+        x_n \neq a \\
+        x_n \in E \\
+        x_n \rightarrow a
+    \end{cases}$
+
+    Хотим $f(x_n) \rightarrow A$
+
+    Знаем: $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x \in E\ 0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon$
+
+    $fix\ \varepsilon > 0$, подбираем для нее $\delta$
+
+    $\delta \rightarrow \exists N : \forall n \geq N\ 0 < |x_n - a| < \delta$ и $x_n \in E \Rightarrow |f(x_n) - A| < \varepsilon \Leftrightarrow \lim{f(x_n)} = A$
+
+    \item[Г $\Rightarrow$ К.] Надо: $\forall \varepsilon > 0\ \exists \delta > 0: \forall x \in E\ 0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon$
+    
+    От противного
+
+    Пусть есть $\varepsilon > 0$ для которого любая $\delta$ не подходит
+
+    $\varepsilon \leftarrow \delta = 1\ \exists x_1 : \begin{cases}
+        0 < |x_1 - a| < 1 \\
+        x_1 \in E \\
+        |f(x_1) - A| \geq \varepsilon
+    \end{cases}$
+
+    $\varepsilon \leftarrow \delta = \frac{1}{2}\ \exists x_2 : \begin{cases}
+        0 < |x_1 - a| < \frac{1}{2} \\
+        x_2 \in E \\
+        |f(x_2) - A| \geq \varepsilon
+    \end{cases}$
+
+    На $n$-м шаге $\delta = \frac{1}{n}\ \exists x_n : \begin{cases}
+        0 < |x_n - a| < \frac{1}{n} \\
+        x_n \in E \\
+        |f(x_n) - A| \geq \varepsilon
+    \end{cases}$
+
+    Получили последовательность $x_n : \forall n \begin{cases}
+        x_n \in E \\
+        x_n \neq a \\
+        |x_n - a| < \frac{1}{n}
+    \end{cases} \Rightarrow \begin{cases}
+        x_n \in E \\
+        x_n \neq a \\
+        \lim{x_n} = a
+    \end{cases} \Rightarrow \lim{f(x_n)} = A$ ?!
+\end{itemize}
+
+\textbf{Th.} Свойства пределов:
+
+\begin{enumerate}
+    \item Единственность пределов
+
+    Пусть $\lim\limits_{x \rightarrow a}{f(x)} = A$ и $\lim\limits_{x \rightarrow a}{f(x)} = B$
+
+    Гейне: $\begin{cases}
+        x_n \rightarrow a \\
+        x_n \neq a \\
+        x_n \in E
+    \end{cases} \Rightarrow \begin{cases}
+        \lim\limits_{n \rightarrow +\infty}{f(x_n)} = A \\
+        \lim\limits_{n \rightarrow +\infty}{f(x_n)} = B
+    \end{cases}$
+
+    У последовательности предел единственный $\Rightarrow A = B$
+
+    \item Локальная ограниченность
+
+    $\lim\limits_{x \rightarrow a}{f(x)} = A \in R$, то $\exists U_a : f(x)$ ограничена при $x \in U_a$
+
+    Определение через окрестность:
+
+    $U_A = (A - 1; A + 1) \rightarrow \exists U_a : f(E \bigcap \mathring{U_a}) \subset U_A$
+
+    $A - 1 < f(x) < A + 1\ \forall x \in E \bigcap \mathring{U_a}$
+
+    \textbf{Rem.} Глобальной ограниченности нет
+
+    $f(x) = \frac{1}{x}$
+
+    \item Стабилизация знака
+
+    $\lim\limits_{x \rightarrow a}{f(x)} = A \neq 0 \Rightarrow \exists U_a : \forall x \in E \bigcap \mathring{U_a}\ f(x) \cdot A > 0$
+
+    $\forall \varepsilon > 0\ \exists \delta : \forall x \in E\ 0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon$
+
+    Берем $A > 0; \varepsilon = \frac{A}{2}$ -- победа
+\end{enumerate}
+
+\textbf{Def.} $\lim\limits_{x \rightarrow a}{f(x)} = +\infty \Leftrightarrow \forall M > 0\ \exists \delta > 0 : \forall x \in E\ 0 < |x - a| < \delta \Rightarrow f(x) > M$
+
+\textbf{Def.} $\lim\limits_{x \rightarrow +\infty}{f(x)} = A \in R \Leftrightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \begin{cases}
+    x \in E \\
+    x > \delta
+\end{cases} \Rightarrow |f(x) - A| < \varepsilon$
+
+\textbf{Th.} Арифметические действия с пределами
+
+$f, g : E \rightarrow R; a$ -- предельная точка $E$
+
+$\lim\limits_{x \rightarrow a}{f(x)} = A; \lim\limits_{x \rightarrow a}{g(x)} = B; A, B \in R \Rightarrow$
+
+\begin{enumerate}
+    \item $\lim\limits_{x \rightarrow a}{f(x)\pm g(x)} = A \pm B$
+    \item $\lim\limits_{x \rightarrow a}{f(x) \cdot g(x)} = A \cdot B$
+    \item $\lim\limits_{x \rightarrow a}{|f(x)|} = |A|$
+    \item $B \neq 0 \Rightarrow \lim\limits_{x \rightarrow a}{\frac{f(x)}{g(x)}} = \frac{A}{B}$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Пункт 1 по Гейне:
+
+\vspace{2mm}
+
+$\begin{cases}
+    \{x_n\} \begin{cases}
+        x_n \in E \\
+        x_n \neq a \\
+        x_n \rightarrow a
+    \end{cases} \\
+    \lim\limits_{x \rightarrow a}{f(x)} = A
+\end{cases} \Rightarrow \lim\limits_{n \rightarrow +\infty}{f(x_n)} = A$
+
+Аналогично $\lim\limits_{n \rightarrow +\infty}{g(x_n)} = B$
+
+$\Rightarrow \lim\limits_{n \rightarrow +\infty}{f(x_n) + g(x_n)} = A + B$
+
+Аналогично доказываются все пункты
+
+\vspace{5mm}
+
+\textbf{Th.} Предельный переход в неравенстве
+
+$f, g : E \rightarrow R; a$ -- предельная точка $E$
+
+В некоторой $\mathring{U_a}\ f(x) \leq g(x); \begin{cases}
+    \lim\limits_{x \rightarrow a}{f(x)} = A \\
+    \lim\limits_{x \rightarrow a}{g(x)} = B
+\end{cases} \Rightarrow A \leq B$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+По Гейне: $\{x_n\} \begin{cases}
+    x_n \neq a \\
+    x_n \in E \\
+    x_n \rightarrow a
+\end{cases} \Rightarrow \begin{cases}
+    \lim{f(x_n)} = A \\
+    \lim{g(x_n)} = B
+\end{cases}$
+
+$x_n \rightarrow a \Rightarrow$ в какой-то момент $\forall n \geq N : x_n \in \mathring{U_a} \Rightarrow f(x_n) \leq g(x_n) \Rightarrow A \leq B$
+
+\vspace{5mm}
+
+\textbf{Th.} Теорема о двух миллиционерах
+
+$f, g, h : E \rightarrow R; a$ -- предельная точка $E$
+
+В некоторой $\mathring{U_a}\ f(x) \leq g(x) \leq h(x)\ (\forall x \in \mathring{U_a})$
+
+$\lim\limits_{x \rightarrow a}{f(x)} = \lim\limits_{x \rightarrow a}{h(x)} = A \in R \Rightarrow \exists \lim\limits_{x \rightarrow a}{g(x)} = A$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\{x_n\} \begin{cases}
+    x_n \neq a \\
+    x_n \in E \\
+    x_n \rightarrow a
+\end{cases} \Rightarrow \begin{cases}
+    f(x_n) \rightarrow A \\
+    h(x_n) \rightarrow A
+\end{cases}$
+
+$\exists N : \forall n \geq N\ x_n \in \mathring{U_a} \Rightarrow f(x_n) \leq g(x_n) \leq h(x_n) \Rightarrow \lim\limits_{x \rightarrow a}{g(x)} = A$
+
+\vspace{5mm}
+
+Критерий Коши (для функции):
+
+$f : E \rightarrow R; a$ -- предельная точка E
+
+$\exists \lim\limits_{x \rightarrow a}{f(x)} \in R \Leftrightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \forall x, y \in \mathring{U}_{_\delta (a)} \bigcap E \Rightarrow |f(x) - f(y)| < \varepsilon$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\lim\limits_{x \rightarrow a}{f(x)} = A \in R \Leftrightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \begin{cases}
+        \forall x \in E\ 0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon \\
+        \forall y \in E\ 0 < |y - a| < \delta \Rightarrow |f(y) - A| < \varepsilon
+    \end{cases} \Rightarrow |f(x) - f(y)| = |(f(x) - A) + (A - f(y))| \leq |f(x) - A| + |f(y) - A| < \varepsilon + \varepsilon = 2 \varepsilon$
+
+    \item[$\Leftarrow$] $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x, y \in \mathring{U_a} \bigcap E \Rightarrow |f(x) - f(y)| < \varepsilon$
+
+    Гейне:
+
+    $\begin{cases}
+        x_n \neq a \\
+        x_n \in E \\
+        x_n \rightarrow a
+    \end{cases}$
+
+    $fix\ \varepsilon > 0$, подбираем $\delta$
+
+    $\exists N : \forall n \geq N\ |x_n - a| < \delta \Rightarrow x_n \in \mathring{U_a} \bigcap E$
+
+    Возьмем $x_n, x_m : n, m \geq N \Rightarrow |f(x_n) - f(x_m)| < \varepsilon$
+
+    Получили $\forall \varepsilon > 0\ \exists N : \forall m, n \geq N\ |f(x_n) - f(x_m)| < \varepsilon \Rightarrow \{f(x_n)\}$ -- фундаментальная $\Leftrightarrow \exists \lim{f(x_n)} \in R \Rightarrow \exists \lim\limits_{x \rightarrow a}{f(x)}$
+\end{itemize}
+
+\textbf{Def.} $f : E \rightarrow R; E_1 = E \bigcap (-\infty; a)$
+
+$a$ -- предельная точка $E_1$
+
+$f_1 = f|_{E_1}$. Тогда если существует $\lim\limits_{x \rightarrow a}{f_1(x)}$, то он называется пределом слева для $f(x)$ в точке $a$
+
+$\lim\limits_{x \rightarrow a}{f_1(x)} = \lim\limits_{x \rightarrow a_-}{f(x)} = \lim\limits_{x \rightarrow a_{-0}}{f(x)}$
+
+\textbf{Def.} $f : E \rightarrow R; E_2 = E \bigcap (a; + \infty)$
+
+$f_2 = f|_{E_2}$. Тогда если существует $\lim\limits_{x \rightarrow a}{f_2(x)}$, то он называется пределом справа для $f(x)$ в точке $a$
+
+$\lim\limits_{x \rightarrow a}{f_2(x)} = \lim\limits_{x \rightarrow a_+}{f(x)} = \lim\limits_{x \rightarrow a_{+0}}{f(x)}$
+
+Это односторонние пределы
+
+\textbf{Rem.} $\exists \lim\limits_{x \rightarrow a}{f(x)} \Leftrightarrow \lim\limits_{x \rightarrow a_-}{f(x)} = \lim\limits_{x \rightarrow a_+}{f(x)}$
+
+\vspace{5mm}
+
+$\lim\limits_{x \rightarrow a_-}{f(x)} = A \in R \Leftrightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \forall x \in E\ a - \delta < x < a \Rightarrow |f(x)-A| < \varepsilon$
+
+\textbf{Def.} $f : E \rightarrow R$
+
+$f$ -- монотонно возрастает $\Leftrightarrow \forall x, y \in E : x < y \Rightarrow f(x) \leq f(y)$
+
+$f$ -- cтрого монотонно возрастает $\Leftrightarrow \forall x, y \in E : x < y \Rightarrow f(x) < f(y)$
+
+$f$ -- монотонно убывает $\Leftrightarrow \forall x, y \in E : x < y \Rightarrow f(x) \geq f(y)$
+
+$f$ -- строго монотонно убывает $\Leftrightarrow \forall x, y \in E : x < y \Rightarrow f(x) > f(y)$
+
+\vspace{5mm}
+
+\textbf{Th.}$f : E \rightarrow R; E_1 = (-\infty; a) \bigcap E; a$ -- предельная точка $E_1 \Rightarrow$
+
+\begin{enumerate}
+    \item Если $f$ монотонно возрастает и ограничена сверху, то $\exists \lim\limits_{x \rightarrow a_-}{f(x)} \in R$
+\end{enumerate}
+
+\textbf{Th.} $f : E \rightarrow R; E_2 = (a; + \infty) \bigcap E; a$ -- предельная точка $E_2 \Rightarrow$
+
+\begin{enumerate}
+    \item Если $f$ монотонно убывает и ограничена снизу, то $\exists \lim\limits_{x \rightarrow a_+}{f(x)} \in R$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $f$ -- ограничена сверху $\Rightarrow \exists sup(f(x)) = A$
+
+    Хотим доказать $\lim\limits_{x \rightarrow a_-}{f(x)} = A$
+
+    $fix\ \varepsilon > 0$
+
+    $A - \varepsilon$ -- не верхняя граница $\Rightarrow \exists y \in E_1 : f(y) > A - \varepsilon \Rightarrow \forall x > y\ f(x) > f(y) > A - \varepsilon$
+
+    $\begin{cases}
+        x < a \\
+        y < a
+    \end{cases} \Rightarrow \forall x : a > x > y\ A + \varepsilon > A \geq f(x) > A - \varepsilon \Rightarrow |f(x) - A| < \varepsilon \Rightarrow \lim\limits_{x \rightarrow a_-}{f(x)} = A$
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 2. Непрерывность}
+\end{center}
+
+\textbf{Def.} $f : E \rightarrow R, a \in E$
+
+$f$ называется непрерывной в точке $a$, если 
+
+\begin{enumerate}
+    \item $a$ -- не является предельной точкой $E$
+    \item $a$ -- предельная точка $E \Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = f(a)$
+\end{enumerate}
+
+\begin{enumerate}
+    \item $\forall \varepsilon > 0\ \exists \delta > 0 : \forall \in E\ |x-a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon$
+
+    \item $\forall U_{f(a)}\ \exists U_a : f(U_a \bigcap E) \subset U_{f(a)}$
+
+    \item $\forall x_n : \begin{cases}
+        x_n \in E \\
+        x_n \rightarrow a
+    \end{cases} \Rightarrow \lim{f(x_n)} = f(a)$
+\end{enumerate}
+
+\textbf{Ex:}
+
+\begin{itemize}
+    \item $f(x) = C \Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = C$
+    \item $f(x) = x \Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = a = f(a)$
+    \item $f(x) = \sign(x)$
+
+    Для $f(0)$ неверно, значит не непрерывна
+\end{itemize}
+
+\textbf{Th.} $f(x) = exp(x)$ непрерывна на $R$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $exp(x)$ непрерывна в $0$
+
+    $\lim\limits_{x \rightarrow 0}{exp(x)} = exp(0) = 1$
+
+    $\frac{1}{1-x} \geq exp(x) \geq 1 + x$
+
+    По двум милиционерам $1 \geq \lim\limits_{x \rightarrow 0}{exp(x)} \geq 1 \Rightarrow \lim\limits_{x \rightarrow 0}{exp(x)} = 1$
+
+    \item $x = a \neq 0$
+
+    Хотим $\lim\limits_{x \rightarrow a}{exp(x)} = exp(a)$
+
+    $exp(x) = exp((x - a) + a) = exp(x - a) \cdot exp(a)$. Первое стремится к 1 по первому пункту, второе -- константа $\Rightarrow exp(x) \rightarrow 1 \cdot exp(a)$
+\end{enumerate}
+
+\textbf{Th.} Арифметика непрерывных функций
+
+$f, g : E \rightarrow R; a \in E$
+
+$f, g$ -- непрерывные в $a \Rightarrow$
+
+\begin{enumerate}
+    \item $f \pm g$ -- непрерывно в $a$
+    \item $f \cdot g$ -- непрерывно в $a$
+    \item $|f|$ -- непрерывно в $a$
+    \item $g(a) \neq 0 \Rightarrow \frac{f}{g}$ -- непрерывно в $a$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $a$ не является предельной точкой $E \Rightarrow$ очев, т.к. в ней все непрерывно
+    \item $a$ -- предельная точка $E \Rightarrow \begin{cases}
+        \exists \lim\limits_{x \rightarrow a}{f(x)} = f(a) \\
+        \exists \lim\limits_{x \rightarrow a}{g(x)} = g(a)
+    \end{cases} \Rightarrow$ зовем теорему про арифметику пределов
+\end{enumerate}
+
+\textbf{Th.} О стабилизации знака
+
+$f : E \rightarrow R$, непрерывна в $a; a \in E$ и $f(a) \neq 0 \Rightarrow \exists U_a : \forall x \in U_a\ f(x) \cdot f(a) > 0$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $a$ -- не является предельной $\Rightarrow$ можем выбрать окрестность, в которой будет только $a$
+
+    \item $a$ -- предельная точка $\Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = f(a) \Rightarrow$ смотри теорему о стабилизации знака для предела функции
+\end{enumerate}
+
+\textbf{Th.} О пределе композиции
+
+$f : D \rightarrow R; g : E \rightarrow R; f(D) \subset E$
+
+$a$ -- предельная точка $D; \lim\limits_{x \rightarrow a}{f(x)} = b; b \in E$
+
+Если $g(x)$ непрерывна в $b$, то $\lim\limits_{x \rightarrow a}{g(f(x))} = g(b)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$g$ непрерывна в $b \Rightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \forall y \in E : |y - b| < \delta \Rightarrow |g(y) - g(b)| < \varepsilon$
+
+Для этой $\delta > 0\ \exists \gamma > 0 : \forall x \in D : 0 < |x-a| < \gamma \Rightarrow |f(x) - b| < \delta$
+
+$\forall \varepsilon > 0\ \exists \gamma > 0 : \forall x \in D\ 0 < |x-a| < \gamma \Rightarrow |g(f(x)) - g(b)| < \varepsilon \Leftrightarrow \lim\limits_{x \rightarrow a}{g(f(x))} = b$
+
+\textbf{Следствие:} $f : D \rightarrow R; g : E \rightarrow R; f(D) \subset E; a \in D; f(a) = b \in E$
+
+Если $f$ непрерывна в $a$, а $g$ непрерывна в $b$, то композиция $g(f(x))$ непрерывна в $a$
+
+\end{document}

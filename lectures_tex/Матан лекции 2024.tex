@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{dsfont}
 \usepackage{textcomp}
+\usepackage{mathtools}
 \def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
 \usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage[unicode, pdftex]{hyperref}
@@ -20,8 +21,9 @@
 \end{flushright}
 
 \begin{center}
-\section*{Глава 1. Введение} \\
-\subsection*{\S 1. Множества и их отношения}
+    \section*{Глава 1. Введение}
+
+    \subsection*{\S 1. Множества и их отношения}
 \end{center}
 
 
@@ -71,7 +73,7 @@
 
 \textbf{Правила Д'Моргана:}
 \begin{enumerate}
-    \item $A \backslash (\bigcap\limits_{\alpha \in I} B_\alpa) = \bigcup\limits_{\alpha \in I} (A \backslash B_\alpha)$
+    \item $A \backslash (\bigcap\limits_{\alpha \in I} B_\alpha) = \bigcup\limits_{\alpha \in I} (A \backslash B_\alpha)$
     \item $A \backslash (\bigcup\limits_{\alpha \in I} B_\alpha) = \bigcap\limits_{\alpha \in I} (A \backslash B_\alpha)$
 \end{enumerate}
 
@@ -202,10 +204,10 @@ B \neq \o
 \end{cases}$
 $\Rightarrow \exists c \in \mathds{R}: a \leq b \leq c (\forall a \in A, b \in B)$
 
-\begin{cases}
-$c - y < c \Rightarrow c - y \in A \Rightarrow \exists n \in \mathds{N} : c - y < ny \Rightarrow c < (n+1)y$ \\
-$c < c + y \Rightarrow c \in B$
-\end{cases}
+$\begin{cases}
+c - y < c \Rightarrow c - y \in A \Rightarrow \exists n \in \mathds{N} : c - y < ny \Rightarrow c < (n+1)y \\
+c < c + y \Rightarrow c \in B
+\end{cases}$
 $\Rightarrow c + y < (n+2)y \Rightarrow c + y \in A$ - противоречие $A \bigcap B = \o \Rightarrow A = \mathds{R}$
 
 \textbf{Следствие:}
@@ -218,10 +220,10 @@ $\frac{1}{n} < \varepsilon \Leftrightarrow 1 < n \varepsilon$ - принцип �
 
 $P_1, P_2, \ldots P_n \ldots$ - последователььностьь утверждений
 
-\begin{cases}
-$P_1$ - истина (база) \\
-$P_n$ - истина $\Rightarrow P_{n+1}$ - истина (переход)
-\end{cases}
+$\begin{cases}
+P_1 \text{-- истина (база)} \\
+P_n \text{-- истина} \Rightarrow P_{n+1} \text{-- истина (переход)}
+\end{cases}$
 $\Rightarrow \forall n \in \mathds{N}$ $P_n$ - истина
 
 \textbf{Th.} Во всяком конечном множестве вещественных чисел есть наибольший и наименьший элементы
@@ -1029,9 +1031,9 @@ $x_n = (1 + \frac{a}{n})^n$
 
 \textbf{Следствие} $\exists \lim\limits_{n \rightarrow \infty}{x_n} \in \mathds{R}$ (монотонность + ограниченность)
 
-\textbf{Def.} $a \in \mathds{R}\ exp(a) = \lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{(1 + \frac{a}{n})^n}$
+\textbf{Def.} $a \in \mathds{R}\ \exp(a) = \lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{(1 + \frac{a}{n})^n}$
 
-\textbf{Def.} $e = \lim\limits_{n \rightarrow \infty}{(1 + \frac{1}{n})^n} = exp(1)$
+\textbf{Def.} $e = \lim\limits_{n \rightarrow \infty}{(1 + \frac{1}{n})^n} = \exp(1)$
 
 \textbf{Rem.} $z_n = (1 + \frac{1}{n})^{n+1}$
 
@@ -1054,10 +1056,10 @@ $x_n = (1 + \frac{a}{n})^n$
 \textbf{Свойства экспоненты:}
 
 \begin{enumerate}
-    \item $exp(1) = e;\ exp(a) = 1$
+    \item $\exp(1) = e;\ \exp(a) = 1$
     \item Монотонность:
 
-    $a \leq b \Rightarrow exp(a) \leq exp(b)$
+    $a \leq b \Rightarrow \exp(a) \leq \exp(b)$
 
     \begin{center}
         \textbf{Доказательство}
@@ -1065,30 +1067,30 @@ $x_n = (1 + \frac{a}{n})^n$
 
     $1 + \frac{a}{n} \leq 1 + \frac{b}{n}$ -- верно $\forall n:$ обе дроби $> 0$
 
-    $\Rightarrow (1 + \frac{a}{n})^n \leq (1 + \frac{b}{n})^n \Rightarrow exp(a) \leq exp(b)$
+    $\Rightarrow (1 + \frac{a}{n})^n \leq (1 + \frac{b}{n})^n \Rightarrow \exp(a) \leq \exp(b)$
 
-    \item $exp(a) > 0\ \forall a \in \mathds{R}$
+    \item $\exp(a) > 0\ \forall a \in \mathds{R}$
 
     $(1 + \frac{a}{n})^n > 0$ НСНМ строго возрастает
 
-    $\exists \delta > 0: (1 + \frac{a}{n})^n > \delta > 0 \Rightarrow exp(a) > \delta > 0$
+    $\exists \delta > 0: (1 + \frac{a}{n})^n > \delta > 0 \Rightarrow \exp(a) > \delta > 0$
 
-    \item $exp(a) \cdot exp(-a) \leq 1$
+    \item $\exp(a) \cdot \exp(-a) \leq 1$
 
-    $(1 + \frac{a}{n})^n \cdot (1 + \frac{-a}{n})^n = (1 + \frac{-a^2}{n})^n \leq 1 \Rightarrow exp(a) \cdot exp(-a) \leq 1$
+    $(1 + \frac{a}{n})^n \cdot (1 + \frac{-a}{n})^n = (1 + \frac{-a^2}{n})^n \leq 1 \Rightarrow \exp(a) \cdot \exp(-a) \leq 1$
 
-    \item $exp(a) \geq 1 + a\ \forall a \in \mathds{R}$
+    \item $\exp(a) \geq 1 + a\ \forall a \in \mathds{R}$
 
-    $(1 + \frac{a}{n})^n \geq 1 + n \frac{a}{n} = 1 + a; n > -a \Rightarrow exp(a) \geq 1 + a$
+    $(1 + \frac{a}{n})^n \geq 1 + n \frac{a}{n} = 1 + a; n > -a \Rightarrow \exp(a) \geq 1 + a$
 
     \item $a < 1$
 
-    $exp(a) \leq \frac{1}{1 - a}$
+    $\exp(a) \leq \frac{1}{1 - a}$
 
     $\begin{cases}
-        exp(a) \cdot exp(-a) < 1 \Leftrightarrow exp(a) \leq \frac{1}{exp(-a)} \\
-        exp(-a) \geq 1 - a > 0
-    \end{cases} \Rightarrow \frac{1}{exp(-a)} \leq \frac{1}{1-a}$
+        \exp(a) \cdot \exp(-a) < 1 \Leftrightarrow \exp(a) \leq \frac{1}{\exp(-a)} \\
+        \exp(-a) \geq 1 - a > 0
+    \end{cases} \Rightarrow \frac{1}{\exp(-a)} \leq \frac{1}{1-a}$
 
     \item $\forall n \in \mathds{N}$
 
@@ -1123,7 +1125,7 @@ $x_n = (1 + \frac{a}{n})^n$
     $e = 2,718281828459045 \ldots$
 \end{enumerate}
 
-\textbf{Lem.} $\lim\limits_{n \rightarrow \infty}{a_n} = a \Rightarrow \lim\limits_{n \rightarrow \infty}{(1 + \frac{a_n}{n})^n} = exp(a)$
+\textbf{Lem.} $\lim\limits_{n \rightarrow \infty}{a_n} = a \Rightarrow \lim\limits_{n \rightarrow \infty}{(1 + \frac{a_n}{n})^n} = \exp(a)$
 
 \begin{center}
     \textbf{Доказательство}
@@ -1138,8 +1140,8 @@ $a_n$ -- ограниченная $\Rightarrow \exists M : \begin{cases}
 
 Докажем, что $\begin{cases}
     A^n - B^n \rightarrow 0 \\
-    \lim\limits_{n \rightarrow \infty}{A^n} = exp(a)
-\end{cases} \Leftrightarrow \lim\limits_{n \rightarrow \infty}{B^n} = exp(a)$
+    \lim\limits_{n \rightarrow \infty}{A^n} = \exp(a)
+\end{cases} \Leftrightarrow \lim\limits_{n \rightarrow \infty}{B^n} = \exp(a)$
 
 $0 \leq |A^n - B^n| = |(A-B)(A^{n-1} + A^{n-2}B + \ldots + B^{n-1}| = |A-B| \cdot |A^{n-1} + A^{n-2}B \ldots B^{n-1}| \leq |A-B| \cdot (|A^{n-1}| + |A^{n-2}B| + \ldots + |B^{n-1}|) \leq |A - B| \cdot n(1 + \frac{M}{n})^{n-1} = |1 + \frac{a}{n} - 1 - \frac{a_n}{n}| \cdot n \cdot (1 + \frac{M}{n})^{n-1} = \frac{|a - a_n|}{n} \cdot n \cdot (1 + \frac{M}{n})^{n-1} = |a - a_n| \cdot (1 + \frac{M}{n})^{n-1}$
 
@@ -1147,19 +1149,19 @@ $0 \leq |A^n - B^n| = |(A-B)(A^{n-1} + A^{n-2}B + \ldots + B^{n-1}| = |A-B| \cdo
 
 \textbf{Следствие}
 
-$exp(a) \cdot exp(b) = exp(a + b)$
+$\exp(a) \cdot \exp(b) = \exp(a + b)$
 
 \begin{center}
     \textbf{Доказательство}
 \end{center}
 
-$(1 + \frac{a}{n})^n \cdot ( 1 + \frac{b}{n})^n = ( 1 + \frac{a}{n} + \frac{b}{n} + \frac{ab}{n^2})^n = ( 1 + \frac{a + b + \frac{ab}{n}}{n})^n \Leftrightarrow exp(a) \cdot exp(b) = exp(a + b)$, т.к. $(a + b + \frac{ab}{n}) \rightarrow a + b$
+$(1 + \frac{a}{n})^n \cdot ( 1 + \frac{b}{n})^n = ( 1 + \frac{a}{n} + \frac{b}{n} + \frac{ab}{n^2})^n = ( 1 + \frac{a + b + \frac{ab}{n}}{n})^n \Leftrightarrow \exp(a) \cdot \exp(b) = \exp(a + b)$, т.к. $(a + b + \frac{ab}{n}) \rightarrow a + b$
 
 \textbf{Следствие:}
 
 \begin{enumerate}
-    \item $exp(n) = e^n, n \in \mathds{N}$
-    \item $f(x) = exp(x)$ -- строго возрастает
+    \item $\exp(n) = e^n, n \in \mathds{N}$
+    \item $f(x) = \exp(x)$ -- строго возрастает
 \end{enumerate}
 
 \begin{center}
@@ -1167,8 +1169,8 @@ $(1 + \frac{a}{n})^n \cdot ( 1 + \frac{b}{n})^n = ( 1 + \frac{a}{n} + \frac{b}{n
 \end{center}
 
 \begin{enumerate}
-    \item $exp(n) = exp(1\ldots1) = exp(1) \cdot exp(1) \ldots = e^n$
-    \item $t > 0\ exp(x+t) = exp(x) \cdot exp(t) \geq (1 + t)exp(x)$
+    \item $\exp(n) = \exp(1\ldots1) = \exp(1) \cdot \exp(1) \ldots = e^n$
+    \item $t > 0\ \exp(x+t) = \exp(x) \cdot \exp(t) \geq (1 + t)\exp(x)$
 \end{enumerate}
 
 \textbf{Теорема} $\begin{cases}
@@ -1312,7 +1314,7 @@ $\lim\limits_{n \rightarrow \infty}{x_n} = \lim\limits_{n \rightarrow \infty}{y_
 \begin{enumerate}
     \item $l = 0$
 
-    $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} = z_n$ -- б/м $\Rightarrow \forall \varepsilon > 0\ \exits N : \forall n \geq N\ |z_n| < \varepsilon$
+    $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} = z_n$ -- б/м $\Rightarrow \forall \varepsilon > 0\ \exists N : \forall n \geq N\ |z_n| < \varepsilon$
 
     $N \leq m < n$
 
@@ -1846,10 +1848,10 @@ $1 \Leftrightarrow 2$
         \textbf{Доказательство}
     \end{center}
 
-    \begin{cases}
-        $x_n \rightarrow a; y_n \rightarrow a$ \\
-        $f(x_n) \rightarrow A; f(y_n) \rightarrow B$
-    \end{cases}
+    $\begin{cases}
+        x_n \rightarrow a; y_n \rightarrow a \\
+        f(x_n) \rightarrow A; f(y_n) \rightarrow B
+    \end{cases}$
 
     $z_n = x_1, y_1, x_2, y_2 \ldots$
 
@@ -2181,31 +2183,31 @@ $f$ называется непрерывной в точке $a$, если
 \begin{itemize}
     \item $f(x) = C \Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = C$
     \item $f(x) = x \Rightarrow \lim\limits_{x \rightarrow a}{f(x)} = a = f(a)$
-    \item $f(x) = \sign(x)$
+    \item $f(x) = sign(x)$
 
     Для $f(0)$ неверно, значит не непрерывна
 \end{itemize}
 
-\textbf{Th.} $f(x) = exp(x)$ непрерывна на $R$
+\textbf{Th.} $f(x) = \exp(x)$ непрерывна на $R$
 
 \begin{center}
     \textbf{Доказательство}
 \end{center}
 
 \begin{enumerate}
-    \item $exp(x)$ непрерывна в $0$
+    \item $\exp(x)$ непрерывна в $0$
 
-    $\lim\limits_{x \rightarrow 0}{exp(x)} = exp(0) = 1$
+    $\lim\limits_{x \rightarrow 0}{\exp(x)} = \exp(0) = 1$
 
-    $\frac{1}{1-x} \geq exp(x) \geq 1 + x$
+    $\frac{1}{1-x} \geq \exp(x) \geq 1 + x$
 
-    По двум милиционерам $1 \geq \lim\limits_{x \rightarrow 0}{exp(x)} \geq 1 \Rightarrow \lim\limits_{x \rightarrow 0}{exp(x)} = 1$
+    По двум милиционерам $1 \geq \lim\limits_{x \rightarrow 0}{\exp(x)} \geq 1 \Rightarrow \lim\limits_{x \rightarrow 0}{\exp(x)} = 1$
 
     \item $x = a \neq 0$
 
-    Хотим $\lim\limits_{x \rightarrow a}{exp(x)} = exp(a)$
+    Хотим $\lim\limits_{x \rightarrow a}{\exp(x)} = \exp(a)$
 
-    $exp(x) = exp((x - a) + a) = exp(x - a) \cdot exp(a)$. Первое стремится к 1 по первому пункту, второе -- константа $\Rightarrow exp(x) \rightarrow 1 \cdot exp(a)$
+    $\exp(x) = \exp((x - a) + a) = \exp(x - a) \cdot \exp(a)$. Первое стремится к 1 по первому пункту, второе -- константа $\Rightarrow \exp(x) \rightarrow 1 \cdot \exp(a)$
 \end{enumerate}
 
 \textbf{Th.} Арифметика непрерывных функций
@@ -2268,5 +2270,841 @@ $\forall \varepsilon > 0\ \exists \gamma > 0 : \forall x \in D\ 0 < |x-a| < \gam
 \textbf{Следствие:} $f : D \rightarrow R; g : E \rightarrow R; f(D) \subset E; a \in D; f(a) = b \in E$
 
 Если $f$ непрерывна в $a$, а $g$ непрерывна в $b$, то композиция $g(f(x))$ непрерывна в $a$
+
+\vspace{5mm}
+
+\textbf{Th.} $0 < x < \frac{\pi}{2} \Rightarrow \sin{x} < x < tgx$
+
+$S_{\triangle AOB} < S_\text{сектор AOB} < S_{\triangle COB}$
+
+$S_{\triangle AOB} = \frac{1}{2} \cdot 1 \cdot 1 \cdot \sin{x}$
+
+$S_\text{сектор AOB} = \frac{1}{2} \cdot 1^2 \cdot x$
+
+$S_{\triangle COB} = \frac{1}{2} \cdot 1 \cdot tg x$
+
+$\sin{x} < x < tgx$
+
+\vspace{5mm}
+
+\textbf{Следствие:} 
+
+\begin{enumerate}
+    \item $x \in R;\ |\sin{x}| \leq |x|$, причем равенство только при $x = 0$
+
+    $x \in (0; \frac{\pi}{2})$ доказано
+
+    $x \in (- \frac{\pi}{2}; 0)\ x \rightarrow -x$
+
+    $|x| > \frac{\pi}{2} > \frac{3}{2} > 1 \Rightarrow |\sin{x}| \leq 1 < |x|$
+
+    \item $|\sin{x} - siny| \leq |x - y|;\ |\cos{x} - cosy| \leq |x - y|$
+
+    $|\sin{x} - siny| = |2sin\frac{x-y}{2} \cdot cos\frac{x+y}{2}| = 2 \cdot |sin\frac{x-y}{2}| \cdot |cos\frac{x+y}{2}| \leq 2 \cdot |\frac{x-y}{2}| \cdot 1 = |x - y|$
+
+    $\cos{x} - cosy = -2sin\frac{x-y}{2} \cdot sin\frac{x+y}{2}$ -- аналогично
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.}
+
+\begin{enumerate}
+    \item $f(x) = \sin{x};\ g(x) = \cos{x}$ -- непрерывны на $R$
+    \item $tgx,\ ctgx$ -- непрерывны на своей области определения
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\lim\limits_{x \rightarrow a}{\sin{x}} = \sin{a}$
+
+    $0 \leq |\sin{x} - \sin{a}| \leq |x-a| \rightarrow 0 \Rightarrow \lim\limits_{x \rightarrow a}{\sin{x} - \sin{a}} = 0 \Rightarrow \lim\limits_{x \rightarrow a}{\sin{x}} = \sin{a} \Leftrightarrow \sin{x}$ непрерывна в $a$
+
+    $\cos{x} = sin(\frac{\pi}{2} - x)$ -- внутренняя и внешняя непрерывны $\Rightarrow$ непрерывен $\cos{x}$
+
+    \item $tgx = \frac{\sin{x}}{\cos{x}}$ -- отношение двух непрерывных функций $\Rightarrow tgx$ непрерывен во всех точках, где $\cos{x} \neq 0$, т.е. на своей области определения ($x \neq \frac{\pi}{2} + \pi k$)
+
+    $ctgx$ -- аналогично
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} Первый замечательный предел
+
+$\lim\limits_{x \rightarrow 0}{\frac{\sin{x}}{x}} = 1$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$x \in (0; \frac{\pi}{2}) \Rightarrow sinx < x < tgx \Rightarrow \frac{sinx}{x} < 1$
+
+$x < \frac{sinx}{cosx} \Leftrightarrow cosx < \frac{sinx}{x}$
+
+$cosx < \frac{sinx}{x} < 1$ -- все функции четные
+
+$\Rightarrow 0 < |x| < \frac{\pi}{2}:\ 1 \leftarrow cosx < \frac{sinx}{x} < 1 \rightarrow 1 \Rightarrow \lim\limits_{x \rightarrow 0}{\frac{sinx}{x}} = 1$
+
+\vspace{5mm}
+
+\textbf{Th.} Теорема Вейерштрасса
+
+$f : [a;b] \rightarrow R;\ f$ -- непрерывна на $[a; b]$, тогда 
+
+\begin{enumerate}
+    \item $f$ -- ограничена на $[a; b]$
+    \item $f$ достигает своего наибольшего и наименьшего значения на $[a; b]$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item От противного. Пусть $f$ не является ограниченной $\Rightarrow \forall n \in N\ \exists x_n \in [a;b] : |f(x_n)| > n$
+
+    $\{x_n\};\ \forall n\ a < x_n < b \Rightarrow \exists x_{n_k}$ -- подпоследовательность 
+
+    $\lim{x_{n_k}} = c \in R;\ a < x_{n_k} < b \Rightarrow c \in [a;b]$
+
+    $\begin{cases}
+        f \text{-- непрерывна} \\
+        x_{n_k} \rightarrow c
+    \end{cases} \Rightarrow \lim{f(x_{n_k})} = f(c) \in R$
+
+    Знаем: $|f(x_{n_k})| > n_k \geq k \rightarrow + \infty$
+
+    \item $f$ -- ограничена на $[a;b] \Rightarrow \exists M = supf(x);\ m = inff(x);\ m, M \in R$. Докажем, что $\exists c : f(c) = M$
+
+    От противного. Пусть $\forall x \in [a;b]\ f(x) \neq M \Rightarrow \forall x \in [a;b]\ f(x) < M$
+
+    $g(x) = \frac{1}{M - f(x) (\neq 0)}$ -- непрерывна на $[a;b]$ как отношение двух непрерывных; $g(x) > 0 \Rightarrow g(x)$ -- ограничена $\exists \tilde{M} : 0 < g(x) < \tilde{M}$
+
+    $\frac{1}{M - f(x)} < \tilde{M} \Leftrightarrow M-f(x) > \frac{1}{\tilde{M}} \Leftrightarrow f(x) < M - \frac{1}{M} \Rightarrow M \neq supf(x)\ ??$
+
+    Для $inf$ используем $h(x) = \frac{1}{f(x) - m}$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Rem.}
+
+\begin{enumerate}
+    \item Непрерывность нужна везде
+
+    $f(x) = \begin{cases}
+        \frac{1}{x}, x \in (0; 1] \\
+        0, x = 0
+    \end{cases} \Rightarrow f(x)$ непрерывна везде, кроме $x = 0$, но $f$ уже не ограничена
+
+    \item Отрезок важен
+
+    $f(x) = \frac{1}{x}, x \in (0; 1]$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} Теорема Больцано-Коши (о промежуточном значении)
+
+$f$ -- непрерывна на $[a;b]$, тогда:
+
+\begin{enumerate}
+    \item Если $f(a) \cdot f(b) < 0 \Rightarrow \exists c \in (a, b) : f(c) = 0$
+    \item $f(x)$ принимает все значения между $f(a)$ и $f(b)$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item НУО $f(a) < 0; f(b) > 0$
+
+    $a_0 = a;\ b_0 = b;\ c = \frac{a_0 + b_0}{2}:$
+
+    \begin{itemize}
+        \item $f(c) = 0$ -- победа
+        \item $f(c) < 0 \rightarrow a_1 = c;\ b_1 = b_0;\ c = \frac{a_1 + b_1}{2}$
+        \item $f(c) > 0 \rightarrow a_1 = a_0;\ b_1 = c;\ c = \frac{a_1 + b_1}{2}$
+    \end{itemize}
+
+    Если продолжается бесконечно:
+
+    $[a_0;b_0] \supset [a_1;b_1] \supset \ldots$
+
+    $|b_n - a_n| = \frac{1}{2^n} \cdot |b_0 - a_0|$. Стягивающиеся отрезки $\Rightarrow \exists!c : \begin{gathered}
+        a_n \leq c \leq b_n \\
+        \lim{a_n} = \lim{b_n} = c
+    \end{gathered}$
+
+    $\begin{cases}
+        \lim{a_n} = c \\
+        f \text{-- непрерывна}
+    \end{cases} \Rightarrow \begin{cases}
+        \lim{f(a_n)} = f(c) \\
+        f(a_n) < 0
+    \end{cases} \Rightarrow f(c) \leq 0$
+
+    $\begin{cases}
+        \lim{b_n} = c \\
+        f \text{-- непрерывна}
+    \end{cases} \Rightarrow \begin{cases}
+        \lim{f(b_n)} = f(c) \\
+        f(b_n) > 0
+    \end{cases} \Rightarrow f(c) \geq 0$
+
+    Значит $\begin{cases}
+        f(c) \geq 0 \\
+        f(c) \leq 0
+    \end{cases} \Rightarrow f(c) = 0$
+
+    \item $\forall y$ между $f(a)$ и $f(b)\ \exists c \in (a; b) : f(c) = y$
+
+    НУО $f(a) < y < f(b)$
+
+    $g(x) = f(x) - y$ -- непрерывна
+
+    $g(a) = f(a) - y < 0;\ g(b) = f(b) - y > 0 \Rightarrow \exists c \in (a; b) : g(c) = 0 \Rightarrow f(c) - y = 0 \Rightarrow f(c) = y$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Rem.} 
+
+\begin{enumerate}
+    \item Непрерывность нужна везде
+
+    $f(x) = \begin{cases}
+        -1, x \in [-1; 0) \\
+        1, x \in [0; 1]
+    \end{cases}$
+
+    $f(1) \cdot f(-1) < 0$, но $\not\exists c : f(c) = 0$
+
+    \item Бывают не непрерывные функции, удовлетворяющие теореме Больцано-Коши
+
+    $f(x) = \begin{cases}
+        0, x = 0 \\
+        \sin{\frac{1}{x}}, (0; 1]
+    \end{cases}$
+
+    Если $0 < a < b \leq 1$, то очевидно выполняются (условия соблюдены)
+
+    Интересно $0 = a < b \leq 1$. Возьмем k такую, что в $[a;b]$ влезет $[\frac{1}{2\pi(k+1)};\frac{1}{2\pi k}] \Rightarrow \frac{1}{x} \in [2\pi k; 2\pi (k + 1)]$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} Непрерывный образ отрезка -- отрезок
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$f : [a;b] \rightarrow R;\ f$ -- непрерывна
+
+$f([a;b])$ -- отрезок
+
+По теореме Вейерштрасса $M = max f(x);\ m = min f(x);\ \exists p \in [a;b] : f(p) = M$ и $\exists q \in [a;b] : f(q) = m \Rightarrow f([a;b]) \subset [m;M]$
+
+$? \forall y\ m < y < M\ \exists c : f(c) = y \Rightarrow f([a;b]) = [m; M]$
+
+Рассмотрим $[p;q] \begin{gathered}
+    f(p) = M \\
+    f(q) = m \\
+    f \text{ -- непрерывна на} [p;q]
+\end{gathered} \Rightarrow \exists c \in (p; q) : f(c) = y$
+
+\vspace{5mm}
+
+\textbf{Def.} $<a; b>$ -- промежуток. $a, b \in \overline{R}$
+
+$<a; b>$ -- множество одно из 4 видов:
+
+\begin{itemize}
+    \item $(a; b)$ 
+    \item $(a; b]$
+    \item $[a; b)$
+    \item $[a; b]$
+\end{itemize}
+
+\textbf{Th.} Непрерывный образ промежутка -- промежуток (может быть другого типа)
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$f : <a; b> \rightarrow R;\ f$ -- непрерывна на $<a;b>$
+
+$m = inff(x);\ M = supf(x);\ m, M \in \overline{R}$
+
+Знаем $f(<a;b>) \subset [m; M]$
+
+Хотим: $(m; M) \subset f(<a; b>)$
+
+$y \in (m; M) \Rightarrow m < y < M$
+
+$\begin{cases}
+    m = inff(x) \\
+    m < y
+\end{cases} \Rightarrow \exists p \in <a; b> : f(p) < y$ (иначе $\forall p \in <a, b>\ f(p) \geq y$)
+
+$\begin{cases}
+    M = supf(x) \\
+    y < M
+\end{cases} \Rightarrow \exists q \in <a, b> : f(q) > y$ (иначе $\forall q \in <a, b>\ f(q) \leq y$)
+
+$\begin{cases}
+    [p; q] \subset <a;b> \\
+    f \text{ -- непрерывна на } <a; b> \Rightarrow f \text{ -- непрерывна на } [p; q] \\
+    f(p) < y < f(q)
+\end{cases} \Rightarrow \exists c \in [p; q] \subset <a;b> : f(c) = y$
+
+\vspace{5mm}
+
+\textbf{Def.} Обратная функция:
+
+$E \subset R;\ f : E \rightarrow R$ -- инъективна
+
+$f : E \rightarrow f(E)$ -- биекция (взаимно однозначное соответствие)
+
+$\begin{cases}
+    g : f(E) \rightarrow E \\
+    g(f(x)) = x\ \forall x \in E \\
+    f(g(y)) = y\ \forall y \in E
+\end{cases} \Rightarrow g$ -- обратная к $f$ функция ($g(x) = f^{-1}(x)$)
+
+\textbf{Th.} $f : <a; b> \rightarrow R;\ f$ -- непрерывна и строго монотонна
+
+$m = inff(x);\ M = supf(x);\ m, M \in \overline{R}$. Тогда
+
+\begin{enumerate}
+    \item $f$ -- обратима и $f^{-1} : <m;M> \rightarrow <a;b>$
+    \item $f^{-1}$ -- строго монотонна (характер монотонности сохраняется)
+    \item $f^{-1}$ -- непрерывна на $<m;M>$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item Строго монотонная $\Rightarrow$ инъективная $\Rightarrow$ обратима
+
+    \item НУО $f(x) \nearrow$ строго $: x > y \Leftrightarrow f(x) > f(y)$
+
+    $f^{-1} : <m;M> \rightarrow <a;b>$
+
+    $\forall u, v \in <m;M>$
+
+    $u > v \Leftrightarrow f^{-1}(u) > f^{-1}(v)$, т.к. если
+
+    $f(x) = v;\ x = f^{-1}(v);\ f(y) = u;\ y = f^{-1}(u)$
+
+    $f^{-1}(v) > f^{-1}(u) \Leftrightarrow v > u$
+
+    \item $y_0 \in <m;M>$. Хотим доказать, что $f^{-1}$ непрерывна в $y$
+
+    $\lim\limits_{y \rightarrow y_0}{f^{-1}(y)} = f^{-1}(y_0)$
+
+    На $<m;y_0)\ f^{-1} \nearrow \Rightarrow f^{-1}(y_0) \geq f^{-1}(y)\ \forall y \in <m; y_0] \Rightarrow \exists \lim\limits_{y \rightarrow y_0^-}{f^{-1}(y)} = A = \sup\limits_{<m;y_0)}f^{-1}(y) \leq f^{-1}(y_0)$
+
+    На $(y_0;M>\ f^{-1} \nearrow \Rightarrow f^{-1}(y_0) \leq f^{-1}(y) \forall y \in [y_0;M> \Rightarrow \exists \lim\limits_{y \rightarrow y_0^+}{f^{-1}(y)} = B = \inf\limits_{(y_0;M>}{f^{-1}(y)} \geq f^{-1}(y_0)$
+
+    $\lim\limits_{y \rightarrow y_0^-}{f^{-1}(y)} = A \leq f^{-1}(y_0) \leq B = \lim\limits_{y \rightarrow y_0^+}{f^{-1}(y)}$
+
+    Если $A = B$ -- победа
+
+    Что знаем: $A \leq B$, хотим отбросить часть $A < B$
+
+    Пусть $A < B$
+
+    $f^{-1} : <m;M> \rightarrow <a;b>$
+
+    $\begin{cases}
+        f^{-1}(<m;M>) = <a;b> \\
+        f^{-1}(<m;M>) \subset (- \infty; A] \bigcup \{f^{-1}(y_0)\} \bigcup [B; + \infty]
+    \end{cases} \Rightarrow$ емае \ldots $\Rightarrow A = B \Rightarrow \lim\limits_{y \rightarrow y_0^-}{f^{-1}(y)} = f^{-1}(y_0) = \\ = \lim\limits_{y \rightarrow y_0^+}{f^{-1}(y)} \Rightarrow f^{-1}$ непрерывна в $y_0$
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 3. Элементарные функции}
+\end{center}
+
+$\sin : [-\frac{\pi}{2}; \frac{\pi}{2}] \rightarrow [-1; 1]$ -- непрерывен и строго возрастает
+
+$arcsin = \sin^{-1} : [-1; 1] \rightarrow [-\frac{\pi}{2}; \frac{\pi}{2}]$ -- непрерывен и строго возрастает
+
+$\cos : [0; \pi] \rightarrow [-1; 1]$ -- непрерывен и строго убывает
+
+$arccos = \cos^{-1} : [-1; 1] \rightarrow [0; \pi]$ -- непрерывен и строго убывает
+
+$\tg : (-\frac{\pi}{2}; \frac{\pi}{2}) \rightarrow R$ -- непрерывен и строго возрастает
+
+$arctg = \tg^{-1} : R \rightarrow (-\frac{\pi}{2}; \frac{\pi}{2})$ -- непрерывен и строго возрастает
+
+$\ctg : (0; \pi) \rightarrow R$ -- непрерывен и строго убывает
+
+$arcctg = \ctg^{-1} : R \rightarrow (0; \pi)$ -- непрерывен и строго убывает
+
+\vspace{5mm}
+
+\textbf{Def.} $\exp : R \rightarrow (0; + \infty)$ -- непрерывна и строго возрастает
+
+$\exp^{-1} = \ln : (0; + \infty) \rightarrow R$ -- непрерывен и строго возрастает
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $\lim\limits_{x \rightarrow 0_+}{\ln{x}} = - \infty$
+
+    $\lim\limits_{x \rightarrow + \infty}{\ln{x}} = + \infty$
+
+    \item $\forall x > -1\ \ \ln{(1+x)} \leq x$
+
+    $y = \ln{(1+x)} \Leftrightarrow 1 + x = \exp(y) \geq 1 + y \Rightarrow x \geq y \Rightarrow x \geq \ln{(1+x)}$
+
+    \item $\forall x \in (-1; 1)\ \ \ln{(1+x)} \geq 1 - \frac{1}{1 + x}$
+
+    $y = \ln{(1+x)} \Leftrightarrow 1 + x = \exp(y) \leq \frac{1}{1-y}\ (y < 1)$
+
+    $1 + x \leq \frac{1}{1 - y} \Leftrightarrow 1 - y \leq \frac{1}{1+x} \Leftrightarrow y \geq 1 - \frac{1}{1+x}$
+
+    $\ln{(1+x)} \geq 1 - \frac{1}{1+x}$
+
+    Условие из $\ln{(1+x)} < 1 = \ln{e} \Leftrightarrow 1 + x < e \Leftrightarrow x < e - 1$
+
+    \item $\lim\limits_{x \rightarrow 0}{\frac{\ln{(1+x)}}{x}} = 1$
+
+    $\frac{x}{x+1} = 1 - \frac{1}{1+x} \leq \ln{(1+x)} \leq x;\ -1 < x < 1$
+
+    \begin{itemize}
+        \item $x \in (0; 1)$
+
+        $\frac{1}{x+1} \leq \frac{\ln{(1+x)}}{x} \leq 1$
+
+        По двум милиционерам $\lim\limits_{x \rightarrow 0_+}{\frac{\ln{(1+x)}}{x}} = 1$
+
+        \item $x \in (-1; 0)$
+
+        $\frac{1}{x+1} \geq \frac{\ln{(1+x)}}{x} \geq 1$
+
+        По двум милиционерам $\lim\limits_{x \rightarrow 0_-}{\frac{\ln{(1+x)}}{x}} = 1$
+    \end{itemize}
+
+    Односторонние пределы равны $\Rightarrow \lim\limits_{x \rightarrow 0}{\frac{\ln{(1+x)}}{x}} = 1$
+
+    \item $\ln{(ab)} = \ln{a} + \ln{b}$
+
+    $\begin{cases}
+        \ln{a} = x \Rightarrow a = \exp(x) \\
+        \ln{b} = y \Rightarrow b = \exp(y)
+    \end{cases}$
+
+    $ab = \exp(x) \cdot \exp(y) = \exp(x + y) \Leftrightarrow \ln{(ab)} = x + y = \ln{a} + \ln{b}$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Def.} $a > 0;\ b \in R$
+
+$a^b = \exp(b \cdot \ln{a})$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $b \in N;\ b = n, n \in N$
+
+    $a^n = \exp(n \cdot \ln{a}) = \exp(\ln{a} + \ln{a} + \ldots + \ln{a}) = \exp(\ln{a}) \cdot \ldots \cdot \exp(\ln{a}) = a \cdot \ldots \cdot a$
+
+    \item $b \in Z;\ b = -n, n \in N$
+
+    $a^{-n} = \exp(-n \cdot \ln{a}) = \frac{1}{\exp(n \cdot \ln{a})} = \frac{1}{a^n}$
+
+    \item $a^0 = 1$, т.к. $\exp(0) = 1$
+
+    \item $b \in Q;\ b = \frac{m}{n}, \begin{gathered}
+        n \in N \\
+        m \in Z
+    \end{gathered}$
+
+    $a^\frac{m}{n} = \exp(\frac{m}{n} \cdot \ln{a})$
+
+    $(a^\frac{m}{n})^n = (\exp(\frac{m}{n} \cdot \ln{a}))^n = \exp(n \cdot \frac{m}{n} \cdot \ln{a}) = \exp(m \cdot \ln{a}) = a^m$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} $\lim\limits_{x \rightarrow 0}{(1 + x)^\frac{1}{x}} = e$
+
+$\lim\limits_{x \rightarrow + \infty}{(1 + \frac{1}{x})^x} = \lim\limits_{x \rightarrow - \infty}{(1 + \frac{1}{x})^x} = e$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $(1 + x)^\frac{1}{x} = exp(\frac{1}{x} \cdot \ln{(1 + x)})$
+
+$\frac{\ln{(1+x)}}{x} \rightarrow 1$
+
+$\lim\limits_{x \rightarrow 0}{exp(\frac{1}{x} \cdot \ln{(1 + x)})} = exp(\lim\limits_{x \rightarrow 0}{\frac{\ln{(1 + x)}}{x}} = exp(1) = e$
+
+    \item $y = \frac{1}{x};\ x \rightarrow + \infty \Rightarrow y \rightarrow 0_+$
+
+    А если $x \rightarrow - \infty \Rightarrow y \rightarrow 0_-$
+    
+    $(1 + \frac{1}{x})^x = (1 + y)^\frac{1}{y} = e$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Def.} Показательная функция:
+
+$a > 0;\ a \neq 1;\ x \in R$
+
+$a^x = exp(x \cdot \ln{a})$
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $a^x : R \rightarrow (0; + \infty)$
+
+    \item $a > 1;\ a^x \nearrow$ строго и непрерывна
+
+    $0 < a < 1;\ a^x \searrow$ строго и непрерывна
+
+    \item $a^x \geq 1 + x \cdot \ln{a},\ \forall x$
+
+    $a^x = exp(x \cdot \ln{a}) \geq 1 + x \cdot \ln{a}$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} $\lim\limits_{x \rightarrow 0}{\frac{a^x - 1}{x}} = \ln{a};\ \forall a > 0, a \neq 1$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$a^x \geq 1 + x \ln{a} \Rightarrow a^x - 1 \geq x \cdot \ln{a}$
+
+$a^{-x} \geq 1 - x \cdot \ln{a}$
+
+В окрестности нуля $a^x \leq \frac{1}{1 - x \ln{a}} \Rightarrow a^x - 1 \leq \frac{1}{1 - x\ln{a}} - 1 = \frac{x\ln{a}}{1 - x\ln{a}}$
+
+$x\ln{a} \leq a^x - 1 \leq \frac{x\ln{a}}{1 - x\ln{a}}$
+
+\begin{itemize}
+    \item $x > 0$
+
+    $\ln{a} \leq \frac{a^x-1}{x} \leq \frac{\ln{a}}{1 - x\ln{a}}$
+
+    По двум милиционерам $\lim\limits_{x \rightarrow 0_+}{\frac{a^x-1}{x}} = \ln{a}$
+
+    \item $x < 0$
+
+    $\ln{a} \geq \frac{a^x-1}{x} \geq \frac{\ln{a}}{1 - x\ln{a}}$
+
+    По двум милиционерам $\lim\limits_{x \rightarrow 0_-}{\frac{a^x-1}{x}} = \ln{a}$
+\end{itemize}
+
+Односторонние пределы равны $\Rightarrow \lim\limits_{x \rightarrow 0}{\frac{a^x-1}{x}} = \ln{a}$
+
+\vspace{5mm}
+
+\textbf{Def.} Степенная функция
+
+$x \in (0; + \infty);\ p \in R$
+
+$x^p = exp(p \cdot \ln{x})$
+
+$x^p : (0 + \infty) \rightarrow (0; + \infty)$
+
+\begin{enumerate}
+    \item Непрерывная
+
+    \item \begin{itemize}
+        \item $p > 0 \Rightarrow x^p \nearrow$ строго
+        \item $p < 0 \Rightarrow x^p \searrow$ строго
+    \end{itemize}
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} $\lim\limits_{x \rightarrow 0}{\frac{(1+x)^p-1}{x}} = p$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$(1 + x)^p = exp(p \cdot \ln{(1+x)})$
+
+$\frac{(1+x)^p-1}{x} = \frac{exp(p \cdot \ln{(1+x)})-1}{x} = \frac{(exp(p \cdot \ln{(1+x)})-1) \cdot p \cdot \ln{(1+x)}}{p \cdot \ln{(1+x)} \cdot x}$
+
+$x \rightarrow 0 \Rightarrow 1 + x \rightarrow 1 \Rightarrow \ln{(1+x)} \rightarrow 0$
+
+$\frac{e^t-1}{t} \rightarrow 1$ при $t \rightarrow 0$ знаем
+
+$\frac{exp(p \cdot \ln{(1+x)})-1}{p \cdot \ln{(1 + x)}} \rightarrow 1$
+
+$\frac{\ln{(1+x)}}{x} \rightarrow 1$
+
+Значит исходное стремится к $1 \cdot p \cdot 1$
+
+\begin{center}
+    \subsection*{\S 4. Сравнение функций}
+\end{center}
+
+\textbf{Def.} $f, g : E \Rightarrow R;\ a$ -- предельная точка $E$
+
+Если $\exists \varphi : E \Rightarrow R$ такая что $f(x) = \varphi(x) \cdot g(x)$ при $x \in \mathring{U_a} \bigcap E$ и
+
+\begin{enumerate}
+    \item $\varphi(x)$ -- ограниченная $\Rightarrow f(x) = O(g(x)),\ x \rightarrow a$
+
+    \item $\lim\limits_{x \rightarrow a}{\varphi(x)} = 0$, то $f(x) = o(g(x)),\ x \rightarrow a$
+
+    \item $\lim\limits_{x \rightarrow a}{\varphi(x)} = 1$, то $f(x) \sim g(x),\ x \rightarrow a$
+\end{enumerate}
+
+$O, o$ -- символы Ландау
+
+\vspace{3mm}
+
+\textbf{Rem.} \begin{enumerate}
+    \item $f(x) = O(g(x)),\ x \rightarrow a \Leftrightarrow |f(x)| \leq c \cdot |g(x)|$ в некоторой $\mathring{U_a}$
+
+    \item $f(x) = o(g(x)),\ x \rightarrow a \Leftrightarrow \lim\limits_{x \rightarrow a}{\frac{f(x)}{g(x)}} = 0$, но соглашение $\frac{0}{0} = 0$
+
+    \item $f(x) \sim g(x),\ x \rightarrow a \Leftrightarrow \lim\limits_{x \rightarrow a}{\frac{f(x)}{g(x)}} = 1$, но соглашение $\frac{0}{0} = 1$
+\end{enumerate}
+
+\vspace{3mm}
+
+\textbf{Def.} $f = O(g)$ на $E \Leftrightarrow \exists c > 0 : |f(x)| \leq c \cdot |g(x)|\ \forall x \in E$
+
+\vspace{5mm}
+
+\textbf{Свойства:}
+
+\begin{enumerate}
+    \item $\sim$ -- отношение эквивалентности
+
+    \begin{itemize}
+        \item Рефлексивность: $f \sim f$, т.к. $f(x) = 1 \cdot f(x)$
+
+        \item Симметричность: $f \sim g \xRightarrow[]{?} g \sim f$
+
+        $f \sim g \Rightarrow \begin{cases}
+            f(x) = \varphi(x) \cdot g(x) \\
+            \varphi(x) \rightarrow 1,\ x \rightarrow a
+        \end{cases} \Rightarrow g(x) = \frac{1}{\varphi(x)} \cdot f(x)$
+
+        \item $\begin{cases}
+            f \sim g \\
+            g \sim h \\
+        \end{cases} \xRightarrow[]{?} f \sim h$
+
+        $f(x) = \varphi(x) \cdot g(x)$
+
+        $g(x) = \psi(x) \cdot h(x)$
+
+        $f(x) = \varphi(x) \cdot \psi(x) \cdot h(x)$
+    \end{itemize}
+
+    \item $\begin{cases}
+        f_1 \sim g_1 \\
+        f_2 \sim g_2 
+    \end{cases} \Rightarrow f_1 \cdot f_2 \sim g_1 \cdot g_2,\ x \rightarrow a$
+
+    $f_1 = \varphi_1 \cdot g_1;\ f_2 = \varphi_2 \cdot g_2;\ \varphi_1, \varphi_2 \rightarrow 1$
+
+    $\Rightarrow f_1 \cdot g_2 = (\varphi_1 \cdot \varphi_2) \cdot g_1 \cdot g_2 \Rightarrow f_1 \cdot f_2 \sim g_1 \cdot g_2$
+
+    \item $\begin{cases}
+        f_1 \sim g_1 \\
+        f_2 \sim g_2 \\
+        x \rightarrow a \\
+        f_2, g_2 \neq 0 \text{ в } \mathring{U_a}
+    \end{cases} \Rightarrow \frac{f_1}{f_2} \sim \frac{g_1}{g_2}$
+
+    $\begin{cases}
+        f_1 = \varphi_1 \cdot g_1 \\
+        f_2 = \varphi_2 \cdot g_2
+        \varphi_1. \varphi_2 \rightarrow 1
+    \end{cases} \Rightarrow \frac{f_1}{f_2} = \frac{\varphi_1 \cdot g_1}{\varphi_2 \cdot g_2} = \frac{\varphi_1}{\varphi_2} \cdot \frac{g_1}{g_2}$
+
+    \item $f \sim g,\ x \rightarrow a \Rightarrow \begin{cases}
+        f = g + o(g) \\
+        g = f + o(f)
+    \end{cases}$
+
+    $f \sim g \Rightarrow \exists \varphi \rightarrow 1 : f(x) = \varphi(x) \cdot g(x) \Rightarrow f(x) = g(x) + (\varphi(x) - 1) \cdot g(x)$
+
+    $(\varphi(x) - 1) \cdot g(x) = \psi(x) \cdot g(x),\ \psi(x) \rightarrow 0,\ x \rightarrow a \Rightarrow \psi(x) \cdot g(x) = o(g(x))$
+
+    $f(x) = g(x) + o(g(x))$
+
+    \item $f \sim g \Rightarrow f = O(g),\ x \rightarrow a$
+
+    $f(x) = \varphi(x) \cdot g(x),\ \varphi(x) \rightarrow 1$ -- ограничена в $\mathring{U_a}$
+
+    $f = o(g) \Rightarrow f = O(g)$
+
+    $f(x) = \varphi(x) \cdot g(x), \varphi(x) \rightarrow 0$ -- ограничена в $\mathring{U_a}$
+
+    \item $o(f) + o(f) = o(f),\ x \rightarrow a$
+
+    $\begin{cases}
+        \varphi(x) \cdot f(x) = o(f) \\
+        \psi(x) \cdot f(x) = o(f)
+    \end{cases} \Rightarrow$ одностороннее свойство
+
+    $o(f) + o(f) = o(f)$
+
+    $\begin{cases}
+        h(x) = \varphi(x) \cdot f(x), \varphi(x) \rightarrow 0 \\
+        g(x) = \psi(x) \cdot f(x), \psi(x) \rightarrow 0
+    \end{cases} \Rightarrow h(x) + g(x) = (\varphi(x) + \psi(x)) \cdot f(x)$
+
+    Но $\varphi(x) + \psi(x) \rightarrow 0 \Rightarrow h(x) + g(x) \in o(f)$
+
+    6.5: $O(f) + O(f) = O(f)$
+
+    $\begin{cases}
+        h = \varphi \cdot f \\
+        g = \psi \cdot f \\
+        \varphi, \psi \text{ -- ограничены}
+    \end{cases} \Rightarrow h + g = (\varphi + \psi) \cdot \Rightarrow h + g = O(f)$
+
+    \item $f \cdot o(g) = o(fg),\ x \rightarrow a$
+
+    $h \in o(g) \Rightarrow h = \varphi \cdot g,\ \varphi \rightarrow 0$
+
+    $f \cdot h = f \cdot \varphi \cdot g = \varphi \cdot (fg) \Rightarrow fh = o(fg)$
+
+    $k \in o(fg) \Rightarrow k(x) = \varphi(x) \cdot f(x) \cdot g(x),\ \varphi \rightarrow 0$
+
+    $k(x) = f(x) \cdot (\varphi(x) \cdot g(x)) = f(x) \cdot o(g(x))$
+
+    \item $\lim\limits_{x \rightarrow a}{f(x)} = b \Leftrightarrow f(x) = b + o(1),\ x \rightarrow a$
+
+    $? o(1)$
+
+    $h \in o(1) \Rightarrow h(x) = \varphi(x) \cdot 1,\ \varphi(x) \rightarrow 0$
+
+    $h(x) = o(1) \Leftrightarrow h(x)$ -- б/м
+
+    $\lim\limits_{x \rightarrow a}{f(x)} = b \Leftrightarrow \lim\limits_{x \rightarrow a}{f(x)-b} = 0 \Leftrightarrow f(x) - b = \varphi(x),\ \varphi(x) \rightarrow 0$
+
+    $f(x) = b + \varphi(x) = b + o(1)$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{E.g.}
+
+\begin{enumerate}
+    \item $\frac{\sin{x}}{x} \rightarrow 1 \Leftrightarrow \sin{x} \sim x,\ x \rightarrow 0$
+
+    \item $\frac{\ln{(1+x)}}{x} \rightarrow 1 \Leftrightarrow \ln{(1+x)} \sim x,\ x \rightarrow 0$
+
+    \item $\frac{\tg{x}}{x} \rightarrow 1 \Leftrightarrow \tg{x} \sim x,\ x \rightarrow 0$
+\end{enumerate}
+
+Или
+
+\begin{enumerate}
+    \item $\frac{\sin{x}}{x} = 1 + o(1)$
+
+    $\sin{x} = x + x \cdot o(1)$
+
+    $\sin{x} = x + o(x),\ x \rightarrow 0$
+
+    \item $\ln{(1+x)} = x + o(x)$
+
+    \item $\tg{x} = x + o(x)$
+
+    \item $\frac{e^x -1}{x} \rightarrow 1$
+
+    $\frac{e^x-1}{x} = 1 + o(1)$
+
+    $e^x - 1 = x + o(x)$
+
+    $e^x = 1 + x + o(x),\ x \rightarrow 1$
+
+    \item $\frac{(1+x)^p-1}{x} \rightarrow p$
+
+    $(1+x)^p = 1 + px + o(x)$
+\end{enumerate}
+
+\begin{center}
+    \section*{Глава 4. Дифференциальное исчисление}
+\end{center}
+
+\textbf{Def.} $f : <a, b> \rightarrow R;\ x_0 \in <a, b>$
+
+$f$ -- дифференцируема в $x_0 \Leftrightarrow \exists k \in R : f(x) = f(x_0) + k(x - x_0) + o(x - x_0),\ x \rightarrow x_0$
+
+\textbf{Def.} $f : <a, b> \rightarrow R;\ x_0 \in <a, b>$
+
+Производная функции $f(x)$ в точке $x_0$: $f'(x_0) = \lim\limits_{x \rightarrow x_0}{\frac{f(x) - f(x_0)}{x - x_0}} = \lim\limits_{h \rightarrow 0}{\frac{f(x_0 + h) - f(x_0)}{h}}$ при условии существования этого предела
+
+\textbf{Th.} Критерий дифференцируемости
+
+$f : <a, b> \rightarrow R;\ x_0 \in <a, b>$
+
+Следующие условия равносильны
+
+\begin{enumerate}
+    \item $f$ -- дифференцируема в точке $x_0$
+
+    \item $\exists$ конечная производная в точке $x_0$ ($f'(x_0) \in R$)
+
+    \item $\exists \varphi : <a, b> \rightarrow R$
+
+    $f(x) - f(x_0) = \varphi(x) \cdot (x - x_0),\ \forall x$; $\varphi(x)$ -- непрерывна в $x_0$
+\end{enumerate}
+
+\textbf{Rem.} Если все утверждения верны, то $k = f'(x_0) = \varphi(x_0)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2$]
+
+    $f(x) = f(x_0) + k(x - x_0) + o(x - x_0)$
+
+    $\frac{f(x) - f(x_0)}{x-x_0} = k + \frac{o(x-x_0)}{x - x_0}$
+
+    $f'(x_0) = \lim\limits_{x \rightarrow x_0}{\frac{f(x)-f(x_0)}{x-x_0}} = \lim\limits_{x \rightarrow x_0}{(k + \frac{o(x-x_0)}{x-x_0}}) = k \in R$
+
+    \item[$2 \Rightarrow 3$]
+
+    $\varphi(x) = \begin{cases}
+        \frac{f(x)-f(x_0)}{x-x_0}, x \neq x_0 \\
+        f'(x_0), x = x_0
+    \end{cases}$
+
+    $f(x)-f(x_0) = \varphi(x)(x-x_0)$
+
+    $\varphi$ непрерывна в $x_0$ и $\varphi(x_0) = f'(x_0)$
+
+    \item[$3 \Rightarrow 1$]
+
+    $f(x) - f(x_0) = \varphi(x)(x-x_0)$
+
+    $f(x) = f(x_0) + \varphi(x_0)(x-x_0) - \varphi(x_0)(x-x_0) + \varphi(x)(x-x_0) = f(x_0) + \varphi(x_0)(x-x_0) + (\varphi(x) - \varphi(x_0))(x-x_0)$
+
+    Знаем, что $\varphi(x) - \varphi(x_0) \rightarrow 0 \Rightarrow (\varphi(x) - \varphi(x_0))(x-x_0) = o(x-x_0)$
+
+    $f(x) = f(x_0) + k(x-x_0) + o(x-x_0)$
+\end{itemize}
 
 \end{document}

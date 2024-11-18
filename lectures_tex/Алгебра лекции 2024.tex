@@ -38,10 +38,10 @@
 
 \textbf{Th.} о делении с остатком
 
-\begin{cases}
-    $a, b \in \mathds{Z}$ \\
-    $b \neq 0$
-\end{cases}
+$\begin{cases}
+    a, b \in \mathds{Z} \\
+    b \neq 0
+\end{cases}$
 $\Rightarrow \exists ! q, r \in \mathds{Z}: a = b \cdot q + r, 0 \leq r < |b|$
 
 \begin{center}
@@ -204,11 +204,10 @@ $I$ - идеал в $\mathds{Z}$, хотим $b \in \mathds{Z}, I = <b>$
     Доказательство
 \end{center}
 
-\begin{cases}
-$d_1 = (a, b) \Rightarrow a \divby d_1, b \divby d_1, d_2 \divby d_1$ \\
-$d_2 = (a, b) \Rightarrow a \divby d_2, b \divby d_2, d_1 \divby d_2$
-\end{cases}
-$\Rightarrow d_1 = \pm d_2$
+$\begin{cases}
+d_1 = (a, b) \Rightarrow a \divby d_1, b \divby d_1, d_2 \divby d_1 \\
+d_2 = (a, b) \Rightarrow a \divby d_2, b \divby d_2, d_1 \divby d_2
+\end{cases} \Rightarrow d_1 = \pm d_2$
 
 \textbf{Th.} $a, b \in \mathds{Z}$
 
@@ -228,10 +227,10 @@ $<d> = <a, b>$
 
 $d = d \cdot 1 \in I \Rightarrow d \in <a, b>$, т.е. $\exists x, y : ax + by = d$
 
-$d = (a, b)$ \begin{cases}
-    $a \divby d' \Rightarrow ax \divby d'$
-    $b \divby d' \Rightarrow by \divby d'$
-\end{cases}
+$d = (a, b) \begin{cases}
+    a \divby d' \Rightarrow ax \divby d'
+    b \divby d' \Rightarrow by \divby d'
+\end{cases}$
 $\Rightarrow d \divby d'$
 
 $a = a \cdot 1 + b \cdot 0 \in <a, b> = <d> \Leftrightarrow a \divby d$
@@ -255,10 +254,10 @@ $a = a \cdot 1 + b \cdot 0 \in <a, b> = <d> \Leftrightarrow a \divby d$
 
 \textbf{Lem.} $(a, b) = (a, b - a)$
 
-\begin{cases}
-    $a, b \divby d \Rightarrow b - a \Rightarrow d$ \\
-    $a, b-a \divby d \Rightarrow b = a + (b - a) \divby d$
-\end{cases}
+$\begin{cases}
+    a, b \divby d \Rightarrow b - a \Rightarrow d \\
+    a, b-a \divby d \Rightarrow b = a + (b - a) \divby d
+\end{cases}$
 $\Rightarrow$ одинаковые общие делители
 
 \textbf{Следствие:} $b = aq + r \Rightarrow (a, b) = (a, r)$. Доказывается аналогично лемме
@@ -713,7 +712,7 @@ $+, \cdot$ -- бинарные операции на $R$ ($|R| > 1$)
 
 \textbf{Rem.} $R$ -- поле $\Rightarrow \forall a, b \neq 0$ $a \divby b$
 
-$a = b \cdot \frac{a}{b} = b \cdpt (a \cdot b^{-1})$
+$a = b \cdot \frac{a}{b} = b \cdot (a \cdot b^{-1})$
 
 Значит бессмыслены понятия простых, разложения на простые
 
@@ -1333,7 +1332,7 @@ $(a, n) \neq 1 \Rightarrow (a^k, n) \neq 1 \Rightarrow a^k \not\equiv 1\ (mod\ n
 
 \textbf{Def.} Функция Эйлера $\varphi(n) = |(Z/nZ)^*|$
 
-\textbf{Rem.} $\varphi(n) = #\{x \in \{0, z \cdots n-1\} | (x, n) = 1\}$
+\textbf{Rem.} $\varphi(n) = \{x \in \{0, z \cdots n-1\} | (x, n) = 1\}$
 
 \textbf{Ex.} $p$ -- простое. Знаем $(Z/pZ)^* = (Z/pZ) \backslash \{0\}$
 
@@ -1341,7 +1340,7 @@ $\varphi(p) = p - 1$
 
 Как найти $\varphi(n)$? $n = p_1^{a_1} p_2^{a_2} \cdots$
 
-\textbf{Rem1.} $p$ -- простое $\Rightarrow \varphi(p^k) = \{x \in \{0, 1 \cdots p^k-1\}| (p^k, x) = 1\} = #\{x = 0 \cdots p^k-1| x \not\divby p\} = p^k - \{x = 0 \cdots p^k-1| x \divby p\} = p^k - \frac{p^k}{p} = p^k = p^{k-1}$
+\textbf{Rem1.} $p$ -- простое $\Rightarrow \varphi(p^k) = \{x \in \{0, 1 \cdots p^k-1\}| (p^k, x) = 1\} = \{x = 0 \cdots p^k-1| x \not\divby p\} = p^k - \{x = 0 \cdots p^k-1| x \divby p\} = p^k - \frac{p^k}{p} = p^k = p^{k-1}$
 
 \textbf{Rem2.} Мультипликативность $\varphi$
 
@@ -1777,5 +1776,380 @@ $Z \rightarrow Z/nZ \rightarrow Z/pZ$. Как решать уравнения в
 
     Если $p, q$ -- нечетные простые $\Rightarrow {p \choose q}{q \choose p} = (-1)^{\frac{p-1}{2} \cdots \frac{q-1}{2}}$
 \end{enumerate}
+
+\vspace{5mm}
+
+$R$ -- коммутативное кольцо с 1
+
+$f(x) = 3x^2 + 2x$ имеет смысл в любом кольце с 1, т.к. $f(x) = (1 + 1 + 1) \cdot x \cdot x + (1 + 1) \cdot x$
+
+\textbf{Ex.} $g, f : Z/pZ \rightarrow Z/pZ$
+
+$\begin{cases}
+    f(x) = x \\
+    g(x) = x^p
+\end{cases} \Rightarrow$ по МТФ одна и та же функция, но многочлены различные
+
+$x^2 + 2x + 5 \rightarrow (1, 2, 5)$
+
+\subsection*{Формальные степенные ряды}
+
+\textbf{Def.} Пусть $R$ -- коммутативное кольцо с 1. Кольцом формальных степенных рядов $R[[x]]$ называется множество $f : Z_{\geq 0} \rightarrow R;\ \{a_0, a_1, a_2 \ldots | a_i \in R\}$ с операциями $+, \cdot$
+
+Ряд: $a_0 + a_1x + a_2x^2 + a_3x^3 + \ldots$
+
+$(a_0, a_1, a_2 \ldots) + (b_0, b_1, b_2 \ldots) = (a_0 + b_0, a_1 + b_1, a_2 + b_2 \ldots)$
+
+$(a_i) \cdot (b_i) = (c_i)^\infty_{i = 0};\ c_i = \sum\limits_{k = 0}^i a_kb_{i-k}$ -- правило свертки
+
+\textbf{Th.} $R[[x]]$ -- коммутативное кольцо с 1
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Очев -- аксиомы сложения: $(0, 0 \ldots) = 0_{R[[x]]}$
+
+$1_{R[[x]]} = (1, 0, 0 \ldots)$
+
+$(a + b) \cdot c$ -- очев (покоординатно)
+
+$ab = ba: (ab)_i = \sum\limits_{k = 0}^i a_ib_{i-k} = \sum\limits_{l = 0}^i a_{i-l}b_l = \sum\limits_{l = 0}^i b_la_{i-l} = (ba)_i$
+
+Ассоциативность: $(f \cdot g) \cdot h = f(g \cdot h);\ f, g, h \in R[[x]]$
+
+$f = (a_0, a_1, a_2 \ldots a_i \ldots);\ f_i = a_i$
+
+$((f \cdot g) \cdot h)_n = \sum\limits_{k = 0}^n (fg)_k h_{n-k} = \sum\limits_{k=0}^n(\sum\limits_{i=0}^k f_ig_{k-i})h_{n-k} = \sum\limits_{k = 0 \ldots n ; i = 0 \ldots k} f_i g_{k-i} h_{n-k} = \sum\limits_{p, q, r \geq 0 ; p + q + r = n} (f_p g_q) h_r = \sum\limits_{p, q, r \geq 0 ; p + q + r = n} f_p(g_q h_r) = \sum\limits_{p, q, r \geq 0 ; p + q \leq n} f_p(g_q h_{n-p-q}) = \sum\limits_{r = 0}^n f_p(\sum\limits_{q = 0}^p g_q h_{(n-p)-q}) = \sum\limits f_p (gh)_{n-p} = (f(gh))_n$
+
+\vspace{5mm}
+
+\textbf{Lem.} $\exists$ инъективный гомоморфизм колец
+
+$i : \begin{gathered}
+    R \rightarrow R[[x]] \\
+    a \rightarrow (a, 0, 0 \ldots)
+\end{gathered}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Нужно доказать $\begin{cases}
+    \text{инъективность} \\
+    i(x + y) = i(x) + i(y) \\
+    i(xy) = i(x) \cdot i(y) \\
+    i(1) = 1
+\end{cases}$ -- все очев
+
+В умножении $(a, 0, 0 \ldots) \cdot (b, 0, 0 \ldots) = (ab, 0, 0 \ldots)$
+
+\vspace{5mm}
+
+\textbf{Def.} $x = (0, 1, 0, 0 \ldots)$
+
+\textbf{Lem.} $a \in R$ $\begin{cases}
+    ax = (0, a, 0, 0 \ldots) \\
+    x^2 = (0, 0, 1, 0, 0 \ldots) \\
+    x^k = (0, 0, 0 \ldots 1, 0, 0 \ldots)
+\end{cases}$
+
+\vspace{5mm}
+
+$(a_0, a_1, a_2 \ldots a_k, 0, 0 \ldots) = a_0 + a_1x + a_2x^2 + \ldots a_kx^k$ -- следствие из леммы и правила сложения
+
+\textbf{Def.} $f \in R[[x]]$ называется многочленом, если $\exists N : \forall n > N\ f_n = 0$
+
+\textbf{Обозначение:} множество многочленов обозначается $R[x]$
+
+\textbf{Lem.} $R[x]$ -- подкольцо в $R[[x]]$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$0, 1 \in R[x]$ -- очев
+
+$(a_n) \in R[x] \Rightarrow (-a_n) \in R[x]$ -- тоже очев
+
+$(b_i), (a_i) \in R[x] \Rightarrow (b_i + a_i) \in R[x]\ \begin{cases}
+    \exists N_1 : a_n = 0;\ n > N_1 \\
+    \exists N_2 : b_n = 0;\ n > N_2
+\end{cases} \Rightarrow (a + b)_n = 0;\ n > max(N_1; N_2)$ $(a \cdot b)_n = 0 = \\ = \sum\limits_{i=0}^n a_ib_{n-i};\ n > N_1, N_2 \Rightarrow \left[ \begin{gathered}
+    i > N_1 \\
+    n - i > N_2
+\end{gathered} \right. \Rightarrow a_ib_{n-i} = 0\ \forall i \Rightarrow (ab)_n = 0$
+
+\vspace{5mm}
+
+\textbf{Th.} $S$ -- коммутативное кольцо; $f : R \rightarrow S$ -- гомоморфизм (e.g. $R = S; f = id$); $s \in S$. Тогда $\exists! f_s : R[x] \rightarrow S$ продолжающий $f$
+
+$f_s |_R = f;\ \ f_s \circ i = f;\ \ f_s(x) = s$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$g \in R[x] \Rightarrow g = a_0 + a_1x + a_2x^2 + \ldots + a_nx^n$
+
+Положим $f_s(g) = f(a_0) + f(a_1)s + f(a_2)s^2 + \ldots f(a_n)s^n$
+
+$f_s(gh) = f_s(g) \cdot f_s(h)$ -- муторная проверка
+
+Сложение -- очев проверка
+
+Единственность -- очев
+
+\textbf{Rem.} $f_s$ называется гомоморфизм эвалюации
+
+\textbf{Rem.} $R = S;$ $f \rightarrow f(s)$ -- значение многочлена в точке $S$
+
+$f \in R[x];\ P(f) : R \rightarrow R:\ a \rightarrow f(a)$ -- полиномиальная функция, заданная $f$
+
+Знаем: может быть такое, что $f_1 \neq f_2$, но $P(f_1) = P(f_2)$ (e.g. $x^p$ и $x$ в $Z/pZ$)
+
+\vspace{5mm}
+
+Степень многочлена: $f = \sum\limits_{i \in Z_{\geq 0}} a_ix^i$
+
+$deg(f) = max\{i | a_i \neq 0\};\  f \neq 0$
+
+$deg(0) = -\infty$
+
+\vspace{5mm}
+
+Свойства степени:
+
+\begin{enumerate}
+    \item $deg(f + g) \leq max(deg(f), deg(g))$
+
+    $deg(f + g) = max(deg(f), deg(g))$ если $deg(f) \neq deg(g)$
+
+    \item $deg(fg) = deg(f) + deg(g)$
+
+    $f = \sum a_ix^i;\ g = \sum b_jx^j$
+
+    Тогда $(fg)_s = 0$ при $s > n + m$
+
+    $(fg)_{n+m} = a_{n+m}b_0 + a_{n+m-1}b_1 + \ldots + a_nb_m + a_{n-1}b_{m+1} \ldots = a_nb_m$
+
+    Итого: $(fg)_{n+m} = a_nb_m \neq 0 \Rightarrow deg(fg) = deg(f) + deg(g)$ -- но верно только если $R$ -- область целостности, т.к. нет делителей нуля
+
+    Далее $R$ -- область целостности, еще лучше: $R = K$ -- поле
+\end{enumerate}
+
+\textbf{Следствие:} $R$ -- область целостности $\Rightarrow R[x]$ -- область целостности 
+
+\vspace{5mm}
+
+\textbf{Th.} О делении с остатком
+
+$K$ -- поле, $f, g \in K[x] (g \neq 0)$, тогда $\exists! q, r \in K[x] : f = gq + r;\ deg(r) < deg(g)$
+
+\textbf{Def.} $a$ -- корень $f$, если $f(a) = 0$
+
+\textbf{Th.} Теорема Безу: остаток от деления $f$ на $(x - a)$ равен $f(a)$. В частности $a$ -- корень $f \Leftrightarrow f \divby x - a$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+По теореме о делении с остатком
+
+$f = (x-a)q + r;\ deg(r) < deg(x-a) = 1 \Rightarrow \left[ \begin{gathered}
+    deg(r) = 0 \\
+    r = 0
+\end{gathered} \right. \Leftrightarrow r = c \in K$
+
+$f(x) = (x - a) q(x) + k$
+
+$f(a) = (a - a) q(a) + k = k$
+
+TODO
+
+$f = ax^n + f_1;\ f \circ deg(f_1) < n$
+
+$g = bx^m + g_1;\ deg(g_1) < m$
+
+$\tilde{f} = f - \frac{a}{b}x^{n - m}g = ax^n + f_1 - ax^n - \frac{a}{b}x^{n-m}g_1 = f_1 - \frac{a}{b}x^{n-m}g_1$
+
+$deg(\tilde{f}) < n$ по и.п. $\exists \tilde{q}, \tilde{r} : \tilde{f} = g \cdot \tilde{q} + \tilde{r};\ deg(\tilde{r}) < deg(g)$
+
+Тогда $f = \tilde{f} + \frac{a}{b}x^{n-m}g = g(\tilde{q} + \frac{a}{b}x^{n-m}) + \tilde{r}$
+
+Положим $q = \tilde{q} + \frac{a}{b}x^{n-m};\ r = \tilde{r}$
+
+\vspace{5mm}
+
+\textbf{Th.} $k$ -- поле, $f \in k[x],\ deg(f) = n \in Z \Rightarrow f$ имеет не более $n$ корней
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Индукция по n. База $n = 1$ -- очев
+
+$n \rightarrow n + 1$. $\deg(f) = n + 1$
+
+\begin{enumerate}
+    \item У $f$ 0 корней. $0 \leq n + 1$
+    \item У $f$ есть корень $a \Rightarrow f = (x-a)\tilde{f}$
+
+    $b$ -- корень $f \Leftrightarrow (b-a)\tilde{f}(b) = a \Leftrightarrow \left[ \begin{gathered}
+        b - a = 0 \\
+        \tilde{f}(b) = 0
+    \end{gathered} \right. \Leftrightarrow \left[ \begin{gathered}
+        b = a \\
+        b \text{-- корень?}
+    \end{gathered} \right.$
+
+    По и.п. $deg(\tilde{f}) = n$. У $\tilde{f}$ не больше $n$ корней, у $f \leq n + 1$ корня
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} О формальном и функциональном равенстве
+
+\begin{enumerate}
+    \item $k$ -- поле. $f, g \in k[x];\ a_1 \ldots a_n \in k;\ n > max(deg(f), deg(g))$
+
+    $f(a_i) = g(a_i) \forall i \Leftrightarrow f = g$
+
+    \item $k$ -- бесконечно, $f(a) = g(a) \forall a \in k \Rightarrow f = g$
+
+    $1 \Rightarrow 2:$ возьмем любые $a_1 \ldots a_n \in k : n > max(deg(f), deg(g))$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $h := f - g;\ deg(h) \leq max(deg(f), deg(g)) < n$
+
+    При этом $h(a_i) = d(a_i) - g(a_i) = 0;\ a_1 \ldots a_n$ -- корни $h,\ n > deg(h) \Rightarrow h = 0 \Leftrightarrow f = g$
+\end{enumerate}
+
+\textbf{Rem.} $f, g \in Z/pZ[x];\ deg(f), deg(g) < p \Rightarrow$ по предыдущей теореме $f \neq g$ как функции
+
+$|\{f | deg{f} < p\}| = |\{a_0 + a_1x + \ldots a_{p-1}x^{p-1}\}| = p^p$
+
+Функций: $\begin{cases}
+    f(0) = b_0 \\
+    f(1) = b_1 \\
+    \vdots \\
+    f(p-1) = b_{p-1}
+\end{cases} \Rightarrow$ всего $p^p$
+
+\textbf{Lm.} $a_1, a_2 \ldots a_k$ -- корни $f : a_i \neq a_j \Rightarrow f \divby (x-a_1)(x-a_2)\ldots(x-a_k)$
+
+\begin{center}
+    \section*{Интерполяция}
+\end{center}
+
+\textbf{Def.} $k$ -- поле. Интерполяционные данные \begin{tabular}{c|c}
+    $x$ & $x_1 \ldots x_n \in k$ \\
+    \hline \\
+    $f(x)$ & $y_1 \ldots y_n \in k$
+\end{tabular} $x_i \neq x_j$
+
+Интерполяционная задача: построить $f \in k[x]$ такую, что $f(x_i) = y_i \forall i$
+
+\vspace{3mm}
+
+\textbf{Th.} \begin{enumerate}
+    \item $\forall$ интерполяционная задача имеет решение
+
+    \item Оно единственно при ограничении $deg(f) < n$ (а вообще бесконечно много)
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item[2.] Пусть $f_1, f_2$ -- два решения. $deg(f_i) < n$
+
+    По теореме о формальном и функциональном равенстве $f_1 = f_2$ $(f_1(x_i) = y_i = f_2(x_i))$
+
+    \item[1.] Рассмотрим $L_i(x) = \frac{(x - x_1)\ldots(x - x_{i-1})(x - x_{i+1}) \ldots (x - x_n)}{(x_i - x_1) \ldots(x_i - x_{i-1})(x_i - x_{i+1}) \ldots (x_i - x_n)}$
+
+    $L_i = \frac{\prod\limits_{j \neq i}(x - x_j)}{\prod\limits_{j \neq i}(x_i - x_j)}$
+
+    $L_i(x_i) = 1$; при $i \neq j\ L_i(x_j) = 0$
+
+    $deg(L_i) = n - 1$
+
+    Положим $f = \sum y_iL_i$
+
+    $\forall k\ f(x_k)  = \sum y_iL_i(x_k) = y_kL_k(x_k) + \sum y_iL_i(x_k) = y_k$
+
+    Итог: $f = \sum\limits_{i = 1}^n \frac{y_i \prod\limits_{j \neq i} (x - x_j)}{\prod\limits_{j \neq i} (x_i - x_j)}$ -- интерполяционная формула Лагранжа
+\end{enumerate}
+
+\vspace{3mm}
+
+\textbf{Rem.} Это все КТО:
+
+Интерполяционная задача $\Leftrightarrow \begin{cases}
+    f \equiv y_1\ (mod\ x - x_1) \\
+    \vdots \\
+    f \equiv y_n\ (mod\ x - x_n)
+\end{cases}$
+
+\vspace{5mm}
+
+Вернемся к теории чисел
+
+\textbf{Th.} $(Z/pZ)^* = <a>$. $\exists a : \{ \overline{a}, \overline{a^2}, \overline{a^3} \ldots \} = \{ \overline{1}, \overline{2} \ldots\}$. $a$ -- первообразный корень по модулю $p$
+
+Надо доказать: $\exists a \in (Z/pZ)^* : ord(a) = p - 1$
+
+\textbf{LmA.} $\forall n \in N\ \ \sum\limits_{d | n} \varphi(d) = n$
+
+\textbf{Доказательство LmA:}
+
+$\{ 1, 2, \ldots, n\} = A_{d_1} \bigcup A_{d_2} \ldots;\ A_d = \{ x \leq n | (x, n) = d \}$
+
+$|A_d| = |\{ dy \leq d \cdot \frac{n}{d} | (dy, d\frac{n}{d}) = d \}| = |\{y \leq \frac{n}{d} | (y, \frac{n}{d}) = 1\}| = \varphi(\frac{n}{d})$
+
+Тогда $n = |\{1 \ldots n\}| = \sum\limits_{d | n} |A_d| = \sum\limits_{d | n} \varphi(\frac{n}{d}) = \sum\limits_{x | n} \varphi(x)$
+
+\vspace{2mm}
+
+\textbf{LmB.} $\forall d$ -- делителя $n$ в $(Z/pZ)^*$ есть либо 0, либо $\varphi(d)$ элементов порядка $d$
+
+\textbf{Доказательство LmB:}
+
+Пусть $a \in (Z/pZ)^* : ord(a) = d$
+
+$a^d = 1;\ 1, a, a^2 \ldots a^{d-1}$ попарно различны
+
+Заметим: $ord(b) = d \Rightarrow b^d = 1 \Rightarrow b \in \{1, a, a^2 \ldots a^{d-1}\}$, так как иначе у многочлена $x^d - 1$ $d$ корней в $Z/pZ$
+
+$b = a^k;\ ord(b) = d;\ b^l \neq 1$ при $l < d \Leftrightarrow a^{kl} \neq 1$ при $l < d \Leftrightarrow kl \not \divby d$ при $l < d \Leftrightarrow (k, d) = 1$ -- $\varphi(d)$ вариантов
+
+\vspace{2mm}
+
+\begin{center}
+    \textbf{Доказательство (Th.)}
+\end{center}
+
+Докажем: d -- делитель $p-1 \Rightarrow$ в $(Z/pZ)^*$ ровно $\varphi(d)$ элементов порядка $d$ (в частности $d = p - 1 \Rightarrow$ есть элементы порядка $p - 1$)
+
+По LmA. $p-1 = \sum\limits_{d | p-1} \varphi(d)$, но $p - 1 = |(Z/pZ)^*| = |\bigcup\limits_{d | p-1} B_d| = \sum |B_d|$, где $B_d = \{a | ord(a) = d\}$
+
+$p - 1 = \sum\limits_{d | p - 1} |B_d| = \sum\limits_{d | p - 1} \varphi(d) \Rightarrow |B_d| = \varphi(d)$. В частности $|B_{p-1}| = \varphi(p-1) > 0$
+
+\vspace{5mm}
+
+Хотим ОТА для многочленов \ldots
+
+\textbf{Def.} Область целостности $R$ называется евклидовым кольцом, если $\exists \varphi : R\backslash\{0\} \rightarrow Z_{\geq 0}$ (евклидова норма), такая, что $\forall a, b \in R, b \neq 0\ \exists q, r " a = bq + r \left[ \begin{gathered}
+    \varphi(r) < \varphi(b) \\
+    r = 0
+\end{gathered} \right.$
+
+\textbf{Смысл.} В евклидовом кольце можно делать алгоритм евклида (понижая $\varphi$)
 
 \end{document}

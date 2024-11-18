@@ -38,18 +38,18 @@
     \begin{itemize}
         \item 1 аксиома индукции
 
-        \begin{cases}
-            $P_1$ - истина \\
-            $\forall i$ $P_i \rightarrow P_{i_1}$
-        \end{cases}
+        $\begin{cases}
+            P_1 \text{-- истина} \\
+            \forall i$ $P_i \rightarrow P_{i_1}
+        \end{cases}$
         $\Rightarrow \forall i$ $P_i$ - истина
 
         \item 2 аксиома индукции
 
-        \begin{cases}
-            $P_1$ - истина \\
-            $\forall i$ $P_1 \ldots P_i \rightarrow P_{i+1}$
-        \end{cases}
+        $\begin{cases}
+            P_1 \text{-- истина} \\
+            \forall i$ $P_1 \ldots P_i \rightarrow P_{i+1}
+        \end{cases}$
         $\Rightarrow \forall i$ $P_i$ - истина
     \end{itemize}
     \item "От противного"
@@ -68,10 +68,10 @@
 
     \item Двусторонние оценки
 
-    \begin{cases}
-        $A \geq B$ \\
-        $B \geq A$
-    \end{cases}
+    $\begin{cases}
+        A \geq B \\
+        B \geq A
+    \end{cases}$
     $\Rightarrow A = B$
 
     \item Оценка + пример
@@ -139,10 +139,10 @@ $L = \{ A, C, G, T\}$
 
 $|L^k| = |L|^k = 4^k$
 
-\begin{cases}
-    $f(n) = n \cdot f(n-1)$ \\ 
-    $f(0) = 1$
-\end{cases} -- количество перестановок
+$\begin{cases}
+    f(n) = n \cdot f(n-1) \\ 
+    f(0) = 1
+\end{cases}$ -- количество перестановок
 
 $n(n-1)\ldots(n-k+1) = A_n^k = \frac{n!}{(n-k)!} = C_n^k \cdot k!$
 
@@ -284,7 +284,7 @@ $k$ предметов (множество $X$), $n$ ящиков (множес�
         \hline
         Различимы & Различимы & $k^n$ & $A_k^n$ & $\hat{S}(n, k)$ \\
         \hline
-        Неразличимы & Различимы & $C_{n+k}^k$ & $C_k^n$ & C_{k-1}^{n-1} \\
+        Неразличимы & Различимы & $C_{n+k}^k$ & $C_k^n$ & $C_{k-1}^{n-1}$ \\
         \hline
         Различимы & Неразличимы & $B(n, k)$ & $\begin{gathered} 0, k > n \\ 1, k \leq n \end{gathered}$ & $S(n, k)$ \\
         \hline
@@ -447,9 +447,7 @@ $4W - 2a_1W - a_2W = 4$
 
 \begin{center}
     \section*{Теория вероятностей}
-\end{center}
 
-\begin{center}
     \subsection*{Классическая вероятность}
 \end{center}
 
@@ -484,7 +482,7 @@ $P_i = \frac{|\text{успех}|}{\Omega}$
 \vspace{5mm}
 
 \begin{center}
-    \subsection*{Общее определение вероятности}
+    \item \subsection*{Общее определение вероятности}
 \end{center} 
 
 $\Omega$ -- множетсво элементарных исходов
@@ -643,5 +641,200 @@ $P_n(k_1, k_2)$
 $a_n = \frac{k_1-np}{\sqrt{npq}};\ P_n = \frac{k_2 - np}{\sqrt{npq}}$
 
 $\lim{((P_n(k_1, k_2) - \frac{1}{\sqrt{2\pi}})\int e^{\frac{-x^2}{2}}} dx) = 0$
+
+\vspace{5mm}
+
+При броске кубика множество элементарных исходов -- количество точек на верхней грани, количество очков за бросок мы ставим самостоятельно (иногда исходя из количества точек, но не обязательно)
+
+$\xi : F \rightarrow R$ на $(\Omega, F, P)$
+
+$\xi(\text{выпала 1}) = \{1, 2, 1, -2, -1 \ldots\}$
+
+$\{x | \xi(x) = t \in R\} \rightarrow P(\xi = t) = P_\xi(t)$
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $t$ & $t_1$ & $t_2$ \ldots & $t_k$ \\
+        \hline
+        $P$ & $P_1$ & $P_2$ \ldots & $P_k$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+$F_\xi(t) = P(\xi < t)$
+
+$\begin{cases}
+    \lim\limits_{t \rightarrow - \infty}{F_\xi(t)} = 0 \\
+    \lim\limits_{t \rightarrow + \infty}{F_\xi(t)} = 1
+\end{cases}$
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $\xi_i$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        \hline
+        $P_i$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ & $\frac{4}{36}$ & $\frac{5}{36}$ & $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ & $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$ \\
+        \hline
+    \end{tabular}
+    
+    {\footnotesize Сумма чисел на кубике}
+\end{center}
+
+$F_\xi(t) = P(\{\xi < t\})$
+
+Плотность -- $f_\xi(t) : \int\limits_{-\infty}^t f_\xi(x)dx = F_\xi(t)$
+
+$f_\xi(t) = F_\xi'(t)$
+
+При $t > q$ $F_\xi(t) - F_\xi(q) = \int\limits_q^t f_\xi(x) dx$
+
+$U[a, b];\ f_{U[a,b]}(t) = \left[ \begin{gathered}
+    0,\ t \not\in [a, b] \\
+    c,\ t \in [a, b]
+\end{gathered} \right.$
+
+$l = \frac{1}{b-a}$
+
+\vspace{3mm}
+
+$\frac{c}{1 + (x - \Theta)^2}$ -- распределение Коши
+
+\textbf{Совместное распределение}
+
+$\xi, \eta$ -- с.в.
+
+$(\xi, \eta);\ P((\{\xi = k\}),(\{\eta = m\})) = P){km}$
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        & $k_1$ & \ldots & $k_n$ \\
+        \hline
+        $m_1$ & $P_{1,1}$ & \ldots & $P_{1, n}$ \\
+        \hline
+        \vdots & & &\\
+        \hline
+    \end{tabular}
+\end{center}
+
+$\forall k, m;\ P_{km} = P(\xi = k) \cdot P(\eta = m)$
+
+$E_\xi = \sum\limits_{i=1}^n k_i p_i$
+
+$E_{c\xi} = \sum\limits_{i=1}^n (c k_i)p_i = c\sum\limits_{i=1}^n k_i p_i = c E_\xi$
+
+$E_{\xi + c} = \sum\limits_{i=1}^n (k_i + c) p_i = \sum\limits_{i=1}^n k_i p_i + \sum\limits_{i=1}^n c p_i = E_\xi + c$
+
+$E_{\xi + \eta} = E_\xi + E_\eta$ -- упражнение на дом
+
+$E_{\xi\eta} \neq E_\xi \cdot E_\eta$, правда если $\xi$ и $\eta$ независимы
+
+$E_\xi = \int\limits_{-\infty}^{+\infty} xf_\xi(x)dx = \int\limits_{-\infty}^{+\infty} xdF(x)$
+
+$E_{\xi\eta} = \sum\limits_{i=1}^n\sum\limits_{j=1}^l k_im_jp_{ij} = \sum\limits{i=1}^n \sum\limits_{j=1}^l k_ip_i m_jq_j = \sum(k_ip_i(\sum(m_jq_j))) = E_\eta \sum k_ip_i = E_\eta \cdot E_\xi$
+
+$E(\xi - E_\xi)^2 =: D_\xi$
+
+$D_{c\xi} = c^2 D_\xi$
+
+$d_{\xi + \eta} \neq D_\xi + D_\eta$, верно только в случае независимости $\xi$ и $\eta$
+
+\textbf{Def.} $E_{\xi^k}$ -- $k$-ый момент
+
+\textbf{Def.} $E_{|xi^k|}$ -- $k$-ый абсолютный момент
+
+\textbf{Def.} $E_{(\xi - E_\xi)^k}$ -- $k$-ый центральный момент
+
+$cov(\xi, \eta) = E_{(\xi - E_\xi)(\eta - E_\eta)} = E_{\xi\eta - \xi E_\eta - \eta E_\xi + E_{\xi\eta}} = E_{\xi\eta} - E_\xi \cdot E_\eta - E_\eta \cdot E_\xi + E_\xi \cdot E_\eta = E_{\xi\eta} - E_\xi \cdot E_\eta$
+
+\textbf{Def.} $r(\xi, \eta) = \frac{cov(\xi, \eta)}{\sqrt{D_\xi D_\eta}}$ -- коэффициент корреляции
+
+$E(\xi - E_\xi) = 0$
+
+$r(\alpha\xi + x; \beta\eta + y) = r(\xi;\eta) \cdot sign(\alpha\beta)$
+
+$-1 \leq r(\xi, \eta) \leq 1$
+
+\begin{center}
+    \subsection*{Производящие и характеристические функции}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{c | c | c}
+        0 & 1 & 2 \ldots \\
+        \hline 
+        $p_0$ & $p_1$ & $p_2$
+    \end{tabular}
+\end{center}
+
+$\psi(z) = \sum z^kp_k = E z^k$
+
+$z \in \mathds{C};\ |z| \leq 1$
+
+$\frac{d^k\psi}{dz^k}|_{z=0} = k!p_k$
+
+$\frac{d^k\psi}{dz^k}|_{z=1} = \sum\limits_{k = n}^{+ \infty} {k \choose n} \cdot z^{k-n} \cdot p_k |_{z = 1} = E(\xi(\xi - 1)(\xi - 2) \ldots (\xi - n + 1))$
+
+$\frac{d^k\psi}{dz^k} = E_{\xi^2 - \xi} = E_{\xi^2} - E_\xi$
+
+$\psi_{a\xi + b}(z) = z^b \cdot \psi_{\xi}(z^a)$
+
+$\psi_{\xi + \eta}(z) = \psi_\xi(z) \cdot \psi_\eta(z)$
+
+\textbf{Def.} $P(\xi = k) = \frac{e^{-\lambda}\lambda^k}{k!}$ -- распределение Пуассона
+
+$\psi_\xi(z) = \sum\limits_{k=0}^{+\infty} e^{-\lambda} \frac{\lambda^k}{k!}z^k = e^{-\lambda} \sum\limits_{k=0}^{+\infty} \frac{(\lambda z)^k}{k!} = e^{-\lambda}e^{\lambda z} = e^{\lambda(z-1)}$
+
+$\lambda e^{\lambda(z-1)}|_{z=1} = \lambda$
+
+$D_\xi = E_{\xi^2} - E_\xi^2 = \lambda + \lambda^2 - \lambda^2 = \lambda$
+
+$\varphi(t) = Ee^{it\xi}$ -- характеристическая функция
+
+$\varphi_{a\xi + b}(t) = e^{itb} \cdot \varphi_\xi(at)$
+
+$\varphi_{\xi + \eta}(t) = \varphi_\xi(t) \cdot \varphi_\eta(t)$
+
+$i^{-n}\frac{d^n\varphi(t)}{dt^n}|_{t=0} = E\xi^n$
+
+$f_{N_{0, 1}} = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$
+
+$\varphi_{N_{0, 1}}(t) = e^{-\frac{t^2}{2}}$
+
+$E_{N_{0, 1}} = 0$
+
+$D_{N_{0, 1}} = 1$
+
+\vspace{5mm}
+
+Мы можем использовать характеристические уравнения для:
+
+\begin{itemize}
+    \item Рекуреннтных соотношений
+    \item Дифференциальных уравнений
+    \item Случайных процессов
+\end{itemize}
+
+\vspace{5mm}
+
+$\xi$ -- с.в., $\xi \geq 0$
+
+$\forall \varepsilon > 0;\ P(\xi \geq \varepsilon) \leq \frac{E\xi}{\varepsilon}$ -- неравенство Маркова
+
+$\mathbb{1}(x) = \left\{ \begin{gathered}
+    1,\ x \in A \\
+    0,\ x \not\in A
+\end{gathered} \right.$
+
+$\mathbb{1}_{[0; \varepsilon]}(\xi) + \mathbb{1}_{[\varepsilon; +\infty)}(\xi) = 1$
+
+$E_\xi = E_{\xi \cdot 1} = E_{\xi \cdot \mathbb{1}_{[0; \varepsilon]}(\xi)} + E_{\xi \cdot \mathbb{1}_{[\varepsilon; +\infty)}(\xi)} \geq E_{\xi \cdot \mathbb{1}_{[\varepsilon; +\infty)}(\xi)} \geq \varepsilon \cdot P(\xi \geq \varepsilon)$
+
+$\xi$ -- с.в., $D_\xi < +\infty$
+
+$\forall \delta\ P(|\xi - E\xi| \geq \delta) \leq \frac{D\xi}{\delta^2}$ -- неравенство Чебышева
+
+$P(|\xi - E\xi| \geq \delta) = P((\xi - E\xi)^2 \geq \delta^2) \leq \frac{E(\xi - E\xi)^2}{\delta^2} = \frac{D\xi}{\delta^2}$ 
 
 \end{document}

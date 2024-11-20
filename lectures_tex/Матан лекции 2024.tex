@@ -3107,4 +3107,284 @@ $f : <a, b> \rightarrow R;\ x_0 \in <a, b>$
     $f(x) = f(x_0) + k(x-x_0) + o(x-x_0)$
 \end{itemize}
 
+\textbf{Def.} Бесконечная производная
+
+$f(x) = \sqrt[3]{x};\ x_0 = 0$
+
+$f'(x_0) = f'(0) = \lim\limits_{h \rightarrow 0} \frac{\sqrt[0]{0 + h} - \sqrt[3]{0}}{h} = \lim\limits_{h \rightarrow 0} \frac{\sqrt[3]{h}}{h} = \lim\limits_{h \rightarrow 0} \frac{1}{\sqrt[3]{h^2}} = + \infty$
+
+$f'(x_0) = \lim\limits_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h}$
+
+\textbf{Def.} Односторонние производные
+
+$f'_+(x_0) = \lim\limits_{h \rightarrow 0_+} \frac{f(x_0 + h) - f(x_0)}{h} = \lim\limits_{x \rightarrow x_{0_+}} \frac{f(x) - f(x_0)}{x - x_0}$
+
+$f'_-(x_0) = \lim\limits_{h \rightarrow 0_-} \frac{f(x_0 + h) - f(x_0)}{h} = \lim\limits_{x \rightarrow x_{0_-}} \frac{f(x) - f(x_0)}{x - x_0}$
+
+\textbf{Ex.} $f(x) = |x|, x_0 = 0$
+
+$f'_+(0) = \lim\limits_{x \rightarrow 0_+} \frac{|x| - 0}{x} = 1$
+
+$f'_-(0) = \lim\limits_{x \rightarrow 0_-} \frac{|x| - 0}{x} = -1$
+
+\textbf{Rem.} $\exists f'(x_0) \Leftrightarrow \exists f'_+(x_0) = f'_-(x_0)$
+
+\vspace{5mm}
+
+\textbf{Def.} Касательная -- предельное положение секущей
+
+\textbf{Утверждение} $f$ -- дифференцируема в $x_0 \Rightarrow$ прямая $y = f(x_0) + f'(x_0)(x - x_0)$ -- касательная к графику функции $f(x)$ в точке $x_0$ 
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$f$ -- дифференцируема в $u$
+
+$\frac{f(v) - f(u)}{v - u}(x - u) + f(u) = y$ ($x = u \rightarrow f(u);\ x = v \rightarrow f(v)$)
+
+$x_0 \leftrightarrow u$
+
+$\lim\limits_{v \rightarrow u} \frac{f(v) - f(u)}{v - u} = f'(u)$
+
+$y = f(u) + f'(u)(x - u) = f(x_0) + f'(x_0)(x - x_0)$
+
+\vspace{5mm}
+
+\textbf{Def.} Дифференциал функции -- линейная часть приращения функции (для дифференцируемых функций)
+
+$f$ -- дифференцируема в $x_0 \Leftrightarrow \exists k \in R$
+
+$f(x) = f(x_0) + k(x - x_0) + o(x - x_0),\ x \rightarrow x_0$
+
+$f(x) - f(x_0) = k(x - x_0) + o(x - x_0)$. Слева от равно приращение функции, справа -- линейная часть + о малое
+
+$df_{x_0} : R \rightarrow R$. $df_{x_0} = kx$
+
+$f(x) = f(x_0) + df_{x_0}(x - x_0) + o(x - x_0)$
+
+\vspace{3mm}
+
+\textbf{Утверждение} $f(x)$ дифференцируема в $x_0$, то $f$ непрерывна в $x_0$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$f$ -- дифференцируема в $x_0 \Rightarrow \exists \varphi(x) : f(x) = f(x_0) + \varphi(x)(x - x_0)$, причем $\varphi(x)$ непрерывна в $x_0$
+
+$\lim\limits_{x \rightarrow x_0} f(x) = \lim\limits_{x \rightarrow x_0} (f(x_0) + \varphi(x)(x - x_0)) = f(x_0) + \varphi(x_0) \cdot 0 = f(x_0) \Rightarrow f$ непрерывна в $x_0$
+
+\vspace{5mm}
+
+\textbf{Th.} Про арифметические действия с производной
+
+$f, g : <a, b> \rightarrow R;\ x_0 \in <a, b>;\ f, g$ -- дифференцируемы в $x_0$, тогда 
+
+\begin{enumerate}
+    \item $f \pm g$ -- дифференцируема в $x_0$ и $(f \pm g)'(x_0) = f'(x_0) \pm g'(x_0)$
+    \item $f \cdot g$ -- дифференцируема в $x_0$ и $(f \cdot g)'(x_0) = f'(x_0) \cdot g(x_0) + f(x_0) \cdot g'(x_0)$
+    \item Если $g(x_0) \neq 0$, то $\frac{f}{g}$ -- дифференцируема в $x_0$ и $(\frac{f}{g})'(x_0) = \frac{f'(x_0) \cdot g(x_0) - f(x_0) \cdot g'(x_0)}{g^2(x_0)}$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $f$ -- дифференцируема в $x_0 \Leftrightarrow \exists \varphi(x) : <a, b> \rightarrow R$, $\varphi(x)$ непрерывна в $x_0$
+    
+    $f(x) = f(x_0) + \varphi(x)(x - x_0)$ ($\forall x \in <a, b>$))
+
+    $g$ -- дифференцируема в $x_0 \Leftrightarrow \exists \psi(x) : <a, b> \rightarrow R$, $\psi(x)$ непрерывна в $x_0$
+
+    $g(x) = g(x_0) + \psi(x)(x - x_0)$ ($\forall x \in <a, b>$))
+
+    $f(x) \pm g(x) = (f(x_0) \pm g(x_0)) + (\varphi(x) \pm \psi(x))(x - x_0)$
+
+    $\xi(x) = \varphi(x) \pm \psi(x)$ -- непрерывна в $x_0$
+
+    $\Rightarrow f(x) \pm g(x)$ -- дифференцируема в $x_0$ и $(f(x) \pm g(x))'(x_0) = \xi(x_0) = \varphi(x_0) \pm \psi(x_0) = f'(x_0) \pm g'(x_0)$
+
+    \item $f(x) \cdot g(x) = (f(x_0) + \varphi(x) \cdot (x - x_0)) \cdot (g(x_0) + \psi(x) \cdot (x - x_0)) =$
+    
+    $= f(x_0) \cdot g(x_0) + f(x_0) \cdot \psi(x) \cdot (x - x_0) + g(x_0) \cdot \varphi(x) \cdot (x - x_0) + \varphi(x) \cdot \psi(x) \cdot (x - x_0)^2 =$
+
+    $= f(x_0) \cdot g(x_0) + (f(x_0) \cdot \psi(x) + g(x_0) \cdot \varphi(x) + \varphi(x) \cdot \psi(x) \cdot (x - x_0)) \cdot (x - x_0)$
+
+    Большая скобка $= \xi(x) : <a; b> \rightarrow R,\ \xi(x)$ непрерывна в $x_0$
+
+    $f(x) \cdot g(x) = f(x_0) \cdot g(x_0) + \xi(x) \cdot (x - x_0) \Rightarrow f \cdot g$ -- дифференцируема в $x_0$ и $(f \cdot g)'(x_0) = \xi(x_0) =$
+    
+    $= f'(x_0) \cdot \psi(x_0) + g(x_0) \cdot \varphi(x_0) + 0 = f'(x_0) \cdot g(x_0) + f(x_0) \cdot g'(x_0)$
+
+    \item $(\frac{f}{g})' = (f \cdot \frac{1}{g})'$
+    
+    $(\frac{1}{g})'(x_0) = \lim\limits_{x \rightarrow x_0} \frac{\frac{1}{g(x)} - \frac{1}{g(x_0)}}{x - x_0} = \lim\limits_{x \rightarrow x_0} \frac{g(x_0) - g(x)}{g(x) \cdot g(x_0) \cdot (x - x_0)} = \frac{-g'(x_0)}{g^2(x_0)}$
+
+    $(f \cdot \frac{1}{g})'(x_0) = f'(x_0) \cdot \frac{1}{g(x_0)} - f(x_0) \cdot \frac{g'(x_0)}{g^2(x_0)} = \frac{f'(x_0) \cdot g(x_0) - f(x_0) \cdot g'(x_0)}{g^2(x_0)}$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} Дифференцируемость композиции
+
+$f : <a;b> \rightarrow R;\ g : <c;d> \rightarrow <a;b>$
+
+$x_0 \in <c;d>;\ y_0 = g(x_0) \in <a;b>$
+
+$g$ -- дифференцируема в $x_0$ и $f$ -- дифференцируема в $y_0 = g(x_0)$. Тогда $f \circ g$ -- дифференцируема в $x_0$ и $(f \circ g)'(x_0) = f'(g(x_0)) \cdot g'(x_0) = f'(y_0) \cdot g'(x_0)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$g$ -- дифференцируема в $x_0 \Leftrightarrow \exists \psi(x) : g(x) = g(x_0) + \psi(x)(x - x_0);\ \psi$ -- непрерывна в $x_0$
+
+$f$ -- дифференцируема в $y_0 \Leftrightarrow \exists \varphi(y) : f(y) = f(y_0) + \varphi(y)(y - y_0);\ \varphi$ -- непрерывна в $y_0$
+
+$f(g(x)) = f(g(x_0)) + \varphi(g(x))(g(x) - g(x_0)) = f(g(x_0)) + \varphi(g(x))\psi(x)(x - x_0);\ \xi(x) = \varphi(g(x))\psi(x)$
+
+$f(g(x)) = f(g(x_0)) + \xi(x)(x - x_0)$
+
+$\xi(x)$ -- непрерывна в $x_0$? $\psi$ -- непрерывна в $x_0$, $g$ -- непрерывна в $x_0$, $\varphi$ -- непрерывна в $y_0 = g(x_0) \Rightarrow \varphi(g(x))$ -- непрерывна в $x_0$
+
+Значит $f(g(x))$ -- дифференцируема в $x_0$ 
+
+$(f \circ g)'(x_0) = \xi(x_0) = \varphi(g(x_0))\psi(x_0) = f'(g(x_0)) \cdot g'(x_0) = f'(y_0) \cdot g'(x_0)$
+
+\vspace{5mm}
+
+\textbf{Th.} Дифференцируемость обратной функции
+
+$f : <a, b> \rightarrow <m, M>$ -- строго монотонная и непрерывная
+
+$x_0 \in <a, b> : f'(x_0) \neq 0$ ($f$ -- дифференцируема в $x_0$)
+
+Тогда $f^{-1}$ -- дифференцируема в $y_0 = f(x_0)$ и $(f^{-1})'(y_0) = \frac{1}{f'(x_0)}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\exists f^{-1}$, более того $f^{-1}$ -- непрерывная
+
+$f$ -- дифференцируема в $x_0 \Rightarrow \exists \varphi(x) : f(x) = f(x_0) + \varphi(x)(x - x_0);\ \varphi(x)$ -- непрерывна в $x_0$
+
+$y = f(x) \Rightarrow x = f^{-1}(y)$
+
+$y_0 = f(x_0) \Rightarrow x_0 = f^{-1}(y_0)$
+
+$y = y_0 + \varphi(f^{-1}(y))(f^{-1}(y) - f^{-1}(y_0)) \Rightarrow y - y_0 = \varphi(f^{-1}(y))(f^{-1}(y) - f^{-1}(y_0))$
+
+$f^{-1}(y) - f^{-1}(y_0) = \frac{1}{\varphi(f^{-1}(y))}(y - y_0)$
+
+$\varphi(f^{-1}(y)) = \varphi(x);\ \varphi(x_0) = f'(x_0) \neq 0$ и $\varphi$ -- непрерывна в $x_0$
+
+В окрестности $x_0\ \varphi(x) \neq 0$
+
+$\varphi(f^{-1}(y))$ непрерывна по непрерывности композиции
+
+$f^{-1}$ -- дифференцируема в $y_0$ и $(f^{-1})'(y_0) = \frac{1}{\varphi(f^{-1}(y_0))} = \frac{1}{\varphi(x_0)} = \frac{1}{f'(x_0)}$
+
+\vspace{5mm}
+
+\textbf{Rem.} $(f^{-1})(y_0) = \frac{1}{f'(f^{-1}(y_0))}$
+
+\vspace{5mm}
+
+\textbf{Def.} Производные элементарных функций
+
+\begin{enumerate}
+    \item $c \in R;\ (c)' = 0$
+    \item $(x^p)' = p \cdot x^{p-1}$
+    \item $(a^x)' = a^x \ln{a}$
+    
+    $(e^x)' = e^x$
+    \item $(\ln{x})' = \frac{1}{x}$
+    \item $(\sin{x})' = \cos{x}$
+    \item $(\cos{x})' = -\sin{x}$
+    \item $(\tg{x})' = \frac{1}{\cos^2{x}}$
+    \item $(\ctg{x})' = - \frac{1}{\sin^2{x}}$
+    \item $(\arcsin{x})' = \frac{1}{\sqrt{1 - x^2}}$
+    \item $(\arccos{x})' = - \frac{1}{\sqrt{1 - x^2}}$
+    \item $(\arctg{x})' = \frac{1}{1 + x^2}$
+    \item $(\arcctg{x})' = - \frac{1}{1 + x^2}$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item[2.] $\lim\limits_{h \rightarrow 0} \frac{(x + h)^p - x^p}{h} = \lim\limits_{h \rightarrow 0} \frac{x^p((1 + \frac{h}{p})^p - 1)}{h}$
+    
+    $\frac{(x + 1)^p - 1}{x} \rightarrow p,\ x \rightarrow 0 \Rightarrow (1 + x)^p - 1 \sim px,\ x \rightarrow 0$
+
+    $= \lim\limits_{h \rightarrow 0} \frac{x^p \cdot p \cdot \frac{h}{x}}{h} = p \cdot x^{p-1}$
+
+    \item[3.] $\lim\limits_{h \rightarrow 0} \frac{a^{x + h} - a^x}{h} = a^x \lim\limits_{h \rightarrow 0} \frac{a^h - 1}{h} = a^x \ln{a}$
+    
+    \item[4.] $(\ln{x})' = \lim\limits_{h \rightarrow 0} \frac{\ln{(x + h)} - \ln{x}}{h} = \lim\limits_{h \rightarrow 0} \frac{\ln{(\frac{x + h}{x})}}{h} = \lim\limits_{h \rightarrow 0} \frac{\ln{(1 + \frac{h}{x})}}{h} = \frac{1}{x}$
+    
+    \item[5.] $(\sin{x})' = \lim\limits_{h \rightarrow 0} \frac{\sin{(x + h)} - \sin{x}}{h} = \lim\limits_{h \rightarrow 0} \frac{2 \sin{\frac{h}{2}} \cos{(x + \frac{h}{2})}}{h} = \lim\limits_{h \rightarrow 0} \frac{\sin{\frac{h}{2}}}{\frac{h}{2}} \cos{(x + \frac{h}{2})} = 1 \cdot \cos{x} = \cos{x}$
+    
+    \item[7.] $(\tg{x})' = (\frac{\sin{x}}{\cos{x}})' = \frac{(\sin{x})' \cdot \cos{x} - \sin{x} \cdot (\cos{x})'}{\cos^2{x}} = \frac{\cos^2{x} + \sin^2{x}}{\cos^2{x}} = \frac{1}{\cos^2{x}}$
+    
+    \item[9.] $(\arcsin(x))' = (\sin^{-1})'(x) = \frac{1}{\cos{(\arcsin{x})}} = \frac{1}{\sqrt{1 - \sin^2{(\arcsin{x})}}} = \frac{1}{\sqrt{1 - x^2}}$
+    
+    \item[11.] $(\arctg{x})' = (\tg^{-1})'(x) = \frac{1}{\frac{1}{\cos^2{(\arctg{x})}}} = \cos^2{(\arctg{x})} = \frac{1}{1 + \tg^2{(\arctg{x})}} = \frac{1}{1 + x^2}$
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 5. Теорема о среднем}
+\end{center}
+
+\textbf{Th.} Теорема Ферма. $f : <a;b> \rightarrow R;\ x_0 \in (a, b)$
+
+$f$ -- дифференцируема в $x_0$. $f(x_0)$ -- наибольшее/наименьшее значение функции $f(x)$ на $<a,b>$. Тогда $f'(x_0) = 0$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+НУО $f(x_0) \geq f(x),\ \forall x \in <a, b>$
+
+$f'_+(x_0) = \lim\limits_{x \rightarrow x_{0_+}} \frac{f(x) - f(x_0)}{x - x_0} \Rightarrow f'(x_0) \leq 0$
+
+$f'_-(x_0) = \lim\limits_{x \rightarrow x_{0_-}} \frac{f(x) - f(x_0)}{x - x_0} \Rightarrow f'(x_0) \geq 0$
+
+Но $f'_+(x_0) = f'_-(x_0) = f'(x_0) \Rightarrow f'(x_0) = 0$
+
+\textbf{Rem.} 
+
+\begin{enumerate}
+    \item Важна дифференцируемость. $f(x) = -|x|;\ x_0 = 0$
+    \item Теорема не работает на концах. $f(x) = x$, определена на $[-1; 1]$
+\end{enumerate}
+
+\textbf{Rem.} $f(x_0)$ -- наибольшее/наименьшее значение $\Rightarrow f'(x_0) = 0 \Rightarrow$ касательная горизонтальна
+
+\vspace{5mm}
+
+\textbf{Th.} Теорема Ролля. $f : [a, b] \rightarrow R;\ f$ -- непрерывна на $[a, b]$ и дифференцируема на $(a, b)$. $f(a) = f(b)$
+
+Тогда $\exists c \in (a, b) : f'(c) = 0$
+
+$f(x)$ непрерывна на $[a, b] \Rightarrow f$ -- достигает наибольшего и наименьшего значения (по Вейерштрассу)
+    
+$\exists p, q \in [a; b] : f(p) \leq f(x) \leq f(q),\ \forall x \in [a; b]$
+
+\begin{itemize}
+    \item Если $p \in (a; b)$ или $q \in (a;b)$, то по теореме Ферма все хорошо 
+    \item Если $p$ и $q$ -- концы отрезка $\Rightarrow f(p) = f(q) \Rightarrow f(x) = const \Rightarrow f'(x) = 0;\ \forall x \in [a;b]$
+\end{itemize}
+
+\vspace{5mm}
+
+\textbf{Rem.} \begin{enumerate}
+    \item Дифференцируемость важна везде. $f(x) = |x|$ на $[-1; 1]$
+    \item Геометрический смысл теоремы Ролля: если график функции $f(x)$ проходит через две точки на одной горизонтальной прямой, то существует точка, в которой касательная горизонтальна
+\end{enumerate}
+
 \end{document}

@@ -12,7 +12,7 @@
 \usepackage[unicode, pdftex]{hyperref}
 \usepackage{listings}
 
-\DeclareRobustCommand{\divby}{%
+\def\divby{%
   \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
 }
 
@@ -2151,5 +2151,199 @@ $p - 1 = \sum\limits_{d | p - 1} |B_d| = \sum\limits_{d | p - 1} \varphi(d) \Rig
 \end{gathered} \right.$
 
 \textbf{Смысл.} В евклидовом кольце можно делать алгоритм евклида (понижая $\varphi$)
+
+\vspace{5mm}
+
+\textbf{Def.} $R$ -- область целостности. $R$ -- евклидово, если $\exists \varphi : R\backslash\{0\} \rightarrow Z_{\geq 0}$ -- евклидова норма
+
+$\forall a, b \in R, b \neq 0;\ \exists q, r : a = b \cdot q + r \left[ \begin{gathered}
+    r = 0 \\
+    \varphi(r) < \varphi(b)
+\end{gathered} \right.$
+
+\textbf{Th.} В евклидовом кольце любой идеал главный
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$I$ -- идеал в $R;\ I \neq \{0\}$ (иначе $I = <0>$)
+
+Рассмотрим $i \in I : \varphi(i)$ -- минимальна
+
+Тогда $\forall a \in I\ a = q \cdot i + r \left[ \begin{gathered}
+    \varphi(r) < \varphi(i) \\
+    r = 0
+\end{gathered} \right.$
+
+Но $r = a - q \cdot i \in I \Rightarrow \varphi(r) \geq \varphi(i) !! \Rightarrow r = 0$, т.е. $a = qi \forall a \in I$, т.е. $I \in <i> \Rightarrow I = <i>$
+
+\vspace{5mm}
+
+\textbf{Def.} Область целостности в которой любой идеал главный, называется областью главных идеалов (ОГИ)
+
+\textbf{Д-ли:} $\forall$ евклидово кольцо
+
+\textbf{Rem.} Обратное неверно (сложно)
+
+\textbf{Ex.} Пусть $R = Z[x]$, тогда $R$ -- не ОГИ
+
+$I = <2, x> = \{f \in Z[x] | f(0) \divby 2\}$ -- идеал
+
+$I \neq <f>$, т.к. $\left[ \begin{gathered}
+    2 \divby f \\
+    x \divby f
+\end{gathered} \right. \Rightarrow f = \pm 1$, но $\pm 1 \in I!!!$ $(2, x) = 1$, но $\not \exists g, h : 2 \cdot g + x \cdot h = 1$
+
+$R = Q[x], R[x], Z/pZ[x]$ -- все ок, т.к. это поля $\Rightarrow K[x]$ евклидово $\Rightarrow$ ОГИ
+
+\vspace{5mm}
+
+\textbf{Def.} $R$ -- область целостности, $a \divby b$, если $\exists c : a = bc$
+
+\textbf{Rem.} $a \divby c,\ c \neq 0 \Rightarrow$ частное в определении однозначно (т.к. в области целостности верен закон сохранения)
+
+$Z/4Z,\ 2 = 2 \cdot 1 = 2 \cdot 3 ????$
+
+\textbf{Def.} $a \in R \Rightarrow a$ называется неразложимым, если 
+
+\begin{enumerate}
+    \item $a \neq 0,\ a \not \in R^*$
+    \item $a = bc \Rightarrow \left[ \begin{gathered}
+        b \in R^* \\
+        c \in R^*
+    \end{gathered} \right.$
+\end{enumerate}
+
+\textbf{Def.} $a, b$ называются ассоциированными ($a \sim b$), если выполнено одно из определений
+
+\begin{enumerate}
+    \item $a \divby b,\ b \divby a$
+    \item $a = b\varepsilon;\ \varepsilon \in R^*$
+\end{enumerate}
+
+\textbf{Rem.} В $Z$ $a \sim b \Leftrightarrow |a| = |b|$
+
+\textbf{Rem.} Это отношение эквивалентности (очев из первого определения)
+
+\textbf{Упражнение:} $3 \Rightarrow 1, 2$ у $a, b$ одинаковые делители
+
+$3'$: у $a, b$ одинаковые кратные
+
+\vspace{5mm}
+
+\textbf{Def.} Область целостности $R$ называется факториальной, если любой $a \in R\backslash\{0\}$ представляется в виде произведения не разложимых единственным образов с точностью до порядка множителей и ассоциированности
+
+\textbf{Ex.} $a = p_1p_2p_3;\ p_1,p_2,p_3$ -- неразложимые. $\varepsilon, \mu, \alpha \in R^*$
+
+$a = (\varepsilon p_2 \mu)(o_3 \mu^{-1} \alpha^{-1})(\varepsilon^{-1} \alpha p_1);\ \varepsilon p_2 \mu \sim p_2$ -- неразложимый (упр) и т.д.
+
+\textbf{Th.} ОГИ -- факториальна
+
+Ключевые свойства:
+
+\begin{enumerate}
+    \item $\begin{cases}
+        (a, b) = 1 \\
+        ac \divby b
+    \end{cases} \Rightarrow c \divby b$
+    \item $p$ -- неразложимый
+    
+    $ab \divby p \Rightarrow \left[ \begin{gathered}
+        a \divby p \\
+        b \divby p
+    \end{gathered} \right. \Rightarrow$ единственность разложения
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Единственность доказывается по той же схеме, что и в $Z$
+
+Существование -- неочев /без доказательства/
+
+У нас $R = K[x]$ -- существование разложения очевидна (индукция по $deg(f)$) 
+
+\vspace{5mm}
+
+Что значит в $K[x]\ f \sim g$? $f = \varepsilon g,\ \varepsilon \in K[x]^*$
+
+\textbf{Lem.} $K[x]^* = K\backslash\{0\}$. $deg(f) > 0,\ \forall g\ deg(fg) \geq deg(f) > 0$ или $fg = 0$ ($fg \neq 1$)
+
+Поэтому $f \sim g \Leftrightarrow \exists k \in K^* : f = kg$
+
+$deg(f) = 0,\ f = k \sim 1$, для $f$ разложение пустое ($deg(f) > 0$ -- непустое)
+
+\vspace{5mm}
+
+\textbf{Def.} $f$ называется уникальным, если $\exists n = deg(f) : f = x^n + \sum\limits_{i = 0}^{n-1} a_ix^i$
+
+В $\forall$ классе ассоциативности $\exists!$ уникальный многочлен
+
+Итого: $\forall f \in K[x]\ \exists! a \in K,\ p_1, p_2 \ldots p_l$ -- уникальные неразложимые: $f = a p_1 p_2 \ldots p_3$
+
+$p_1, p_2 \ldots p_l$ -- единственные с точностью до перестановки множителей
+
+\section*{Производная}
+
+\textbf{Def.} $R$ -- коммутативное кольцо: $D : R \rightarrow R$ называется дифференциированием, если
+
+\begin{enumerate}
+    \item $\forall f, g \in R\ D(f + g) = D(f) + D(g)$
+    \item $\forall f, g \in R\ D(f \cdot g) = f \cdot D(g) + g \cdot D(f)$ -- правило Лейбница
+\end{enumerate}
+
+\textbf{Def.} $R$ -- кольцо, $f \in R[x] : f = \sum a_nx^n$ тогда по определению $D(f) = f' = \sum na_nx^{n-1}$ ($n \cdot a_n = a_n + a_n + \ldots + a_n$ ($n$ раз))
+
+\textbf{Def.} $f \in R[x]$. Положим $D(f)(x) = \frac{f(x) - f(y)}{x - y}|_{x = y}$
+
+Упражнение: $def1 \Leftrightarrow def2$
+
+$\frac{ax^n - ay^n}{x - y} = a \frac{(x - y)(x^{n-1} + x^{n-2}y + \ldots + y^{n-1})}{x - y}|_{x = y} = na \cdot y^{n-1}$ 
+
+\textbf{Def./Th.} $K$ -- бесконечное поле $f \in K[x],\ a \in K,\ \exists q, r : f = (x - a)^2 \cdot q + r$ ($deg(r) < 2$)
+
+$f = (x - a)^2 \cdot q(x) + k(x - a) + m_a$ ($x = a;\ m_a = f(a)$)
+
+\textbf{Утв.} отображение $a \rightarrow K_a$ -- полиномиальная функция, соответствующий многочлен называется производной (а и менно $f'$ из Def1. задает эту функцию)
+
+\textbf{Утв.} $f = (x - a)^2 q_f(x) + f'(a)(x - a) + f(a);\ g = (x - a)^2 q_g(x) + g'(a)(x - a) + g(a)$
+
+Сложим: $f + g = (x - a)^2(q_f + q_g) + (f'(a) + g'(a))(x - a) + f(a) + g(a)$
+
+$f \cdot g = (x - a)^2((x - a)^2 q_f q_g + q_f g'(a)(x - a) + q_g f'(a)(x - a) + f'(a)g'(a)) + (f'(a)g(a) + f(a)g'(a))(x - a) + f(a)g(a)$, но коэффициенты при $x - a$ равен $(fg)'(a)$
+
+Пусть $K$ -- поле, $f \in K[x];\ a$ -- корень $f$
+
+$a$ -- корень кратности $l$, если $V_{(x - a)}(f) = l$, т.е. $f \divby (x - a)^l,\ f \not \divby (x - a)^{l+1}$, $f = (x - a)^l \tilde{f} : \tilde{f}(a) \neq 0$
+
+$a$ -- кратный корень, если $l > 1$ (иначе простой)
+
+\textbf{Th.} $f \in K[x],\ a$ -- корень кратности $l$ ($l \geq 1$), тогда
+
+\begin{enumerate}
+    \item $a$ -- корень кратности $\geq l -1$ в многочлене $f'$
+    \item Если $1 + 1 + \ldots + 1 \neq 0$ в $K \Rightarrow a$ -- корень кратности $= l - 1$ в $f'$
+    \item $a$ -- кратный корень $f \Leftrightarrow a$ -- корень $gcd(f, f')$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $f = (x - a)^l \tilde{f};\ \tilde{f}(a) \neq 0$
+
+    $f' = ((x - a)^l)' \tilde{f} + (x - a)^l \tilde{f}' = l(x - a)^{l-1} \tilde{f} + (x - a)^l \tilde{f}' = (x - a)^{l-1}(l\tilde{f} + (x - a)\tilde{f}') \Rightarrow a$ -- корень кратности хотя бы $l - 1$
+
+    \item $1 \cdot l \neq 0$ в $K$, т.е. $l \neq 0$ в $K \Rightarrow l\tilde{f} \neq 0 \Rightarrow (l\tilde{f}' + (x - a)\tilde{f}')(a) \neq 0$
+    
+    т.е. $f' = (x - a)^{l - 1} g,\ g(a) \neq 0 \Rightarrow$ кратность ровно $l - 1$
+\end{enumerate}
+
+\textbf{Ex.} $Z/pZ$ $f = x^p$, 0 -- корень кратности $p$
+
+$f' = px^{p-1} = 0$ -- корень кратности $\infty$ $0 \divby x^n \forall n$
 
 \end{document}

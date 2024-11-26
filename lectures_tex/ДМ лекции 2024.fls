@@ -184,6 +184,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/doublestroke/dsrom10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
+INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm2488.tfm
 INPUT ДМ лекции 2024.aux
 INPUT ./ДМ лекции 2024.out
 INPUT ./ДМ лекции 2024.out
@@ -206,3 +207,4 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb

@@ -835,6 +835,98 @@ $\xi$ -- с.в., $D_\xi < +\infty$
 
 $\forall \delta\ P(|\xi - E\xi| \geq \delta) \leq \frac{D\xi}{\delta^2}$ -- неравенство Чебышева
 
-$P(|\xi - E\xi| \geq \delta) = P((\xi - E\xi)^2 \geq \delta^2) \leq \frac{E(\xi - E\xi)^2}{\delta^2} = \frac{D\xi}{\delta^2}$ 
+$P(|\xi - E\xi| \geq \delta) = P((\xi - E\xi)^2 \geq \delta^2) \leq \frac{E(\xi - E\xi)^2}{\delta^2} = \frac{D\xi}{\delta^2}$
+
+$\xi_1, \ldots \xi_n \ldots$ -- пнорсв 
+
+\begin{enumerate}
+    \item $\xi_i \rightarrow \xi$ в среднекрадратичном смысле, если $E(\xi_n - \xi)^2 \rightarrow 0$ при $n \rightarrow \infty$
+    \item $\xi_i \rightarrow \xi$ по вероятности, если $P(|\xi_n - \xi| \geq \varepsilon) \rightarrow 0$ при $n \rightarrow \infty$
+    \item $\xi_i \rightarrow \xi$ почти наверное, если $P(\omega : \xi_n(\omega) \rightarrow \xi(\omega)) = 1$
+\end{enumerate}
+
+\textbf{Th.} ЗБЧ Чебышева
+
+$E_{\xi_i} = a;\ D_\xi < +\infty$
+
+$\overline{\xi_n} = \frac{1}{n} \sum\limits_{i=1}^n \xi_i$
+
+$\overline{\xi_n} \rightarrow E_\xi$ по всем пунктам. Это закон {\Huge Больших} чисел
+
+$N(M, \sigma^2)$ -- нормальное распределение
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Докажем только среднеквадратичную сходимость, остальное сложно, у нас лапки
+
+$E_{\overline{\xi_n}} = \frac{1}{n} E_{\sum \xi_i} = \frac{1}{n} \sum E_{\xi_i} = \frac{na}{n} = a$
+
+$E_{(\overline{\xi_n} - a)^2} = D_{\overline{\xi_n}} = \frac{1}{n} D_{\sum \xi_i} = \frac{1}{n} \sum D_{\xi_i} = \frac{D_{\xi_1}}{n} \rightarrow 0$
+
+\vspace{5mm}
+
+\textbf{Th.} ЦПТ Ляпунова
+
+$S_n = \sum\limits_{i=1}^n \xi_i$
+
+$Z_n = \frac{S_n - na}{\sqrt{n\sigma^2}}$. $F_n = P(Z_n < x)$
+
+$\sup|F_n(x) - N_{0, 1}(x)| \rightarrow 0$. Другими словами $Z_n \sim N_{0, 1}$ при $n \rightarrow \infty$
+
+$S_n \sim N_{na, n\sigma^2}$ при $n \rightarrow \infty$
+
+\vspace{5mm}
+
+$V$ -- вершина $|V| < +\infty$
+
+$E = \{e_i\}$ -- ребра
+
+$e_i = (V_i, V_j)$, $V_i, V_j \in V$
+
+$I : V \times E$
+
+$I(v, e)$ если $e = \left[ \begin{gathered}
+    (v, *) \\
+    (*, v)
+\end{gathered} \right.$
+
+$|V|$, $E \subset V \times V$
+
+\begin{enumerate}
+    \item $e(V_1, V_2) \Rightarrow e(V_2, V_1)$
+    \item $\overline{e(V_1, V_1)}$
+\end{enumerate}
+
+$G = (V, E)$ -- граф (бинарное отноешние смежности)
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    & $V_1$ & $V_2$ & $V_3$ & $V_4$ & $V_5$ \\
+    \hline
+    $V_1$ & 0 & 1 & 1 & 0 & 0 \\
+    \hline
+    $V_2$ & 1 & 0 & 1 & 0 & 0 \\
+    \hline
+    $V_3$ & 1 & 1 & 0 & 1 & 1 \\
+    \hline
+    $V_4$ & 1 & 0 & 1 & 0 & 0 \\
+    \hline
+    $V_5$ & 0 & 0 & 1 & 0 & 0 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+$S(V_i, V_j)$ существует, если существуют
+
+$V_i, E_{\alpha_1}, V_{\alpha_1}, E_{\alpha_2}, \ldots, E_{\alpha_{n-1}}, V_j$
+
+$\tilde{G}$ -- подграф $G$
+
+$V_{\tilde{G}} \subset V_{G}$
+
+$\forall e \in E_{\tilde{G}} \Rightarrow e \in E_G$
 
 \end{document}

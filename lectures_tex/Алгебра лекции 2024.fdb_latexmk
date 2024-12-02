@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732527128.64016 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Алгебра лекции 2024.tex" "Алгебра лекции 2024.pdf" "Алгебра лекции 2024" 1732527129.39433 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Алгебра лекции 2024.tex" 1732527128.45254 86359 5ac5f49f6451b1358a599b1ec3806364 ""
+["pdflatex"] 1733131816.1652 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Алгебра лекции 2024.tex" "Алгебра лекции 2024.pdf" "Алгебра лекции 2024" 1733131816.90584 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Алгебра лекции 2024.tex" 1733131815.96244 93944 8ed74be4b9c6f025a7e61baf8afb542d ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1731796326.50771 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
@@ -111,9 +111,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Алгебра лекции 2024.aux" 1732527129.30922 263 f8a356190263afdaac2d8a9afd22d38c "pdflatex"
-  "Алгебра лекции 2024.out" 1732527129.02401 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Алгебра лекции 2024.tex" 1732527128.45254 86359 5ac5f49f6451b1358a599b1ec3806364 ""
+  "Алгебра лекции 2024.aux" 1733131816.81962 263 8387f426d5623bfb388820f595157745 "pdflatex"
+  "Алгебра лекции 2024.out" 1733131816.53286 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Алгебра лекции 2024.tex" 1733131815.96244 93944 8ed74be4b9c6f025a7e61baf8afb542d ""
   (generated)
   "Алгебра лекции 2024.aux"
   "Алгебра лекции 2024.log"

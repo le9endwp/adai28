@@ -2346,4 +2346,205 @@ $a$ -- кратный корень, если $l > 1$ (иначе простой)
 
 $f' = px^{p-1} = 0$ -- корень кратности $\infty$ $0 \divby x^n \forall n$
 
+\vspace{5mm}
+
+\textbf{Def.} $K$ -- поле. Характеристика $K$ -- $char(K) = \begin{cases}
+    ord_{(K, +)}(1) \text{, если оно не } \infty \\
+    0
+\end{cases}$
+
+\textbf{Ex.} $char(Q) = char(Z) = 0;\ char(Z/pZ) = p$
+
+\textbf{Th.} $char(K) = 0$ или простое число
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Пусть $n = pq,\ p, q > 1$
+
+Если $n$ единиц $= 0 \Rightarrow$ т.к. $K$ -- поле $\Rightarrow$ О.Ц. $\Rightarrow \left[ \begin{gathered}
+    p = 0 \\
+    q = 0
+\end{gathered} \right. \Rightarrow n$ -- не минимальное
+
+\vspace{3mm}
+
+\textbf{Rem.} Любое поле характеристики $0$ содержит подполе, изоморфное $Q$. Поле характеристики $p$ содержит подполе, изоморфное $Z/pZ$
+
+\vspace{5mm}
+
+\textbf{Th.} $K$ -- поле, $a \in K;\ f \in K[x]$, тогда $\exists! a_0, a_1, a_2 \ldots a_n;\ n = degf : f = \sum a_i(x - a)^i;\ f = \sum a_i(x - 0)^i = \sum a_ix^i$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Индукция по $degf$. База очев
+
+Переход: $n \rightarrow n + 1$
+
+$f = (x - a)q + f(a)$ по и.п. $q = \sum\limits_{i = 0}^n b_i(x - a)^i$
+
+$f = (x - a)\sum b_i(x - a)^i + a_0 = \sum b_i(x - a)^{i+1} + a_0$, положим $a_i = b_{i-1}$ при $i > 0$
+
+\vspace{5mm}
+
+\textbf{Th.} Формула Тейлора:
+
+$K$ -- поле, $f \in K[x],\ char(K) = 0$ или $char(K) > degf$
+
+Определим последовательность многочленов: $f^{(0)} = f;\ f^{(n + 1)} = (f^{(n)})'$
+
+Тогда $f = \sum \frac{f^{(k)}(a)}{k!}(x - a)^k$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Знаем: $f = \sum a_i(x - a)^i\ (*)$. Хотим $a_i = \frac{f^{(i)}(a)}{i!}$
+
+$((x - a)^k)' = k(x - a)^{k-1}$
+
+Тогда $f = (x - a)^k;\ f^{(1)} = k(x - a)^{k-1};\ f^{(k)} = k!(x - a)^0 = k!;\ f^{(l)} = 0,\ l > k$
+
+Применим к $*$ дифференцирование $k$ раз и эвалюируем в $a$
+
+$f^{(k)}(a) = \sum ((a_i(x - a)^i))^{(k)}(a)$
+
+При $i < k:\ ((a_i(x - a)^i))^{(k)}(a) = 0$
+
+При $i > k:\ ((a_i(x - a)^i))^{(k)} = c \cdot (x - a)^{i - k}$. Эвалюация в $a$ дает 0
+
+При $i = k:\ (a_i k!)(a) = a_i k!$
+
+Итого: $f^{(k)}(a) = a_k k! \Rightarrow a_k = \frac{f^{(k)}(a)}{k!}$
+
+\vspace{5mm}
+
+\begin{center}
+    \section*{Расширения полей и комплексные числа}
+\end{center}
+
+Пусть $K$ -- поле, $f \in K[x],\ f$ -- неразложим, $degf > 1$
+
+Надо $K = Q;\ f = x^2 - 2$
+
+$Q \rightarrow Q(\sqrt{2}) = \{a + b\sqrt{2} | a, b \in Q\};\ Q \rightarrow R$ -- новые поля
+
+$x^2 - 2 = (x - \sqrt{2})(x + \sqrt{2})$ -- разложение!!!
+
+Хотим уметь строить новое поле $L \supset K$ такое, что в $L$ у $f$ есть корень $\Rightarrow$ раслкадывается на множители
+
+Конструкция: положим $g \equiv h\ (mod\ f)$, если $g - h \divby f$
+
+Это отношение эквивалентности и можно перейти к $K[x]/f$ -- множество классов эквивалентности
+
+$K[x]/f$ -- кольцо вычетов по модулю $f$
+
+\textbf{Th.} Упражнение: $f$ -- неразложимый многочлен $\Rightarrow K[x]/f$ -- поле
+
+$g = f \cdot q + r;\ degr < degf$
+
+$\overline{g} = \overline{r} = \{\overline{a_0 + a_1x + \ldots + a_{n-1}x^{n-1}} | a_i \in K\}$
+
+Все $\overline{a_0}$ -- различны и $\overline{a_0} + \overline{a_0'} = \overline{a_0 + a_0'}$ и $\overline{a_0} \cdot \overline{a_0'} = \overline{a_0 \cdot a_0'}$
+
+Можно считать, что $K[x]/f$ содержит $K$ как подполе
+
+\vspace{5mm}
+
+$L = K[x]/f$. В $L$ $f$ имеет корень:
+
+$f = a_0 + a_1x + \ldots + a_{n-1}x^{n-1} + a_nx^n$
+
+$\overline{0} = \overline{f} = \sum \overline{a_i} \cdot \overline{x}^i = \sum \overline{a_i} (\overline{x})^i = \sum a_i \overline{x}^i = f(\overline{x})$
+
+$f$ имеет корень в $L:\ f = (x - \overline{x})(\ldots)$
+
+\textbf{Ex. (основной)} $K = R$;\ $f = x^2 + 1$ -- неразложим
+
+$R[x]/(x^2 + 1) = \{\overline{ax + b} | a, b \in R\}$
+
+$\overline{ax + b} + \overline{cx + d} = \overline{(a + c)x + (b + d)}$
+
+$\overline{ax + b} \cdot \overline{cx + d} = \overline{(ax + b)(cx + d)} = \overline{acx^2 + (ad + bc)x + bd}$ делим на $x^2 + 1$ 
+
+Получаем $\overline{acx^2 + ac - ac + (bc + ad)x + bd} = \overline{ac(x^2 + 1)} + \overline{(bc + ad)x - ac + bd} = \overline{(bc + ad)x - ac + bd}$
+
+\vspace{2mm}
+
+$R[x]/(x^2 + 1) \cong R \times R\ (\overline{a + bx} \leftrightarrow (a, b))$ со следующими операциями
+
+$(a, b) + (c, d) = (a + c, b + d)$
+
+$(a, b) \cdot (c, d) = (ac - bd, ad + bc)$
+
+\vspace{3mm}
+
+$\overline{x} \rightarrow (0, 1)$
+
+$\overline{x^2} = -1 \rightarrow (-1, 0);\ \overline{x} = i$
+
+Итого: $C = R[x]/(x^2 + 1) = \{ a + bi | a, b \in R\}$ -- поле комплексных чисел
+
+\vspace{5mm}
+
+$R = \{ a + 0 \cdot i | a \in R\} \subset C$ -- подполе $C$
+
+В общем случае $Z = a + bi;\ a = Re(z),\ b = Im(z)$ -- вещественная и мнимая часть соответственно
+
+$i$ -- мнимая единица
+
+$x^2 + 1 = x^2 - (- 1) = x^2 - i^2 = (x - i)(x + i)$
+
+\vspace{5mm}
+
+\textbf{Следствие.} Любой квадратный трехчлен из $R[x]$ раскладывается на линейные множители в $C$. $f = (x - c)^2 - D = (x - c - \sqrt{D})(x - c + \sqrt{D})$
+
+$D = -k;\ k > 0 \Rightarrow \sqrt{D} = i\sqrt{k}$
+
+\vspace{5mm}
+
+\textbf{Th.} Основная теорема алгебры: $\forall f \in C[x]\ f = c(x - a_1) \ldots (x - a_n)$ -- имеет $n$ комплексных корней с учетом кратности
+
+\vspace{3mm}
+
+Знаем: существует биекция $R \times R \leftrightarrow$ точки на плоскости
+
+А еще есть биекция $C \leftrightarrow$ точки на плоскости
+
+А еще есть биекция $C \leftrightarrow$ вектора, отложенные из 0
+
+Вот как-то так и думайте, а по-другому не думайте
+
+\vspace{5mm}
+
+\textbf{Def.} $|a + b_i| = \sqrt{a^2 + b^2}$ -- модуль комплексного числа
+
+$z \rightarrow |\overrightarrow{0x}| = \sqrt{a^2 + b^2}$
+
+Симметричный относительно $\overrightarrow{0x}$ вектор $\rightarrow a - bi$
+
+\textbf{Def.} $\overline{a + bi} = a - bi$ -- сопряженное число
+
+\vspace{5mm}
+
+Свойства модуля и сопряжения:
+
+\begin{enumerate}
+    \item $\overline{\overline{z}} = z$
+    \item $z + \overline{z} = 2Re(z)$
+    \item $z \cdot \overline{z} = |z|^2$
+    
+    Резюмируем что-то: $z, \overline{z}$ -- корни многочлена $x^2 - 2ax + (a^2 + b^2) \in R[x]$
+    \item $|z_1z_2| = |z_1| \cdot |z_2| \Leftrightarrow |z_1z_2|^2 = |z_1|^2 \cdot |z_2|^2 \Leftrightarrow z_1\overline{z_1}z_2\overline{z_2} = (z_1z_2)(\overline{z_1}\overline{z_2})$ -- следует из 6
+    \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
+    \item $\overline{z_1z_2} = \overline{z_1} \cdot \overline{z_2}$
+\end{enumerate}
+
+\textbf{Rem.} $3) \Rightarrow C$ -- поле, т.к. $z \neq 0 \Rightarrow |z| \neq 0 \Rightarrow z^{-1} = \frac{\overline{z}}{|z|^2}$
+
+
+
 \end{document}

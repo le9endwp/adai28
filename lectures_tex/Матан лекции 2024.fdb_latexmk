@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1733314293.60271 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" "Матан лекции 2024.pdf" "Матан лекции 2024" 1733314294.419 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" 1733314293.36986 148140 66b94f81ffe2d79ccfd0bed29919d7bf ""
+["pdflatex"] 1733921611.00479 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" "Матан лекции 2024.pdf" "Матан лекции 2024" 1733921611.95044 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" 1733921610.64459 163379 be70f5cb36c4cad5f5d0ea8a14fc2245 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1731796326.50771 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
@@ -33,6 +33,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1215737283 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1215737283 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
@@ -117,9 +118,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Матан лекции 2024.aux" 1733314294.3239 263 c04b92f923a4405a4a48c1c8456a9858 "pdflatex"
-  "Матан лекции 2024.out" 1733314293.96899 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Матан лекции 2024.tex" 1733314293.36986 148140 66b94f81ffe2d79ccfd0bed29919d7bf ""
+  "Матан лекции 2024.aux" 1733921611.84504 263 24eb7c70877db78e831b46640861d9b0 "pdflatex"
+  "Матан лекции 2024.out" 1733921611.45659 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Матан лекции 2024.tex" 1733921610.64459 163379 be70f5cb36c4cad5f5d0ea8a14fc2245 ""
   (generated)
   "Матан лекции 2024.aux"
   "Матан лекции 2024.log"

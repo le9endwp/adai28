@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  2 DEC 2024 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  9 DEC 2024 12:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -658,7 +658,12 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 1718.
 
-[18] [19] [20] [21] [22] [23] [24] [25] [26] [27] (./РђР»РіРµР±СЂР° Р»РµРєС†РёРё 2024.aux)
+[18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
+Overfull \hbox (15.33446pt too wide) in paragraph at lines 2660--2661
+[]\T2A/cmr/bx/n/10 Def. \T2A/cmr/m/n/10 Дви-же-ние плос-ко-сти -- это отоб-ра-же-ние $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 R[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 R[]$\T2A/cmr/m/n/10 , со-хра-ня-ю-щее рас-сто-я-ния, т.е. $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x; y \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 R[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 =
+ []
+
+[28] [29] [30] (./РђР»РіРµР±СЂР° Р»РµРєС†РёРё 2024.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -667,18 +672,18 @@ Package rerunfilecheck Info: File `"РђР»РіРµР±СЂР° Р»РµРєС†РёРё 2024".out' has n
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13884 strings out of 474116
- 207244 string characters out of 5743681
- 1950187 words of memory out of 5000000
+ 13896 strings out of 474116
+ 207340 string characters out of 5743681
+ 1951187 words of memory out of 5000000
  35936 multiletter control sequences out of 15000+600000
  566967 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,666b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,666b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on "РђР»РіРµР±СЂР° Р»РµРєС†РёРё 2024.pdf" (27 pages, 321059 bytes).
+Output written on "РђР»РіРµР±СЂР° Р»РµРєС†РёРё 2024.pdf" (30 pages, 340012 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 296 compressed objects within 3 object streams
- 147 named destinations out of 1000 (max. 500000)
+ 387 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
+ 159 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

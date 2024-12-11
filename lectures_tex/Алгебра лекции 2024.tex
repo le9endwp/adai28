@@ -2551,4 +2551,252 @@ $\varphi \in R/ z_\varphi = \cos \varphi + i\sin \varphi;\ |z_\varphi| = 1$
 
 Утверждение: $\varphi \rightarrow z_\varphi$ -- гомоморфизм $(R, +) \rightarrow (C, \cdot)$, т.е. $z_{\varphi_1} \cdot z_{\varphi_2} = z_{\varphi_1 + \varphi_2}$
 
+\vspace{2mm}
+
+$(a + bi)(c + di) = (ac - bd) + (bc + ad)i$
+
+$z_\alpha = \cos{\alpha} + i\sin{\alpha}$
+
+$z_\alpha \cdot z_\beta = z_{\alpha + \beta}$
+
+\vspace{2mm}
+
+\textbf{Группа углов}
+
+$(R, +)$ -- группа по сложению
+
+Положим $a \equiv b$, если $a - b = 2\pi n;\ \exists n \in Z$
+
+Это отношение эквивалентности (также как для $\equiv\ (mod\ n)$)
+
+$\begin{cases}
+    a - b = 2\pi k \\
+    b - c = 2\pi l
+\end{cases} \Rightarrow a - c = 2 \pi (k + l)$
+
+То есть $\begin{cases}
+    a \sim b \\
+    b \sim c 
+\end{cases} \Rightarrow a \sim c$
+
+$R/\equiv_n$ -- группа углов
+
+$\overline{a} + \overline{b} = \overline{a + b}$ -- корректно, т.к. $a \equiv_{2\pi} a_1;\ b \equiv_{2\pi} b_1 \Rightarrow a + b \equiv_{2\pi} a_1 + b_1;\ a + b - a_1 - b_1 = 2\pi(k(a - a_1) + l(b - b_1))$
+
+\textbf{Rem.} $a \cdot b \not\equiv_{2\pi} a_1 \cdot b_1 \Rightarrow$ нельзя завести умножение на $R/\equiv_{2\pi}$
+
+\vspace{3mm}
+
+$T = R/\equiv_{2\pi}$. Знаем $T \leftrightarrow$ \{точки на единичной окружности\}
+
+Итого: $\{ z \in C | |z| = 1\}$ изоморфна $T$
+
+\vspace{5mm}
+
+Пусть $z \in C^* = C\backslash\{0\} \Rightarrow |z| \neq 0 \Rightarrow |z| = |z| \cdot \frac{z}{|z|}$
+
+А $|\frac{z}{|z|}| = \frac{|z|}{||z||} = \frac{|z|}{|z|} = 1 \Rightarrow \exists \varphi \in T$
+
+$\frac{z}{|z|} = z_\varphi;\ |z| = r$
+
+Итого: $\forall z \in C^*$ представляется в виде $z = r \cdot z_\varphi = r(\cos\varphi + i\sin\varphi);\ r \in R_{> 0};\ \varphi \in T$ -- тригонометрическая форма $z$
+
+Единственность: $z = \tilde{r} \cdot z_{\tilde{\varphi}} \Rightarrow |z| = |\tilde{r} \cdot z_{\tilde{\varphi}}| = \tilde{r} \Rightarrow \tilde{r} = r;\ z_{\tilde{\varphi}} = z_{\varphi}$
+
+\vspace{2mm}
+
+$\varphi$ называется аргументом $z$
+
+$z = a + bi \rightarrow (r, \varphi)$
+
+$r = \sqrt{a^2 + b^2};\ \varphi =$ ? -- упражнение: выразить $\varphi$
+
+\vspace{5mm}
+
+\textbf{Умножение в тригонометрической форме}
+
+$(r_1 z_{\varphi_1}) \cdot (r_2 z_{\varphi_2}) = r_1r_2(z_{\varphi_1}z_{\varphi_2}) = r_1r_2z_{\varphi_1 + \varphi_2}$ -- тригонометрическая форма
+
+$C^* \leftrightarrow (r, \varphi);\ \begin{gathered}
+    r \in R_+ \\
+    \varphi \in T
+\end{gathered}$ Получили изоморфизм: $C^* = R^*_+ \times T$
+
+\textbf{Rem} $(C, +) \cong (R, +) \times (R, +)$
+
+\vspace{5mm}
+
+\textbf{Формула Муавра:} $(r(\cos\varphi + i\sin\varphi))^n = r^n(\cos n\varphi + i\sin n\varphi)$
+
+Берется из: $(r \cdot z_{\varphi})^n = r^n \cdot z_{n\varphi}$
+
+\vspace{3mm}
+
+\textbf{Rem. (упр)} Муавр верен при $n = 0;\ n < 0$, т.е. $n \in Z$
+
+\textbf{Ex.} $z_\varphi^n = z_{n\varphi} = \cos n\varphi + i\sin n\varphi$
+
+$(\cos\varphi + i\sin\varphi)^n = \sum C_n^k \cos^k\varphi \sin^{n-k}\varphi \cdot i^{n - k}=$
+
+$= \cos^n \varphi - C_n^2 \cos^{n - 2} \varphi \cdot \sin^2 \varphi + C_n^4 \cos^{n - 4} \varphi \cdot \sin^4 \varphi - \ldots +$
+
+$+i(C_n^1) \cos^{n - 1} \varphi \cdot \sin \varphi - C_n^3 \cos^{n - 3} \varphi \cdot \sin^3 \varphi + \ldots =$
+
+$= T_1^n(\cos\varphi, \sin\varphi) + iT_2^n(\cos\varphi, \sin\varphi)$
+
+$\cos n\varphi = T_1^n (\cos\varphi, \sin\varphi)$
+
+$\sin n\varphi = T_2^n(\cos\varphi, \sin\varphi)$
+
+Очень важная штука в полиноме Чебышева
+
+$\sin\varphi + \sin2\varphi + \ldots + \sin n\varphi = Im(z_\varphi) + Im(z_{2\varphi}) + \ldots + Im(z_{n\varphi}) = Im(z_{\varphi} + z_\varphi^2 + \ldots + z^n\varphi) = Im(z_\varphi \frac{z^n\varphi - 1}{z_\varphi - 1}) = \\
+= Im(\frac{z^{n+1}\varphi - z_\varphi}{z_\varphi - 1}) = Im(\frac{\cos(n + 1)\varphi - \cos\varphi + i(\sin(n + 1)\varphi - \sin\varphi)}{\cos\varphi - 1 + i(\sin\varphi - 1)}) = Im(c + di) = d$
+
+\begin{center}
+    \section*{Комплексные числа и геометрические преобразования}
+\end{center}
+
+\textbf{Def.} Движение плоскости -- это отображение $f : R^2 \rightarrow R^2$, сохраняющее расстояния, т.е. $\forall x, y \in R^2\ |f(x)f(y)| = \ \  = |xy|$ -- биекция
+
+\textbf{Def.} Преобразование подобия. $f : R^2 \rightarrow R^2$ такое, что $\forall A, B, C, D;\ A \neq B,\ C \neq D$
+
+$\frac{|f(C)f(D)|}{|f(A)f(B)|} = \frac{|CD|}{|AB|}$ -- сохраняется отношениея расстояние
+
+\vspace{5mm}
+
+\textbf{Th.} Теорема Шаля. Любое движение в $R^2$ -- параллельный перенос, поворот или скользящая симметрия
+
+$t_{\overrightarrow{v}} : x \rightarrow \cdot t_{\overrightarrow{v}}(x)$ -- параллельный перенос
+
+Поворот: *тут были рисунки поворота*
+
+Скользящая симметрия -- композиция $t_{\overrightarrow{v}}$ и осевой симметрии относительно $l \parallel \overrightarrow{v}$
+
+Преобразование подобия: гомотетия *рисуночки*. Например: $H_{-1}$ -- центральная симметрия
+
+\vspace{5mm}
+
+$f$ -- преобразование подобия. $\frac{|f(A)f(B)|}{f(C)f(D)} = \frac{|AB|}{|CD|} \Leftrightarrow \frac{|f(A)f(B)|}{|AB|} = \frac{|f(C)f(D)|}{|CD|} = const = k$ -- коэффициент подобия
+
+$f$ -- преобразование подобия с коэффициентом $k$. Тогда $H_{0, \frac{1}{k}} \Rightarrow H_{0, \frac{1}{k}} \circ f = h$ -- движение
+
+Значит $f = H_{0, k} \circ h$ -- любое преобразование подобия -- композиция гомотетии и движения
+
+\vspace{5mm}
+
+В терминах $C$: 
+
+\begin{enumerate}
+    \item $t_{\overrightarrow{v}};\ \overrightarrow{v} \leftrightarrow z_0$
+    
+    $\overrightarrow{ox} \rightarrow z \in C$
+
+    $ot_{\overrightarrow{v}}(x) = \overrightarrow{ox} + \overrightarrow{v}$
+
+    В комплексных координатах: $t_{z_0}(z) = z + z_0$
+
+    \item Поворот. Заметим, $z = r \cdot z_\varphi$, $(r \cdot z_\varphi) \cdot z_\psi = r \cdot z_{\varphi + \psi}$
+    
+    То есть повернули $z$ на $\psi$ вокруг 0
+
+    \item Осевая симметрия: $l = \overrightarrow{ox}$
+    
+    $s_l(z) = \overline{z}$
+
+    \item Гомотетия: $H_{0, k}(z) = kz$
+\end{enumerate}
+
+Как получить осевую симметрию относительно другой прямой? (не $OX$)
+
+Тогда $s_l = h^{-1} \circ s_{ox} \circ h$, где $h$ -- преобразование $l \rightarrow ox$
+
+$h = (z - 1) z_{-\frac{\pi}{4}}$
+
+$h^{-1} = z z_\frac{\pi}{4} + 1$
+
+$s_l = \overline{(z - 1)z_{-\frac{\pi}{4}}} \cdot z_{\frac{\pi}{4}} + 1 = (\overline{z} - 1)z_\frac{\pi}{2} + 1 = i\overline{(z - 1)} + 1$
+
+\vspace{5mm}
+
+В общем виде, если $a neq 0$: $f_a(z) = az = rz_\varphi z = H_{0, r}(r_\varphi(z))$ -- $(H_{0, r} \circ r_\varphi)(z)$ -- поворотная гомотетия
+
+$f_{0, b}(z) = az + b;\ a = 1;\ f_{a, b}$ -- перенос. Иначе $\exists z_0 : az + b = a(z - z_0) + z_0 \Leftrightarrow z_0 = \frac{b}{1 - a}$
+
+А тогда $f_{a, b}$ -- поворотная гомотетия вокруг $z_0$
+
+Линейная функция $\rightarrow \left[ \begin{gathered}
+    \text{перенос} \\
+    \text{поворотная гомотетия}
+\end{gathered} \right.$
+
+\vspace{5mm}
+
+\textbf{Th.} Композиция поворотный гомотетий -- поворотная гомотетия или параллельный перенос (только если $k_1k_2 = 1$)
+
+\vspace{3mm}
+
+\textbf{Корни из единицы}
+
+$z^n = a$ -- общий вид, мы хотим через это сделать $z^n = 1$
+
+\textbf{Def.} $a \in c;\ \sqrt[n]{a} = \{z \in C | z^n = a\}$ Как устроено $\sqrt[n]{a}$?
+
+\begin{enumerate}
+    \item $a = 0$
+    
+    $z^n = 0 \Rightarrow z = 0$, т.е. $\sqrt[n]{0} = \{0\}$
+
+    \item $a \in C^* \Rightarrow a = r_0 \cdot z_{\varphi_0}$
+    
+    $z^n = a;\ z = r \cdot z_\varphi$
+
+    $r^n \cdot z_{n\varphi} = r_0 \cdot z_{\varphi_0}$
+
+    Для удобства: $\varphi, \varphi_0 \in [0, 2\pi)$
+
+    Две тригонометрических форме, значит может приравнять по отдельности
+
+    $\begin{cases}
+        r^n = r_0 \\
+        n\varphi = \varphi_0
+    \end{cases} \Leftrightarrow \begin{cases}
+        r = \sqrt[n]{r_0} \\
+        \overline{n\varphi} = \overline{\varphi_0} \Rightarrow n\varphi = \varphi_0 + 2\pi k \Rightarrow \varphi = \frac{\varphi_0 + 2\pi k}{n};\ k \in Z
+    \end{cases}$
+
+    Итого: $\sqrt[n]{a} = \{\sqrt[n]{|a|}(\cos(\frac{\varphi_0}{n} + \frac{2\pi k}{n}) + i\sin(\frac{\varphi_0}{n} + \frac{2\pi k}{n})) | k \in Z\}$
+
+    Утверждение: $|\sqrt[n]{a}| = n$
+
+    Доказательство: $z_{\frac{\varphi_0}{n} + \frac{2\pi k}{n}} = z_{\frac{\varphi_0}{n}} \cdot z_{\frac{2\pi k'}{n}} \Leftrightarrow (\frac{\varphi_0}{n} + \frac{2\pi k}{n}) - (\frac{\varphi_0}{n} + \frac{2\pi k'}{n}) = 2\pi s$
+
+    Т.е. $\exists s \in Z : \frac{2 \pi (k - k')}{n} = 2\pi s \Leftrightarrow k - k' \divby n \Leftrightarrow \overline{k} = \overline{k'}$ в $Z/nZ$
+
+    Таким образом $\sqrt[n]{a} = \{ |\sqrt[n]{a} \cdot z_{\frac{\varphi_0}{n} + \frac{2\pi k}{n}} | k = 0, 1, \ldots, n - 1\}$ 
+
+    Он просто все стер через 5 секунд...
+\end{enumerate}
+
+\textbf{Утверждение:} 
+
+\begin{enumerate}
+    \item $(\mu_n, \cdot)$ -- группа
+    \item $\mu_n$ -- цикл. $\mu_n = Z/nZ$
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$a^n = 1;\ b^n = 1$
+
+$(ab)^n = a^n \cdot b^n = 1 \cdot 1 = 1$
+
+$(\frac{1}{a})^n = 1;\ 1^n = 1$
+
+Изоморфизм $Z/nZ \leftrightarrow \mu_n$
+
+$\overline{k} \rightarrow Z_{\frac{2\pi k}{n}}$ -- корректно определилил биекцию
+
 \end{document}

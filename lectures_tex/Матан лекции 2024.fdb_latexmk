@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1733921611.00479 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" "Матан лекции 2024.pdf" "Матан лекции 2024" 1733921611.95044 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" 1733921610.64459 163379 be70f5cb36c4cad5f5d0ea8a14fc2245 ""
+["pdflatex"] 1734173079.41757 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" "Матан лекции 2024.pdf" "Матан лекции 2024" 1734173080.334 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/Матан лекции 2024.tex" 1734173079.22501 179921 b3f4033f727b48b4b710c7d7b21306fb ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1731796326.50771 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
@@ -118,9 +118,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Матан лекции 2024.aux" 1733921611.84504 263 24eb7c70877db78e831b46640861d9b0 "pdflatex"
-  "Матан лекции 2024.out" 1733921611.45659 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Матан лекции 2024.tex" 1733921610.64459 163379 be70f5cb36c4cad5f5d0ea8a14fc2245 ""
+  "Матан лекции 2024.aux" 1734173080.23234 263 bed00b75a68e2b1eca830d385ccf9f3e "pdflatex"
+  "Матан лекции 2024.out" 1734173079.8232 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Матан лекции 2024.tex" 1734173079.22501 179921 b3f4033f727b48b4b710c7d7b21306fb ""
   (generated)
   "Матан лекции 2024.aux"
   "Матан лекции 2024.log"

@@ -3338,7 +3338,7 @@ $f^{-1}$ -- дифференцируема в $y_0$ и $(f^{-1})'(y_0) = \frac{1
 \end{enumerate}
 
 \begin{center}
-    \subsection*{\S 5. Теорема о среднем}
+    \subsection*{\S 1. Теорема о среднем}
 \end{center}
 
 \textbf{Th.} Теорема Ферма. $f : \q{a; b} \rightarrow R;\ x_0 \in (a, b)$
@@ -3636,7 +3636,7 @@ $g'(x) \neq 0$ на $(a; b);\ \lim\limits_{x \rightarrow a_+} g(x) = + \infty$
 \end{enumerate}
 
 \begin{center}
-    \subsection*{\S 6. Производные высших порядков}
+    \subsection*{\S 2. Производные высших порядков}
 \end{center}
 
 \textbf{Def.} $f : \q{a; b} \rightarrow R;\ x_0 \in \q{a; b}$, $f$ -- дифференцируема в окрестности $x_0$
@@ -3982,7 +3982,7 @@ $m (n - 1)! = n! + n! + \frac{n!}{2!} + \frac{n!}{3!} + \ldots + \frac{n!}{n!} +
 $\frac{e^c}{n + 1} < \frac{e}{n + 1} < \frac{3}{n + 1} \Rightarrow n + 1 \geq 3 \Rightarrow \frac{e^c}{n + 1} \leq 1$ ?!
 
 \begin{center}
-    \subsection*{\S 7. Экстремум функций}
+    \subsection*{\S 3. Экстремум функций}
 \end{center}
 
 \textbf{Точки экстремума:}
@@ -4087,5 +4087,399 @@ $f : \q{a; b} \rightarrow R;\ x \in (a; b);\ f$ -- $n$ раз дифференц
 $f(x) = f(x_0) + \sum\limits_{k = 1}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o((x - x_0)^n) = f(x_0) + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n + o((x - x_0)^n)$
 
 $f(x) - f(x_0) = (x - x_0)^n (\frac{f^{(n)}(x_0)}{n!} + o(1))$
+
+\begin{center}
+    \subsection*{\S 4. Выпуклые функции}
+\end{center}
+
+\textbf{Def.} $f : \q{a; b} \rightarrow R;\ f$ -- выпуклая на $\q{a; b}$, если $\forall x, y \in \q{a; b},\ \forall \lambda \in [0; 1]$ 
+
+$f(\lambda x + (1 - \lambda)y) \leq \lambda f(x) + (1 - \lambda)f(y)$
+
+Если знак $<$ -- строго выпуклая. Если знак $\geq$ -- вогнутая. Если знак $>$ -- строго вогнутая
+
+\textbf{Rem.} \begin{enumerate}
+    \item Выпуклая $\Leftrightarrow$ выпуклая вниз
+    \item Вогнутая $\Leftrightarrow$ выпуклая вверх
+\end{enumerate}
+
+\textbf{Ex.} $y = x^2$ -- выпуклая (проверим по определению)
+
+$\forall \lambda \in [0; 1]\ \forall x, y\ (\lambda x + (1 - \lambda)y)^2 \leq \lambda x^2 + (1 - \lambda)y^2$
+
+$2\lambda(1 - \lambda)xy \leq x^2(\lambda - \lambda^2) + y^2((1 - \lambda) - (1 - \lambda)^2)$
+
+$2\lambda(1 - \lambda)xy \leq \lambda(1 - \lambda)x^2 + (1 - \lambda)\lambda y^2$
+
+$2xy \leq x^2 + y^2$
+
+\vspace{5mm}
+
+\textbf{Геометрический смысл} 
+
+$z = \lambda x + (1 - \lambda) y$. НУО $x < y$
+
+$x < \lambda x + (1 - \lambda)x < z < \lambda y + (1 - \lambda)y < y \Rightarrow z \in (x; y)$
+
+$\lambda (y - x) = y - z \Leftrightarrow z = y - \lambda (y - x) = \lambda x + (1 - \lambda)y$
+
+Проведем хорду по двум точка $u$ и $w$:
+
+$y = \frac{f(w) - f(u)}{w - u} \cdot (x - u) + f(u)$
+
+Возьмем произвольную $v \in (u, w)$
+
+$\frac{f(w) - f(u)}{w - u} \cdot (v - u) + f(u) = f(w) \cdot \frac{v - u}{w - u} + f(u) \cdot (1 - \frac{v - u}{w - u}) = f(u) \cdot \frac{w - v}{w - u} + f(w) \cdot \frac{v - u}{w - u}$
+
+Если возьмем $\lambda = \frac{w - v}{w - u} \Leftrightarrow 1 - \lambda = \frac{v - u}{w - u}$, то получим
+
+$f$ -- выпуклая $\Leftrightarrow$ график $f(x)$ лежит под хордой 
+
+\vspace{5mm}
+
+\textbf{Переформулировка определения.} $x \rightarrow u;\ \lambda x + (1 - \lambda)y \rightarrow v;\ y \rightarrow w$
+
+$\lambda = \frac{w - v}{w - u};\ 1 - \lambda = \frac{v - u}{w - u}$
+
+$f(v) \leq \frac{w - v}{w - u} \cdot f(u) + \frac{v - u}{w - u} \cdot f(w)\ |\ \cdot (w - u)$
+
+$(w - u)f(v) \leq (w - v)f(u) + (v - u)f(w)$
+
+Если это выполняется $\forall u, v, w \in \q{a; b} : u < v < w$, то $f$ -- выпуклая
+
+\vspace{20mm}
+
+\textbf{Свойства выпуклой функции:} ($f, g : \q{a; b} \rightarrow R$)
+
+\begin{enumerate}
+    \item $f, g$ -- выпуклые $\Rightarrow f + g$ -- выпуклая
+    \item $\alpha > 0;\ f$ -- выпуклая $\Rightarrow \alpha f$ -- выпуклая
+    \item $f$ -- выпуклая $\Rightarrow (-f)$ -- вогнутая
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Lm.} Лемма о трех хордах
+
+$f: \q{a; b} \rightarrow R$ -- выпуклая, тогда $\forall u, v, w \in \q{a; b} : u < v < w$
+
+$\frac{f(v) - f(u)}{v - u} \leq \frac{f(w) - f(u)}{w - u} \leq \frac{f(w) - f(v)}{w - v}$, причем каждое из трех неравенств равносильно выпуклости
+
+\textbf{Rem.} Если неравенства строгие, то $f$ -- строго выпуклая
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $\frac{f(v) - f(u)}{v - u} \leq \frac{f(w) - f(u)}{w - u} \Leftrightarrow (w - u)(f(v) - f(u)) \leq (v - u)(f(w) - f(u)) \Leftrightarrow$
+    
+    $\Leftrightarrow f(v) (w - u) \leq f(u) (v - u - w + u) + f(w) (v - u) \Leftrightarrow f(v) (w - u) \leq f(u) (v - w) + f(w) (v - u) \Leftrightarrow$
+    
+    $\Leftrightarrow f$ -- выпуклая
+
+    \item $(w - v)(f(w) - f(u)) \leq (w - u)(f(w) - f(v)) \Leftrightarrow (w - u)f(v) \leq (w - v)f(u) + (v - u)f(w) \Leftrightarrow f$ -- выпуклая
+    
+    \item Упражнение
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Th.} $f : \q{a; b} \rightarrow R$ -- выпуклая, тогда 
+
+$\forall x_0 \in \q{a; b}$ существуют конечные $f'_+(x_0)$ и $f'_-(x_0)$, причем $f'_+(x_0) \geq f'_-(x_0)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$fix\ x;\ u, v, w$ из определения ($u < v < w;\ u < x < v$)
+
+$\frac{f(v) - f(x)}{v - x}$ -- возрастает по $v$
+
+$\frac{f(v) - f(w)}{v - u} \leq \frac{f(v) - f(x)}{v - x}$ по лемме о трех хордах
+
+$\lim\limits_{v \rightarrow x_+} \frac{f(v) - f(x)}{v - x} = f'_+(x)$ если существует
+
+$\frac{f(v) - f(x)}{v - x}$ убывает при $v \rightarrow x_+$ + есть ограниченность снизу, т.к. $\frac{f(x) - f(u)}{x - u} \leq \frac{f(v) - f(x)}{v - x}$
+
+Значит $\exists \lim\limits_{v \rightarrow x_+} \frac{f(v) - f(x)}{v - x} = f'_+(x) \geq \frac{f(x) - f(u)}{x - u}$
+
+\vspace{2mm}
+
+$\frac{f(x) - f(u)}{x - u}$ -- возрастает по $u$ + ограничена сверху $f'_+(x)$
+
+Значит $\exists \lim\limits_{u \rightarrow x_-} \frac{f(x) - f(u)}{x - u} = \lim\limits_{u \rightarrow x_-} \frac{f(u) - f(x)}{u - x} = f'_-(x)$
+
+Итого: $f'_-(x) \leq f'_+(x)$
+
+\vspace{5mm}
+
+\textbf{Следствие.} $f : \q{a; b} \rightarrow R$ -- выпуклая, то $f$ -- непрерывная на $(a; b)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Выпуклая $\Rightarrow \forall x_0 \in (a; b)$
+
+$\begin{cases}
+    \exists f'_+(x_0) \in R \Rightarrow f(x) \text{ -- непрерывная в точке } x_0 \text{ справа} \\
+    \exists f'_-(x_0) \in R \Rightarrow f(x) \text{ -- непрерывная в точке } x_0 \text{ слева}
+\end{cases} \Rightarrow f(x)$ -- непрерывная в точке $x_0$
+
+\textbf{Rem.} Про концы ничего сказать нельзя
+
+\vspace{10mm}
+
+\textbf{Th.} $f : \q{a; b} \rightarrow R$ -- дифференцируема, тогда
+
+$f$ -- выпуклая $\Leftrightarrow f(x) \geq f(x_0) + f'(x_0)(x - x_0)\ \forall x, x_0 \in \q{a; b}$
+
+(т.е. график функции лежит над касательной)
+
+\vspace{5mm}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{itemize}
+    \item[$\Leftarrow$] $u < v < w$ ($x_0 \leftrightarrow v$)
+    
+    $f(u) \geq f(v) + f'(v)(u - v)\ |\ (w - v) > 0$
+
+    $f(w) \geq f(v) + f'(v)(w - v)\ |\ (v - u) > 0$
+
+    $f(u)(w - v) + f(w)(v - u) \geq f(v)(w - u)$
+
+    \item[$\Rightarrow$] Хотим: $\forall x\ \ f(x) \geq f(x_0) + f'(x_0)(x - x_0)$. НУО $x > x_0$
+    
+    $\Leftrightarrow \frac{f(x) - f(x_0)}{x - x_0} \geq f'(x_0) = f'_+(x_0) = \lim\limits_{y \rightarrow x_0^+} \frac{f(y) - f(x_0)}{y - x_0}$
+
+    По лемме о трех хордах: $\frac{f(x) - f(x_0)}{x - x_0} \geq \frac{f(y) - f(x_0)}{y - x_0} \xrightarrow[y \rightarrow x_0^+]{} f'_+(x_0)$
+\end{itemize}
+
+\vspace{5mm}
+
+\textbf{Критерий выпуклости}
+
+\begin{enumerate}
+    \item $f : \q{a; b} \rightarrow R$, непрерывна на $\q{a; b}$ и дифференцируема на $(a; b)$, тогда
+    
+    $f$ -- (строго) выпуклая $\Leftrightarrow f'(x)$ (строго) монотонно возрастает на $(a; b)$
+
+    \item $f : \q{a; b} \rightarrow R$, непрерывна на $\q{a; b}$ и дважды дифференцируема на $(a; b)$, тогда
+    
+    $f$ -- выпуклая $\Leftrightarrow f''(x) \geq 0$ 
+\end{enumerate}
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\textbf{Rem.} $1 \Rightarrow 2$
+
+\begin{itemize}
+    \item[$\Rightarrow$] $u < v$
+    
+    $f'(u) \leq \frac{f(v) - f(u)}{v - u} \leq f'(v) \Rightarrow f'(x)$ -- возрастает
+
+    \item[$\Leftarrow$] $\frac{f(v) - f(u)}{v - u}$ и $\frac{f(w) - f(v)}{w - v}$. Хотим $(1) \leq (2)$
+    
+    $\frac{f(v) - f(u)}{v - u} \stackrel{\text{Лагранж}}{=} f'(\xi_1)$
+
+    $\frac{f(w) - f(v)}{w - v} \stackrel{\text{Лагранж}}{=} f'(\xi_2)$
+
+    Получаем $u < \xi_1 < v < \xi_2 < w$
+    
+    $f'(\xi_1) \leq f'(\xi_2)$, т.к. $f'$ -- возрастает, тогда $\frac{f(v) - f(u)}{v - u} \leq \frac{f(w) - f(v)}{w - v} \xRightarrow{\text{Лемма о трех хордах}} f$ -- выпуклая
+\end{itemize}
+
+\vspace{3mm}
+
+\textbf{Ex.}
+
+\begin{enumerate}
+    \item $a^x$ -- строго выпуклая ($a \neq 1$)
+    
+    $(a^x)'' = a^x \ln^2{a} > 0$
+
+    \item $\ln{x}$ -- строго вогнутый
+    
+    $(\ln{x})'' = -\frac{1}{x^2} < 0$
+
+    \item $x^p,\ x > 0$
+    
+    $(x^p)'' = p(p - 1)x^{p - 2}$
+
+    При $p \in (0; 1)$ -- строго вогнутая, при $p > 1$ и $p < 0$ -- строго выпуклая
+\end{enumerate}
+
+\begin{center}
+    \subsection*{\S 6. Классические неравенства}
+\end{center}
+
+\textbf{Неравенство Йенсена}
+
+$f$ -- выпуклая на $\q{a; b};\ x_1, x_2, \ldots, x_n \in \q{a; b};\ \lambda_1, \lambda_2, \ldots, \lambda_n > 0$ и $\sum\limits_{i = 1}^n \lambda_i = 1$. Тогда
+
+$f(\sum\limits_{i = 1}^n \lambda_i x_i) \leq \sum\limits_{i = 1}^n \lambda_i f(x_i)$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+ММИ. База $n = 2$ -- определение выпуклости
+
+$n = 2\ f(\lambda_1 x_1 + \lambda_2 x_2) \leq \lambda_1 f(x_1) + \lambda_2 f(x_2)$ и $\lambda_1 + \lambda_2 = 1$
+
+Переход: $n \rightarrow n + 1$
+
+Пусть $\lambda_1 + \ldots + \lambda_n = \lambda$, тогда $\lambda + \lambda_{n + 1} = 1$
+
+$\lambda_1x_1 + \ldots + \lambda_n x_n = \lambda x$ ($\exists x$)
+
+$f(\lambda_1x_1 + \ldots + \lambda_n x_n + \lambda_{n + 1} x_{n + 1}) = f(\lambda x + \lambda_{n + 1}x_{n + 1}) \leq \lambda f(x) + \lambda_{n + 1} f(x_{n + 1})$
+
+Это $\lambda f(\frac{\lambda_1}{\lambda}x_1 + \ldots + \frac{\lambda_n}{\lambda} x_n) + \lambda_{n + 1} f(x_{n + 1}) \leq \lambda (\frac{\lambda_1}{\lambda} f(x_1) + \ldots + \frac{\lambda_n}{\lambda}f(x_n)) + \lambda_{n + 1} f(x_{n + 1}) = \sum\limits_{i = 0}^{n + 1} \lambda_i f(x_i)$
+
+\vspace{5mm}
+
+\textbf{Неравенство о средних (неравенство Коши)}
+
+$x_1, x_2 \ldots x_n \geq 0$, тогда
+
+$\sqrt[n]{x_1 x_2 \ldots x_n} \leq \frac{x_1 + x_2 + \ldots + x_n}{n}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+НУО $x_1, x_2 \ldots x_n > 0$
+
+$f(x) = -\ln{x}$ -- выпуклая; $\lambda_1 = \lambda_2 = \ldots = \lambda_n = \frac{1}{n}$
+
+Йенсен: $-\ln{\frac{x_1}{n} + \ldots + \frac{x_n}{n}} \leq \frac{1}{n}(-\ln{x_1}) + \ldots + \frac{1}{n}(-\ln{x_n})$
+
+$\ln{\frac{x_1 + \ldots + x_n}{n}} \geq \frac{1}{n}(\ln{x_1} + \ldots + \ln{x_n}) = \ln{(x_1x_2\ldots x_n)^\frac{1}{n}}$
+
+Т.к. $\ln{x} \nearrow$, то $\frac{x_1 + \ldots + x_n}{n} \geq \sqrt[n]{x_1x_2\ldots x_n}$
+
+\vspace{5mm}
+
+\textbf{Неравенство между средними степенными}
+
+$x_1, x_2 \ldots x_n > 0;\ p \in R$
+
+$(\frac{x_1^p + \ldots + x_n^p}{n})^\frac{1}{p}$ -- среднее степенное
+
+Например, при $p = 2$ -- среднее квадратическое
+
+А при $p = -1$ -- среднее гармоническое
+
+$x_1, x_2 \ldots x_n > 0;\ p < q$
+
+$(\frac{x_1^p + \ldots + x_n^p}{n})^\frac{1}{p} \leq (\frac{x_1^q + \ldots + x_n^q}{n})^\frac{1}{q}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+\begin{enumerate}
+    \item $p = 1 < q;\ f(x) = x^q$ -- выпуклая
+    
+    $\lambda_1 = \lambda_2 = \ldots = \lambda_n = \frac{1}{n}$
+
+    $\xRightarrow{\text{Йенсен}} f(\lambda_1x_1 + \ldots + \lambda_nx_n) = (\frac{x_1 + x_2 + \ldots + x_n}{n})^q \leq \frac{x_1^q + x_2^q + \ldots + x_n^q}{n} = \lambda_1 f(x_1) + \ldots + \lambda_n f(x_n)$. Возведем в степень $\frac{1}{q}$
+
+    $\frac{x_1 + x_2 + \ldots + x_n}{n} \leq (\frac{x_1^q + x_2^q + \ldots + x_n^q}{n})^\frac{1}{q}$
+
+    \item $0 < p < q;\ y_k = x_k^p;\ r = \frac{q}{p} > 1$
+    
+    $\xRightarrow{1)} \frac{x_1^p + \ldots + x_n^p}{n} = \frac{y_1 + \ldots + y_n}{n} \leq (\frac{y_1^r + \ldots + y_n^r}{n})^\frac{1}{r} = (\frac{x_1^q + \ldots + x_n^q}{n})^\frac{p}{q}$ Возводим в степень $\frac{1}{p}$
+
+    \item $p < q < 0;\ y_k = x_k^q;\ r = \frac{p}{q} > 1$
+    
+    $\xRightarrow{1)} \frac{x_1^q + \ldots + x_n^q}{n} = \frac{y_1 + \ldots + y_n}{n} \leq (\frac{y_1^r + \ldots + y_n^r}{n})^\frac{1}{r} = (\frac{x_1^p + \ldots + x_n^p}{n})^\frac{q}{p}$ Возводим в степень $\frac{1}{q} < 0$ (поменяли знак)
+
+    $(\frac{x_1^q + \ldots + x_n^q}{n})^\frac{1}{q} \geq (\frac{x_1^p + \ldots + x_n^p}{n})^\frac{1}{p}$
+
+    \item $p < 0 < q$
+    
+    $\frac{x_1^q + \ldots + x_n^q}{n} \geq \sqrt[n]{x_1^q\ldots x_n^q} \xRightarrow[\text{в степень} \frac{1}{q}]{q > 0} (\frac{x_1^q + \ldots + x_n^q}{n})^\frac{1}{q} \geq \sqrt[n]{x_1\ldots x_n}$
+
+    $\frac{x_1^p + \ldots + x_n^p}{n} \geq \sqrt[n]{x_1^p\ldots x_n^p} \xRightarrow[\text{в степень} \frac{1}{p}]{p < 0} (\frac{x_1^p + \ldots + x_n^p}{n})^\frac{1}{p} \leq \sqrt[n]{x_1\ldots x_n}$
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Неравенство Гёльдера}
+
+$a_k, b_k \geq 0;\ \frac{1}{p} + \frac{1}{q} = 1;\ p, q > 1$. Тогда
+
+$(*)\ \sum\limits_{k = 1}^n a_k b_k \leq (\sum\limits_{k = 1}^n a_k^p)^\frac{1}{p} \cdot (\sum\limits_{k = 1}^n b_k^q)^\frac{1}{q}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+Пусть $B = (\sum\limits_{k = 1}^n b_k^q)^\frac{1}{q} > 0$
+
+$(*) \Leftrightarrow \sum\limits_{k = 1}^n a_k \frac{b_k}{B} \leq (\sum\limits_{k = 1}^n a_k^p)^\frac{1}{p} \Leftrightarrow (\sum\limits_{k = 1}^n a_k \frac{b_k}{B})^p \leq \sum\limits_{k = 1}^n a_k^p$
+
+$f(x) = x^p$ -- выпуклая $\Rightarrow \sum\limits_{k = 1}^n (\lambda_k x_k)^p \leq \sum\limits_{k = 1}^n \lambda_k x_k^p$
+
+Хотим: $\begin{cases}
+    \lambda_k x_k = a_k \frac{b_k}{B} \\
+    \lambda_k x_k^p = a_k^p
+\end{cases}$ $x_k^{p - 1} = \frac{a_k^{p - 1} B}{b_k};\ x_k = \frac{a_k B^\frac{1}{p - 1}}{b_k^\frac{1}{p - 1}}$
+
+$\frac{1}{p} + \frac{1}{q} = 1 \Rightarrow \frac{1}{q} = 1 - \frac{1}{p} = \frac{p - 1}{p} \Rightarrow q = \frac{p}{p - 1}$. Тогда $x_k^p = \frac{a_k^p B^\frac{p}{p - 1}}{b_k^\frac{p}{p - 1}} = \frac{a_k^p B^q}{b_k^q} \Rightarrow \lambda_k = \frac{b_k^q}{B^q}$
+
+$\sum\limits_{k = 1}^n \lambda_k = \sum\limits_{k = 1}^n \frac{b_k^q}{B^q} = 1$ по заданию
+
+\vspace{5mm}
+
+\textbf{Неравенство Коши-Буняковского}
+
+$(x_1^2 + \ldots + x_n^2)(y_1^2 + \ldots + y_n^2) \geq (x_1y_1 + \ldots + x_ny_n)^2$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$\begin{cases}
+    p = q = 2\ (\frac{1}{2} + \frac{1}{2} = 1) \\
+    a_k = |x_k|;\ b_k = |y_k|
+\end{cases}$ Гёльдер
+
+$(\sum\limits_{k = 1}^n |x_k|^2)^\frac{1}{2} \cdot (\sum\limits_{k = 1}^n |y_k|^2)^\frac{1}{2} \geq \sum\limits_{k = 1}^n |x_k||y_k| \geq \sum\limits_{k = 1}^n x_ky_k$ + возведем в квадрат
+
+\vspace{5mm}
+
+\textbf{Неравенство Минковского}
+
+$p \geq 1;\ a_k, b_k \geq 0$. Тогда
+
+$(\sum\limits_{k = 1}^n (a_k + b_k)^p)^\frac{1}{p} \leq (\sum\limits_{k = 1}^n a_k^p)^\frac{1}{p} + (\sum\limits_{k = 1}^n b_k^p)^\frac{1}{p}$
+
+\begin{center}
+    \textbf{Доказательство}
+\end{center}
+
+$p > 1 \Rightarrow \exists q > 1 : \frac{1}{p} + \frac{1}{q} = 1 \Leftrightarrow p + q = pq$
+
+$\sum\limits_{k = 1}^n (a_k + b_k)^p = \sum\limits_{k = 1}^n a_k \cdot (a_k + b_k)^{p - 1} + \sum\limits_{k = 1}^n b_k \cdot (a_k + b_k)^{p - 1}$
+
+$\sum\limits_{k = 1}^n a_k \cdot (a_k + b_k)^{p - 1} \stackrel{\text{Гёльдер}}{\leq} (\sum\limits_{k = 1}^n a_k^p)^\frac{1}{p} \cdot (\sum\limits_{k = 1}^n ((a_k + b_k)^{p - 1})^q)^\frac{1}{q} = (*)$
+
+$(p - 1)q = pq - q = p$
+
+$(*) = (\sum\limits_{k = 1}^n a_k^p)^\frac{1}{p} \cdot (\sum\limits_{k = 1}^n (a_k + b_k)^p)^\frac{1}{q}$
+
+$\sum\limits_{k = 1}^n (a_k + b_k)^p \leq (\sum\limits_{k = 1}^n a_k^p)^{\frac{1}{p}} \cdot (\sum\limits_{k = 1}^n (a_k + b_k)^p)^{\frac{1}{q}} + (\sum\limits_{k = 1}^n b_k^p)^{\frac{1}{p}} \cdot (\sum\limits_{k = 1}^n (a_k + b_k)^p)^{\frac{1}{q}} = (\sum\limits_{k = 1}^n (a_k + b_k)^p)^{\frac{1}{q}} \cdot ((\sum\limits_{k = 1}^n a_k^p)^{\frac{1}{p}} + (\sum\limits_{k = 1}^n b_k^p)^{\frac{1}{p}})$
+
+$(\sum\limits_{k = 1}^n (a_k + b_k)^p)^\frac{1}{p} = (\sum\limits_{k = 1}^n (a_k + b_k)^p)^{1 - \frac{1}{q}} \leq (\sum\limits_{k = 1}^n a_k^p)^{\frac{1}{p}} + (\sum\limits_{k = 1}^n b_k^p)^{\frac{1}{p}}$
 
 \end{document}

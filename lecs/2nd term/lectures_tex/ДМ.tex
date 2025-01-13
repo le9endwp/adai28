@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{config}
+\usepackage{subfiles}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\def\divby{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+\newcommand{\q}[1]{\langle #1 \rangle}
+
+\begin{document}
+
+\section*{План на 3 модуль (или 2 сем...)}
+
+\begin{enumerate}
+    \item Множества
+    \item ЧУМ
+    \item Исчисление высказываний
+    \item Исчисление предикатов
+    \item Теория кодирования
+\end{enumerate}
+
+Почитать можно А. Х. Шеня
+
+\section*{Множества}
+
+\begin{enumerate}
+    \item $x \in A;\ y \not \in A$
+    \item Арифметика множеств: $\bigcup, \bigcap, \backslash, \triangle$
+    \item $\varnothing$
+    \item $A = \{ a, b, c \};\ B = \{d\} \bigcup A$
+    \item $A \subset B \Leftrightarrow \forall x \in A \Rightarrow x \in B$
+\end{enumerate}
+
+\begin{Remark}{}
+    Чисто синтаксически вот такой бред: $\{ \varnothing, \{ \varnothing \}, \{ \varnothing, \{ \varnothing \} \} \}$ имеет смысл
+\end{Remark}
+
+$X$ -- множество: $X \neq \varnothing$. Рассмотрим $x \in X$
+
+$Term(x)$ -- проблема, потому что мы не знаем, к каким характеристикам обращаемся и вообще не понятно, что мы выбрали
+
+Спасают аксиомы ZFC
+
+\begin{defin}{Равномощность}
+    $A, B$ -- равномощны $\Leftrightarrow \exists f : A \rightarrow B$ -- биекция
+
+    А что с бесконечностями? Давайте возьмем функцию $f : N \rightarrow 2N$
+
+    Хотя множество четных чисел -- подмножество всех, но они равномощны, т.к. $f$ -- биекция
+\end{defin}
+
+\begin{defin}{Характеристическая функция}
+    $X$ -- множество. Есть $\chi : X \rightarrow \{0, 1\}$, т.е. $\chi(x) = \begin{cases}
+        1,\ x \in X \\
+        0,\ x \not\in X
+    \end{cases}$ -- характеристическая функция
+\end{defin}
+
+А пусть $X \subset Y$
+
+\begin{itemize}
+    \item произведение характеристических функций $X$ и $Y$ -- это характеристическая функция $X \bigcap Y$
+    \item $1 - \chi(x)$ -- характеристическая функция дополнения $X$
+    \item $max(\chi_X(x), \chi_Y(x))$ -- характеристическая функция $X \bigcup Y$
+    \item $|X| = \sum\limits_{x \in Y} \chi_X(x)$
+\end{itemize}
+
+\begin{Example}{}
+    Возьмем $2^N;\ B = \{ 0, 1 \}$ и $B^\infty$
+
+    Равномощны ли они? Берем $x \in 2^N$, теперь $b_i = \begin{cases}
+        1,\ i \in x \\
+        0,\ i \not\in x
+    \end{cases}$
+\end{Example}
+
+\begin{defin}{Счетное множество}
+    $X$ -- счетное, если $X$ равномощно $N$
+\end{defin}
+
+\begin{Example}{}
+    Например, множество целых чисел счетно, т.к. $x \in Z \Rightarrow \begin{cases}
+        2x,\ x \geq 0 \\
+        -2x + 1,\ x < 0
+    \end{cases}$
+\end{Example}
+
+\begin{propos}{}
+    \begin{enumerate}
+        \item $X$ -- счетно и $Y \subset X \Rightarrow Y$ или счетно, или конечно
+        \item $X$ -- бесконечно. Тогда $\exists Y$ -- счетное: $Y \subset X$
+        \item $X_1, \ldots X_n \ldots$ -- конечные или счетные. Тогда $\bigcup X_i$ -- конечное или счетное
+    \end{enumerate}
+\end{propos}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $X$ -- счетно, т.е. соответствует последовательности $\{x_1, \ldots x_n \ldots\} = \xi$
+    
+    Возьмем $\xi \cdot \xi(Y)$. Т.е. что-то типа $\{ 0, 0 \ldots x_{i_1}, 0 \ldots x_{i_2}, 0 \ldots \}$ который равносилен $y_1, y_2, \ldots y_n \ldots = Y$
+
+    В свою очередь эта штука либо конечна, либо счетна, т.к. счетен $X$
+
+    \item Просто выбираем по 1 элементу из $X$. Если они кончатся на каком-то шаге -- $X$ не бесконечно
+    
+    \item Рисуем табличку. Берем элемент (1, 1), потом (1, 2), потом (2, 1), потом (1, 3) и так далее. То есть по диагоналям. Так переберем вообще все элементы (если не понятно, погуглите метод Кантора)
+\end{enumerate}
+
+\begin{Exercise}{}
+    В качестве следствия попробуйте построить явную биекцию между множеством рациональных чисел и натуральных
+\end{Exercise}
+
+\begin{theo}{}
+    $A$ -- бесконечно, $B$ -- нбчс, т.е. $B$ -- конечно или счетно
+
+    $A \bigcup B$ равномощно $A$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\exists Y \subset A$ -- счетное
+
+$Y$ и $Y \bigcup B$ -- равномощны
+
+$A \bigcup B = (A \backslash Y) \bigcup (Y \bigcup B)$
+
+$A = Y \bigcup (A \backslash Y)$
+
+Биекция между $Y$ и $Y \bigcup B$ сущесвтует, значит $A$ и $A \bigcup B$ равномощны
+
+\begin{Example}{}
+    $[0; 1]$ и $B^\infty$. Равномощны ли? Да. Последовательность единиц и нулей -- это бинпоиск числа
+\end{Example}
+
+\end{document}

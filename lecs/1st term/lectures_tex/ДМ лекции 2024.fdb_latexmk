@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732539553.16874 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/ДМ лекции 2024.tex" "ДМ лекции 2024.pdf" "ДМ лекции 2024" 1732539553.83316 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lectures_tex/ДМ лекции 2024.tex" 1732539552.98511 29429 6f51d88abc4415e125d386a26dab80e7 ""
+["pdflatex"] 1736792068.3214 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/1st term/lectures_tex/ДМ лекции 2024.tex" "ДМ лекции 2024.pdf" "ДМ лекции 2024" 1736792069.02619 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/1st term/lectures_tex/ДМ лекции 2024.tex" 1736792067.08776 29429 6f51d88abc4415e125d386a26dab80e7 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1731796326.50771 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
@@ -119,9 +119,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "ДМ лекции 2024.aux" 1732539553.7204 263 cfcb013bccc1a26d250869954e752aa2 "pdflatex"
-  "ДМ лекции 2024.out" 1732539553.52223 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ДМ лекции 2024.tex" 1732539552.98511 29429 6f51d88abc4415e125d386a26dab80e7 ""
+  "ДМ лекции 2024.aux" 1736792068.8578 263 cfcb013bccc1a26d250869954e752aa2 "pdflatex"
+  "ДМ лекции 2024.out" 1736792068.65761 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ДМ лекции 2024.tex" 1736792067.08776 29429 6f51d88abc4415e125d386a26dab80e7 ""
   (generated)
   "ДМ лекции 2024.aux"
   "ДМ лекции 2024.log"

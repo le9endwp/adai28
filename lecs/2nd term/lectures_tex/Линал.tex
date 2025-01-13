@@ -1,0 +1,357 @@
+\documentclass[12pt]{article}
+\usepackage{config}
+\usepackage{subfiles}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\def\divby{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+\newcommand{\q}[1]{\langle #1 \rangle}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp
+\end{flushright}
+
+\begin{center}
+    \LARGE \textbf{Линейная алгебра и геометрия}
+\end{center}
+
+Типичная система линейных уравнений: $\left\{\begin{array}{l}
+    ax + by = e \\
+    cx + dy = f
+\end{array}\right.;\ a, b, c, d, e, f \in R$ -- кольцо или $\in K$ -- поле
+
+Неизвестные здесь: ${x \choose y} \in K \times K$
+
+Множество линейных уравнений: $\{ px + qy = r \}$
+
+Операции:
+
+\begin{itemize}
+    \item Их можно складывать
+    \item Умножать на константу (элемент $K$)
+\end{itemize}
+
+\vspace{5mm}
+
+\begin{defin}{Векторное пространство}
+    $K$ -- поле. Векторное пространство над $K$ это $(V, +, \cdot)$, где V -- множество, $+: V \times V \rightarrow V$, $\cdot: K \times V \rightarrow V$
+\end{defin}
+
+\vspace{5mm}
+
+\textbf{Аксиомы:}
+
+\begin{enumerate}
+    \item[1-4.] $(V, +)$ -- абелева группа
+    \item[5.] $(ab)v = a(bv)\ \forall a, b \in K, v \in V$
+    \item[6.] $(a + b)v = av + bv\ \forall a, b \in K, v \in V$
+    \item[7.] $a(v + u) = av + au\ \forall a \in K, v, u \in V$
+    \item[8.] $1v = v\ \forall v \in V$
+\end{enumerate}
+
+\vspace{5mm}
+
+\begin{lem}{}
+    $0 \cdot v = \overrightarrow{0}\ \forall v \in V$
+
+    $(-1) \cdot v = -v\ \forall v \in V$
+\end{lem}
+
+\textit{Доказательство:}
+
+$(0 + 0)v = 0v + 0v \Rightarrow 0v = 0v + 0v$
+
+$(-0)v + 0v = (-0)v + 0v + 0v \Rightarrow \overrightarrow{0} = 0v$
+
+Тогда $\overrightarrow{0} = 0v = (1 + (-1))v = 1v + (-1)v = v + (-1)v$, т.е. $v + (-1)v = \overrightarrow{0} \Rightarrow (-1)v = -v$
+
+\begin{Remark}{}
+    $u + v = v + u\ \forall u, v \in V$ следует из остальных 7 аксиом пространства (упражнение)
+\end{Remark}
+
+\begin{Example}{}
+    Тут рисуночки, говорящие что два вектора задают пространство, в котором выполнены аксиомы 1-8
+
+    Заметим, что есть биекция $vec \leftrightarrow R^2$, т.е. $v \rightarrow {a \choose b}$
+\end{Example}
+
+\begin{Example}{Самый главный пример}
+    $K^n = \{\left( \begin{gathered}
+        a_1 \\
+        a_2 \\
+        \vdots \\
+        a_n
+    \end{gathered} \right) | a_i \in K\}$
+
+    А еще тут выполнены все аксиомы (доказано методом очев): можем складывать, домножать итд
+
+    Это называем пространство столбцов
+
+    \vspace{3mm}
+
+    $^nK = \{ (a_1, a_2 \ldots a_n) | a_i \in K\}$
+
+    А это то же самое, но называем пространством строк
+\end{Example}
+
+\vspace{5mm}
+
+\begin{defin}{Линейное отображение}
+    $V_1, V_2$ -- векторные пространства над $K$
+
+    $f : V_1 \rightarrow V_2$ -- линейное отображение (гомоморфизм), если:
+
+    \begin{enumerate}
+        \item $f(v_1 + v_2) = f(v_1) + f(v_2)\ \forall v_1, v_2 \in V_1$
+        \item $f(kv) = kf(v)\ \forall k \in K, v \in V_1$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Изоморфизм}
+    $f$ -- линейное отображение и биекция, тогда $f$ -- изоморфизм
+
+    $V_1 \cong V_2$ если существует изоморфизм $V_1 \rightarrow V_2$
+
+    А есть изоморфизм $vect_2 \cong R^2$, то есть вектор изоморфен его координатам 
+\end{defin}
+
+\begin{Example}{}
+    $M$ -- множество, $R \equiv K$
+
+    $V = HOM(M | R)$ -- множество всех функций $M \rightarrow R$
+
+    $f_1, f_2 \in V$
+
+    $(f_1 + f_2)(x) := f_1(x) + f_2(x)$
+
+    $(kf)(x) := k \cdot f(x)$
+
+    Значит $V$ -- векторное пространство
+
+\begin{Example}{}
+    $M = \{x_1, x_2 \ldots x_n\}$
+
+    $f \in V \leftrightarrow \left( \begin{gathered}
+        f(x_1) \\
+        f(x_2) \\
+        \vdots \\
+        f(x_n)
+    \end{gathered} \right) \in R^n$
+
+    $V \cong R^n$
+
+    $M = [0, 1];\ (f : M \rightarrow R$ -- непрерывная функция$)$
+\end{Example}
+
+\end{Example}
+
+\begin{Example}{}
+    $V = \{(a_1, a_2 \ldots) | a_i \in R;\ a_{i + 2} = a_i + a_{i + 1}\}$
+
+    Заметим, что если $a \in V$, то $ka \in V$. Более того, если и $b \in V$, то $a + b \in V$
+
+    Но любую фиббоначиеву последовательность можно задать двумя начальными элементами, т.е. $(a_i) \in V \leftrightarrow (a_1, a_2) \in R^2$
+
+    Тогда $V \cong R^2$ но этот изоморфизм не лучший
+\end{Example}
+
+\begin{Example}{}
+    $M$ -- множество, $V = 2^M$
+
+    \begin{enumerate}
+        \item $|M| = n;$
+        \item $A + B = (A \cup B) \setminus (A \cap B)$
+        \item $K = Z/2Z$
+        \item $0A = \varnothing$
+        \item $1A = A$
+    \end{enumerate}
+
+    $1A + 1A = 2A \Rightarrow 1A + 1A = \varnothing$
+
+    $2A = \overrightarrow{0}\ \forall A$
+\end{Example}
+
+\begin{defin}{Линейная комбинация}
+    $V$ -- векторное пространство над $K$
+
+    $x_1 \ldots x_n \in V;\ a_1 \ldots a_n \in K$
+
+    Тогда $a_1x_1 + a_2x_2 + \ldots + a_nx_n$ -- линейная комбинация векторов $x_1 \ldots x_n$ с коэффициентами $a_1 \ldots a_n$
+\end{defin}
+
+\begin{defin}{Подпространство}
+    $V$ -- векторное пространство над $K$. $U \subseteq V$ 
+
+    $U$ -- подпространство $V$, если $U$ -- векторное пространство над $K$ с теми же операциями
+\end{defin}
+
+\begin{Remark}{}
+    $U$ -- подпространство $V \Leftrightarrow$
+
+    \begin{enumerate}
+        \item $\forall u_1, u_2 \in U \Rightarrow u_1 + u_2 \in U$
+        \item $\forall u \in U, k \in K \Rightarrow ku \in U$
+    \end{enumerate}
+
+    Где $U \neq \varnothing$
+\end{Remark}
+
+\begin{Example}{}
+    $U = \{ V \parallel l \}$ -- подпространство $V$
+
+    $K^3$, $U \subset K^3$
+
+    $U = \{ (x, y, z) | x + y + z = 0 \}$ -- подпространство $K^3$
+\end{Example}
+
+\begin{defin}{Линейная оболочка}
+    $V$ -- векторное пространство над $K$
+
+    $V_1, \ldots V_n \in V$
+
+    Линейная оболочка $\langle V_1, \ldots V_n \rangle$ -- их множество линейных комбинаций с произвольными коэффициентами
+
+    $\langle V_1, \ldots V_n \rangle = \{ a_1V_1 + \ldots + a_nV_n | a_i \in K \}$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $\langle V_1, \ldots V_n \rangle$ -- подпространство $V$
+        
+        $\langle V_1, \ldots V_n \rangle < V$
+    
+        \item $U < V;\ V_1 \ldots V_n \in U \Rightarrow \langle V_1, \ldots V_n \rangle \subset U$
+    \end{enumerate}
+    
+    Т.е. $\langle V_1, \ldots V_n \rangle$ -- нелинейное подпространство содержит $V_1 \ldots V_n$
+\end{Remark}
+
+\textit{Доказательство:}
+
+$V_i = 0 V_1 + \ldots + 1V_i + \ldots + 0V_n \Rightarrow V_i \in \langle V_1, \ldots V_n \rangle$
+
+$u, w \in \langle V_1, \ldots V_n \rangle$
+
+$ku + w \in \langle V_1, \ldots V_n \rangle$
+
+\vspace{2mm}
+
+$U < V\ V_i \in U \Rightarrow a_iV_i \in U$
+
+$a_1V_1 \ldots a_nV_n \in U \Rightarrow a_1V_1 + \ldots + a_nV_n \in U$
+
+Т.е. $U$ содержит все линейные комбинации $V_1 \ldots V_n$
+
+\begin{Remark}{}
+    Аналогично определяется линейная оболочка для любого числа векторов
+\end{Remark}
+
+\begin{defin}{Порождающая система}
+    $M$ называется порождающей системой в $V$, если $\langle M \rangle = V$, т.е. $\forall v \in V$ -- линейная комбинация векторов из $M$
+\end{defin}
+
+\begin{defin}{Конечномерные пространства}
+    $V$ -- векторное пространство над $K$
+
+    $V$ называется конечномерным, если $\exists$ конечная порождающая система. Будем изучать конечномерные пространства
+\end{defin}
+
+\begin{lem}{}
+    $\q{V_1 \ldots V_n}$
+
+    $\q{V_1 + \sum\limits_2^n a_iV_i, V_2 \ldots V_n} = \q{V_1, V_2 \ldots V_n}$
+\end{lem}
+
+\textit{Доказательство:}
+
+$V_1 + \sum\limits_2^n a_iV_i \in \q{V_1, V_2 \ldots V_n}$ и $V_2 \ldots V_n \in \q{V_1 \ldots V_n}$
+
+Тогда $\q{V_1 + \sum\limits_2^n a_iV_i, V_2 \ldots V_n} = \q{V_1, V_2 \ldots V_n}$ по Rem2.
+
+\begin{defin}{Линейная независимость}
+    $M \subset V$
+
+    $M$ называется линейно независимым, если $\forall v_1 \ldots v_n \in M$ и $\forall a_1 \ldots a_n \in K$ : $\sum a_iv_i = 0 \Rightarrow a_1 = \ldots = a_n = 0$
+
+    Т.е. никакая линейнай комбинация элементов $M$ не равна 0
+\end{defin}
+
+\begin{propos}{}
+    $v_1 \ldots v_n \in V$
+
+    Тогда $v_1 \ldots v_n$ -- линейно зависимы (не линейно независимы) $\Leftrightarrow \exists i : v_i \in \q{v_1 \ldots v_{i - 1}, v_{i + 1} \ldots v_n}$
+
+    $v_i = \sum\limits_{j \neq i} a_jv_j$
+
+    $(-1)v_i + \sum\limits_{j \neq i} a_jv_j = \overrightarrow{0}$ -- нетривиальная линейная комбинация 
+
+    \vspace{2mm}
+
+    Пусть $\sum a_iv_i = 0$ -- нетривиальная линейная комбинация
+
+    $\exists i : a_i \neq 0$
+
+    $-a_iv_i = \sum\limits_{j \neq i} a_jv_j \Rightarrow v_i = \sum\limits_{j \neq i} -\frac{a_j}{a_i}v_j$
+
+$v_i \in \q{v_j}$
+\end{propos}
+
+\begin{Remark}{}
+    $K$ не поле (ассоциативное кольцо)
+
+    $V$ над $k$ (с теми эе операциями) называется модулем над $K$. Для модулей это утверждение (и большинство других) неверно
+\end{Remark}
+
+\begin{defin}{Базис}
+    $V$ -- векторное пространство над $K$
+
+    $v_1 \ldots v_n$ -- базис $V$, если это порождающая система и линейно независима
+\end{defin}
+
+\begin{defin}{Размерность}
+    $V$ -- конечномерное векторное пространство. Мощность его базиса называется размерностью $V$ и обозначается $dim(V)$
+\end{defin}
+
+\begin{Example}{}
+    $dim(K^n) = n$
+
+    Базис стандартный $e_1 = \left( \begin{gathered}
+        1 \\
+        0 \\
+        \vdots \\
+        0
+    \end{gathered} \right)$ итд
+\end{Example}
+
+\begin{theo}{}
+    $V$ -- конечное векторное пространство
+
+    \begin{enumerate}
+        \item Базисы существуют
+        \item Любые два базиса равномощны
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $v_1 \ldots v_s$ -- порождающая система (существует, т.к. $V$ конечномерно)
+    
+    Пусть $v_1 \ldots v_s$ -- линейно зависимы
+
+    $\exists i : v_i \in \q{v_j};\ v_i = \sum\limits_{j \neq i} a_jv_j$
+
+    НУО $i = 1$
+
+    Тогда $\q{v_1 \ldots v_n} = \q{v_1 - \sum\limits_{j \neq 1} a_jv_j, v_2 \ldots v_n} = \q{v_2 \ldots v_n}$
+
+    $v_2 \ldots v_n$ -- порождающая система. Продолжаем выкидывать $v_i$ пока не получим базис
+\end{enumerate}
+
+\end{document}
+

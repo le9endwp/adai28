@@ -1,0 +1,320 @@
+\documentclass[12pt]{article}
+\usepackage{config}
+\usepackage{subfiles}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\def\divby{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+\newcommand{\q}[1]{\langle #1 \rangle}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp
+\end{flushright}
+
+\section*{Первообразная и неопределенный интеграл}
+
+\begin{defin}{Первообразная функция}
+    $f : \q{a, b} \rightarrow \R;\ \ F: \q{a, b} \rightarrow \R$ 
+
+    $F$ -- первообразная функция $f$, если $F$ дифференцируема на $\q{a, b}$ и $F'(x) = f(x)$ при всех $x \in \q{a, b}$
+
+    \begin{Example}{}
+        $f(x) = \cos{x}$
+
+        $F(x) = \sin{x}$ 
+    \end{Example}
+\end{defin}
+
+\begin{propos}{}
+    Не всякая функция имеет первообразную
+
+    \begin{Example}{}
+        $f(x) = \begin{cases}
+            0,\ x \in (-1, 0] \\
+            1,\ x \in (0, 1)
+        \end{cases}$
+    \end{Example}
+\end{propos}
+
+\begin{propos}{}
+    Непрерывная на $\q{a, b}$ функция имеет первообразную
+\end{propos}
+
+\begin{theo}{}
+    $f, F : \q{a, b} \rightarrow \R, F$ -- первообразная $f$. Тогда
+
+    \begin{enumerate}
+        \item $F + C$ -- первообразная $f$
+        \item Если $\Phi$ -- первообразная $f$, то $\Phi = F + C$ для некоторой константы $C$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $(F + C)' = F' = f$
+    \item $\Phi' = f = F'$
+    
+    $g = \Phi - F$
+
+    $g' = 0 \Rightarrow g = C \Rightarrow \Phi = F + C$
+\end{enumerate}
+
+\begin{defin}{Неопределенный интеграл}
+    Неопределенный интеграл -- множество первообразных функции $f$
+
+    Обозначение: $\int f(x)dx$
+\end{defin}
+
+\begin{Remark}{}
+    Для доказательства равенства $\int f(x)dx = F(x) + C$ достаточно проверить, что 
+    
+    $F'(x) = f(x)$
+\end{Remark}
+
+\textbf{Действия с множествами функций:}
+
+$A$ и $B$ -- множества функций $\q{a, b} \rightarrow \R$
+
+$\lambda \in \R,\ h : \q{a, b} \rightarrow \R$
+
+\begin{enumerate}
+    \item $A + B = \{f + g : f \in A,\ g \in B\}$
+    \item $\lambda A = \{\lambda f : f \in A\}$
+    \item $A + h = \{f + h : f \in A\}$
+    \item $(A)' = \{f' : f \in A\}$
+    
+    \begin{Example}{}
+        $(\int f(x)dx)' = \{ f \}$
+    \end{Example}
+\end{enumerate}
+
+\textbf{Таблица интегралов:}
+
+\begin{enumerate}
+    \item $\int adx = ax + C$
+    \item $\int x^pdx = \frac{x^{p + 1}}{p + 1} + C,\ p \neq -1$
+    \item $\in \frac{dx}{x} = \ln{|x|} + C$
+    \item $\int a^xdx = \frac{a^x}{\ln{a}} + C;\ a > 0,\ a \neq 1$
+    \item $\int \sin{x}dx = -\cos{x} + C$
+    \item $\int \cos{x}dx = \sin{x} + C$
+    \item $\int \frac{dx}{x^2 + 1} = \arctg{x} + C$
+    \item $\int \frac{dx}{\sqrt{1 - x^2}} = \arcsin{x} + C$
+\end{enumerate}
+
+\begin{theo}{Линейность интеграла}
+    $f, g : \q{a, b} \Rightarrow \R$ имеют первообразные
+
+    $\alpha, \beta \in \R$, не равные нулю одновременно
+
+    Тогда $\int (\alpha f(x) + \beta g(x))dx = \alpha \int f(x)dx + \beta \int g(x)dx$
+\end{theo}
+
+\textit{Доказательство:}
+
+$F$ и $G$ -- первообразные
+
+Правая часть $= \{ \alpha F(x) + \beta G(x) + C : C \in \R \}$
+
+$(\alpha F(x) + \beta G(x) + C)' = \alpha F'(x) + \beta G'(x) = \alpha f(x) + \beta g(x)$
+
+\begin{theo}{Замена переменной в интеграле}
+    $f : \q{a, b} \rightarrow \R,\ F$ -- первообразная
+    
+    $\varphi : \q{c, d} \rightarrow \q{a, b}$ -- дифференцируемая функция
+
+    Тогда $\int f(\varphi(x))\varphi'(x)dx = F(\varphi(x)) + C$
+\end{theo}
+
+\textit{Доказательство:}
+
+$(F(\varphi(x)) + C)' = F'(\varphi(x))\varphi'(x) = f(\varphi(x))\varphi'(x)$
+
+\begin{Remark}{}
+    $y = \varphi(x);\ \ dy = \varphi'(x)dx$
+
+    $\frac{dy}{dx} = y'$
+
+    $\int f(\varphi(x)) \varphi'(x)dx = \int f(y)dy = F(y) + C = F(\varphi(x)) + C$
+\end{Remark}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\int \frac{x}{x^2 + 1}dx = \frac{1}{2} \int \frac{(x^2 + 1)'}{x^2 + 1}dx = \frac{1}{2} \int \frac{dy}{y} = \ln{|y|} + c = \ln{|x^2 + 1|} + C$
+        
+        Здесь $y = \varphi(x) = x^2 + 1$
+
+        \item $\int \frac{dx}{\sin{x}} = \int \frac{dx}{2\sin{\frac{x}{2}}\cos{\frac{x}{2}}} = \int \frac{dy}{\sin{y}\cos{y}} = \int \frac{dy}{\tg{y}\cos^2{y}} = \int \frac{(\tg{y})'}{tg{y}}dy = \int \frac{dz}{z} = \ln{|z|} + C =$
+        
+        $= \ln{|\tg{y}|} + C = \ln{|\tg{\frac{x}{2}}|} + C$
+
+        Здесь $y = \frac{x}{2}$ и $z = \tg{y}$
+
+        \item $\int \frac{dx}{1 + \sqrt[3]{x}} = \int \frac{3t^2dt}{1 + t} = 3\int \frac{t^2 - 1 + 1}{t + 1}dt = 3\int (t - 1 + \frac{1}{t + 1})dt = 3(\int tdt - \int dt + \int \frac{dt}{t + 1}) =$
+        
+        $= 3t^2 - 3t + 3\int \frac{d(t + 1)}{t + 1} = 3t^2 - 3t + 3\ln{|t + 1|} + C$
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{Интегрирование по частям}
+    $f, g : \q{a, b} \rightarrow \R$ дифференцируемые
+
+    Если $f'g$ имеет первообразную, то $\int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx$
+\end{theo}
+
+\textit{Доказательство:}
+
+$H$ -- первообразная функции $f'g$
+
+$(fg - H + C)' = (fg)' - H' = f'g + fg' - f'g = fg'$
+
+\begin{nota}{Традиционная запись формулы}
+    $\int udv = uv - \int vdu$
+
+    $\begin{cases}
+        du = u'(x)dx \\
+        dv = v'(x)dx
+    \end{cases}$
+\end{nota}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\int \ln{x}dx = x\ln{x} - \int x \frac{dx}{x} = x\ln{x} - \int dx = x\ln{x} - x + C$
+        
+        Здесь $u = \ln{x},\ v = x$ и $du = (\ln{x})'dx = \frac{dx}{x}$ 
+
+        \item $\int x^2 e^x dx = \int x^2 de^x = x^2 e^x - \int 2x e^x dx = x^2 e^x - 2\int xde^x = x^2e^x - 2(xe^x - \int e^xdx) = \\ = x^2e^x - 2xe^x + 2e^x + C$
+        
+        Здесь сначала берем $u = x^2, v = e^x$, а потом $u = x, v = e^x$
+    \end{enumerate}
+\end{Example}
+
+\section*{Площадь}
+
+\begin{defin}{Площадь}
+    $F$ -- семейство всех ограниченных подмножеств плоскости
+
+    Прямоугольник $\q{a_1, b_1} \times \q{a_2, b_2}$, площадь прямоугольника $(b_1 - a_1)(b_2 - a_2)$
+
+    Площадь $S : F \rightarrow [0, + \infty)$
+
+    \begin{enumerate}
+        \item $S(\q{a_1, b_1} \times \q{a_2, b_2}) = (b_1 - a_1)(b_2 - a_2)$
+        \item $S(E) = S(E_1) + S(E_2)$, если $E = E_1 \bigcup E_2,\ E_1 \bigcap E_2 = \varnothing$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{Свойство}
+    Если $\tilde{E} \subset E$, то $S(\tilde{E}) \leq S(E)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$E = \tilde{E} \bigcup (E \setminus \tilde{E})$
+
+$S(E) = S(\tilde{E}) + S(E \setminus \tilde{E}) \geq S(\tilde{E})$
+
+\begin{defin}{}
+    $\sigma : F \rightarrow [0, +\infty)$
+
+    \begin{enumerate}
+        \item $\sigma(\q{a_1, b_1} \times \q{a_2, b_2}) = (b_1 - a_1)(b_2 - a_2)$
+        \item $\sigma(E) = \sigma(E_-) + \sigma(E_+)$, если $E_-$ и $E_+$ множества, получающиеся в результате разбиения $E$ вертикальной (горизонтальной) прямой
+        \item Если $\tilde{E} \subset E$, тое $\sigma(\tilde{E}) \leq \sigma(E)$
+    \end{enumerate}
+\end{defin}
+
+\begin{Remark}{Свойство}
+    Формула 2) верна и если $E_- \bigcap E_+ \neq \varnothing$
+
+    Например, линию разбиения можно считать относящейся и к левой (верхней), и к правой (нижней) части
+\end{Remark}
+
+\textit{Доказательство:}
+
+$e = E_- \bigcap E_+$, $\sigma(e) = 0$
+
+$\sigma(E_+) = \sigma(E_+ \setminus e) + \sigma(e \bigcap E_+) = \sigma(E_+ \setminus e)$
+
+$\sigma(E_-) + \sigma(E_+) = \sigma(E_-) + \sigma(E_+ \setminus e) = \sigma(E_- \bigcup (E_+ \setminus e)) = \sigma(E_- \bigcup E_+) = \sigma(E)$
+
+\begin{Example}{Примеры площадей $E \in F$}
+    \begin{itemize}
+        \item Рассмотрим покрытие $E$ конечным числом прямоугольников $P_i$ (т.е. $\bigcup\limits_{i = 1}^n P_i \supset E$)
+        
+        $\sigma_1(E) = \inf\{ \sum\limits_{i = 1}^n \sigma(P_i) : \bigcup\limits_{i = 1}^n P_i \supset E \}$
+
+        \item Рассмотрим покрытие $E$ последовательностью прямоугольников $P_i$ (т.е. $\bigcup\limits_{i = 1}^{\infty} P_i \supset E$)
+        
+        $\sigma_2(E) = \inf\{ \sum\limits_{i = 1}^{\infty} \sigma(P_i) : \bigcup\limits_{i = 1}^{\infty} P_i \supset E \}$
+
+        \item Ясно, что $\sigma_1(E) \geq \sigma_2(E)$
+        
+        Но, если $E = ([0, 1] \bigcap \Q) \times ([0, 1] \bigcap \Q)$, то $\begin{cases}
+            \sigma_1(E) = 1 \\
+            \sigma_2(E) = 0
+        \end{cases}$
+    \end{itemize}
+\end{Example}
+
+\begin{theo}{}
+    \begin{enumerate}
+        \item $\sigma_1$ -- площадь
+        \item $\sigma_1$ не меняется при параллельном переносе
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\textbf{1)}
+
+\begin{enumerate}
+    \item $\sigma_1(\q{a, b} \times \q{c, d}) = (b - a)(d - c)$
+    
+    Поскольку $[a, b] \times [c, d]$ -- покрытие $P$, $\sigma_1(P) \leq (b - a)(d - c)$
+
+    В обратную сторону красиво доказано АИ. Там рисуночки, посмотрите!
+
+    \item $E = E_- \bigcup E_+ \Rightarrow \sigma_1(E) = \sigma_1(E_-) + \sigma_1(E_+)$
+    
+    \begin{itemize}
+        \item[$\leq :$] Если $P_1^+, \ldots P_m^+$ -- покрытие $E_+$, для которого $\sum\limits_{i = 1}^m \sigma(P_i^+) < \sigma_1(E_+) + \eps$
+        
+        А $P_1^-, \ldots P_n^-$ -- покрытие $E_-$, для которого $\sum\limits_{i = 1}^n \sigma(P_i^-) < \sigma_1(E_-) + \eps$, то
+
+        $P_1^-, P_2^-, \ldots P_n^-, P_1^+, P_2^+, \ldots P_m^+$ -- покрытие $E$, для которого 
+        
+        $\sigma_1(E) \leq \sum\limits_{i = 1}^{n + m} \sigma(P_i) < \sigma_1(E_-) + \sigma_1(E_+) + 2\eps \Rightarrow \sigma_1(E) < \sigma_1(E_-) + \sigma_1(E_+) + 2\eps$
+
+        \item[$\geq :$] Пусть $P_1, P_2, \ldots P_n$ -- покрытие $E$
+        
+        Разобьем $P_i$ на $P_i^-$ и $P_i^+$
+
+        $\sigma(P_i) = \sigma(P_i^-) + \sigma(P_i^+)$
+
+        $P_1^\pm, P_2^\pm, \ldots P_n^\pm$ -- покрытие $E^\pm$
+
+        $\sum\limits_{i = 1}^n \sigma(P_i^\pm) \geq \sigma_1(E^\pm)$
+
+        $\sum\limits_{i = 1}^n (\sigma(P_i^-) + \sigma(P_i^+)) \geq \sigma_1(E_-) + \sigma_1(E_+)$
+    \end{itemize}
+
+    \item $\tilde{E} \subset E \Rightarrow \sigma_1(\tilde{E}) \leq \sigma_1(E)$
+    
+    Если $\bigcup\limits_{i = 1}^n P_i \supset E$, то $\bigcup\limits_{i = 1}^n P_i \supset \tilde{E} \Rightarrow$ класс покрытий $\tilde{E}$ шире, чем класс покрытий $E$
+\end{enumerate}
+
+\textbf{2)}
+
+Пусть $\tilde{E}$ -- параллельный перенос $E$ на вектор $\overrightarrow{v}$
+
+$P_1, P_2, \ldots P_n$ -- покрытие $E$. Пусть $\tilde{P_i}$ -- параллельный перенос $P_i$ на вектор $\overrightarrow{v}$
+
+Тогда $\tilde{P_1}, \tilde{P_2}, \ldots \tilde{P_n}$ -- покрытие $\tilde{E}$ и $\sum\limits_{i = 1}^n \sigma(P_i) = \sum\limits_{i = 1}^n \sigma(\tilde{P_i})$
+
+\end{document}

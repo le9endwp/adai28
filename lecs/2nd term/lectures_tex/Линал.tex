@@ -16,9 +16,10 @@
     Если нашли опечатку/ошибку - пишите @le9endwp
 \end{flushright}
 
-\begin{center}
-    \LARGE \textbf{Линейная алгебра и геометрия}
-\end{center}
+\tableofcontents
+\newpage
+
+\section{Линейная алгебра и геометрия}
 
 Типичная система линейных уравнений: $\left\{\begin{array}{l}
     ax + by = e \\
@@ -328,6 +329,23 @@ $v_i \in \q{v_j}$
     \end{gathered} \right)$ итд
 \end{Example}
 
+\begin{defin}{}
+    $a_1 \ldots a_n$ -- координаты вектора $v$ в базисе $v_1 \ldots v_n$
+\end{defin}
+
+\begin{theo}{}
+    Следующие условия равносильны:
+
+    \begin{enumerate}
+        \item $v_1 \ldots v_n$ -- базис $V$
+        \item $v_1 \ldots v_n$ -- порождающая линейно независимая система
+        \item $v_1 \ldots v_n$ -- максимальная по включению линейно независимая система
+        \item $\forall v \in V\ \exists! a_1 \ldots a_n : v = \sum a_iv_i$
+    \end{enumerate}
+\end{theo}
+
+
+
 \begin{theo}{}
     $V$ -- конечное векторное пространство
 
@@ -338,6 +356,93 @@ $v_i \in \q{v_j}$
 \end{theo}
 
 \textit{Доказательство:}
+
+\begin{enumerate}
+    \item[$1 \Rightarrow 2$] $v_1 \ldots v_n$ -- базис $\Rightarrow v_1 \ldots v_n$ -- порождающая система
+    
+    Почему лнз? $a_1v_1 + \ldots + a_nv_n = 0$ и $\exists a_i \neq 0 \Rightarrow v_i = \sum\limits_{j \neq i} c_jv_j \Rightarrow$
+
+    $\Rightarrow \q{v_1 \ldots v_n} = \q{v_1 \ldots v_{i - 1}, v_{i + 1} \ldots v_n}$
+
+    \item[$2 \Rightarrow 1$] $v_1 \ldots v_n$ лнз
+    
+    Пусть не минимальная порождающая. НУО $v_2 \ldots v_n$ -- порождающая система, в частности $v_1 = \sum a_iv_i \Rightarrow v_1 \ldots v_n$ -- линейно зависимая 
+
+    \item[$2 \Rightarrow 4$] $v_1 \ldots v_n$ -- порождающая лнз
+    
+    Т.к. порождающая $\forall v = \sum a_iv_i$
+
+    Единственность: пусть $\sum a_iv_i = \sum a_i'v_i : \sum (a_i - a_i')v_i = 0 \Rightarrow a_i = a_i'\ \ \forall i$
+
+    \item[$4 \Rightarrow 2$] $\forall v \exists a_i : v = \sum a_iv_i$, т.е. $v_1 \ldots v_n$ -- порождающая
+    
+    Лнз-ть: пусть $v_i = \sum\limits_{j \neq i} a_jv_j$. Тогда $v_i = 0 \cdot v_1 + 0 \cdot v_2 + \ldots + 1 \cdot v_i + \ldots + 0 \cdot v_n = \\ = 0 \cdot v_1 + \ldots + 0 \cdot v_{i - 1} + 1 \cdot v_i + 0 \cdot v_{i + 1} + \ldots + 0 \cdot v_n$
+\end{enumerate}
+
+\begin{Exercise}{}
+    $2 \Leftrightarrow 3$
+\end{Exercise}
+
+\begin{lem}{Линейная зависимости линейных комбинаций}
+    $V$ -- векторное пространство над $K$
+
+    $v_1 \ldots v_n \in \q{u_1 \ldots u_m};\ n > m$
+
+    Тогда $v_1 \ldots v_n$ -- линейно зависимы
+\end{lem}
+
+\textit{Доказательство:}
+
+ММИ по $m$. База $m = 1$
+
+$\begin{cases}
+    v_1 = a_1u_1 \\
+    v_2 = a_2u_1 \\
+    \ldots
+\end{cases}$
+
+$a_2v_1 - a_1v_2 = 0$. Либо $v_1, v_2$ -- линейно зависимы, либо $a_1, a_2 = 0 \Rightarrow v_1 = \overline{0} = v_2$
+
+$1 \cdot v_1 + 1 \cdot v_2 + 0 \cdot v_3 \ldots = 0 \Rightarrow v_1 \ldots v_n$ -- линейно зависимы
+
+Переход: $m \rightarrow m + 1$
+
+$\begin{cases}
+    v_1 = a_{1_1}u_1 + \ldots + a_{1_{m + 1}}u_{m + 1} \\
+    v_2 = a_{2_1}u_1 + \ldots + a_{2_{m + 1}}u_{m + 1} \\
+    \ldots \\
+    v_n = a_{n_1}u_1 + \ldots + a_{n_{m + 1}}u_{m + 1}
+\end{cases}$
+
+\begin{enumerate}
+    \item $a_{1_{m + 1}} = a_{2_{m + 1}} = \ldots = a_{n_{m + 1}} = 0$
+
+    $v_1 \ldots v_n \in \q{u_1 \ldots u_m}$
+
+    $n > m + 1 \Rightarrow n > m \Rightarrow v_1 \ldots v_n$ -- линейно зависимы
+
+    \item НУО $a_{1_{m + 1}} \neq 0$
+    
+    Вычтем из $i$ равенства ($i = 2 \ldots n$) первое умноженное на $\frac{a_{i_{m + 1}}}{a_{1_{m + 1}}}$
+
+    Тогда $\tilde{v_i} = v_i - \frac{a_{i_{m + 1}}}{a_{1_{m + 1}}}v_1 = \sum\limits_{k = 1}^{m + 1} (a_{i_k} - \frac{a_{i_{m + 1}}}{a_{1_{m + 1}}}a_{1_k})u_k \in \q{u_1 \ldots u_m}$
+
+    $\tilde{v_2} \ldots \tilde{v_n} \in \q{u_1 \ldots u_m}$, но $n > m + 1 \Rightarrow n - 1 > m \Rightarrow \tilde{v_2} \ldots \tilde{v_n}$ -- линейно зависимы
+
+    $\exists a_1 \ldots a_n$ -- не все нули:
+
+    $0 = \sum a_i \tilde{v_i} = \sum a_i(v_i - \frac{a_{i_{m + 1}}}{a_{1_{m + 1}}}v_1) = \sum a_iv_i + (\ldots)v_1 \Rightarrow v_1 \ldots v_n$ -- линейно зависимы
+\end{enumerate}
+
+\begin{theo}{Следствие}
+    $v_1 \ldots v_n$ -- базис и $u_1 \ldots u_m$ -- базис $\Rightarrow n = m$ (теорема часть 2)
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть НУО $n > m$
+
+$u_1 \ldots u_m$ -- базис $\Rightarrow$ порождающая $\Rightarrow v_1 \ldots v_n \in \q{u_1 \ldots u_m};\ \ n > m \Rightarrow v_1 \ldots v_n$ -- линейно зависимы ???
 
 \begin{enumerate}
     \item $v_1 \ldots v_s$ -- порождающая система (существует, т.к. $V$ конечномерно)
@@ -351,7 +456,223 @@ $v_i \in \q{v_j}$
     Тогда $\q{v_1 \ldots v_n} = \q{v_1 - \sum\limits_{j \neq 1} a_jv_j, v_2 \ldots v_n} = \q{v_2 \ldots v_n}$
 
     $v_2 \ldots v_n$ -- порождающая система. Продолжаем выкидывать $v_i$ пока не получим базис
+
+    \item 
+    
+    \begin{Example}{За что мы боремся?}
+        Векторные пространства $\rightarrow$ абелевы группы
+
+        $Z = \q{1, 2, 3} = \q{1, 2} = \q{1}$
+
+        С другой стороны $Z = \q{1, 2, 3} = \q{2, 3}$ -- минимальная порождающая система
+    \end{Example}
+    
+    $dimV = n$, если $\exists$ базис $v_1 \ldots v_n \Leftrightarrow$ в любом базисе $n$ элементов
+
+    \begin{lem}{}
+        $V$ -- конечномерное пространство, $u_1 \ldots u_k$ -- линейно независимы $\Rightarrow \exists u_{k + 1} \ldots u_n : u_1 \ldots u_n$ -- базис
+    \end{lem}
+
+    \textit{Доказательство:}
+
+    $u_1 \ldots u_k$ -- не максимальная лнз. $\exists u_{k + 1} : u_1 \ldots u_{k + 1}$ -- лнз
+
+    $u_1 \ldots u_{k + 1}$ -- не максимальная лнз. $\exists u_{k + 2} : u_1 \ldots u_{k + 2}$ -- лнз итд
+
+    Заметим: не может быть $u_1 \ldots u_{n + 1}$ -- лнз (по лзлк), $u_1 \ldots u_{n + 1} \in \q{v_1 \ldots v_n}$
+
+    $\Rightarrow$ не позже $n$ шага процесс закончится. На самом деле ровно на $n$ шаге
 \end{enumerate}
+
+\begin{theo}{Следствие}
+    $n = dimV$, $u_1 \ldots u_m \in V$
+
+    $m > n \Rightarrow u_1 \ldots u_m$ -- линейно зависимы
+
+    $m < n \Rightarrow u_1 \ldots u_m$ -- не порождающая система
+\end{theo}
+
+\begin{theo}{Следствие}
+    $U \leq V$, тогда $dimU \leq dimV$ и $dimU = dimV \Leftrightarrow U = V$
+\end{theo}
+
+\begin{theo}{}
+    $V$ -- $k$-мерное над $K$. $dimV = n \Rightarrow V \cong K^n$
+\end{theo}
+
+\textit{Доказательство:}
+
+$v_1 \ldots v_n$ -- базис $V$. Рассмотрим отображение $p : K^n \rightarrow V$
+
+$\left( \begin{gathered}
+    a_1 \\
+    a_2 \\
+    \vdots \\
+    a_n
+\end{gathered} \right) \rightarrow a_1v_1 + a_2v_2 + \ldots + a_nv_n$
+
+$f(x + y) = f(\left( \begin{gathered}
+    a_1 \\
+    a_2 \\
+    \vdots \\
+    a_n
+\end{gathered} \right) + \left( \begin{gathered}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_n)
+\end{gathered} \right) ) = f(\left( \begin{gathered} 
+    a_1 + b_1 \\
+    a_2 + b_2 \\
+    \vdots \\
+    a_n + b_n
+\end{gathered} \right)) = \sum (a_i + b_i)v_i = \sum a_iv_i + \sum b_iv_i = f(x) + f(y)$
+
+\begin{Exercise}{}
+    $f(kx) = kf(x)$
+\end{Exercise}
+
+$f$ -- сюръективно и инъективно: по определению базиса
+
+\begin{Example}{}
+    $v = \{ f \in K[x] | deg(f) \leq 2 \} = \q{1, x, x^2} = \q{1, 1 + x, x^2}$ -- оба базисы
+\end{Example}
+
+\begin{Example}{Числа Фиббоначи}
+    $V = \{ (a_1 \ldots) | a_{i + 1} = a_i + a_{i - 1} \}$
+
+    $V \leftrightarrow (a_1, a_2)$, $V \cong R^2$
+
+    Хороший базис:
+
+    $\varphi_1 = (1, \varphi, \varphi^2 \ldots) \in V$
+
+    $\varphi_2 = (1, (-\frac{1}{\varphi}), (-\frac{1}{\varphi})^2 \ldots) \in V$
+
+    $\varphi_1, \varphi_2$ -- базис
+
+    $f = a\varphi_1 + b\varphi_2$
+
+    $f \rightarrow u_n = a \cdot \varphi^n + v(-\frac{1}{\varphi})^n$
+
+    $a = b = \frac{1}{\sqrt{5}}$
+\end{Example}
+
+\section{Система линейных уравнений (СЛУ)}
+
+\begin{defin}{Линейное уравнение}
+    Линейное уравнение: $a_1x_1 \ldots a_nx_n = b$
+    
+    где $a_1 \ldots a_n, b \in K$, а $x_1 \ldots x_n$ -- переменные
+\end{defin}
+
+\begin{defin}{Система линейных уравнений}
+    СЛУ -- это набор линейных уравнений: $\sum\limits_{i = 1}^n a_{k_i}x_i = b_k$, $k = 1 \ldots m$
+
+    СЛУ соответствует отображение $A: K^n \rightarrow K^m$
+
+    $\left( \begin{gathered}
+        x_1 \\
+        \vdots \\
+        x_n
+    \end{gathered} \right) \rightarrow \left( \begin{gathered}
+        \sum a_{1_i}x_i \\
+        \vdots \\
+        \sum a_{m_i}x_i
+    \end{gathered} \right)$
+
+    Это отображение уважает сложение (просто поверьте), и вообще $A$ -- линейное отображение
+\end{defin}
+
+\begin{defin}{Ядро и образ}
+    $A : U \rightarrow V$ -- линейное
+
+    Ядро: $ker(A) = \{x \in U | A(x) = \overline{0} \} \subset U$
+
+    $Im(A) = \{ A(x) | x \in U \} \subset V$
+
+    \begin{Example}{}
+        В нашем примере
+
+        $Im(A) = \{ \left( \begin{gathered}
+            b_1 \\
+            \vdots \\
+            b_n
+        \end{gathered} \right) | \text{СЛУ} A(x) = \left( \begin{gathered}
+            b_1 \\
+            \vdots \\
+            b_n
+        \end{gathered} \right) \}$
+
+        $Ker(A) = $ множество решений системы
+
+        $\begin{cases}
+            \sum a_{1_i}x_i = 0 \\
+            \vdots \\
+            \sum a_{m_i}x_i = 0
+        \end{cases}$
+
+        Такие системы называются однородными
+    \end{Example}
+\end{defin}
+
+\begin{lem}{}
+    $A : U \rightarrow V$ -- линейное отображение $\Rightarrow Ker(a) \leq U$ и $Im(A) \leq V$ -- подпространство
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Надо проверить замкнутость
+
+    $u_1, u_2 \in Ker(A)$, т.е. $A(u_1) = 0$ и $A(u_2) = 0$
+    
+    $A(u_1 + ku_2) = A(u_1) + kA(u_2) = 0 + 0 = 0$
+
+    \item $v_1, v_2 \in Im(A)$, $v_1 = A(u_1)$ и $v_2 = A(u_2)$
+    
+    $v_1 + kv_2 = A(u_1) + kA(u_2) = A(u_1 + ku_2) = A(u) \Rightarrow v_1 + kv_2 \in Im(A)$
+\end{enumerate}
+
+\begin{propos}{}
+    В нашем примере:
+
+    Множество решений однородной линейной системы -- подпространство в $K^n$
+
+    Тривиальный случай: $dim(Ker(A)) = 0$, т.е. $Ker(A) = \{\left( \begin{gathered}
+        0 \\
+        \vdots \\
+        0
+    \end{gathered} \right) \}$ -- всегда решение однородной СЛУ (есть только тривиальное решение)
+\end{propos}
+
+\begin{theo}{}
+    В однородной СЛУ
+
+    $n > m \Rightarrow dim(Ker(a)) > 1$, т.е.  существует нетривиальное решение СЛУ
+\end{theo}
+
+\textit{Доказательство:}
+
+$\begin{cases}
+    a_{11}x_1 + \ldots + a_{1n}x_n = 0 \\
+    \vdots \\
+    a_{m1}x_1 + \ldots + a_{mn}x_n = 0
+\end{cases} \Leftrightarrow x_1 \cdot \left( \begin{gathered}
+    a_{11} \\
+    \vdots \\
+    a_{m1}
+\end{gathered} \right) + \ldots + x_n \cdot \left( \begin{gathered}
+    a_{1n} \\
+    \vdots \\
+    a_{mn}
+\end{gathered} \right) = \left( \begin{gathered}
+    0 \\
+    \vdots \\
+    0
+\end{gathered} \right)$
+
+$u_1 \ldots u_n \in K^m;\ n > m \Rightarrow u_1 \ldots u_n$ -- лз, т.е. $\exists x_1 \ldots x_n$ -- не все нули: $\sum x_iu_i = 0$
 
 \end{document}
 

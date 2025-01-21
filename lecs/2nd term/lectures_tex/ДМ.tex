@@ -138,6 +138,107 @@ $A = Y \bigcup (A \backslash Y)$
 
 \begin{Example}{}
     $[0; 1]$ и $B^\infty$. Равномощны ли? Да. Последовательность единиц и нулей -- это бинпоиск числа
+
+    Проблема: $0,(9) = 1,(0)$
+
+    $b_1 \ldots b_k, 1, 1, 1, 1, (1)$
+
+    $(b_1 \ldots b_k) + 1$
+
+    $R \bigcup [0, 1] \sim B^{\infty}$ и $R \bigcup [0, 1] \sim [0, 1] \Rightarrow [0, 1] \sim B^{\infty}$
 \end{Example}
+
+\begin{Example}{}
+    $[0, 1] \sim [0, 1] \times [0, 1]$
+
+    $0, a_1a_2 \ldots a_k \ldots$
+
+    $0, a_1a_3a_5 \ldots$ и $0, a_2a_4a_6 \ldots$
+
+    \begin{Exercise}{}
+        Проблема та же, что и в прошлом примере, но число уязвимых моментов кратно больше. Почините
+    \end{Exercise}
+\end{Example}
+
+\begin{theo}{Кантор-Бернштейн}
+    $A, B;\ A_1 \subset A;\ B_1 \subset B$
+
+    $A_1 \sim B, B_1 \sim A \Rightarrow A \sim B$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A$ имеет мощность не больше $B$. Существует какое-то отображение. Нужна его биективность. А где-то по пути может докажем еще и полный порядок
+
+$f: A \rightarrow B_1$ -- биекция
+
+$g : B \rightarrow A_1$ -- еще одна биекция
+
+Заметим, что $g(f(A)) = A_2$ -- биекция, более того этот процесс можно продолжить до бесконечности 
+
+То есть имеем $A \supset A_1 \supset A_2 \ldots$ и $A \sim A_2 \sim A_4 \ldots$ и $A_1 \sim A_3 \sim A_5 \sim \ldots$
+
+Возьмем просто много вложенных $C$-шек таких, что $C \rightarrow C_2 \rightarrow C_4 \ldots$ и $C_1 \rightarrow C_3 \ldots$ при какой-то биекции $h$
+
+Как построить биекцию из $C_6$ в $C_7$? Положим $D_i = C_i \setminus C_{i + 1}$. Тогда $C_0 = D_0 \bigcup D_1 \bigcup D_2 \ldots$
+
+При этом $C_1 = D_1 \bigcup D_2 \bigcup D_3 \ldots$
+
+$D_2 = C_2 \setminus C_3;\ D_0 = C_0 \setminus C_1$. Ну тогда $C_2 = D_2 \bigcup C_3$ и $C_0 = D_0 \bigcup C_1$
+
+При этом биекция $h$ все еще существует. Можем сопоставить $D_{2k} \rightarrow D_{2(k + 1)}$, а $D_{2k + 1} \rightarrow D_{2k + 1}$, т.е. построить биекцию между $C_0$ и $C_1$. Победа
+
+Явная биекция: $q(x) = \begin{cases}
+    x, x \in D_{2i + 1} \\
+    h(x), x \in D_{2i}
+\end{cases}$
+
+\begin{theo}{Теорема Кантора}
+    $B^{\inf}$ -- не счетно
+\end{theo}
+
+\textit{Доказательство:}
+
+Построили последовательность типа 
+
+\begin{enumerate}
+    \item $a_1, a_2 \ldots$
+    \item $b_1, b_2 \ldots$
+    \item $c_1, c_2 \ldots$
+\end{enumerate}
+
+Ну возьмем еще одну последовательность $a_1, b_2, c_3 \ldots$ -- она будет отличаться от всех предыдущих как минимум в одном элементе. Значит $B^{\inf}$ не счетно
+
+\begin{theo}{Обобщенная теорема Кантора}
+    $\forall X,\ X \not\sim 2^X$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\exists \varphi : X \rightarrow 2^X$ -- биекция
+
+$Z = \{ x | x \not\in \varphi(x) \}$
+
+$Z \subset X$
+
+$\not\exists z : \varphi(z) = Z \Rightarrow z \not\in Z \Rightarrow z \in Z$
+
+\begin{theo}{Следствие}
+    $|2^X| > |X|$
+
+    $\N, 2^{\N}, 2^{2^{\N}}, \ldots$
+
+    $\aleph_0, \aleph_1, \ldots$
+\end{theo}
+
+\begin{Remark}{}
+    Почему не существует множества всех множеств?
+
+    Пусть существует и называется $U$
+
+    Посмотрим на $U$ и $2^U$
+
+    По Кантору-Бернштейну $U \sim 2^U$, но по теореме Кантора $|U| < |2^U|$ ???? 
+\end{Remark}
 
 \end{document}

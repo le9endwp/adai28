@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  15 JAN 2025 10:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  20 JAN 2025 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1161,7 +1161,9 @@ Overfull \hbox (36.30403pt too wide) in paragraph at lines 108--109
 []\T2A/cmr/m/n/12 Возьмем $\OML/cmm/m/it/12 ^^X \OMS/cmsy/m/n/12 ^^A \OML/cmm/m/it/12 ^^_\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OT1/cmr/m/n/12 )$\T2A/cmr/m/n/12 . Т.е. что-то ти-па $\OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0 [] \OML/cmm/m/it/12 x[]; \OT1/cmr/m/n/12 0 [] \OML/cmm/m/it/12 x[]; \OT1/cmr/m/n/12 0 []\OMS/cmsy/m/n/12 g$ \T2A/cmr/m/n/12 ко-то-рый рав-но-си-лен $\OML/cmm/m/it/12 y[]; y[]; [] y[] [] \OT1/cmr/m/n/12 =
  []
 
-[2] [3] (./Р”Рњ.aux)
+[2] [3]
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 229.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd) [4] (./Р”Рњ.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1170,18 +1172,18 @@ Package rerunfilecheck Info: File `Р”Рњ.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 43821 strings out of 474116
- 1026939 string characters out of 5743681
+ 43858 strings out of 474116
+ 1027617 string characters out of 5743681
  1945187 words of memory out of 5000000
- 65434 multiletter control sequences out of 15000+600000
- 567273 words of font info for 61 fonts, out of 8000000 for 9000
+ 65454 multiletter control sequences out of 15000+600000
+ 567824 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,9n,115p,830b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Р”Рњ.pdf (3 pages, 174780 bytes).
+ 114i,9n,115p,830b,1068s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on Р”Рњ.pdf (4 pages, 196408 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
+ 195 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

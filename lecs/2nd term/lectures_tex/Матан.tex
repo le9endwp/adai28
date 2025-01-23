@@ -16,7 +16,7 @@
     Если нашли опечатку/ошибку - пишите @le9endwp
 \end{flushright}
 
-\section*{Первообразная и неопределенный интеграл}
+\subsection*{\S 1. Первообразная и неопределенный интеграл}
 
 \begin{defin}{Первообразная функция}
     $f : \q{a, b} \rightarrow \R;\ \ F: \q{a, b} \rightarrow \R$ 
@@ -194,7 +194,7 @@ $(fg - H + C)' = (fg)' - H' = f'g + fg' - f'g = fg'$
     \end{enumerate}
 \end{Example}
 
-\section*{Площадь}
+\subsection*{\S 2. Площадь}
 
 \begin{defin}{Площадь}
     $F$ -- семейство всех ограниченных подмножеств плоскости
@@ -219,13 +219,13 @@ $E = \tilde{E} \bigcup (E \setminus \tilde{E})$
 
 $S(E) = S(\tilde{E}) + S(E \setminus \tilde{E}) \geq S(\tilde{E})$
 
-\begin{defin}{}
+\begin{defin}{(Квази)площадь}
     $\sigma : F \rightarrow [0, +\infty)$
 
     \begin{enumerate}
         \item $\sigma(\q{a_1, b_1} \times \q{a_2, b_2}) = (b_1 - a_1)(b_2 - a_2)$
         \item $\sigma(E) = \sigma(E_-) + \sigma(E_+)$, если $E_-$ и $E_+$ множества, получающиеся в результате разбиения $E$ вертикальной (горизонтальной) прямой
-        \item Если $\tilde{E} \subset E$, тое $\sigma(\tilde{E}) \leq \sigma(E)$
+        \item Если $\tilde{E} \subset E$, то $\sigma(\tilde{E}) \leq \sigma(E)$
     \end{enumerate}
 \end{defin}
 
@@ -316,5 +316,301 @@ $\sigma(E_-) + \sigma(E_+) = \sigma(E_-) + \sigma(E_+ \setminus e) = \sigma(E_- 
 $P_1, P_2, \ldots P_n$ -- покрытие $E$. Пусть $\tilde{P_i}$ -- параллельный перенос $P_i$ на вектор $\overrightarrow{v}$
 
 Тогда $\tilde{P_1}, \tilde{P_2}, \ldots \tilde{P_n}$ -- покрытие $\tilde{E}$ и $\sum\limits_{i = 1}^n \sigma(P_i) = \sum\limits_{i = 1}^n \sigma(\tilde{P_i})$
+
+\begin{defin}{}
+    $f : [a, b] \rightarrow \R$
+
+    $f_+ := \max\{f, 0\}$, т.е. $f_+(x) = \max\{f(x), 0\}$
+
+    $f_- := \max\{-f, 0\}$, т.е. $f_-(x) = \max\{-f(x), 0\}$
+
+    Свойства:
+
+    \begin{enumerate}
+        \item $f_\pm \geq 0$
+        \item $f = f_+ - f_-$
+        
+        $|f| = f_+ + f_-$
+
+        \item $f_+ = \frac{f + |f|}{2}$ и $f_- = \frac{|f| - f}{2}$
+        \item Если $f \in C[a, b]$, то $f_\pm \in C[a, b]$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Подграфик функции}
+    $f : [a, b] \rightarrow \R,\ f \geq 0$
+
+    Подграфик функции $f$ -- $P_f = \{ (x, y) \in \R : x \in [a, b],\ 0 \leq y \leq f(x) \}$
+\end{defin}
+
+\begin{defin}{Определенный интеграл}
+    $\sigma$ -- зафиксированная квазиплощадь
+
+    $f \in C[a, b]$ (пока что так)
+
+    $\int\limits_a^b f = \int\limits_a^b f(x)dx  := \sigma(P_{f_+}) - \sigma(P_{f_-})$
+\end{defin}
+
+\textbf{Свойства:}
+
+    \begin{enumerate}
+        \item $\int\limits_a^a f = 0$
+        \item $\int\limits_a^b 0 = 0$
+        \item Если $f \geq 0$, то $\int\limits_a^b f = \sigma(P_f)$
+        \item $\int\limits_a^b (-f) = -\int\limits_a^b f$
+        
+        \textit{Доказательство:}
+
+        $(-f_+) = \max\{-f, 0\} = f_-$
+
+        $(-f_-) = \max\{f, 0\} = f_+$
+
+        $\int\limits_a^b (-f) = \sigma(P_{f_-}) - \sigma(P_{f_+}) = -\int\limits_a^b f$
+
+        \item $\int\limits_a^b (c) = c(b - a)$
+        
+        \textit{Доказательство:}
+
+        $c > 0 \Rightarrow \int\limits_a^b c = P(\text{прямоугольника}) = c(b - a)$
+
+        \item Если $a < b,\ f \geq 0$ и $\int\limits_a^b f = 0$, то $f \equiv 0$
+        
+        \textit{Доказательство:} (от противного)
+
+        Пусть $f(x_0) > 0$. Из непрерывности $f$ в $x_0 \Rightarrow \varepsilon = \frac{f(x_0)}{2} \Rightarrow \exists \delta > 0 : \forall |x - x_0| < \delta \Rightarrow \\
+        \Rightarrow |f(x) - f(x_0)| < \varepsilon = \frac{f(x_0)}{2} \Rightarrow P_f \supset [x_0 - \delta, x_0 + \delta] \times [0, \frac{f(x_0)}{2}] \Rightarrow \\
+        \Rightarrow \sigma(P_f) \geq \sigma(\text{прямоугольника}) = 2\sigma \frac{f(x_0)}{2} > 0$ Противоречие
+    \end{enumerate}
+
+\subsection*{\S 3. Свойства интеграла}
+
+\begin{nota}{Обозначение}
+    $P_g(E)$ -- подграфик функции $g \geq 0$ над множество $E$, т.е. 
+
+    $P_g(E) := \{ (x, y) \in \R^2 : x \in E,\ 0 \leq y \leq g(x) \}$
+\end{nota}
+
+\begin{theo}{Аддитивность интеграла}
+    $f \in C[a, b]$ и $c \in [a, b]$
+
+    Тогда $\int\limits_a^b f = \int\limits_a^c f + \int\limits_c^b f$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\int\limits_a^b f = \sigma(P_{f_+}) - \sigma(P_{f_-}) = \sigma(P_{f_+}([a, c])) + \sigma(P_{f_+}([c, b])) - \sigma(P_{f_-}([a, c])) - \sigma(P_{f_-}([c, b])) = \int\limits_a^c f + \int\limits_c^b f$
+
+\begin{theo}{Следствие}
+    $f \in C[a, b]$, $a \leq c_1 \leq c_2 \leq \ldots \leq c_n \leq b$. Тогда
+
+    $\int\limits_a^b f = \int\limits_a^{c_1} f + \int\limits_{c_1}^{c_2} f + \ldots + \int\limits_{c_{n - 1}}^{c_n} f + \int\limits_{c_n}^b f$
+\end{theo}
+
+\textit{Доказательство:}
+
+Индукция по $n$
+
+\begin{theo}{Монотонность интеграла}
+    $f, g \in C[a, b]$ и $f \leq g$ на $[a, b]$
+
+    Тогда $\int\limits_a^b f \leq \int\limits_a^b g$
+\end{theo}
+
+\textit{Доказательство:}
+
+$f \leq g \Rightarrow f_+ \leq g_+ \Rightarrow P_{f_+} \subset P_{g_+}$, а еще $-g \leq -f \Rightarrow g_- \leq f_- \Rightarrow P_{g_-} \subset P_{f_-}$
+
+Значит $\sigma (P_{f_+}) \leq \sigma (P_{g_+})$ и $\sigma (P_{g_-}) \leq \sigma (P_{f_-})$
+
+$\int\limits_a^b f = \sigma (P_{f_+}) - \sigma (P_{f_-}) \leq \sigma (P_{g_+}) - \sigma (P_{g_-}) = \int\limits_a^b g$
+
+\begin{theo}{Следствия}
+    \begin{enumerate}
+        \item $f \in C[a, b] \Rightarrow \min\limits_{[a, b]} f \cdot (b - a) \leq \int\limits_a^b f \leq \max\limits_{[a, b]} f \cdot (b - a)$
+        
+        \textit{Доказательство:}
+
+        $\min f \leq f \leq \max f$ и монотонность интеграла для двух постоянных функций и $f$
+
+        \item $f \in C[a, b] \Rightarrow |\int\limits_a^b f| \leq \int\limits_a^b |f|$
+        
+        \textit{Доказательство:}
+
+        $-|f| \leq f \leq |f| \xRightarrow{\text{монотонность}} -\int |f| = \int\limits_a^b (-|f|) \leq \int\limits_a^b f \leq \int\limits_a^b |f|$
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{(Первая) (интегральная) теорема о среднем}
+    $f \in C[a, b]$. Тогда существует $c \in [a, b] : \int\limits_a^b f = f(c)(b - a)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\min f \leq \frac{1}{b - a} \int\limits_a^b f \leq \max f$, но множество значений $f$ на $[a, b]$ -- это отрезок $[\min f, \max f]$
+
+Следовательно, число $\frac{1}{b - a} \int\limits_a^b f$ -- есть значение функции $f$ в какой-то точке $[a, b]$. Возьмем эту точку в качестве $c$
+
+\begin{defin}{Среднее значение функции на отрезке}
+    Среднее значение функции $f$ на отрезке $[a, b]$ -- это $\frac{1}{b - a} \int\limits_a^b f$
+\end{defin}
+
+\begin{defin}{Интеграл с переменным верхним пределом}
+    $f \in C[a, b]$
+
+    $\Phi(x) := \int\limits_a^x f$, где $x \in [a, b]$
+\end{defin}
+
+\begin{Remark}{}
+    $\Phi(a) = 0$
+\end{Remark}
+
+\begin{defin}{Интеграл с переменным нижним пределом}
+    $f \in C[a, b]$
+
+    $\Psi(x) := \int\limits_x^b f$, где $x \in [a, b]$
+\end{defin}
+
+\begin{Remark}{}
+    $\Psi(b) = 0$
+
+    $\Phi(x) + \Psi(x) = \int\limits_a^b f$ (это аддитивность $\int$)
+\end{Remark}
+
+\begin{theo}{Теорема Барроу}
+    Если $f \in C[a, b],\ \Phi(x) := \int\limits_a^x f$, то $\Phi$ -- первообразная функции $f$
+\end{theo}
+
+\textit{Доказательство:}
+
+Надо доказать, что $\Phi'(x) = f(x)$. Пусть $x < y$
+
+$R(y) = \frac{\Phi(y) - \Phi(x)}{y - x} = \frac{1}{y - x} (\int\limits_a^y f - \int\limits_a^x f) = \frac{1}{y - x} \int\limits_x^y f \stackrel{\text{т-ма о среднем}}{=} f(c_y)$, где $c_y \in [x, y]$
+
+Возьмем последовательность $y_n > x$ и $\lim y_n = x$
+
+$\Phi_+'(x) = \lim\limits_{y \to x_+} R(y) = \lim\limits_{n \to \infty} R(y_n) = \lim\limits_{n \to \infty} f(c_{y_n}) = f(x)$, т.к. $x \leq c_{y_n} \leq y_n \rightarrow x$
+
+Если же $y < x$, то нужно смотреть на $\frac{1}{x - y} \int\limits_y^x f$ и дальше ровно так же 
+
+Следовательно, $\Phi'(x) = f(x)$
+
+\begin{theo}{Следствия}
+    \begin{enumerate}
+        \item $\Psi(x) := \int\limits_x^b f \Rightarrow \Psi'(x) = -f(x)$
+        
+        \textit{Доказательство:}
+
+        $\Phi(x) + \Psi(x) = const$
+
+        \item Если $f \in C\q{a, b}$, то у $f$ есть первообразная на $\q{a, b}$
+        
+        \textit{Доказательство:}
+
+        Возьмем $c \in (a, b)$ и $F(x) := \begin{cases}
+            \int\limits_c^x f,\ x \geq c \\
+            -\int\limits_x^c f,\ x \leq c
+        \end{cases}$
+        
+        Тогда $\begin{gathered}
+            F'(x) = f(x) \text{при} x \geq c \text{ (по теореме Барроу)} \\
+            F'(x) = -f(x) \text{при} x \leq c \text{ (по следствию 1)} \\
+            F_+'(c) = f(c) = F_-'(c)
+        \end{gathered}$
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{Формула Ньютона-Лейбница}
+    $f \in C[a, b],\ F$ -- первообразная $f$
+
+    Тогда $\int\limits_a^b f = F(b) - F(a)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\Phi(x) := \int\limits_a^x f$ -- первообразная $f$ (по теореме Барроу) $\Rightarrow \Phi = F + C$ для некоторой $C \in \R$
+
+$\Rightarrow \int\limits_a^b f = \Phi(b) = F(b) + C = F(b) - F(a)$, т.к. $0 = \Phi(a) = F(a) + C$
+
+\begin{nota}{Обозначение}
+    $F|_a^b := F(b) - F(a)$ подстановка
+
+    $\int\limits_a^b f = F|_a^b$
+\end{nota}
+
+\begin{theo}{Линейность интеграла}
+    $f, g \in C[a, b],\ \alpha, \beta \in \R$
+
+    Тогда $\int\limits_a^b (\alpha f + \beta g) = \alpha \int\limits_a^b f + \beta \int\limits_a^b g$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $F$ и $G$ -- первообразные $f$ и $g$
+
+Тогда $\alpha F + \beta G$ -- первообразная $\alpha f + \beta g \Rightarrow \int\limits_a^b (\alpha f + \beta g) = (\alpha F + \beta G)|_a^b = \alpha F|_a^b + \beta G|_a^b = \\
+= \alpha \int\limits_a^b f + \beta \int\limits_a^b g$
+
+\begin{theo}{Формула интегрирования по частям}
+    $u, v \in C^1[a, b]$
+
+    Тогда $\int\limits_a^b uv' = uv|_a^b - \int\limits_a^b u'v$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $H$ -- первообразная $u'v$. Тогда $uv - H$ -- первообразная $uv'$
+
+$(uv - H)' = u'v + uv' - H' = u'v + uv' - u'v = uv'$
+
+$\int\limits_a^b uv' = (uv - H)|_a^b = uv|_a^b - H|_a^b = uv|_a^b - \int\limits_a^b u'v$
+
+\begin{nota}{Соглашение}
+    Если $a > b$, то $\int\limits_a^b f = -\int\limits_b^a f$
+\end{nota}
+
+\begin{theo}{Замена переменной в определенном интеграле}
+    $f \in C\q{a, b},\ \varphi \in C^1\q{c, d},\ \varphi : \q{c, d} \rightarrow \q{a, b},\ p, q \in \q{c, d}$. Тогда
+
+    $\int\limits_p^q f(\varphi(t))\varphi'(t)dtt = \int\limits_{\varphi(p)}^{\varphi(q)} f(x)dx$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $F$ -- первообразная для $f$. Тогда $F \circ \varphi$ -- первообразная для $f(\varphi(t))\varphi'(t)$ (т.к. $(F(\varphi(t)))' = F'(\varphi(t))\varphi'(t)$)
+
+$\int\limits_p^q f(\varphi(t))\varphi'(t)dt = (F \circ \varphi)|_p^q = F(\varphi(q)) - F(\varphi(p)) = \int\limits_{\varphi(p)}^{\varphi(q)} f$
+
+\subsection*{\S 4. Приложение формулы интегрирования по частям}
+
+$W_n := \int\limits_0^{\frac{\pi}{2}} \cos^n{x}dx \stackrel{(*)}{=} \int\limits_0^{\frac{\pi}{2}} \sin^n{x}dx$
+
+Пояснение к $(*)$: $\int\limits_0^\frac{\pi}{2} \sin^n{x}ds = \int\limits_0^\frac{\pi}{2} \cos^n{\frac{\pi}{2} - t}dt = - \int\limits_{\varphi(0)}^{\varphi(\frac{\pi}{2})} \cos^n{x}dx = -\int\limits_0^{\frac{\pi}{2}} \cos^n{x}dx$
+
+Здесь $\varphi(t) = \frac{\pi}{2} - t$ и $\varphi'(t) = -1$
+
+$W_0 = \frac{\pi}{2},\ W_1 = \int\limits_0^{\frac{\pi}{2}} \sin{x}dx = -\cos{x}|_0^{\frac{\pi}{2}} = 1,\ W_2 = \frac{1}{2} (\int\limits_0^\frac{\pi}{2} \cos^2 + \int\limits_0^\frac{\pi}{2} \sin^2) = \frac{\pi}{4}$
+
+$W_n = \int\limits_0^\frac{\pi}{2} \sin^n{x}dx = \int\limits_0^\frac{\pi}{2} \sin^{n-1}x \cdot (-\cos{x})'dx = -\sin^{n-1}x \cos{x}|_0^\frac{\pi}{2} - \int\limits_0^\frac{\pi}{2} (n-1)\sin^{n-2}x \cos{x} (-\cos{x})dx = \\
+= (n - 1) (\int\limits_0^\frac{\pi}{2} \sin^{n-2}x (1 - \sin^2{x})dx - \int\limits_0^\frac{\pi}{2} \sin^n{x}dx) = (n - 1)(W_{n-2} - W_n) \Rightarrow nW_n = (n - 1)W_{n-2}$
+
+Если четно, то $W_{2n} = \frac{2n - 1}{2n}W_{2n - 2} = \frac{2n - 1}{2n} \cdot \frac{2n - 3}{2n - 2} W_{2n - 1} = \ldots = \frac{(2n - 1)(2n - 3) \ldots 1}{2n(2n - 2) \ldots 2} \cdot \frac{\pi}{2} = \frac{(2n - 1)!!}{2n!!} \cdot \frac{\pi}{2}$
+
+Если нечетно, то $W_{2n + 1} = \frac{2n}{2n + 1}W_{2n - 1} = \frac{2n}{2n + 1} \cdot \frac{2n - 2}{2n - 1} W_{2n - 3} = \ldots = \frac{2n(2n - 2) \ldots 2}{(2n + 1)(2n - 1) \ldots 3} \cdot 1 = \frac{2n!!}{(2n + 1)!!}$
+
+\begin{theo}{Формула Валлеса}
+    $\lim\limits_{n \to \infty} \frac{2n!!}{(2n + 1)!!} \cdot \frac{1}{\sqrt{2n + 1}} = \sqrt{\frac{\pi}{2}}$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\sin^{2n + 2}x \leq \sin^{2n + 1}x \leq \sin^{2n}x$ при $x \in [0, \frac{\pi}{2}]$
+
+$\int\limits_0^\frac{\pi}{2} \sin^{2n + 2}x dx \leq \int\limits_0^\frac{\pi}{2} \sin^{2n + 1}x dx \leq \int\limits_0^\frac{\pi}{2} \sin^{2n}x dx$
+
+То есть $W_{2n + 2} \leq W_{2n + 1} \leq W_{2n}$
+
+$\frac{2n + 1}{2n + 2} \cdot \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{\pi}{2} \leq \frac{2n!!}{(2n + 1)!!} \leq \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{\pi}{2}$
+
+$\frac{2n + 1}{2n + 2} \cdot \frac{\pi}{2} \leq \frac{(2n)!!}{(2n + 1)!!} \cdot \frac{(2n)!!}{(2n - 1)!!} \leq \frac{\pi}{2} \Rightarrow \lim (\frac{(2n)!!}{(2n - 1)!!})^2 \cdot \frac{1}{2n + 1} = \frac{\pi}{2}$
 
 \end{document}

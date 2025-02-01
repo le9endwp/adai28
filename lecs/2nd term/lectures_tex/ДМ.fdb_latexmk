@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737377488.75515 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" "ДМ.pdf" "ДМ" 1737377491.39924 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" 1737377486.61209 9752 eefda5ba27a437b7e33fbdbbb86b68f3 ""
+["pdflatex"] 1737967613.35594 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" "ДМ.pdf" "ДМ" 1737967614.96229 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" 1737967611.65016 9777 5b81f72630533afb2e52f4701e646c9e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1731797986.54392 3240 c2435f2b5cd66d4930bc29b8df87967e ""
@@ -285,12 +285,14 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1736791670.22015 6076 a6008c8aa73a7f498843dca49b24cfcd ""
-  "ДМ.aux" 1737377491.15134 262 e03ff00af2c87fd46bf9bed2ef6392cd "pdflatex"
-  "ДМ.out" 1737377490.5758 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ДМ.tex" 1737377486.61209 9752 eefda5ba27a437b7e33fbdbbb86b68f3 ""
+  "ДМ.aux" 1737967614.81017 523 9859715c9c931f1d9c89f42e45727f48 "pdflatex"
+  "ДМ.out" 1737967614.8108 391 5ad6e7ffab58fe39c4b4a9d920045164 "pdflatex"
+  "ДМ.tex" 1737967611.65016 9777 5b81f72630533afb2e52f4701e646c9e ""
+  "ДМ.toc" 1737967614.81103 209 b739be751b96532163fc7bae98407f6a "pdflatex"
   (generated)
   "ДМ.aux"
   "ДМ.log"
   "ДМ.out"
   "ДМ.pdf"
+  "ДМ.toc"
   (rewritten before read)

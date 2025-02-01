@@ -1,0 +1,6 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Интегральчики}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}\S 1. Первообразная и неопределенный интеграл}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}\S 2. Площадь}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}\S 3. Свойства интеграла}{8}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}\S 4. Приложение формулы интегрирования по частям}{12}{subsection.1.4}%

@@ -674,5 +674,366 @@ $\begin{cases}
 
 $u_1 \ldots u_n \in K^m;\ n > m \Rightarrow u_1 \ldots u_n$ -- лз, т.е. $\exists x_1 \ldots x_n$ -- не все нули: $\sum x_iu_i = 0$
 
+$\A : K^n \rightarrow K^m$
+
+$\A \left( \begin{gathered}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{gathered} \right) = \left( \begin{gathered}
+    \sum a_{1i}x_i \\
+    \sum a_{2i}x_i \\
+    \vdots \\
+    \sum a_{mi}x_i
+\end{gathered} \right)$
+
+$\left( \begin{gathered}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m
+\end{gathered} \right) \in K^m$
+
+Решить систему: найти $\A^{-1}$
+
+$U, V$ -- векторные пространства. $A : U \rightarrow V$ линейное отображение
+
+Как описать $A$?
+
+\begin{lem}{}
+    $U_1, U_2 \ldots U_n$ -- базис $U$ и $V_1, V_2 \ldots V_n \in V$
+
+    Тогда $\exists!$ линейное отображение $A : U \rightarrow V : A(U_i) = V_i\ \ \forall i = 1 \ldots n$
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Единственность:] Пусть $A_1(U_i) = V_i$ и $A_2(U_i) = V_i$
+    
+    $?A_1 = A_2 \Leftrightarrow A_1(u) = A_2(u)\ \ \forall u \in U$
+
+    $u = \sum a_iu_i\ a_i \in K$
+
+    Тогда $A_1(u) = A_1(a_1u_1 + a_2u_2 + \ldots + a_nu_n) = A_1(a_1u_1) + A_1(a_2u_2) + \ldots + A_1(a_nu_n) = a_1A_1(u_1) + a_2A_1(u_2) + \ldots + a_nA_1(u_n) = a_1V_1 + a_2V_2 + \ldots + a_nV_n$
+
+    Аналогично для $A_2$
+
+    Тогда $A_1(u) = A_2(u)\ \ \forall u \in U$
+
+    \item[Существование:] Построим $A$. Рассмотрим какой-то $u \in U$
+    
+    $\exists! a_1, a_2 \ldots a_n : u = \sum a_iu_i$
+
+    Положим $A(u) = \sum a_iV_i$
+
+    $U_i = 0 \cdot u_1 + \ldots + 1 \cdot u_i + \ldots + 0 \cdot u_n \Rightarrow A(U_i) = 0 \cdot V_1 + \ldots + 1 \cdot V_i + \ldots + 0 \cdot V_n = V_i$
+
+    $u = \sum a_iu_i;\ v = \sum a_iV_i$
+
+    $A(u + v) = A(\sum a_iu_i + \sum b_iu_i) = A(\sum (a_i + b_i)u_i) = \sum (a_i + b_i)V_i = \sum a_iV_i + \sum b_iV_i = A(u) + A(v)$
+
+    $A(kv) = kA(v)$ -- очев
+\end{itemize}
+
+\begin{defin}{Матрица линейного отображения в базисах}
+    Итак. $u_1, u_2 \ldots u_n$ -- базис $U$
+
+    Задать $A : U \rightarrow V \Leftrightarrow$ зафиксировать $A(u_1) \ldots A(u_n) \in V$
+
+    $A : U \rightarrow V$ линейно $v_1, v_2 \ldots v_m$ -- базис $V$
+
+    $A(u_1) = a_{11}v_1 + a_{21}v_2 + \ldots + a_{m1}v_m$
+
+    \vdots
+
+    $A(u_n) = a_{1n}v_1 + a_{2n}v_2 + \ldots + a_{mn}v_m$
+
+    $A = \begin{pmatrix}
+        a_11 & a_12 & \ldots & a_1n \\
+        a_21 & a_22 & \ldots & a_2n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_m1 & a_m2 & \ldots & a_mn
+    \end{pmatrix}$ называется матрицей линейного отображения $A$ в базисах $\{u_i\}$ и $\{v_i\}$
+
+    Обозначение: $[A]_{\{u_i\}, \{v_i\}}$ -- зависит от $\{u_i\}$ и $\{v_i\}$
+\end{defin}
+
+\begin{nota}{Итог}
+    Такая матрица:
+
+    \begin{itemize}
+        \item Отображение $\{1 \ldots m\} \times \{1 \ldots n\} \rightarrow R$ -- $R$ кольцо
+        \item Отображение $I \times I \rightarrow R$ $I, I$ -- конечные множества
+    \end{itemize}
+
+    Обозначение: $M_{m, n}(R)$ -- матрицы $m \times n$ над $R$
+\end{nota}
+
+Изоморфизм:
+
+$K$ -- поле, $M_{1, n} \cong ^nK$ и $M_{n, 1} \cong K^n$
+
+$M_{m, n}(K)$ -- векторное пространство над $K$
+
+$(a_{ij}) + (b_{ij}) = (a_{ij} + b_{ij})_{i = 1 \ldots m; \\ j = 1 \ldots n}$
+
+$k(a_{ij}) = (ka_{ij})_{i = 1 \ldots m; \\ j = 1 \ldots n}$
+
+Операции:
+
+$^nK \times K^n$
+
+$((a_1a_2 \ldots a_n), \left( \begin{gathered}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_n
+\end{gathered}\right)) \rightarrow \sum a_ib_i$ -- умножение строки на столбец
+
+$M_{m, n} \times K^n \rightarrow K^m$ -- пример с прошлой лекции
+
+\begin{theo}{Свойства:}
+    $(A, X) \rightarrow AX$
+
+    $A(X_1 + X_2) = AX_1 + AX_2$
+
+    $(A_1 + A_2)X = A_1X + A_2X$
+
+    $A(kX) = k(AX)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$m = 1$
+
+$(a_1 + a_1')b_1 + \ldots + (a_n + a_n')b_n = \sum a_ib_i + \sum a_i'b_i$ и наоборот $\sum (ka_i)b_i = \sum a_i(kb_i) = k\sum a_ib_i$
+
+В частности $A \in M_{m, n}$ -- fix
+
+$X \rightarrow AX$ -- линейное отображение $K^n \rightarrow K^m$
+
+\begin{lem}{}
+    $A : U \rightarrow V$, $\{u_i\}$ -- базис $U$ и $\{v_i\}$ -- базис $V$
+
+    $A = [A]_{\{u_i\}, \{v_i\}}$
+
+    $u \in U;\ X = \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$ -- координаты $u$ в базисе $\{u_i\}$
+
+    Тогда $AX$ -- координаты $A(u)$ в базисе $\{v_i\}$
+\end{lem}
+
+\textit{Доказательство:}
+
+$u = \sum x_iu_i$
+
+$A(u) = \sum x_iA(u_i) = \sum\limits_{i = 1}^n x_i(\sum\limits_{j = 1}^m a_{ji}v_j) = \sum\limits_{j = 1}^m (\sum\limits_{i = 1}^n a_{ji}x_i)v_j$
+
+$\Rightarrow \begin{pmatrix}
+    \sum\limits_{i = 1}^n a_{1i}x_i \\
+    \sum\limits_{i = 1}^n a_{2i}x_i \\
+    \vdots \\
+    \sum\limits_{i = 1}^n a_{mi}x_i
+\end{pmatrix}$ -- координаты $A(u)$ в базисе $\{v_i\}$ и это $A \cdot X$
+
+\begin{Remark}{Мораль}
+    Любое линейное отображение при координатизации (отождествлении с $K^n$) превращается в умножение на матрицу
+
+    $x \rightarrow A(x)$
+
+    $\tilde{x} \rightarrow A(\tilde{x})$
+\end{Remark}
+
+$A : U \rightarrow V$ и знаем $KerU, ImU$ -- подпространства
+
+$KerA = \{ x | A(x) = 0_v \}$
+
+$ImA = \{ A(x) | x \in U \}$
+
+$A : K^n \rightarrow K^m\ X \rightarrow AX$
+
+$A \in M_{m, n}(K)$
+
+$KerA$ -- множество решений однородной СЛУ с матрицей $A$
+
+$ImA = \{ B | \exists x : Ax = B \}$
+
+$u_1 \ldots u_n$ -- базис $\Rightarrow ImA = \q{A(u_1) \ldots A(u_n)}$
+
+$A(u) = \sum a_iA(u_i)$
+
+$e_i$ -- стандартный базис ($i = 1 \ldots n$)
+
+$ImA = \q{A_1e_1 \ldots A_ne_n}$
+
+$\begin{pmatrix}
+    a_{11} & a_{12} & \ldots & a_{1n} \\
+    a_{21} & a_{22} & \ldots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \ldots & a_{mn}
+\end{pmatrix} \cdot \begin{pmatrix}
+    0 \\
+    1 \\
+    \vdots \\
+    0
+\end{pmatrix} = \begin{pmatrix}
+    a_{1i} \\
+    a_{2i} \\
+    \vdots \\
+    a_{mi}
+\end{pmatrix}$ -- i-ый столбец $A$
+
+\begin{theo}{Теорема о ядре и образе}
+    $A : \R^2 \rightarrow \R^2$
+
+    \begin{Example}{}
+        \begin{enumerate}
+            \item $A$ -- поворот на $\frac{\pi}{2}$ -- линейное отображение
+            
+            \begin{Remark}{}
+                Параллельный перенос не линейное отображение
+            \end{Remark}
+    
+            \item $A(x) = 0$
+            
+            \item $A$ -- ортогональная проекция на $Ox$
+        \end{enumerate}
+    \end{Example}
+
+    \begin{enumerate}
+        \item $ImA = R^2$
+        
+        $KerA = \{0\}$
+
+        \item $ImA = \{0\}$
+        
+        $KerA = \R^2$
+
+        \item $ImA = < \begin{pmatrix}
+            1 \\
+            0
+        \end{pmatrix} >$
+
+        $KerA = < \begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix} >$
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{}
+    $A : U \rightarrow V$ -- линейное
+
+    \begin{enumerate}
+        \item $\exists$ базис $u_1 \ldots u_n$ в $U$ и $k \leq n : \\ u_1 \ldots u_k$ -- базис $KerA$ и $u_{k + 1} \ldots u_n$ -- базис $ImA$
+        \item $dimKerA + dimImA = dimU$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2$:] $k = dimKerA$
+    
+    $n - k = dimImA$
+
+    $n = dimU$
+
+    \item[1:] Выберем $u_1 \ldots u_k$ -- базис $KerA$
+    
+    $u_1 \ldots u_k$ -- ЛНЗ $\Rightarrow$ дополним до базиса: $u_1 \ldots u_k, u_{k + 1} \ldots u_n$ -- базис $U$
+
+    Осталось доказать: $A(u_{k + 1}) \ldots A(u_n)$ -- базис $ImA$
+
+    \begin{enumerate}
+        \item $A(u_i) \in ImA$ по определению
+        \item Проверим $\q{A(u_{k + i})} = ImA$
+        
+        $v \in ImA \Rightarrow v = A(u)\ u \in U$, $a = a_1u_1 + \ldots + a_nu_n$
+
+        $A(u) = \sum a_iA(u_i) = \sum\limits_{i = k + 1}^n a_iA(u_i) \Rightarrow v \in \q{A(u_{k + i})}$
+
+        \item Проверим ЛНЗ: пусть $\sum\limits_{i = k + 1}^n a_iA(u_i) = 0 \stackrel{?}{\Rightarrow} a_i = 0\ \forall i$
+        
+        По линейности $0 = \sum a_{k + i}A(u_{k + i}) = A(\sum a_{k + i}u_{k + i})$
+
+        То есть $\sum a_{k + i}u_{k + i} \in KerA = \q{u_1 \ldots u_k}$
+
+        $(\sum\limits_{i = 1}^{n - k} a_{k + i}u_{k + i} = \sum\limits_{i = 1}^k (-a_i)u_i) \Rightarrow \sum a_iu_i = 0 \Rightarrow a_1 = \ldots = a_n = 0$
+
+        В частности $a_{k + 1} = \ldots = a_n = 0$
+    \end{enumerate}
+\end{itemize}
+
+\section{Операции над пространствами}
+
+\begin{lem}{}
+    $U_1, U_2 \leq U \Rightarrow U_1 \cap U_2 \leq U$. Д-во: очев
+
+    $U_1, U_2 \leq U \Rightarrow U_1 \cup U_2 \not\leq U$ (почти никогда)
+
+    $U_1 + U_2 := \{ u_1 + u_2 | u_1 \in U_1, u_2 \in U_2 \}$ -- сумма по Минковскому
+
+    Сама лемма: $U_1, U_2 \leq U \Rightarrow U_1 + U_2 \leq U$
+\end{lem}
+
+\textit{Доказательство:}
+
+$x, y \in U_1 + U_2$
+
+$x = x_1 + x_2;\ y = y_1 + y_2$, где $x_1, y_1 \in U_1;\ x_2, y_2 \in U_2$
+
+$x + y = (x_1 + y_1) + (x_2 + y_2) \in U_1 + U_2$
+
+\begin{defin}{Прямая сумма}
+    $U_1, U_2$ -- векторные пространства над $K$
+
+    $U_1 + U_2 = U_1 \times U_2$ как множество с покомпонентными операциями -- (внешняя) прямая сумма $U_1$ и $U_2$
+\end{defin}
+
+\begin{lem}{}
+    $i_1 \ldots u_n$ -- базис $U$ и $v_1 \ldots v_m$ -- базис $V$
+
+    Тогда $\{ (u_1, 0) \ldots (u_n, 0), (0, v_1) \ldots (0, v_m) \}$ -- базис $U + V$
+\end{lem}
+
+\textit{Доказательство:}
+
+$u \in U;\ v \in V$
+
+$u = \sum a_iu_i;\ v = \sum b_iv_i$
+
+$u + v = \sum a_iu_i + \sum b_iv_i = \sum (a_iu_i, 0) + \sum (0, b_iv_i)$
+
+\begin{theo}{Следствие}
+    $dim(U + V) = dimU + dimV$
+\end{theo}
+
+\begin{theo}{Формула Грассмана}
+    $U_1, U_2 \leq U$, $U$ -- в.п. над $K$
+
+    $dim(U_1 + U_2) = dimU_1 + dimU_2 - dim(U_1 \cap U_2)$
+\end{theo}
+
+\textit{Доказательство:}
+
+Рассмотрим линейное отображение $A : U_1 + U_2 \rightarrow U$
+
+$ImA = \{ u_1 + u_2 | u_1 \in U_1, u_2 \in U_2 \} = U_1 + U_2$
+
+$dim(ImA) = dim(U_1 + U_2)$
+
+$dim(U_1 + U_2) = dimU_1 + dimU_2$. Осталось понять: $dimKerA = dim(U_1 \cap U_2)$
+
+Тогда $dim(U_1 + U_2) = dimU_1 + dimU_2 - dim(U_1 \cap U_2)$
+
+$KerA = \{ (u_1, u_2) | u_1 + u_2 = 0 \} = \{ (u_1, u_2) | u_1 = -u_2 \} \Rightarrow$ отображение $U_1 \cap U_2 \rightarrow KerA$ -- изоморфизм векторного пространства
+
 \end{document}
 

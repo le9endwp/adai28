@@ -466,9 +466,16 @@ INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/lati120
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm
 INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
 INPUT Линал.aux
 INPUT ./Линал.out
 INPUT ./Линал.out
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb

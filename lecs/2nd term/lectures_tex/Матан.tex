@@ -10,13 +10,18 @@
 
 \begin{document}
 
+\tableofcontents
+\newpage
+
 \begin{flushright}
     Конспект Шорохова Сергея
 
     Если нашли опечатку/ошибку - пишите @le9endwp
 \end{flushright}
 
-\subsection*{\S 1. Первообразная и неопределенный интеграл}
+\section{Интегральчики}
+
+\subsection{\S 1. Первообразная и неопределенный интеграл}
 
 \begin{defin}{Первообразная функция}
     $f : \q{a, b} \rightarrow \R;\ \ F: \q{a, b} \rightarrow \R$ 
@@ -194,7 +199,7 @@ $(fg - H + C)' = (fg)' - H' = f'g + fg' - f'g = fg'$
     \end{enumerate}
 \end{Example}
 
-\subsection*{\S 2. Площадь}
+\subsection{\S 2. Площадь}
 
 \begin{defin}{Площадь}
     $F$ -- семейство всех ограниченных подмножеств плоскости
@@ -382,7 +387,7 @@ $P_1, P_2, \ldots P_n$ -- покрытие $E$. Пусть $\tilde{P_i}$ -- па
         \Rightarrow \sigma(P_f) \geq \sigma(\text{прямоугольника}) = 2\sigma \frac{f(x_0)}{2} > 0$ Противоречие
     \end{enumerate}
 
-\subsection*{\S 3. Свойства интеграла}
+\subsection{\S 3. Свойства интеграла}
 
 \begin{nota}{Обозначение}
     $P_g(E)$ -- подграфик функции $g \geq 0$ над множество $E$, т.е. 
@@ -580,7 +585,7 @@ $\int\limits_a^b uv' = (uv - H)|_a^b = uv|_a^b - H|_a^b = uv|_a^b - \int\limits_
 
 $\int\limits_p^q f(\varphi(t))\varphi'(t)dt = (F \circ \varphi)|_p^q = F(\varphi(q)) - F(\varphi(p)) = \int\limits_{\varphi(p)}^{\varphi(q)} f$
 
-\subsection*{\S 4. Приложение формулы интегрирования по частям}
+\subsection{\S 4. Приложение формулы интегрирования по частям}
 
 $W_n := \int\limits_0^{\frac{\pi}{2}} \cos^n{x}dx \stackrel{(*)}{=} \int\limits_0^{\frac{\pi}{2}} \sin^n{x}dx$
 
@@ -612,5 +617,249 @@ $\int\limits_0^\frac{\pi}{2} \sin^{2n + 2}x dx \leq \int\limits_0^\frac{\pi}{2} 
 $\frac{2n + 1}{2n + 2} \cdot \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{\pi}{2} \leq \frac{2n!!}{(2n + 1)!!} \leq \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{\pi}{2}$
 
 $\frac{2n + 1}{2n + 2} \cdot \frac{\pi}{2} \leq \frac{(2n)!!}{(2n + 1)!!} \cdot \frac{(2n)!!}{(2n - 1)!!} \leq \frac{\pi}{2} \Rightarrow \lim (\frac{(2n)!!}{(2n - 1)!!})^2 \cdot \frac{1}{2n + 1} = \frac{\pi}{2}$
+
+\begin{theo}{Следствие}
+    $C_{2n}^n \sim \frac{4^n}{\sqrt{\pi n}}$
+\end{theo}
+
+\textit{Доказательство:}
+
+$C_{2n}^n = \frac{(2n)!}{n!n!} = \frac{(2n)!!(2n-1)!!}{n!n!} = \frac{(2n - 1)!!}{(2n)!!} 4^n \sim \sqrt{\frac{2}{\pi}} \cdot \frac{1}{\sqrt{2n + 1}} \cdot 4^n \sim \frac{4^n}{\sqrt{\pi n}}$
+
+\begin{theo}{Формула Тейлора с остатком в интегральной форме}
+    $f \in C^{n+1}\q{a, b},\ x_0, x \in \q{a, b}$
+
+    Тогда $f(x) = \sum\limits_{k = 0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{1}{n!} \int\limits_{x_0}^x (x - t)^n f^{(n+1)}(t)dt$
+\end{theo}
+
+\textit{Доказательство:}
+
+Индукция по $n$. База $n = 0$
+
+$f(x) = f(x_0) + \frac{1}{0!} \int\limits_{x_0}^x f'(t)dt \stackrel{\text{Н-Л}}{=} f(x_0) + f(x) - f(x_0) = f(x)$ -- верно
+
+Переход $n \to n + 1$
+
+$f(x) = \sum\limits_{k = 0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{1}{n!} \int\limits_{x_0}^x (x - t)^n f^{(n+1)}(t)dt = (*)$
+
+Берем $u = f^{(n + 1)}$, $v' = (x - t)^n$, $v = -\frac{(x - 1)^{n + 1}}{n + 1}$
+
+$\int\limits_{x_0}^x (x-t)^n f^{(n + 1)}(t)dt = -f^{(n + 1)}(t) \frac{(x - t)^{n + 1}}{n + 1}|_{t = x_0}^{t = x} + \int\limits_{x_0}^x \frac{(x - t)^{n + 1}}{n + 1} f^{(n + 2)}(t)dt$
+
+$(*) = \sum\limits_{k = 0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n + 1)}(x_0)}{(n + 1)!}(x - x_0)^{n + 1} + \frac{1}{(n + 1)!} \int\limits_{x_0}^x (x - t)^{n + 1} f^{(n + 2)}(t)dt$
+
+\begin{Example}{}
+    $H_j := \frac{1}{j!} \int\limits_0^{\frac{\pi}{2}} ((\frac{\pi}{2})^2 - x^2)^j \cos{x}dx$
+
+    \begin{theo}{Свойства:}
+        \begin{enumerate}
+            \item $0 < H_j \leq \frac{1}{j!} \int\limits_0^\frac{\pi}{2} (\frac{\pi}{2})^{2j} \cos{x}dx = \frac{(\frac{\pi}{2})^{2j}}{j!}$
+            \item Если $c > 0$, то $c^jH_j \xrightarrow[j \to \infty]{} 0$
+            \item $H_0 = 1,\ H_1 = 2$
+            \item При $j \geq 2\ \ H_j = (4j - 2)H_{j - 1} - \pi^2H_{j - 2}$
+            
+            \textit{Доказательство:}
+
+            Берем $v' = \cos{x}$, $u = ((\frac{\pi}{2})^2 - x^2)^j$, $v = \sin{x}$, $u' = -2jx((\frac{\pi}{2})^2 - x^2)^{j - 1}$
+
+            $j!H_j = \int\limits_0^\frac{\pi}{2} ((\frac{\pi}{2})^2 - x^2)^j \cos{x}dx = ((\frac{\pi}{2})^2 - x^2)^j \sin{x}|{x = 0}^{x = \frac{\pi}{2}} + 2j \int\limits_0^\frac{\pi}{2} x((\frac{\pi}{2})^2 - x^2)^{j - 1} \sin{x}dx = (*)$
+
+            Первое слагаемом занулится, второе еще раз интегрируем по частям
+
+            $v' = \sin{x} \Rightarrow v = -\cos{x}$
+            
+            $u = x((\frac{\pi}{2})^2 - x^2)^{j - 1} \Rightarrow u' = ((\frac{\pi}{2})^2 - x^2)^{j - 1} - 2(j - 1)x^2((\frac{\pi}{2})^2 - x^2)^{j - 2} = (2j - 1)((\frac{\pi}{2})^2 - x^2)^{j - 1} - \frac{\pi^2}{2}(j - 1)((\frac{\pi}{2})^2 - x^2)^{j - 2}$
+
+            $(*) = 2j(-\cos{x}x((\frac{\pi}{2})^2 - x^2)^{j - 1})|_{x = 0}^{x = \frac{\pi}{2}} + (2j - 1) \int\limits_{0}^\frac{\pi}{2} ((\frac{\pi}{2})^2 0 x^2)^{j - 1}\cos{x}dx - \frac{\pi^2}{2}(j - 1) \int\limits_0^\frac{\pi}{2} ((\frac{\pi}{2})^2 - x^2)^{j - 2}\cos{x}dx$
+
+            Первое слагаемое зануляется, второе $= (j - 1)!H_{j - 1}$, третье $= (j - 2)!H_{j - 2}$
+
+            $j!H_j = 2(2j - 1)j(j - 1)!H_{j - 1} - \pi^2j(j - 1)(j - 2)!H_{j - 2}$
+
+            $H_j = (4j - 2)H_{j - 1} - \pi^2H_{j - 2}$
+
+            \item Существует многочлен $P_j$ степени $\leq j$ с целыми коэффициентами, такой что $H_j = P_j(\pi^2)$
+            
+            \textit{Доказательство:}
+
+            $P_0 \equiv 1,\ P_1 \equiv 2$
+
+            $P_j(x) = (4j - 2)P_{j - 1}(x) - xP_{j - 2}(x) \Rightarrow P_j(\pi^2) = (4j - 2)P_{j - 1}(\pi^2) - \pi^2P_{j - 2}(\pi^2) = H_j$
+        \end{enumerate}
+    \end{theo}
+\end{Example}
+
+\begin{theo}{Теорема Ламберта}
+    Числа $\pi$ и $\pi^2$ иррациональны
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\pi^2 = \frac{m}{n} \Rightarrow 0 < H_j = P_j(\frac{m}{n}) = \frac{\text{целое число}}{n^j} \Rightarrow n^jP_j(\frac{m}{n}) = n^jH_j > 0$ и является целым числом $\Rightarrow n^jH_j \geq 1$, но $\lim\limits_{j \to \infty} n^jH_j = 0$ по свойству 2 -- противоречие
+
+\begin{defin}{Равномерная непрерывность}
+    $f : E \rightarrow \R$, $E \subset \R$
+
+    $f$ равномерно непрерывна на $E$, если $\forall \varepsilon > 0\ \exists \delta > 0\ \forall x, y \in E : |x - y| < \delta \Rightarrow |f(x) - f(y)| < \varepsilon$
+\end{defin}
+
+\begin{Remark}{}
+    Определение непрерывности во всех точках множества $E$
+
+    $\forall y \in E\ \forall \varepsilon > 0\ \exists \delta > 0\ x \in E : |x - y| < \delta \Rightarrow |f(x) - f(y)| < \varepsilon$
+
+    То есть в этом определении $\delta(\varepsilon, y)$, а в равномерной непрерывности $\delta(\varepsilon)$
+\end{Remark}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\sin$ и $\cos$ равномерно непрерывны на $\R$
+        
+        $|sin{x} - \sin{y}| \leq |x - y|$ и $|\cos{x} - \cos{y}| \leq |x - y| \Rightarrow \delta = \varepsilon$ подходит
+
+        \item $x^2$ не является равномерно непрерывной на $\R$
+        
+        Возьмем $\varepsilon = 1$ и покажем, что никакая $\delta > 0$ не подходит
+
+        Рассмотрим $x$ и $x + \frac{\delta}{2}$
+
+        $f(x + \frac{\delta}{2}) - f(x) = (x + \frac{\delta}{2})^2 - x^2 = x\delta + \frac{\delta^2}{4} > x\delta \geq 1$ при $x \geq \frac{1}{\delta}$
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{Теорема Кантора}
+    $f \in C[a, b] \Rightarrow f$ равномерно непрерывна на $[a, b]$
+\end{theo}
+
+\textit{Доказательство:}
+
+Возьмем $\varepsilon > 0$ и предположим, что никакое $\delta > 0$ не подходит
+
+$\delta = 1$ не подходит $\Rightarrow$ найдутся $x_1, y_1 \in [a, b] : |x_1 - y_1| < 1$ и $|f(x_1) - f(y_1)| \geq \varepsilon$
+
+$\delta = \frac{1}{2}$ не подходит $\Rightarrow$ найдутся $x_2, y_2 : |x_2 - y_2| < \frac{1}{2}$ и $|f(x_2) - f(y_2)| \geq \varepsilon$
+
+\ldots
+
+$\delta = \frac{1}{n}$ не подходит $\Rightarrow$ найдутся $x_n, y_n : |x_n - y_n| < \frac{1}{n}$ и $|f(x_n) - f(y_n)| \geq \varepsilon$
+
+Выберем из $x_n$ схожящуюся подпоследовательность $x_{n_k} : \lim x_{n_k} = c$
+
+$a \leq x_{n_k} \leq b \Rightarrow c \in [a, b]$ и $\lim y_{n_k} = \lim x_{n_k} + \lim (y_{n_k} - x_{n_k}) = c + 0 = c$
+
+Функция $f$ непрерывна в $c \Rightarrow \exists \delta > 0\ \forall |x - c| < \delta \Rightarrow |f(x) - f(c)| < \frac{\varepsilon}{2}$
+
+$\lim x_{n_k} = c \Rightarrow$ при больших $k$ $|x_{n_k} - c| < \delta \Rightarrow |f(x_{n_k}) - f(c)| < \frac{\varepsilon}{2}$
+
+$\lim y_{n_k} = c \Rightarrow$ при больших $k$ $|y_{n_k} - c| < \delta \Rightarrow |f(y_{n_k}) - f(c)| < \frac{\varepsilon}{2}$
+
+Тогда $\varepsilon \leq |f(x_{n_k}) - f(y_{n_k})| \leq |f(x_{n_k}) - f(c)| + |f(c) - f(y_{n_k})| < \varepsilon$ -- противоречие
+
+\begin{Remark}{}
+    Важно, что именно отрезок
+
+    Для $x^2$ мы поняли, что на $[0, + \infty)$ нет равномерной непрерывности $\Rightarrow$ отрезок нельзя заменить на луч
+
+    Поймем что на полуинтервал тоже нельзя
+
+    $f(x) = \frac{1}{x}$ на $(0, 1]$ не равномерно непрерывна
+
+    $\varepsilon = 1$ никакое $\delta > 0$ не подходит (если какое-то не подходит, то $\delta > \delta_0$ тоже не подходит)
+
+    Возьмем $0 < \delta \leq 1$, $x = \frac{\delta}{2}$ и $y = \frac{\delta}{4}$
+
+    $|x - y| = \frac{\delta}{4} < \delta$, но $|f(x) - f(y)| = \frac{2}{\delta} > 1$
+\end{Remark}
+
+\begin{defin}{Модуль непрерывности}
+    $f : E \to \R$, $E \subset \R$
+
+    $\omega_f(\delta) := \sup\{ |f(x) - f(y)| : x, y \in E,\ |x - y| < \delta \}$ определена при $\delta \geq 0$
+
+    \begin{theo}{Свойства:}
+        \begin{enumerate}
+            \item $\omega_f(0) = 0$
+            \item $\omega_f(\delta) \geq 0$
+            \item $\omega_f$ нестрого возрастает
+            \item $|f(x) - f(y)| \leq \omega_f(|x - y|)$
+            \item Если $f$ липшицева к константе $M$, то $\omega_f(\delta) \leq M\delta$
+            
+            \textit{Доказательство:}
+
+            Липшицевость с константой $M$ -- это $|f(x) - f(y)| \leq M|x - y|\ \forall x, y \in E$
+
+            \item $f$ равномерно непрерывна на $E \Leftrightarrow \lim\limits_{\delta \to 0_+} \omega_f(\delta) = 0$ (т.е. $w_f$ непрерывна в 0)
+            
+            \textit{Доказательство:}
+
+            \begin{itemize}
+                \item[$\Rightarrow$] $f$ равномерно непрер $\Rightarrow \forall \varepsilon\ \exists \delta > 0\ \forall x, y \in E : |x - y| < \delta \Rightarrow |f(x) - f(y)| \leq \varepsilon \Rightarrow \\
+                \Rightarrow \omega_f(\frac{\delta}{2}) < \varepsilon$, т.к. $\omega_f(\frac{\delta}{2}) \leq \sup\{|f(x) - f(y)| : |x - y| < \delta\}$
+
+                Значит $\forall t < \frac{\delta}{2}\ \omega_f(t) \leq \varepsilon \Rightarrow \lim\limits_{t \to 0_+} \omega_f(t) = 0$
+
+                \item[$\Leftarrow$] $|f(x) - f(y)| \leq w_f(|x - y|)$ по $\varepsilon > 0$ выберем $\delta > 0$ такое что $\omega_f(\delta) < \varepsilon \Rightarrow$ если $|x - y| \leq \delta$, то $|f(x) - f(y)| \leq \omega_f(\delta) < \varepsilon$
+            \end{itemize}
+
+            \item $f \in C[a, b] \Leftrightarrow \lim\limits_{\delta \to 0_+} \omega_f(\delta) = 0$
+            
+            \textit{Доказательство:}
+
+            $f \in C[a, b] \Leftrightarrow f$ равномерно непрерывна на $[a, b] \Leftrightarrow \lim\limits_{\delta \to 0_+} \omega_f(\delta) = 0$
+        \end{enumerate}
+    \end{theo}
+\end{defin}
+
+\begin{defin}{Дробление отрезка}
+    Дробление отрезка $[a, b]$ -- набор точек $x_0 = a < x_1 < x_2 < \ldots < x_n = b$
+\end{defin}
+
+\begin{defin}{Ранг дробления}
+    Ранг дробления -- длина самого большого отрезка из дробления
+
+    $\max\{x_1 - x_0, x_2 - x_1 \ldots x_n - x_{n - 1}\} =: \tau$
+\end{defin}
+
+\begin{defin}{Оснащение дробления}
+    Оснащение дробления -- набор точек $\xi_k : \xi_k \in [x_{k - 1}, x_k]$
+\end{defin}
+
+\begin{defin}{Интегральная сумма (сумма Римана)}
+    $f : [a, b] \to \R$, $\tau$ дробление отрезка и $\tau = \{ x_0, x_1 \ldots x_n \}$
+
+    $\xi$ -- оснащение дробления и $\xi = \{ \xi_1, \xi_2 \ldots \xi_n \}$
+
+    $S(f, \tau, \xi) := \sum\limits_{k = 1}^n f(\xi_k)(x_k - x_{k - 1})$
+\end{defin}
+
+\begin{theo}{Теорема об интегральных суммах}
+    $f \in C[a, b]$, $\tau$ -- дробление
+
+    Тогда $|\int\limits_a^b f - S(f, \tau, \xi)| \leq (b - a)\omega_f(|\tau|)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\Delta := \int\limits_a^b f - \sum\limits_{k = 1}^n f(\xi_k)(x_k - x_{k - 1}) = \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} f - \sum\limits_{k = 1}^n f(\xi_k)(x_k - x_{k - 1}) = \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} (f(x) - f(\xi_k))dx$
+
+$|\Delta| \leq \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} |f(x) - f(\xi_k)|dx \leq \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} \omega_f(|\tau|)dx = \omega_f(|\tau|) \sum\limits_{k = 1}^n (x_k - x_{k - 1}) = \omega_f(|\tau|)(b - a)$
+
+\begin{theo}{Следствия}
+    \begin{enumerate}
+        \item $f \in C[a, b]$. Тогда $\forall \varepsilon > 0\ \exists \delta > 0 : \forall$ дробления $\tau$ ранга $< \delta$ и $\forall$ его оснащения $\xi$
+        
+        $|\int\limits_a^b f - S(f, \tau, \xi)| < \varepsilon$
+
+        \item $f \in C[a, b]$. Тогда для любой последовательности дроблений $\tau_n : |\tau_n| \to 0$ и любой последовательности оснащений $\xi_n$ $\lim S(f, \tau_n, \xi_n) = \int\limits_a^b f$
+    \end{enumerate}
+\end{theo}
+
+\begin{defin}{Интеграл Римана}
+    $f : [a, b] \to \R$
+
+    $f$ интегрируема по Риману на $[a, b]$, и $I$ ее интеграл, если $\forall \varepsilon > 0\ \exists \delta > 0 : \forall$ дробления $\tau$ ранга $< \delta$ и $\forall$ его оснащения $\xi$
+
+    $|I - S(f, \tau, \xi)| < \varepsilon$
+\end{defin}
 
 \end{document}

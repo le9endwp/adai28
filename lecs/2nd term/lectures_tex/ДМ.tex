@@ -244,4 +244,205 @@ $\not\exists z : \varphi(z) = Z \Rightarrow z \not\in Z \Rightarrow z \in Z$
     По Кантору-Бернштейну $U \sim 2^U$, но по теореме Кантора $|U| < |2^U|$ ???? 
 \end{Remark}
 
+\begin{theo}{}
+    $A$ и $B$ -- множества
+
+    $|A \cup B| = |A| + |B| - |A \cap B|$ при $|A|, |B| < + \infty$
+
+    Если же $|A| = + \infty$, а $|B| < + \infty$, то $|A \cup B| = |A|$
+
+    Что если $|A| = + \infty$ и $|B| = + \infty$? Скажем, НУО $|A| \leq |B|$, тогда $|A \cup B| = |B|$
+
+\begin{Remark}{}
+    Вообще мы умеем еще и $|A \times B|$, но там разница будет только в конечных множествах
+\end{Remark}
+
+    Есть так же и возведение в степень. С нбчс работа очевидна, а вот с не нбчс уже не так просто
+
+    Что такое $|A|^{|B|}$? Такое описать нормально не получится
+
+    \begin{defin}{}
+        Нечто абстрактное и <<умозрительное>> -- $\aleph$
+
+        Так, например, $\aleph + n = \aleph$ и $\aleph \cdot n = \aleph$
+    \end{defin}
+\end{theo}
+
+\begin{defin}{$\geq$}
+    $X$ -- множество
+    
+    <<$\geq$>> $\subset X \times X$
+
+    \begin{enumerate}
+        \item $\forall x \in X \Rightarrow x \geq x$
+        \item $\forall x, y, z : x \geq y,\ y \geq z \Rightarrow x \geq z$
+        \item $\forall x, y : x \neq y,\ x \geq y \Rightarrow \overline{y \geq x}$
+        \item[$\tilde{3}$] $\forall x, y \in X : x \geq y,\ y \geq x \Rightarrow x = y$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{Порядок}
+    Заведем отношение $\geq$. Если оно существует для всех пар множества, то это порядок, иначе -- частичный порядок
+
+    Заметим, что он нестрогий. Для строгого нужно добавить проверку на равенство
+\end{theo}
+
+\begin{defin}{Частично упорядоченное множество}
+    $(X, \geq_X)$ -- ЧУМ
+\end{defin}
+
+\begin{Example}{}
+    Взяли $\N$ и степенной порядок, т.е.
+
+    $a, b \in \N;\ \exists x \in N\ (x > 1)\ : \begin{cases}
+        a = x^k \\
+        b = x^m
+    \end{cases}$
+
+    $a \geq b \Leftrightarrow k \geq m$
+\end{Example}
+
+\begin{defin}{Индуцированный порядок}
+    Рассмотрим $Y \subset X$. Если пользоваться тем же отношением порядка на $Y \times Y$, то можно смотреть на $\geq_Y = (\geq_X) \cap (Y \times Y)$ -- индуцированный порядок
+\end{defin}
+
+\begin{Remark}{}
+    Можно и на $X \times Y$ ввести $\geq_{X \times Y} : (x, y) \geq (a, b) \Leftrightarrow \left[ \begin{gathered}
+        x \geq a \\
+        \begin{cases}
+            x < a \\
+            y \geq b
+        \end{cases}
+    \end{gathered} \right.$
+
+    Такой порядок называется лексикографическим (покоординатным), что в целом то же, что и $(X, \geq_X) + (Y, \geq_Y)$
+\end{Remark}
+
+\begin{defin}{Наибольший и максимальный элемент}
+    $x \in X$ -- наибольший элемент $\Leftrightarrow \forall y \in X : y < x$
+
+    $x \in X$. Если $\not\exists y \in X : y > x$, то $x$ -- максимальный элемент
+
+    \begin{Remark}{}
+        Наибольший элемент -- всегда максимальный, но не наоборот
+    \end{Remark}
+\end{defin}
+
+\begin{defin}{Изоморфизм}
+    $(X, \geq_X) \sim (Y, \geq_Y)$ -- изоморфизм, если $\exists f : X \rightarrow Y$ -- биекция, сохраняющая порядок
+\end{defin}
+
+Что можно сказать про $(\R, \geq_\R)$? Можно построить биекцию $x \mapsto x + 1$ -- это автоморфизм
+
+А что с $\R_+, \geq_{\R_+}$? Тут уже не получится построить автоморфизм (т.к. из луча $(0, +\infty)$ уйдем в луч $(1, +\infty)$)
+
+\begin{Remark}{}
+    Из существования биекции не следует существование автоморфизма
+
+    Берем $X, Y;\ h : X \to Y$ -- биекция
+
+    И $\forall x, y \in X : x \geq y \Rightarrow h(x) \geq h(y)$
+
+    Смотрим на $\Z, \Q$. Пусть $\exists h : \Z \to \Q$ 
+
+    Рассмотрим двойку и тройку
+
+    $\not\exists x \in \Z : 2 < x < 3$
+
+    $h(2) = y_2;\ h(3) = y_3$
+
+    $h^{-1}(\frac{y_2 + y_3}{2}) = x$
+
+    Целого числа между 2 и 3 нет, но по биекции оно есть
+\end{Remark}
+
+\begin{defin}{Плотность}
+    $x$ -- плотная точка, если
+
+    $\begin{cases}
+        \forall y < x\ \exists z : y < z < x \\
+        \forall y > x\ \exists z : x < z < y
+    \end{cases}$
+\end{defin}
+
+\begin{Example}{}
+    Возьмем множество $\{0, \frac{1}{2}, \frac{1}{3}, \ldots \frac{1}{n} \ldots\}$. В нем плотная точка -- только 0
+\end{Example}
+
+\begin{theo}{}
+    $X$ -- всюду плотное (нет соседних элементов), счетное, без наибольшего и наименьшего элемента
+
+    Это значит, что $X \cong \Q$
+\end{theo}
+
+\textit{Доказательство:}
+
+Возьмем $n$ точек из $X$ и $n$ точек из $\Q$. Построим между ними изоморфизм
+
+Теперь нам нужен изоморфизм из $n + 1$ отрезков из $X$ в $n + 1$ отрезок множества $\Q$. Далее идем рекурсивно
+
+Получим для точки что-то типа системы стягивающихся отрезков
+
+\begin{Exercise}{}
+    Попробуйте придумать явный изоморфизм между $\Q$ и $\Q \cap (0, 1)$
+\end{Exercise}
+
+\begin{Remark}{}
+    $x \to x + 1$ -- автоморфизм $\Z$
+
+    $h(\N) \neq \N$
+
+    Пусть есть изоморфизм $g(\Z) \to \N$
+
+    Применим прошлую функцию и получим $h(g(\Z)) \to h(\N)$
+
+    Но $g(h(\Z)) = g(\Z) = \N$, а $h(\N) \neq \N$
+\end{Remark}
+
+\begin{nota}{}
+    $\forall m < n;\ A(m)$ -- истина $\Rightarrow A(n)$ (если $A(0)$)
+\end{nota}
+
+\begin{theo}{}
+    $X$ -- ЧУМ
+
+    \begin{enumerate}
+        \item $\forall Y \subset X;\ \exists \min Y$
+        \item $\not\exists x_1, x_2 \ldots x_n \ldots : x_1 > x_2 > x_3 > \ldots > x_n \ldots$
+        \item Для $X$ работает принцип индукции
+    \end{enumerate}
+\end{theo}
+
+\begin{Remark}{}
+    Переформулируем 3 пункт: $A$ -- какое-то произвольное свойство, тогда
+
+    $(\forall x(\forall y(y < x) \Rightarrow A(y)) \Rightarrow A(x)) \Rightarrow \forall x\ A(x)$
+\end{Remark}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$2 \Rightarrow 1$] Пусть $\exists Y :$ в $Y$ нет минимального элемента
+    
+    Рассмотрим $X_1 \in Y \Rightarrow \exists x_2 < x_1 \Rightarrow \exists x_3 < x_2 \ldots$
+
+    \item[$1 \Rightarrow 2$] очев 
+    
+    \item[$1 \Rightarrow 3$] Пусть $Y \neq \varnothing;\ \forall y \in Y\ \overline{A}(y)$
+    
+    $X \setminus Y = A(x)$
+
+    $\exists y_0 = \min Y \Rightarrow \forall x < y_0\ A(x)$
+
+    Тут что-то было
+
+    \item[$3 \Rightarrow 1$] Пусть $\exists Y : \not\exists \min Y$
+    
+    $A(x) \sim x \notin Y$
+
+    Смотрим на какой-то $x \in Y$. $\forall y < x\ A(y)$
+
+    Дословно: если для какого-то $x$ выполнялось бы условие выше, то $x$ был минимальным, а минимального нет, значит $x$ нет
+\end{itemize}
+
 \end{document}

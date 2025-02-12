@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1738152814.22662 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1738152817.47584 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1738152812.67668 38409 4e8bda8ac8c67cd5750a3d5ade9e6521 ""
+["pdflatex"] 1739362456.69936 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1739362459.13955 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1739362456.40292 76127 af62c953b7e8a49367af28969fcbb6bc ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -291,10 +291,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1736791670.22015 6076 a6008c8aa73a7f498843dca49b24cfcd ""
-  "Матан.aux" 1738152817.20817 1049 18fef1a93967ce71d384a1d9f488ce42 "pdflatex"
-  "Матан.out" 1738152817.20929 1335 86228eff09a35cca11b852311a211b41 "pdflatex"
-  "Матан.tex" 1738152812.67668 38409 4e8bda8ac8c67cd5750a3d5ade9e6521 ""
-  "Матан.toc" 1738152817.20964 607 259bddfe8b028f3a25e5af4ef479cff2 "pdflatex"
+  "Матан.aux" 1739362458.97165 1534 623299c226979332cc8b5b8fc1891b47 "pdflatex"
+  "Матан.out" 1739362458.97293 2192 6718fe4268aecc31d311f15d5018a0fd "pdflatex"
+  "Матан.tex" 1739362456.40292 76127 af62c953b7e8a49367af28969fcbb6bc ""
+  "Матан.toc" 1739362458.97333 967 16a1b93bca7dd2855c7cd176ffd39a78 "pdflatex"
   (generated)
   "Матан.aux"
   "Матан.log"

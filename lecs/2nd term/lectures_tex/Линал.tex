@@ -1035,5 +1035,323 @@ $dim(U_1 + U_2) = dimU_1 + dimU_2$. Осталось понять: $dimKerA = di
 
 $KerA = \{ (u_1, u_2) | u_1 + u_2 = 0 \} = \{ (u_1, u_2) | u_1 = -u_2 \} \Rightarrow$ отображение $U_1 \cap U_2 \rightarrow KerA$ -- изоморфизм векторного пространства
 
+\textbf{TODO lec 02/03}
+
+\begin{defin}{Канонеческий вид матрицы линейного отображения}
+    $A \mapsto CAD = \begin{pmatrix}
+        E & 0 \\
+        0 & 0
+    \end{pmatrix}$
+\end{defin}
+
+\begin{defin}{Ранг линейного отображения}
+    $A : U \rightarrow V$
+
+    $rkA = dimImA$ -- размерность линейной оболочки столбцов матрицы $[A]$ (в любом базисе)
+
+    $A = [A];\ A = (c_1 | c_2 | \ldots | c_n)$
+
+    $rkA = dim\q{c_1 \ldots c_n}$ -- максимальное количество ЛНЗ столбцов матрицы
+\end{defin}
+
+\begin{theo}{Свойства ранга}
+    \begin{enumerate}
+        \item $rk(A + B) \leq rkA + rkB;\ A, B \in M_{m, n}(K)$
+        \item $rk(A \cdot B) \leq min(rkA, rkB);\ A \in M_{m, n}(K), B \in M_{n, l}(K)$
+        \item Если в пункте 2 $A$ или $B$ обратимы (в том числе $(m = n)/(n = l)$), то \\ $rk(A \cdot B) = rkA = rkB$
+        \item $rkA = rkA^T$
+        
+        \begin{Remark}{}
+            Знаем: столбцы $A^T$ -- строки $A$, т.е. $rkA$ -- максимальное количество ЛНЗ строк
+
+            \textbf{Строчный ранг совпадает со столбцовым}
+        \end{Remark}
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $A = (c_1 | c_2 | \ldots | c_n);\ B = (d_1 | d_2 | \ldots | d_n);\ c_i, d_i \in K^m$
+    
+    $A + B = (c_1 + d_1 | c_2 + d_2 | \ldots | c_n + d_n)$
+
+    $dim\q{c_1 + d_1 \ldots c_n + d_n} \leq dim\q{c_1 \ldots c_n, d_1 \ldots d_n} \leq dim\q{c_1 \ldots c_n} + dim\q{d_1 \ldots d_n}$
+
+    Значит $rk(A + B) \leq rkA + rkB$
+
+    \item $A \cdot B \leftrightarrow A \circ B$
+    
+    Хотим $rk(A \circ B) \begin{gathered}
+        \stackrel{(1)}{\leq} rkA \\
+        \stackrel{(2)}{\leq} rkB
+    \end{gathered}$
+
+    \begin{itemize}
+        \item[(1)] $rk(A \circ B) = \dim(Im(A \circ B)) = \dim\{A(B(x))\} \leq \dim\{A(y)\} = \dim(ImA) = rkA$
+        \item[(2)] $Im(A \circ B) = \{A(B(x)) | x \in \ldots \} = \{ A(y) | y \in ImB \} = Im(A|_{ImB}) = dimImB - dim(Ker(A|_{ImB})) \leq dimImB = rkB$
+    \end{itemize}
+
+    \item Пусть $\exists A^{-1}$
+    
+    Тогда $rk(AB) \leq rk(B) = rk(A^{-1}AB) \leq rk(AB) \Rightarrow rk(B) = rk(AB)$
+
+    \item Найдем $C, D$ -- обратимые
+    
+    $CAD = \begin{pmatrix}
+        \begin{pmatrix}
+            1 & \ldots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \ldots & 1
+        \end{pmatrix} & 0 \\
+        0 & 0
+    \end{pmatrix}$
+
+    $(CAD)^T = D^TA^TC^T = \begin{pmatrix}
+        E & 0 \\
+        0 & 0
+    \end{pmatrix} = A_1^T$
+
+    $rk(A_1) = rk(A_1^T) = l$
+
+    $e_1 \ldots e_l$ -- что-то из стандартного базиса для $K^m$
+
+    По пункту 3
+    
+    $\begin{gathered}
+        l = rk(CAD) = rk(AD) = rk(A) \\
+        l = rk(D^TA^TC^T) = rk(A^TC^T) = rk(A^T)
+    \end{gathered} \Rightarrow rk(A) = rk(A^T)$
+
+    \begin{Remark}{}
+        $C$ -- обратима $\Leftrightarrow C^T$ -- обратима
+
+        $CC^{-1} = C^{-1}C = E$
+
+        $E = E^T = (C^{-1}C)^T = \begin{gathered}
+            (C^{-1})^TC^T \\
+            C^T(C^{-1})^T
+        \end{gathered} \Rightarrow (C^{-1})^T = (C^T)^{-1}$, т.е. $C^T$ -- обратима
+    \end{Remark}
+\end{enumerate}
+
+\begin{Remark}{Полуобратимость}
+    $C \in M_{m, n}(K);\ D \in M_{n, m}(K)$ (т.е. $\exists CD, DC$). Пусть $m < n$
+
+    $\Rightarrow rkC \leq m \Rightarrow rk(DC) \leq m \Rightarrow DC \neq E_n$ ($rkE = n$)
+
+    Но может быть, что $CD = E_m$ -- полуобратные матрицы
+\end{Remark}
+
+\begin{theo}{}
+    Следующие условия равносильны для $A \in M_n(K)$:
+
+    \begin{enumerate}
+        \item Строки $A$ -- ЛНЗ
+        \item Столбцы $A$ -- ЛНЗ
+        \item $A$ обратима
+        \item $KerA = \{0\}$
+        \item $ImA = K^n$
+        \item СЛУ с матрицей $A$ имеет единственное решение для любой правой части 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $1 \Leftrightarrow rkA = n \Leftrightarrow 2$
+    \item В две стороны:
+    
+    \begin{itemize}
+        \item[$3 \Rightarrow 2$:] $n = rkE = rk(AA^{-1}) \leq rkA \geq n \Rightarrow rkA = n$
+        \item[$2 \Rightarrow 3$:] $\exists CAD = \begin{pmatrix}
+            E & 0 \\
+            0 & 0
+        \end{pmatrix}$
+
+        $l = rkA = n \Rightarrow CAD = E$
+
+        $A \cdot (DC^{-1}) = E = (DC^{-1}) \cdot A \Rightarrow A$ обратима
+    \end{itemize}
+    \item $3 \Leftrightarrow 4 \Leftrightarrow 5 \Leftrightarrow 6$
+    
+    Знаем: $A : K^n \to K^n$, т.е. $A$ -- инъекция ($KerA = 0$) $\Leftrightarrow A$ -- сюръекция ($ImA = K^n$) $\Leftrightarrow A$ -- изоморфизм ($\exists A^{-1}$) 
+
+    \item[6.] $A$ -- обратима СЛУ $AX = B \Rightarrow X = A^{-1}B$
+    
+    Если $\forall B \exists! X " AX = B \Rightarrow (x \mapsto AX)$ -- биекция $\Leftrightarrow \exists A^{-1}$
+\end{enumerate}
+
+\begin{defin}{????}
+    $A$ называется обратимой/невырожденной/неособенной/неосовой матрицей полного ранга \dots
+\end{defin}
+
+\begin{defin}{Полная линейная группа}
+    $(M_n(K))^* = GL(n, k)$ -- полная линейная группа (обратимые матрицы относительно умножения)
+\end{defin}
+
+\section{Элементарные матрицы и метод Гаусса}
+
+Хотим: систему простых образующих $GL(n, K) = \q{\{s_i\}} : \forall g \in GL(n, K)\ g = s_{i_1} \cdot s_{i_2} \cdot \ldots \cdot s_{i_k}$ (не единственность разложения)
+
+Приложение: $g^{-1} = (s_{i_1} \cdot \ldots \cdot s_{i_k})^{-1} = s_{i_k}^{-1} \cdot \ldots \cdot s_{i_1}^{-1}$ -- алгоритм для вычисления $g^{-1}$
+
+\begin{defin}{Трансвекция}
+    $n \in N$ -- fix $(M,_n(K));\ i, j \in \{1 \ldots n\};\ i \ne j$
+
+    Трансвекциея $t_{ij}(a) = E + aE_{ij};\ e_{ij} \in M_n(K)$ и $(e_{ij})_{kl} = \begin{cases}
+        1 & k = i, l = j \\
+        0 & \text{otherwise}
+    \end{cases}$
+\end{defin}
+
+\begin{Example}{}
+    Пусть $x \in K^n;\ x = \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$
+    
+    $t_{ij}(a) \cdot \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+    \end{pmatrix} = \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_i + ax_j \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$
+
+    К $i$-ой координате прибавляется $j$-ая, умноженная на $a$
+
+    $t_{ij}(a) \in GL(n)$
+
+    $(t_{ij}(a))^{-1} = t_{ij}(-a)$
+\end{Example}
+
+\begin{Example}{Действия на матрице}
+    Слева $t_{ij}(a) \cdot A = t_{ij}(a)(c_1 | c_2 | \ldots | c_m) = (t_{ij}(a) \cdot c_1 | \ldots | t_{ij}(a) \cdot c_m) = \tilde{A}$
+
+    $\tilde{A}$ получается из $A$ прибавлением к $i$-ой строке $j$-ой строки, умноженной на $a$
+
+    Справа $A \cdot t_{ij}(a) = (A^T)^T((t_{ij}(a))^T)^T = (t_{ij}(a)^TA^T)^T = (t_{ji}(a)A^T)^T$
+
+    К $j$-ому столбцу прибавляется $i$-ый, умноженный на $a$
+\end{Example}
+
+\begin{defin}{Дилатация}
+    $m_i(a) = E + (a - 1)e_{ij} = \begin{pmatrix}
+        1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        \ldots & a & \ldots \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & 1
+    \end{pmatrix}$
+\end{defin}
+
+\begin{Example}{}
+    $m_i(a) \cdot \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+    \end{pmatrix} = \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        ax_i \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$
+
+    $m_i(a) \in GL(n)$
+
+    $(m_i(a))^{-1} = m_i(a^{-1})$
+
+    $m_i(a) \cdot A$ -- умножение $i$-ой строки на $a$
+
+    $A \cdot m_i(a)$ -- умножение $i$-ого столбца на $a$
+\end{Example}
+
+\begin{defin}{Транспозиция}
+    $s_{ij} = E - e_{ii} - e_{jj} + e_{ij} + e_{ji}$
+    
+    $s_{ij} \cdot \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_i \\
+        \vdots \\
+        x_j \\
+        \vdots \\
+        x_n
+    \end{pmatrix} = \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_j \\
+        \vdots \\
+        x_i \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$
+
+    Умножение слева -- перестановка строки, умножение справа -- перестановка столбца
+\end{defin}
+
+\begin{propos}{}
+    $s_{ij}$ выражаема через трансвенции и дилатации
+
+    $\begin{pmatrix}
+        x \\
+        y
+    \end{pmatrix} \to \begin{pmatrix}
+        x + y \\
+        y
+    \end{pmatrix} \to \begin{pmatrix}
+        x + y \\
+        -x 
+    \end{pmatrix} \to \begin{pmatrix}
+        y \\
+        -x
+    \end{pmatrix} \to \begin{pmatrix}
+        y \\
+        x 
+    \end{pmatrix}$
+
+    $s_{12} = m_2(-1) \cdot t_{21}(1) \cdot t_{12}(-1) \cdot t_{21}(1)$
+\end{propos}
+
+\begin{theo}{Метод Гаусса}
+    \begin{enumerate}
+        \item $A \in M_{m, n}(K) \Rightarrow \exists \text{ элем. } e_1 \ldots e_k : e_1e_2 \ldots e_kA$ -- ступенчатая (типа треугольная но не очень)
+        \item $A \in GL(n, K) \Rightarrow \exists \text{ элем. } e_1 \ldots e_s : e_1e_2 \ldots e_sA = E$
+        \item[2'.] $\forall A \in GL(n, K) \exists \text{ элем. } f_1 \ldots f_s : A = f_1f_2 \ldots f_s$
+        \item[3.] $A \in M_{m, n}(K) \Rightarrow \exists \text{ элем. } e_1 \ldots e_k, g_1 \ldots g_l : e_1e_2 \ldots e_kAg_1 \ldots g_l = \begin{pmatrix}
+            E_r & 0 \\
+            0 & 0
+        \end{pmatrix}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$2 \Rightarrow 2'$:] $e_1e_2 \ldots e_sA = E$
+    
+    $A = e_s^{-1} \ldots e_1^{-1} = f_1f_2 \ldots f_s;\ f_i = e_i^{-1}$
+
+    \begin{theo}{Следствие}
+        $e_1 \ldots e_sA = E$
+
+        $(e_1 \ldots e_s) = A^{-1}$
+
+        Алгоритм для нахождения $A^{-1}$ (если существует)
+
+        $(A | E) \to (e_sA | e_sE) \to \ldots \to (e_1 \ldots e_sA | e_1 \ldots e_s) = (E | A^{-1})$
+    \end{theo}
+\end{itemize}
+
 \end{document}
 

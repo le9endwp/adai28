@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737970347.95608 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1737970350.21656 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1737970347.76099 35021 bcc41473c79ce70e02e76aab12ef46d7 ""
+["pdflatex"] 1739179919.9731 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1739179922.17553 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1739179919.57604 45718 574e9ab8250b561a1ddc4e961f864116 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -286,10 +286,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1736791670.22015 6076 a6008c8aa73a7f498843dca49b24cfcd ""
-  "Линал.aux" 1737970350.05443 720 66a516a7dd8b8152614b636b174d2dc1 "pdflatex"
-  "Линал.out" 1737970350.05521 825 1fcfa02c55bd9dc55101834b223d0e93 "pdflatex"
-  "Линал.tex" 1737970347.76099 35021 bcc41473c79ce70e02e76aab12ef46d7 ""
-  "Линал.toc" 1737970350.05547 364 8a8ec9c74cb1e7424e9bc38a5e56d51c "pdflatex"
+  "Линал.aux" 1739179922.00984 884 4035778c756a564a55bfef67e7cf7aa6 "pdflatex"
+  "Линал.out" 1739179922.01094 1148 6dedea0ddbca7cb7b1bc15681ae34ae9 "pdflatex"
+  "Линал.tex" 1739179919.57604 45718 574e9ab8250b561a1ddc4e961f864116 ""
+  "Линал.toc" 1739179922.01132 487 d4fedcce05c62a59dad3a549dcb1eddc "pdflatex"
   (generated)
   "Линал.aux"
   "Линал.log"

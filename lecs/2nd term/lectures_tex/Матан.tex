@@ -832,6 +832,16 @@ $\lim y_{n_k} = c \Rightarrow$ при больших $k$ $|y_{n_k} - c| < \delta
     $S(f, \tau, \xi) := \sum\limits_{k = 1}^n f(\xi_k)(x_k - x_{k - 1})$
 \end{defin}
 
+\begin{Example}{}
+    $S_p(n) := 1^p + 2^p + 3^p + \ldots + n^p;\ p > 0$
+
+    $\lim \frac{S_p(n)}{n^{p + 1}}$?
+
+    Возьмем $f(x) = x^p$ на $[0, 1]$ и $x_k = \xi_k = \frac{k}{n}$
+
+    $\frac{S_p(n)}{n^{p + 1}} = \frac{1}{n} \cdot ((\frac{1}{n})^p + (\frac{2}{n})^p + \ldots + (\frac{n}{n})^p) = \sum f(\xi_k) \cdot (x_k - x_{k - 1}) \rightarrow \int\limits_0^1 f(t)dt = \int\limits_0^1 x^pdx = \frac{x^{p+1}}{p + 1}|_0^1 = \frac{1}{p + 1}$
+\end{Example}
+
 \begin{theo}{Теорема об интегральных суммах}
     $f \in C[a, b]$, $\tau$ -- дробление
 
@@ -861,5 +871,663 @@ $|\Delta| \leq \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} |f(x) - f(\xi
 
     $|I - S(f, \tau, \xi)| < \varepsilon$
 \end{defin}
+
+\begin{lem}{}
+    $f \in C^2[\alpha, \beta]$. Тогда $\int\limits_\alpha^\beta f(x)ds - (\beta - \alpha)\frac{f(\alpha) + f(\beta)}{2}$ = $- \frac{1}{2} \int\limits_{\alpha}^{\beta} f''(t)(t - \alpha)(b - t)dt$
+\end{lem}
+
+\textit{Доказательство:}
+
+$\gamma = \frac{\alpha + \beta}{2}$
+
+$\int\limits_\alpha^\beta f(x)dx = \int\limits_\alpha^\beta f(x)(x - \gamma)'dx = f(x)(x - \gamma)|_{x = \alpha}^{x = \beta} - \int\limits_\alpha^\beta f'(x)(x - \gamma)dx = f(\beta) \cdot \frac{\beta - \alpha}{2} - f(\alpha) \cdot \frac{\alpha - \beta}{2} = \\ = \frac{f(\beta) + f(\alpha)}{2} (\beta - \alpha)$
+
+$\Delta = - \int\limits_\alpha^\beta f'(x)(x - \gamma)dx = (*)$
+
+Берем $u = f';\ v' = x - \gamma;\ -v = \frac{1}{2}(x - \alpha)(\beta - x) = \frac{1}{2}(-x^2 + (\alpha + \beta)x - \alpha\beta)$
+
+$(*) = -f'(x) \cdot (- \frac{1}{2})(x - \alpha)(\beta - x)|_{x = \alpha}^{x = \beta} - \int\limits_\alpha^\beta f''(x) \frac{1}{2} (x - \alpha)(\beta - x)dx$
+
+\begin{theo}{Формула трапеций}
+    $S = \sum (x_k - x_{k - 1})\frac{f(x_{k - 1}) + f(x_k)}{2}$
+
+    Как выглядит формула, если узлы на равных расстояниях?
+
+    $x_k - x_{k - 1} = \frac{b - a}{n}$
+
+    $S = \frac{b - a}{n} \cdot \sum\limits_{k = 1}^n \frac{f(x_{k - 1}) + f(x_k)}{2} = \frac{b - a}{n} (\frac{f(a)}{2} + \sum\limits_{k = 1}^{n - 1} f(x_k) + \frac{f(b)}{2})$
+\end{theo}
+
+\begin{nota}{Как выглядит интегральная сумма если узлы на равных расстояниях?}
+    $\xi_k = x_k$
+
+    $S(f, \tau, \xi) = \sum\limits_{k = 1}^n f(\xi_k)(x_k - x_{k - 1}) = \frac{b - a}{n}\sum\limits_{k = 1}^n f(x_k)$
+
+    А если $\xi_k = x_{k - 1}$, то $S(f, \tau, \xi) = \frac{b - a}{n} \sum\limits_{k = 0}^{n - 1}f(x_k)$
+
+\begin{Remark}{}
+    Если $|f| \leq M$, то $\omega_f(\delta) \leq M\delta$
+
+    $|S(f, \xi, \tau) - \int\limits_a^b f| \leq (b - a)\omega_f(\frac{b - a}{n}) \leq (b - a)^2 \cdot \frac{M}{n}$
+\end{Remark}
+
+\end{nota}
+
+\begin{theo}{Оценка погрешности в формуле трапеций}
+    $f \in C^2[a, b]$
+
+    Тогда $|\int\limits_a^b f - \sum\limits_{k = 1}^n(x_k - x_{k - 1}) \cdot \frac{f(x_{k - 1}) + f(x_k)}{2}| \leq \frac{|\tau|^2}{8} \cdot \int\limits_a^b |f''|$
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+$\Delta = \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} f - \sum\limits_{k = 1}^n (x_k - x_{k - 1}) \frac{f(x_{k - 1}) + f(x_k)}{2} = \sum\limits_{k = 1}^n (\int\limits_{x_{k - 1}}^{x_k} f - (x_k - x_{k - 1}) \frac{f(x_{k - 1}) + f(x_k)}{2}) \stackrel{lemma}{=} \\ \stackrel{lemma}{=} \sum\limits_{k = 1}^n - \frac{1}{2}\int_{x_{k - 1}}^{x_k} f''(t)(x_k - t)(t - x_{k - 1})dt$
+
+$|\Delta| \leq \frac{1}{2} \sum\limits_{k = 1}^n \int\limits_{x_{k - 1}}^{x_k} |f''(t)| \cdot |(x_k - t)(t - x_{k - 1})dt| \leq (*)$
+
+$(x_k - t)(t - x_{k - 1}) \leq (\frac{(x_k - t) + (t - x_{k - 1})}{2})^2 = (\frac{x_k - x_{k - 1}}{2})^2 = \frac{|\tau|^2}{4}$
+
+$(*) \leq \frac{|\tau|^2}{8} \sum \int\limits_{x_{k - 1}}^{x_k} |f''(t)|dt = \frac{|\tau|^2}{8} \int\limits_a^b |f''|$
+
+\begin{Remark}{}
+    Если $|f''| \leq M$ и узлы равноотстоящие друг от друга, то $|\int\limits_a^b f - \frac{b - a}{n} (\frac{f(a)}{2} + \sum f(x_k) + \frac{f(b)}{2})| \leq (\frac{b - a}{n})^2 \frac{M(b - a)}{8}$
+\end{Remark}
+
+\begin{theo}{Формула Эйлера-Маклорена для второй производной}
+    $f \in C^2[a, b];\ m, n \in \Z$
+
+    $\sum\limits_{k = m}^n f(k) = \frac{f(m) + f(n)}{2} + \int\limits_m^n f(t)dt + \frac{1}{2}\int\limits_m^n f''(t)\{t\}(1 - \{t\})dt$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пишем лемму (1.1) для $\alpha = k$ и $\beta = k + 1$
+
+$\int\limits_k^{k + 1} f = \frac{f(k) + f(k + 1)}{2} - \frac{1}{2} \int\limits_k^{k + 1} f''(t)(t - k)(k + 1 - t)dt$
+
+Просуммируем по $k$ от $m$ до $n - 1$
+
+$\int\limits_m^n f = \sum\limits_{k = m}^{n - 1} \int\limits_{k}^{k + 1} f = \sum\limits_{k = m}^{n - 1} \frac{f(k) + f(k + 1)}{2} - \frac{1}{2} \sum\limits_{k = m}^{n - 1} \int\limits_k^{k + 1} f''(t)\{t\}(1 - \{t\})dt = \frac{f(m)}{2} + \sum f(k) + \frac{f(n)}{2} - \\
+- \frac{1}{2} \int\limits_m^n f''(t)\{t\}(1 - \{t\})dt$
+
+$\int\limits_m^n f + \frac{f(m) + f(n)}{2} = \sum f(k) - \frac{1}{2} \int\limits_m^n f''(t) \{t\}(1 - \{t\})dt$
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $S_p(n) = 1^p + 2^p + \ldots + n^p;\ f(x) = x^p;\ f''(x) = p(p - 1)x^{p - 2}$
+        
+        $S_p(n) = \frac{1 + n^p}{2} + \int\limits_1^n x^pdx + \frac{1}{2} \int\limits_1^n p(p - 1)x^{p - 2} \{x\}(1 - \{x\})dx$
+
+        Пусть $p > -1$
+
+        $|S_p(n) - \frac{n^{p + 1} - 1}{p + 1} - \frac{n^p + 1}{2}| \leq \frac{|p||p - 1|}{8} \int\limits_1^n x^{p - 2}dx$
+
+        Если $p \in (-1, 1)$, то $\int\limits_1^n x^{p - 2}dx = \frac{x^{p - 1}}{p - 1}|_1^n \leq \frac{1}{1 - p} \Rightarrow S_p(n) = \frac{n^{p + 1}}{p + 1} + \frac{n^p}{2} + O(1)$
+
+        Если $p > 1$, то $\int\limits_1^n x^{p - 2}dx = \frac{x^{p - 1}}{p - 1}|_1^n \leq \frac{n^{p - 1}}{p - 1} = O(n^{p - 1}) \Rightarrow S_p(n) = \frac{n^{p + 1}}{p + 1} + \frac{n^p}{2} + O(n^{p - 1})$
+
+        \item Гармонические числа $H_n := 1 + \frac{1}{2} + \ldots + \frac{1}{n}$
+        
+        $f(x) = \frac{1}{x};\ f''(x) = \frac{2}{x^3};\ m = 1$
+
+        $H_n = \frac{1 + \frac{1}{n}}{2} + \int\limits_1^n \frac{dx}{x} + \frac{1}{2}\int\limits_1^n \frac{2}{x^3}\{x\}(1 - \{x\})dx = \ln{n} + \frac{1}{2} + \frac{1}{2n} + a_n = (*)$
+
+        $a_n := \int\limits_1^n  \frac{\{x\}(1 - \{x\})}{x^3}dx$
+
+        $a_{n + 1} = a_n + \int\limits_n^{n + 1} \frac{\{x\}(1 - \{x\})}{x^3}dx > a_n$
+
+        Поймем что $a_n$ ограничена: $a_n \leq \int\limits_1^n \frac{\frac{1}{4}}{x^3}dx = \frac{1}{4} \cdot (- \frac{1}{2x^2})|_1^n = \frac{1}{8} - \frac{1}{8n^2} < \frac{1}{8} \Rightarrow \\
+        \Rightarrow$ существует конечный $\lim a_n =: a$
+
+        $(*) = \ln{n} + \frac{1}{2} + \frac{1}{2n} + a + O(1) = \ln{n} + \gamma + O(\frac{1}{n})$, где $\gamma$ -- постоянная Эйлера
+
+        \begin{nota}{}
+            $\gamma \approx 0.5772156043\ldots$
+        \end{nota}
+
+        \item Формула Стирлинга
+        
+        $f(t) = \ln{t};\ f''(t) = -\frac{1}{t^2};\ m = 1$
+
+        $\sum\limits_{k = 1}^n \ln{k} = \frac{\ln{1} + \ln{n}}{2} + \int\limits_1^n \ln{t}dt - \frac{1}{2} \int\limits_1^n \frac{\{t\}(1 - \{t\})}{t^2}dt = n\ln{n} - n + \frac{1}{2}\ln{n} + 1 - b_n$
+
+        $b_{n + 1} = b_n + \frac{1}{2}\int\limits_n^{n + 1} \frac{\{t\}(1 - \{t\})}{t^2}dt > b_n$
+
+        $b_n \leq \frac{1}{8}\int\limits_1^n \frac{dt}{t^2} = \frac{1}{8} (- \frac{1}{t})|_1^n = \frac{1}{8} - \frac{1}{8n} < \frac{1}{8} \Rightarrow \lim b_n = b \in \R \Rightarrow b_n = b + o(1)$
+
+        $\ln{n!} = n\ln{n} - n + \frac{1}{2}\ln{n} + (1 - b) + o(1)$
+
+        $n! = n^ne^{-n}\sqrt{n}e^{1 - b}e^{o(1)} \sim C n^n e^{-n}\sqrt{n}$ (где $C = e^{1 - b}$)
+
+        Хотим найти $C > 0$ из формулы $n! \sim n^ne^{-n}\sqrt{n}C$
+
+        Знаем, что $C_{2n}^n \sim \frac{4^n}{\sqrt{\pi n}}$, но $C_{2n}^n = \frac{(2n)!}{(n!)^2} \sim \frac{C(2n)^{2n}e^{-2n}\sqrt{2n}}{(Cn^ne^{-n}\sqrt{n})^2} = \frac{C 2^{2n}\sqrt{2n}}{C^2 \sqrt{n} \sqrt{n}} = \frac{4^n\sqrt{n}}{C\sqrt{n}} \sim \frac{4^n}{\sqrt{\pi n}}$
+
+        $\Rightarrow \lim\limits_{n \to \infty} \frac{4^n\sqrt{2}}{C\sqrt{n}}\cdot \frac{\sqrt{\pi n}}{4^n} = 1 \Rightarrow C = \sqrt{2\pi}$
+
+        \begin{nota}{Формула Стирлинга}
+            $n! \sim n^n e^{-n}\sqrt{2\pi n}$
+
+            $\ln{n!} = n\ln{n} - n + \frac{1}{2}(\ln n + \ln{2\pi}) + o(1)$
+        \end{nota}
+
+        \begin{Remark}{}
+            Чуть более точные вычисления дают $O(\frac{1}{n})$ вместо $o(1)$
+
+            $n! = n^ne^{-n} \sqrt{2\pi n} e^{O(\frac{1}{n})}$
+        \end{Remark}
+    \end{enumerate}
+\end{Example}
+
+\subsection{\S 5. Несобственные интегралы}
+
+\begin{defin}{}
+    $- \infty < a < b \leq + \infty;\ f \in C[a, b)$
+
+    $\int\limits_a^{\to b} f := \lim\limits_{B \to b_-} \int\limits_a^B f$, если такой предел существует
+
+    $- \infty \leq a < b < + \infty;\ f \in C(a, b]$
+
+    $\int\limits_{\to a}^b f := \lim\limits_{A \to a_+} \int\limits_A^b f$, если такой предел существует
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Если $F$ -- первообразная $f$ на $[a, b)$, то 
+        
+        $\int\limits_a^{\to b} f = \lim\limits_{B \to b_-} \int\limits_a^B f = \lim\limits_{B \to b_-} (F(B) - F(a)) = \lim\limits_{B \to b_-} F(B) - F(a)$
+
+        Если $F$ -- первообразная $f$ на $(a, b]$, то
+
+        $\int\limits_{\to a}^b f = F(b) - \lim\limits_{A \to a_+} F(A) =: F|_a^b$, т.е. подстановку теперь понимаем как предел (в случае, если она не определена в какой-то точке)
+
+        \item Если $f \in C[a, b]$, то новое определение совпадает со старым
+        
+        $\int\limits_a^{\to b} f - \int\limits_a^b f = \lim\limits_{B \to b_-} \int\limits_a^B f - \int\limits_a^b f = -\lim\limits_{B \to b_-} \int\limits_B^b f$
+
+        $f \in C[a, b] \Rightarrow f$ ограничена $\Rightarrow |f| \leq M$
+
+        $|\int\limits_B^b f| \leq \int\limits_B^b |f| \leq \int\limits_B^b M = (b - B)M \xrightarrow[B \to b_-]{} 0$
+    \end{enumerate}
+\end{Remark}
+
+\begin{Example}{}
+    $\int\limits \frac{dx}{x^p}$ на $(1, \infty)$ и $(0, 1)$
+    \begin{enumerate}
+        \item $p \neq 1$, первообразная для $\frac{1}{x^p} = x^{-p}$ -- это $\frac{x^{-p + 1}}{1 - p}$
+
+        $\int\limits_1^{+ \infty} \frac{dx}{x^p} = \frac{x^{1 - p}}{1 - p}|_1^\infty = \lim\limits_{x \to \infty} \frac{x^{1 - p}}{1 - p} - \frac{1}{1 - p} = \begin{cases}
+            + \infty & p < 1 \\
+            \frac{1}{p - 1} & p > 1
+        \end{cases}$
+
+        Если $p = 1$, то первообразная для $\frac{1}{x}$ -- это $\ln{x}$
+
+        $\int\limits_1^{+ \infty} \frac{dx}{x} = \ln{x}|_1^{+ \infty} = \lim\limits_{x \to \infty}\ln{x} - \ln{1} = + \infty$
+
+        Итого $\int\limits_1^{+ \infty} \frac{dx}{x^p} = \begin{cases}
+            + \infty & p \leq 1 \\
+            \frac{1}{p - 1} & p > 1
+        \end{cases}$
+
+        \item $p \neq 1$, первообразная $\frac{x^{1 - p}}{1 - p} \Rightarrow \int\limits_0^1 \frac{dx}{x^p} = \frac{x^{1 - p}}{1 - p}|_0^1 = \frac{1}{1 - p} - \lim\limits_{x \to 0_+} \frac{x^{1 - p}}{1 - p} = \begin{cases}
+            \frac{1}{1 - p} & p < 1 \\
+            + \infty & p > 1
+        \end{cases}$
+
+        $p = 1 \Rightarrow$ первообразная $\ln{x} \Rightarrow \int\limits_0^1 \frac{dx}{x} = \ln{x}|_0^1 = \ln{1} - \lim\limits_{x \to 0_+} \ln{x} = + \infty$
+
+        Итого $\int\limits_0^1 \frac{dx}{x^p} = \begin{cases}
+            \frac{1}{1 - p} & p < 1 \\
+            + \infty & p \geq 1
+        \end{cases}$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{Сходящийся интеграл}
+    Несобственный интеграл $\int\limits_a^b f$ называется сходящимся, если $\lim$ из определения существует и конечен и называется расходящимся в противном случае
+\end{defin}
+
+\begin{Remark}{}
+    $\int\limits_1^{+ \infty} \frac{dx}{x^p}$ сходится $\Leftrightarrow p > 1$
+
+    $\int\limits_0^1 \frac{dx}{x^p}$ сходится $\Leftrightarrow p < 1$
+\end{Remark}
+
+\begin{theo}{Критерий Коши для сходимости интегралов}
+    $f \in C[a, b];\ \ - \infty < a < b \leq + \infty$
+
+    Тогда $\int\limits_a^{\to b} f$ сходится $\Leftrightarrow \forall \varepsilon > 0\ \exists c \in (a, b) : \forall A, B \in (c, b) \Rightarrow |\int\limits_A^B f| < \varepsilon$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\int\limits_a^{\to b} f$ сходится $\Rightarrow$ существует конечный $\lim\limits_{y \to b_-} F(y)$, где $F$ -- первообразная $f$
+    
+    $\forall \varepsilon > 0$ найдется такая окрестность $(c, b)$, что $\forall y \in (c, b)\ |F(y) - L| < \frac{\varepsilon}{2}$
+
+    $\Rightarrow$ если $A, B \in (c, b)$, то $|F(A) - L| < \frac{\varepsilon}{2}$ и $|F(B) - L| < \frac{\varepsilon}{2}$
+
+    $\Rightarrow |F(B) - F(A)| \leq |F(B) - L| + |L - F(A)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+
+    \item[$\Leftarrow$] Пусть $F$ -- первообразная $f$, тогда $\forall \varepsilon > 0\ \exists c \in (a, b) : \forall A, B \in (c, b) \Rightarrow |F(B) - F(A)| < \varepsilon$
+    
+    Но это условие из критерия Коши для $\lim\limits_{y \to b_-} F(y) \Rightarrow$ этот предел существует и конечен $\Rightarrow \int\limits_a^{\to b} f = \lim\limits_{y \to b_-} F(y) - F(a)$ существует и конечен
+\end{itemize}
+
+\begin{theo}{Свойства несобственных интегралов}
+    \begin{enumerate}
+        \item Аддитивность. $f \in C[a, b);\ c \in (a, b)$
+        
+        Тогда $\int\limits_a^b f$ сходится $\Leftrightarrow \int\limits_c^b f$ сходится и в этом случае $\int\limits_a^b f = \int\limits_a^c f + \int\limits_c^b$
+
+        \item $f \in C[a, b)$. Если $\int\limits_a^b$ сходится, то $\lim\limits_{B \to b_-} \int\limits_B^b f = 0$
+        
+        \item Линейность $f, g \in C[a, b);\ \alpha, \beta \in \R$
+        
+        Если $\int\limits_a^b f$ и $\int\limits_a^b$ сходится, то $\int\limits_a^b(\alpha f + \beta g)$ сходится и $\int\limits_a^b (\alpha f + \beta g) = \alpha \int\limits_a^b f + \beta \int\limits_a^b g$
+
+        \item Монотонность. $f, g \in C[a, b);\ f \leq g$ на $[a, b)$ и интегралы существуют $\Rightarrow \int\limits_a^b f \leq \int\limits_a^b g$
+        
+        \item Интегрирование по частям. $f, g \in C^1[a, b)$. Тогда $\int\limits_a^b fg' = fg|_a^b - \int\limits_a^b f'g$
+        
+        (если существуют какие-то два предела из трех, то существует и третий и есть равенство)
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\int\limits_a^B f = \int\limits_a^c f + \int\limits_c^B$ и переходим к $\lim\limits_{B \to b_-} \Rightarrow \int\limits_a^b f = \int\limits_a^c f + \int\limits_c^b f$
+    
+    \item $\int\limits_a^b f = \int\limits_a^B f + \int\limits_B^b f \Rightarrow \int\limits_B^b f = \int\limits_a^b f - \int\limits_a^B$ и пишем $\lim\limits_{B \to b_-}$
+    
+    \item $a < B < b \Rightarrow \int\limits_a^B (\alpha f + \beta g) = \alpha \int\limits_a^B f + \beta \int\limits_a^B g$ и переходим к $\lim\limits_{B \to b_-}$
+    
+    \item $a < B < b$. Тогда $\int\limits_a^B f \leq \int\limits_a^B g$ и переходим к $\lim\limits_{B \to b_-}$
+    
+    \item $a < B < b$. Тогда $\int\limits_a^B fg' = fg|_a^B - \int\limits_a^B f'g$ и переходим к $\lim\limits_{B \to b_-}$
+\end{enumerate}
+
+\begin{Remark}{}
+    Если $\int\limits_a^b f$ сходится и $\int\limits_a^b g$ расходится, то $\int\limits_a^b (f + g)$ расходится
+
+    Если бы $\int\limits_a^b (f + g)$ сходится, то $\int\limits_a^b g = \int\limits_a^b ((f + g) - f)$ сходится
+\end{Remark}
+
+\begin{theo}{Замена переменной в несобственном интеграле}
+    $\varphi : [\alpha, \beta) \to [a, b);\ \varphi \in C^1[\alpha, \beta)$ и существует $\lim\limits_{\gamma \to \beta_-} \varphi(\gamma) =: c$
+
+    $f \in C[a, b)$. Тогда $\int\limits_\alpha^\beta f(\varphi(t)) \varphi'(t)dt = \int\limits_{\varphi(\alpha)}^c f(x)dx$ (если существует один из интегралов, то существует другой и есть равенство)
+\end{theo}
+
+\textit{Доказательство:}
+
+$F(y) := \int\limits_{\varphi(\alpha)}^y f(x)dx;\ y \in [a, b)$
+
+$\Phi(\gamma) := \int\limits_\alpha^\gamma f(\varphi(t))\varphi'(t)dt;\ \gamma \in [\alpha, \beta)$
+
+Тогда $\Phi(\gamma) = F(\varphi(\gamma))$ по формуле замены переменной в собственном интеграле
+
+\begin{enumerate}
+    \item Пусть существует $\lim\limits_{y \to c_-} F(y)$. Покажем, что сузествует $\lim\limits_{\gamma \to \beta_-} \Phi(\gamma)$
+    
+    Проверяем по Гейне. Возьмем $\gamma_n \nearrow \beta \Rightarrow \Phi(\gamma_n) = F(\varphi(\gamma_n))$
+
+    $\gamma_n \nearrow \beta \Rightarrow \varphi(\gamma_n) \to c \Rightarrow \Phi(\gamma_n) = F(\varphi(\gamma_n)) \to \lim\limits_{y \to c_-} F(y) = \int\limits_{\varphi(\alpha)}^c f(x)dx$
+
+    $\Rightarrow \lim\limits_{\gamma \to \beta_-} \Phi(\gamma) = \int\limits_{\varphi(\alpha)}^c f(x)dx$
+
+    \item Пусть существует $\lim\limits_{\gamma \to \beta_-} \Phi(\gamma)$. Проверим, что тогда $\exists \lim\limits_{y \to c} F(y)$. Тогда по пункту 1 будет равенство. Если $c < b$, то очевидно существует (т.к. $F$ непрерывно при $y < b$)
+    
+    Считаем, что $c = b$. Проверим по Гейне, что $\exists \lim\limits_{y \to b_-} F(y)$. Возьмем $b_n \nearrow b$. Можно считать, что $b_n \in [\varphi(\alpha), b)$. Т.е. сколь угодно близко к $b$ найдутся значения $\varphi \Rightarrow$ найдется \\ $\varphi(\beta_n) > b_n$
+
+    $\Rightarrow$ по БК $\exists \gamma_n \in (\alpha, \beta_n) : \varphi(\gamma_n) = b_n \Rightarrow \Phi(\gamma_n) = F(\varphi(\gamma_n)) = F(b_n)$
+
+    Осталось проверить, что $\gamma_n$ имеют предел. Предположим, что $\lim \gamma_n \neq \beta \Rightarrow$ найдется подпоследовательность $\gamma_{n_k} \to \tilde{\beta} \neq \beta$
+
+    $\gamma_n \in [\alpha, \beta) \Rightarrow \gamma_{n_k} \to \tilde{\beta} < \beta \Rightarrow \varphi$ непрерывна в $\tilde{\beta}$
+
+    $b \leftarrow b_{n_k} = \varphi(\gamma_{n_k}) \to \varphi(\tilde{\beta}) < b$. Противоречие. Следовательно $\lim \gamma_n = \beta \Rightarrow \lim \Phi(\gamma_n) = \\ = \lim\limits_{\gamma \to \beta_-} \Phi(\gamma)$, т.е. он существует
+\end{enumerate}
+
+\begin{Remark}{}
+    $\int\limits_a^b f(x)dx$ заменой $x = b - \frac{1}{t}$ и $\varphi(t) = b - \frac{1}{t}$ сводится к $\int\limits_{\frac{1}{b - a}}^{+ \infty} f(b - \frac{1}{t})\frac{dt}{t^2}$
+
+    То есть точку, где нет непрерывности можно записать на $\infty$. $\varphi(\frac{1}{b - a}) = a$ и $\varphi(\infty) = b$
+\end{Remark}
+
+\begin{theo}{}
+    $f \in C[a, b)$ и $f \geq 0$. Тогда $\int\limits_a^b f$ всегда определен. Он сходится $\Leftrightarrow F$ -- ограниченная функция на $[a, b)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$F(y) := \int\limits_a^y f$. Если $y < z$, то $F(z) = \int\limits_a^z f = \int\limits_a^y f + \int\limits_y^z f \geq F(y) \Rightarrow F$ нестрого возрастает $\Rightarrow \\
+\Rightarrow \lim\limits_{y \to b_-} F$ существует и $\lim\limits_{y \to b_-} F = \sup\limits_{y \in [a, b)} F(y)$
+
+Тогда конечность предела равносильна ограниченности функции $F$
+
+\begin{theo}{Следствие 1 (признак сравнения)}
+    $f, g \in C[a, b),\ f, g \geq 0$ и $f \leq g$. Тогда
+     
+    \begin{enumerate}
+        \item Если $\int\limits_a^b g$ сходится, то $\int\limits_a^b f$ сходится
+        \item Если $\int\limits_a^b f$ сходится, то $\int\limits_a^b g$ расходится
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+$F(y) := \int\limits_a^y f, G(y) := \int\limits_a^y g;\ f \leq g \Rightarrow F(y) \leq G(y)$
+
+\begin{enumerate}
+    \item $\int\limits_a^b g$ cходится $\Leftrightarrow G$ -- ограничена $\Rightarrow F$ -- ограничена $\Leftrightarrow \int\limits_a^b f$ cходится
+    \item Если бы $\int\limits_a^b g$ сходится, то $\int\limits_a^b f$ сходится. Противоречие
+\end{enumerate}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Достаточно наличия неравенства $f \leq g$ при аргументах близких к точке $b$
+        \item Неравенство $f \leq g$ можно заменить на $f = O(g)$
+        
+        $f = O(g)$ означает, что $f \leq Cg$ для некоторого C и $\int\limits_a^b Cg = C\int\limits_a^b g$
+
+        \item Если $f = O(\frac{1}{x^{1 + \varepsilon}})$ при $\varepsilon > 0$, то $\int\limits_a^{+ \infty} f$ сходится
+        
+        $g(x) = \frac{1}{x^{1 + \varepsilon}}$ и $\int\limits_1^{+ \infty} \frac{dx}{x^{1 + \varepsilon}}$ сходится 
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{Следствие}
+    $f, g \in C[a, b);\ f, g \geq 0$ и $f \stackrel{x \to b}{\sim} g$. Тогда $\int\limits_a^b f$ и $\int\limits_a^b g$ ведут себя одинаково
+\end{theo}
+
+\textit{Доказательство:}
+
+$f \sim g \Rightarrow f = \varphi g$, где $\lim\limits_{x \to b_-} \varphi(x) = 1 \Rightarrow \frac{1}{2} \leq \varphi(x) \leq 2$ при $x$ близких к $b$
+
+$\frac{1}{2}g(x) \leq f(x) \leq 2g(x)$ при $x$ близких к $b$ $\Rightarrow f = O(g)$ и $g = O(f)$ в окрестности $b$
+
+\begin{Remark}{}
+    Если $f \geq 0$ и $\int\limits_a^{+ \infty} f$ сходится, то не обязательно $\lim\limits_{x \to + \infty} f(x) = 0$
+\end{Remark}
+
+\begin{defin}{Абсолютная сходимость}
+    $f \in C[a, b)$
+
+    $\int\limits_a^b f$ абсолютно сходится, если $\int\limits_a^b |f| < + \infty$
+\end{defin}
+
+\begin{theo}{}
+    Если $\int\limits_a^b f$ абсолютно сходится, то $\int\limits_a^b f$ сходится
+\end{theo}
+
+\textit{Доказательство:}
+
+$0 \leq f_\pm \leq |f|$. Признак сравнения: $\int\limits_a^b |f|$ сходится $\Rightarrow \int\limits_a^b f_\pm$ сходится $\Rightarrow \int\limits_a^b f = \int\limits_a^b f_+ - \int\limits_a^b f_-$ сходится
+
+\begin{Remark}{}
+    Бывают интегралы, которые сходятся, но не абсолютно
+\end{Remark}
+
+\begin{Exercise}{}
+    Что делать, если несколько точек, где нет непрерывности? Пусть отрезок $[a, b]$ нарезан на куски, т.е. $[a, b] = [a, c_1] \cup [c_1, c_2] \cup \ldots \cup [c_n, b]$ (где в $c_i$ нет непрерывности). Добавим в каждый полученный отрезок по точке $d_i$
+
+    Итого подряд идут точки типа $a, d_1, c_1, d_2, c_2 \ldots d_n, c_n, d_{n + 1}, b$
+
+    $\int\limits_a^b f$ сходится означает, что $\int\limits_a^{d_1}, \int\limits_{d_1}^{c_1}, \int\limits_{c_1}^{d_2}, \ldots, \int\limits_{d_{n + 1}}^b$ сходятся
+\end{Exercise}
+
+\begin{theo}{Признак Дирихле}
+    $f, g \in C[a, + \infty)$
+
+    \begin{enumerate}
+        \item $f$ имеет ограниченную первообразную на $[a, + \infty)$ (т.е. $F(x) := \int\limits_a^x f$ ограничена)
+        \item $g$ монотонна 
+        \item $\lim\limits_{x \to + \infty} g(x) = 0$
+    \end{enumerate}
+
+    Тогда $\int\limits_a^{+ \infty} f(x)g(x)dx$ сходится
+\end{theo}
+
+\textit{Доказательство (для случая, когда $g \in C^1[a, + \infty)$):}
+
+Хотим доказать, что $H(x) := \int\limits_a^x fg$ имеет конечный предел при $x \to + \infty$
+
+$H(x) = \int\limits_a^x F'g = Fg|_a^x - \int\limits_a^b Fg'$. Проверим, что существует конечный предел
+
+$\lim\limits_{x \to + \infty} F(x)g(x) = 0$, т.к. $F$ ограничена и $g$ -- бесконечно малая
+
+Осталось доказать, что $\lim\limits_{x \to + \infty} \int\limits_a^x Fg'$ существует и конечен, т.е. что $\int\limits_a^{+ \infty} Fg'$ сходится
+
+Проверим, что он абсолютно сходится, т.е. $\int\limits_a^{+ \infty} |Fg'| < + \infty$
+
+$F$ -- ограничена $\Rightarrow \exists M : |F(x)| \leq M\ \forall x \Rightarrow |Fg'| \leq M|g'|$. По признаку сравнения достаточно проверить, что $\int\limits_a^{+ \infty} |g'|$ сходится. Из монотонности $g$ следует, что $g'$ фиксированного знака, поэтому надо проверить, что $\int\limits_a^{+ \infty} g'$ сходится
+
+$\int\limits_a^{+ \infty} g' = g|_a^{+ \infty} = \lim\limits_{x \to + \infty} g(x) - g(a) = -g(a) < + \infty$
+
+\begin{theo}{Признак Абеля}
+    $f, g \in C[a, + \infty)$
+
+    \begin{enumerate}
+        \item $\int\limits_a^{+ \infty} f$ сходится
+        \item $g$ монотонна 
+        \item $g$ ограничена
+    \end{enumerate}
+
+    Тогда $\int\limits_a^{+ \infty} f(x)g(x)dx$ сходится
+\end{theo}
+
+\textit{Доказательство:}
+
+Монотонная ограниченная функция имеет конечный предел $b := \lim\limits_{x \to + \infty} g(x)$
+
+$\tilde{g}(x) := g(x) - b$ -- монотонная и $\lim\limits_{x \to + \infty} \tilde{g}(x) = 0$
+
+$F(x) := \int\limits_a^x f$. По условию $\lim\limits_{x \to + \infty} F(x) = \int\limits_a^{+ \infty} f$ существует и конечен $\Rightarrow F$ локально ограничена, т.е. при $x \geq K\ |F(x)| \leq M$
+
+Но на отрезке $[a, K]$ функция $F$ непрерывна $\Rightarrow$ ограничена
+
+$\Rightarrow f$ и $\tilde{g}$ удовлетворяют условиям признака Дирихле $\Rightarrow \int\limits_a^{+ \infty} f\tilde{g}$ сходится
+
+$\int\limits_a^{+ \infty} = \int\limits_a^{+ \infty} f(\tilde{g} + b) = \int\limits_a^{+ \infty} f\tilde{g} + b\int\limits_a^{+ \infty} f$ сходится как сумма двух сходящихся
+
+\begin{theo}{Следствие}
+    $f, g \in C[a, + \infty), f$ -- периодична с периодом $T$, $g$ -- монотонна и $\lim\limits_{x \to + \infty} g(x) = 0$
+
+    \begin{enumerate}
+        \item Если $\int\limits_a^{+ \infty} |g|$ сходится, то $\int\limits_a^{+ \infty} fg$ сходится абсолютно
+        \item Если $\int\limits_a^{+ \infty} |g|$ расходится, то $\int\limits_a^{+ \infty} fg$ сходится $\Leftrightarrow \int\limits_a^{a + T} f = 0$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $f$ непрерывна на $[a, a + T] \Rightarrow$ ограничена на $[a, a + T] \Rightarrow$ ограничена, т.к. периодична
+
+    $fg = O(g) \Rightarrow \int\limits_a^{+ \infty} fg$ абсолютно сходится по признаку сравнения
+
+    \item 
+    
+    \begin{itemize}
+        \item[$\Leftarrow$] $\int\limits_a^{a + T} f = 0$, тогда $F(x) := \int\limits_a^x f$ -- ограниченная функция
+        
+        Проверим, что $F$ периодична с периодом $T$
+
+        $F(x + T) = \int\limits_a^{x + T} f = \int\limits_a^{a + T} f + \int\limits_{a + T}^{x + T} f = 0 + \int\limits_a^{x} f = F(x) \Rightarrow F$ ограничена $\Rightarrow$ принцип Дирихле
+
+        \item[$\Rightarrow$] Пусть $\int\limits_a^{a + T} f = b \neq 0$. Тогда $\int\limits_a^{a + T} (f - \frac{b}{T}) = 0 \Rightarrow \int\limits_a^{+ \infty} (f - \frac{b}{T})g$ сходится 
+        
+        $\int\limits_a^{+ \infty} fg = \int\limits_a^{+ \infty} (f - \frac{b}{T})g + \frac{b}{T}\int\limits_a^{+ \infty} g$. Первое сходится, второе расходится $\Rightarrow \int\limits_a^{+ \infty} fg$ расходится
+    \end{itemize}
+\end{enumerate}
+
+\begin{Example}{}
+    $\int\limits_1^{+ \infty} \frac{\sin{x}}{x^p}dx$
+
+    \begin{itemize}
+        \item[$p > 1$] $|\frac{\sin{x}}{x^p}| \leq \frac{1}{x^p}$
+        
+        $\int\limits_1^{+ \infty} \frac{dx}{x^p}$ сходится $\Rightarrow \int\limits_1^{+ \infty} \frac{\sin{x}}{x^p}dx$ сходится абсолютно по признаку сравнения
+
+        \item[$p > 0$] $\sin$ -- периодическая функция с периодом $2\pi$
+        
+        $\int\limits_0^{2\pi} \sin{x}dx = 0$
+
+        $f(x) = \sin{x};\ g(x) = \frac{1}{x^p} \xrightarrow[x \to + \infty]{} 0$ монотонно $\Rightarrow \int\limits_1^{+ \infty} \frac{\sin{x}}{x^p}dx$ сходится 
+
+        А что с абсолютной сходимостью? $\int\limits_0^{2\pi} |\sin{x}|dx > 0$
+
+        $f(x) = |\sin{x}|;\ g(x) = \frac{1}{x^p} \xrightarrow[x \to + \infty]{} 0$ монотонно
+
+        $\int\limits_1^{+ \infty} \frac{dx}{x^p}$ -- расходится $\Rightarrow \int\limits_1^{+ \infty} \frac{|\sin{x}|}{x^p}dx$ расходится $\Rightarrow \int\limits_1^{+ \infty} \frac{\sin{x}}{x^p}dx$ не имеет абсолютной сходимости
+
+        \item[$p \leq 0$] Рассмотрим отрезок $[2\pi k + \frac{\pi}{6}, 2\pi k + \frac{5\pi}{6}]$. На нем $\sin{x} \geq \frac{1}{2}$
+        
+        $\int\limits_{2\pi k + \frac{\pi}{6}}^{2\pi k + \frac{5\pi}{6}} \frac{\sin{x}}{x^p}dx \geq \frac{1}{2} \int\limits_{2\pi k + \frac{\pi}{6}}^{2\pi k + \frac{5\pi}{6}} \frac{dx}{x^p} \geq \frac{1}{2} \cdot \frac{2\pi}{3} \cdot (2\pi k + \frac{\pi}{6})^{-p} \geq \frac{\pi}{3}$ -- противоречие с условие критерия Коши, значит $\int\limits_1^{+ \infty} \frac{\sin{x}}{x^p}dx$ расходится
+    \end{itemize}
+\end{Example}
+
+\begin{Remark}{}
+    В признаках Абеля и Дирихле нельзя отказаться от монотонности $g$
+
+    $f(x) = \sin{x};\ g(x) = \frac{\sin{x}}{x}$
+
+    $|\int\limits_1^x \sin{x}dx| = |\cos{1} - \cos{x}| \leq 2;\ \lim\limits_{x \to + \infty} g(x) = 0$
+
+    $\int\limits_1^{+ \infty} fg = \int\limits_1^{+ \infty} \frac{\sin^2{x}}{x}dx$ 
+
+    $\int\limits_0^{2\pi} \sin^2{x}dx = \pi > 0;\ \int\limits_1^{+ \infty} \frac{dx}{x}$ -- расходится
+
+    $\Rightarrow \int\limits_1^{+ \infty} \frac{\sin^2{x}}{x}dx$ расходится
+\end{Remark}
+
+\section{Анализ в метрических пространствах}
+
+\subsection{\S 1. Метрические пространства}
+
+\begin{defin}{Метрика}
+    $X$ -- множество. $\rho : X \times X \to \R$ -- метрика (расстояние)
+
+    \begin{enumerate}
+        \item $\rho(x, y) \geq 0$ и $\rho(x, y) = 0 \Leftrightarrow x = y$
+        \item $\rho(x, y) = \rho(y, x)$
+        \item Неравенство треугольника: $\rho(x, z) \leq \rho(x, y) + \rho(y, z)$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Метрическое пространство}
+    $(X, \rho)$ -- метрическое пространство
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item Дискретная метрика (метрика лентяя) $\rho(x, y) = \begin{cases}
+            0 & x = y \\
+            1 & x \neq y
+        \end{cases}$
+        \item $X = \R;\ \rho(x, y) = |x - y|$
+        \item $X = \R^2;\ \rho$ -- расстояние на плоскости
+        \item $X = \R^d;\ p \geq 1$ и $\rho(x, y) = (|x_1 - y_1|^p + |x_2 - y_2|^p + \ldots + |x_d - y_d|^p)^{\frac{1}{p}}$
+        
+        Неравенство треугольника -- это неравенство Минковского
+
+        \item Частный случай 4. $X = \R^2;\ \rho(x, y) = |x_1 - y_1| + |x_2 - y_2|$ -- Манхэттенское расстояние
+        
+        \item Французская железнодорожная метрика $X = \R^2$
+        
+        $\rho(A, B) =$ длина отрезка $AB$
+
+        $\rho(C, D) = CP + PD$
+
+        Тут кросивый рисуночек, типа чтоб проехать из города в другой оч часто надо заехать в $P$ -- пАрИж
+
+        \item Метрика Хемминга $a_1, a_2 \ldots a_n$ слова из $n$ букв
+        
+        $\rho(A, B) =$ количество разрядов, в которых $A$ и $B$ различаются
+
+        \item $X = C[a, b];\ \rho(f, g) := \max\limits_{x \in [a, b]} |f(x) - g(x)|$ -- равномерная метрика
+        \item $X = C[a, b];\ \rho(f, g) := \int\limits_a^b |f(x) - g(x)|dx$ -- метрика в $L_1$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{Шар}
+    $(X, \rho)$ -- метрическое пространство, $r > 0,\ a \in X$
+
+    Открытый шар радиуса $r$ с центром в точке $a$
+
+    $B_r(a) := \{x \in X : \rho(x, a) < r\}$
+
+    Замкнутый шар $\overline{B_r}(a) := \{x \in X : \rho(x, a) \leq r\}$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $B_{r_1}(a) \cap B_{r_2}(a) = B_{\min(r_1, r_2)}(a)$
+        
+        $B_{r_1}(a) \cup B_{r_2}(a) = B_{\max(r_1, r_2)}(a)$
+
+        \item Если $a \neq b$, то найдется $r > 0 : \overline{B_r}(a) \cap \overline{B_r}(b) = \varnothing$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item[2.] Возьмем $r = \frac{\rho(a, b)}{3} > 0$. Пусть $\overline{B_r}(a) \cap \overline{B_r}(b) \neq \varnothing$, т.е. найдется $x \in \overline{B_r}(a)$ и $x \in \overline{B_r}(b) \Rightarrow$
+    
+    $\Rightarrow \rho(a, b) \leq \rho(a, x) + \rho(x, b) \leq r + r = \frac{2}{3}\rho(a, b)$ -- противоречие
+\end{enumerate}
+
+\begin{defin}{Открытое множество}
+    $U \subset X$ -- открытое множество, если $\forall a \in U$ найдется $B_r(a) \subset U$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $\varnothing$ и $X$ -- открытые множества
+        \item Объединение любого количества открытых множеств -- открытое множество
+        \item Пересечение конечного количества открытых множеств -- открытое множество
+        \item Открытый шар -- открытое множество
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Очевидно
+    \item Пусть $U_\alpha$ -- открытые при $\alpha \in I$. Докажем, что $U := \bigcup\limits_{\alpha \in I} U_\alpha$ -- открытое
+    
+    Возьмем $a \in U \Rightarrow a \in U_{\alpha_0}$ для некоторого $\alpha_0$, но $U_{\alpha_0}$ -- открытое $\Rightarrow \exists r > 0 : \\ B_r(a) \subset U_{\alpha_0} \subset U$
+
+    \item Пусть $U_1, U_2 \ldots U_n$ открытые. Докажем, что $U := \bigcap\limits_{k = 1}^n U_k$ -- открытое
+    
+    Возьмем $a \in U \Rightarrow a \in U_k\ \forall k \in 1 \ldots n$. $U_k$ -- открытое $\Rightarrow \exists r_k > 0 : B_{r_k}(a) \subset U_k$
+
+    Возьмем $r := \min(r_1, r_2 \ldots r_n) > 0 \Rightarrow B_r(a) \subset B_{r_k}(a) \subset U_k \Rightarrow B_r(a) \subset U = \bigcap\limits_{k = 1}^n U_k$
+
+    \item $B_R(a)$ -- открытое множество
+    
+    Возьмем $x \in B_R(a) \Rightarrow \rho(x, a) < R$ и положим $r := R - \rho(x, a) > 0$
+
+    Проверим, что $B_r(x) \subset B_R(a)$. Возьмем $y \in B_r(x)$ и проверим, что $y \in B_R(a)$
+
+    $y \in B_r(x) \Rightarrow \rho(y, x) < r = R - \rho(x, a) \Rightarrow \rho(y, a) \leq \rho(y, x) + \rho(x, a) < r + \rho(x, a) = R$
+\end{enumerate}
+
+\begin{Remark}{}
+    В 3 существенно, что множеств конечное число
+
+    \begin{Example}{}
+        $X = R;\ \rho(x, y) = |x - y|;\ U_n := (- \frac{1}{n}, \frac{1}{n})$ -- открытые множества
+
+        $\bigcap\limits_{n = 1}^{+ \infty} U_n = \{0\}$ -- не открытое
+    \end{Example}    
+\end{Remark}
 
 \end{document}

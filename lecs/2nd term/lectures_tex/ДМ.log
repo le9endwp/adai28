@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  27 JAN 2025 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  10 FEB 2025 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1168,7 +1168,7 @@ Overfull \hbox (36.30403pt too wide) in paragraph at lines 111--112
 
 [3] [4]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 232.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd) [5] (./ДМ.aux)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd) [5] [6] [7] [8] [9] (./ДМ.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1177,18 +1177,18 @@ Package rerunfilecheck Info: File `ДМ.out' has not changed.
 (rerunfilecheck)             Checksum: 5AD6E7FFAB58FE39C4B4A9D920045164;391.
  ) 
 Here is how much of TeX's memory you used:
- 43876 strings out of 474116
- 1027798 string characters out of 5743681
- 1943187 words of memory out of 5000000
- 65466 multiletter control sequences out of 15000+600000
+ 43934 strings out of 474116
+ 1028714 string characters out of 5743681
+ 1945187 words of memory out of 5000000
+ 65493 multiletter control sequences out of 15000+600000
  567824 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,9n,115p,830b,1068s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,15n,115p,830b,1068s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on ДМ.pdf (5 pages, 196358 bytes).
+Output written on ДМ.pdf (9 pages, 221382 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 262 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 75 named destinations out of 1000 (max. 500000)
  173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

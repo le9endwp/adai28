@@ -470,6 +470,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
+INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm
+INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm
 INPUT ДМ.aux
 INPUT ./ДМ.out
 INPUT ./ДМ.out

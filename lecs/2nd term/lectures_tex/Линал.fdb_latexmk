@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1739179919.9731 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1739179922.17553 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1739179919.57604 45718 574e9ab8250b561a1ddc4e961f864116 ""
+["pdflatex"] 1739784762.71327 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1739784764.97146 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1739784762.4451 55564 d47004c3ed305ac7bd64d688236e53da ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -40,6 +40,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb" 1290383964 25452 d4e98a3bf6b13d4b7dcffd6302990a65 ""
@@ -286,10 +287,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1736791670.22015 6076 a6008c8aa73a7f498843dca49b24cfcd ""
-  "Линал.aux" 1739179922.00984 884 4035778c756a564a55bfef67e7cf7aa6 "pdflatex"
-  "Линал.out" 1739179922.01094 1148 6dedea0ddbca7cb7b1bc15681ae34ae9 "pdflatex"
-  "Линал.tex" 1739179919.57604 45718 574e9ab8250b561a1ddc4e961f864116 ""
-  "Линал.toc" 1739179922.01132 487 d4fedcce05c62a59dad3a549dcb1eddc "pdflatex"
+  "Линал.aux" 1739784764.81499 1041 43a522a4fe7dfa5a760d2ec4ba4a2e32 "pdflatex"
+  "Линал.out" 1739784764.81599 1439 b27fe1041ec37fc74a196b9b83bc0769 "pdflatex"
+  "Линал.tex" 1739784762.4451 55564 d47004c3ed305ac7bd64d688236e53da ""
+  "Линал.toc" 1739784764.81647 603 1e7399c029b2d7ce9bce2de37e8d7ef2 "pdflatex"
   (generated)
   "Линал.aux"
   "Линал.log"

@@ -3,3 +3,4 @@
 \contentsline {section}{\numberline {2}Система линейных уравнений (СЛУ)}{10}{section.2}%
 \contentsline {section}{\numberline {3}Операции над пространствами}{16}{section.3}%
 \contentsline {section}{\numberline {4}Элементарные матрицы и метод Гаусса}{19}{section.4}%
+\contentsline {section}{\numberline {5}Явные формулы линнейной алгебры}{23}{section.5}%

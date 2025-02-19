@@ -1530,4 +1530,387 @@ $\int\limits_a^{+ \infty} = \int\limits_a^{+ \infty} f(\tilde{g} + b) = \int\lim
     \end{Example}    
 \end{Remark}
 
+\begin{defin}{Внутренняя точка}
+    $(X, \rho)$ -- метрическое пространство, $A \subset X,\ a \in A$
+
+    $a$ -- внутренняя точка множества $A$, если $\exists r > 0 : B_r(a) \subset A$
+\end{defin}
+
+\begin{Remark}{}
+    Открытое множество -- множество, все точки которого внутренние
+\end{Remark}
+
+\begin{defin}{Внутренность множества}
+    $(X, \rho)$ -- метрическое пространство, $A \subset X$
+
+    Внутренность множества -- все внутренние точки множества
+
+    \textbf{Обозначение:} $\Int A$ (иногда $A^\circ$)
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $\Int A \subset A$
+        \item $\Int A$ -- объединение всех открытых множеств, содержащихся в $A$
+        \item $\Int A$ -- открытое множество
+        \item $A$ -- открытое $\Leftrightarrow A = \Int A$
+        \item $A \subset B \Rightarrow \Int A \subset \Int B$
+        \item $\Int (\Int A) = \Int A$
+        \item $\Int (A \cap B) = \Int A \cap \Int B$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Очев 
+    \item Хотим $\Int A = \bigcup\limits_{G \subset A} G$, где $G$ -- открытое
+    
+    \begin{itemize}
+        \item[$\subset$] Возьмем $a \in \Int A \Rightarrow a$ -- внутренняя точка $\Rightarrow \exists r > 0 : B_r(a) \subset A$, но $B_r(a)$ -- открытое множество $\Rightarrow B_r(a)$ присутствует среди множеств из объединения
+        \item[$\supset$] Пусть $a \in U \Rightarrow \exists G$ -- откртытое $\subset A : a \in G \Rightarrow \exists r > 0 : B_r(a) \subset G \subset A \Rightarrow a$ -- внутренняя точка 
+    \end{itemize}
+
+    \item По пункту 2 $\Int A$ -- объединение открытых множеств $\Rightarrow \Int A$ -- открытое
+    
+    \item 
+    
+    \begin{itemize}
+        \item[$\Leftarrow$] т.к. $\Int A$ -- открытое
+        \item[$\Rightarrow$] $A$ -- открытое $\Rightarrow$ все точки внутренние $\Rightarrow$ все лежат в $\Int A \Rightarrow A = \Int A$
+    \end{itemize}
+
+    \item Если $a$ -- внутрення точка для $A$, то и для $B$ тоже, т.к. $A \subset B$
+    \item $3 + 4 = 6$
+\end{enumerate}
+
+\begin{Exercise}{}
+    \begin{enumerate}
+        \item Доказать пункт 7
+        \item Придумать пример, когда $\Int (A \cup B) \neq \Int A \cup \Int B$
+    \end{enumerate}
+\end{Exercise}
+
+\begin{defin}{Замкнутое множество}
+    Замкнутое множество -- множество, дополнение которого открыто 
+
+    $A$ замкнуто $\Leftrightarrow X \setminus A$ открыто
+\end{defin}
+
+\begin{theo}{Свойства замкнутых множеств}
+    \begin{enumerate}
+        \item $\varnothing$ и $X$ -- замкнутые множества
+        \item Пересечение любого количества замкнутых множеств -- замкнутое множество
+        \item Объединение конечного количества замкнутых множеств -- замкнутое множество
+        \item Замкнутый шар -- замкнутое множество
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Очевидно, ничего писать не буду
+    \item $F_\alpha$ -- замкнутые $\Rightarrow X \setminus F_\alpha$ -- открытые $\Rightarrow \bigcup X \setminus F_\alpha = X \setminus \bigcap F_\alpha$ -- открытое $\Rightarrow \bigcap F_\alpha$ -- замкнутое
+    \item $F_1 \ldots F_n$ -- замкнутые $\Rightarrow X \setminus F_k$ -- открытые $\Rightarrow \bigcap X \setminus F_k = X \setminus \bigcup F_k$ -- открытое $\Rightarrow \bigcup F_k$ -- замкнутое
+    \item $\overline{B}_R(a)$ -- замкнутое множество $\Leftrightarrow X \setminus \overline{B}_R(a) = \{x \in X : \rho(x, a) > R\}$ -- открытое
+    
+    Возьмем $r := \rho(x, a) - R$ и проверим, что $B_r(x) \subset X \setminus \overline{B}_R(a)$
+
+    $x \notin \overline{B}_R(a)$, т.е. $B_r(x) \cap \overline{B}_R(a) = \varnothing$
+
+    Предположим противное, тогда $\exists y \in B_r(x)$ и $y \in \overline{B}_R(a) \Rightarrow \rho(x, y) < r$ и $\rho(y, a) \leq R \Rightarrow \\ \Rightarrow \rho(x, a) \leq \rho(x, y) + \rho(y, a) < r + R = \rho(x, a)$ ?????
+\end{enumerate}
+
+\begin{defin}{Замыкание множества}
+    Замыкание множества $A$ -- пересечение всех замкнутых множеств, содержащих $A$
+
+    Обозначение $\Cl A$ или $\overline{A}$
+\end{defin}
+
+\begin{theo}{}
+    $X \setminus \Cl A = \Int (X \setminus A)$ и $X \setminus \Int A = \Cl (X \setminus A)$
+\end{theo}
+
+\textit{Доказательство:}
+
+Докажем, что $X \setminus \Cl A = \Int (X \setminus A)$
+
+\begin{itemize}
+    \item[$\subset$] Пусть $x \in X \setminus \Cl A \Rightarrow x \notin \Cl A \Rightarrow x \notin F$, где $F$ -- некоторое замкнутое множество, содержащее $A \Rightarrow x \in X \setminus F$ -- открытое и $X \setminus F \subset X \setminus A \Rightarrow x \in \Int (X \setminus A)$
+    
+    \item [$\supset$] Пусть $x \in \Int (X \setminus A) \Rightarrow x \in G$, где $G$ -- открытое, содержащееся в $X \setminus A \Rightarrow x \notin X \setminus G$ -- замкнутое и $X \setminus G \supset X \setminus (X \setminus A) = A \Rightarrow x \notin \Cl A \Rightarrow x \in X \setminus \Cl A$
+\end{itemize}
+
+\begin{theo}{Свойства замыкания}
+    \begin{enumerate}
+        \item $\Cl A \supset A$
+        \item $\Cl A$ -- замкнутое множество
+        \item $A$ -- замкнутое $\Leftrightarrow A = \Cl A$
+        \item $A \subset B \Rightarrow \Cl A \subset \Cl B$
+        \item $\Cl(\Cl A) = \Cl A$
+        \item $\Cl(A \cup B) = \Cl A \cup \Cl B$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Очевидно
+    \item Пересечение замкнутые -- замкнутое
+    \item $A$ -- замкнутое $\Leftrightarrow X \setminus A$ -- открытое $\Leftrightarrow X \setminus A = \Int (X \setminus A) \Leftrightarrow A = \Cl A$
+    \item $A \subset B \Rightarrow X \setminus A \supset X \setminus B \Rightarrow \Int (X \setminus A) \supset \Int (X \setminus B) \Rightarrow X \setminus \Int (X \setminus A) \subset X \setminus \Int (X \setminus B) \Rightarrow \Cl A \subset \Cl B$
+    \item $2 + 3 = 5$
+\end{enumerate}
+
+\begin{Exercise}{}
+    \begin{enumerate}
+        \item Доказать пункт 6
+        \item Придумать пример, когда $\Cl (A \cap B) \neq \Cl A \cap \Cl B$
+        \item $A, \Int A, \Cl A, \Int \Cl A, \Cl \Int A, \Cl \Int \Cl A \ldots$
+        
+        Какое наибольше количество различных множеств может получиться?
+    \end{enumerate}
+\end{Exercise}
+
+\begin{theo}{}
+    $x \int \Cl A \Leftrightarrow \forall r > 0\ B_r(x) \cap A \neq \varnothing$
+\end{theo}
+
+\textit{Доказательство:}
+
+$x \in Cl A = X \setminus \Int (X \setminus A) \Leftrightarrow x \notin \Int (X \setminus A) \Leftrightarrow \forall r > 0\ B_r(x) \not\subset X \setminus A \Leftrightarrow \forall r > 0\ B_r(x) \cap A \neq \varnothing$
+
+\begin{defin}{Окрестность и проколотая окрестность}
+    Окрестность точки $a$ -- шарик радиуса $r > 0$ с центром в точке $a$
+
+    Обозначение $U_a$
+
+    Проколотая окрестность -- $\mathring{U}_a = U_a \setminus \{a\}$
+\end{defin}
+
+\begin{defin}{Предельная точка}
+    $x$ -- предельная точка множества $A$, если $\forall \mathring{U}_x$ содержится точки множества $A$
+
+    Локальное обозначение (примерно на 1 лекцию): $A'$ -- множество предельных точек множества $A$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $\Cl A = A \cup A'$
+        \item $A \subset B \Rightarrow A' \subset B'$
+        \item $A$ -- замкнутое $\Leftrightarrow A \supset A'$
+        \item $(A \cup B)' = A' \cup B'$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $x \in \Cl A \Leftrightarrow \forall U_x\ U_x \cap A \neq \varnothing$
+
+    Это так, если $x \in A$ или $x \in A'$ (тут $\mathring{U}_a \cap A \neq \varnothing$)
+
+    \item очев 
+    
+    \item $A$ -- замкнутое $\Leftrightarrow A = \Cl A \Leftrightarrow A = A \cup A' \Leftrightarrow A \supset A'$
+    
+    \item 
+    
+    \begin{itemize}
+        \item[$\supset$] $A \cup B \supset A \Rightarrow (A \cup B)' \supset A'$
+        \item[$\subset$] Возьмем $x \in (A \cup B)'$ и предположим, что $x \notin A'$. Надо доказать, что $x \in B'$
+        
+        $x \in (A \cup B)' \Rightarrow \forall r > 0\ \mathring{B_r}(x) \cap (A \cup B) \neq \varnothing$
+
+        $x \notin A' \Rightarrow \exists R > 0 : \mathring{B_R}(x) \cap A = \varnothing \Rightarrow \forall r < R\ \mathring{B_r}(x) \cap A = \varnothing$
+
+        Тогда $\mathring{B_r}(x) \cap B \neq \varnothing \forall r < R \Rightarrow$ вообще любой $\mathring{B_r}(x)$ пересекается с $B \Rightarrow x \in B'$
+    \end{itemize}
+\end{enumerate}
+
+\begin{theo}{}
+    Следующие условия равносильны
+
+    \begin{enumerate}
+        \item $x \in A'$
+        \item $\forall r > 0\ B_r(x)$ содержит бесконечное количество точек из $A$
+        \item Существует последовательность различных точек $x_n \in A : \rho (x_n, x) \to 0$
+        \item Существует последовательность $x_n \in A : \rho(x_n, x)$ строго убывает и $\to 0$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item[$4 \Rightarrow 3$] очевидно
+    \item[$3 \Rightarrow 2$] Если $\rho(x_n, x) \to 0$, то при больших и $\rho(x_n, x) < r$, т.е. $x_n \in B_r(x) \Rightarrow$ в $B_r(x)$ бесконечное количество точек из $A$
+    \item[$2 \Rightarrow 1$] Если $B_r(x) \cap A$ состоит из бесконечного количество точек, то $\mathring{B_r}(x) \cap A \neq \varnothing$ (множества отличаются на одну точку или совпадают)
+    \item[$1 \Rightarrow 4$] Рассмотрим $r = 1$. В открестности $\mathring{B_r}(x)$ есть точка из $A$, назовем ее $x_1 \neq x$
+    
+    $r = \frac{1}{2}\rho(x_1, x) < \frac{1}{2}$. В окрестности $\mathring{B_r}(x)$ есть точка из $A$, назовем ее $x_2 \neq x$
+
+    $\rho(x_2, x) < r < \rho(x_1, x)$
+
+    $r = \frac{1}{2}\rho(x_2, x) < \frac{1}{4}$. В окрестности $\mathring{B_r}(x)$ есть точка из $A$, назовем ее $x_3 \neq x$
+
+    $\rho(x_3, x) < \rho(x_2, x)$ и так далее
+
+    $x_1, x_2 \ldots \in A$, $\rho(x_1, x) > \rho(x_2, x) > \ldots$ и $\rho(x_n, x) < \frac{1}{2^n} \Rightarrow \rho(x_1, x) \to 0$
+\end{enumerate}
+
+\begin{theo}{Очевидное следствие}
+    Конечное множество не имеет предельных точек
+\end{theo}
+
+\begin{defin}{Подпространство}
+    $(X, \rho)$ -- метрическое пространство $Y \subset X$
+
+    $(Y, \rho|_{Y \times Y})$ -- подпространство метрического пространства $(X, \rho)$
+\end{defin}
+
+\begin{theo}{Об открытых множества в пространстве и подпространстве}
+    $(X, \rho)$ -- метрическое пространство, $Y \subset X$. Тогда
+
+    \begin{enumerate}
+        \item $A$ -- открыто в $(Y, \rho) \Leftrightarrow \exists G \subset X$, открытое в $(X, \rho) : A = G \cap Y$
+        \item $A$ -- замкнуто в $(Y, \rho) \Leftrightarrow \exists F \subset X$, замкнутое в $(X, \rho) : A = F \cap Y$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item 
+    
+    \begin{itemize}
+        \item[$\Rightarrow$] $A$ открыто в $(Y, \rho) \Rightarrow A = \bigcup\limits_{x \in A} B^Y_{r_x}(x)$, где $r_x$ -- такой радиус, что $B^Y_{r_x}(x) \subset A$
+        
+        $B^Y_{r_x}(x) = \{z \in Y : \rho(z, x) < r_x\} = B^X_{r_x}(x) \cap Y$
+
+        $\Rightarrow A = \bigcup\limits_{x \in A} (B^X_{r_x}(x) \cap Y) = Y \cap \bigcup\limits_{x \in A} B^X_{r_x}(x)$, где $G := \bigcup\limits_{x \in A} B^X_{r_x}(x)$ -- открытое в $(X, \rho)$ как объединение открытых
+
+        \item[$\Leftarrow$] $A = G \cap Y$, $G$ -- открытое в $X$. Докажем, что $A$ открыто в $Y$
+        
+        Возьмем $a \in A \subset G \Rightarrow \exists r > 0 : B^X_r(a) \subset G \Rightarrow B^Y_r(a) = B^X_r(a) \cap Y \subset G \cap Y = A$
+    \end{itemize}
+
+    \item $A$ -- замкнуто в $(Y, \rho) \Leftrightarrow Y \setminus A$ -- открыто в $(Y, \rho) \Leftrightarrow \exists G \subset X$ открытое в \\ 
+    $(X, \rho) : Y \setminus A = G \cap Y \Rightarrow Y \cap (X \setminus G) = A$, где $X \setminus G$ -- замкнутое $\Leftrightarrow G$ -- открытое 
+\end{enumerate}
+
+\begin{Example}{}
+    $X = \R,\ Y = [0, 3)$
+
+    $[0, 1)$ -- открыто в $Y$, т.к. $(-1, 1)$ -- открыто в $\R$, а $[0, 1) = (-1, 1) \cap Y$
+
+    $[2, 3)$ -- замкнуто в $Y$, т.к. $[2, 4]$ -- замкнуто в $\R$, а $[2, 3) = [2, 4] \cap Y$
+\end{Example}
+
+\begin{defin}{Норма}
+    $X$ -- векторное пространство. $\parallel \parallel$ -- норма на $X$, если 
+
+    $\parallel \cdot \parallel : X \to R$
+
+    \begin{enumerate}
+        \item $\parallel x \parallel \forall x \in X$ и $\parallel x \parallel = 0 \Leftrightarrow x = \overrightarrow{0}$
+        \item $\parl{\alpha x} = |\alpha| \cdot \parl{x}\ \forall x \in X\ \forall \alpha \in \R$
+        \item $\parl{x + y} \leq \parl{x} + \parl{y}\ \forall x, y \in X$ (неравенство треугольника)
+    \end{enumerate}
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $X = \R;\ |x|$ -- норма
+        \item $X = \R^d;\ \parl{x}_p = (|x_1|^p + |x_2|^p + \ldots + |x_d|^p)^{\frac{1}{p}}$ -- норма, $p \geq 1$
+        
+        Неравенство треугольника -- это неравенство Минковского
+
+        \item $X = C[a, b];\ \parl{f} := \max\limits_{x \in [a, b]} |f(x)|$
+        \item $X = C[a, b];\ \parl{f} := \int\limits_a^b |f|$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{Скалярное произведение}
+    $X$ -- векторное пространство, $\q{\cdot, \cdot} : X \times X \to \R$ -- скалярное произведение, если
+
+    \begin{enumerate}
+        \item $\q{x, x} \geq 0\ \forall x \in X$ и $\q{x, x} = 0 \Leftrightarrow x = \overrightarrow{0}$
+        \item $\q{x, y} = \q{y, x}\ \forall x, y \in X$
+        \item $\q{\alpha x, y} = \alpha \q{x, y}\ \forall x, y \in X\ \forall \alpha \in \R$
+        \item $\q{x + y, z} = \q{x, z} + \q{y, z}\ \forall x, y, z \in X$
+    \end{enumerate}
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $X = \R^d;\ \q{x, y} = x_1y_1 + x_2y_2 + \ldots + x_dy_d$
+        
+        $x = (x_1 \ldots x_d);\ y = (y_1 \ldots y_d)$
+
+        \item $X = \R^d;\ w_1, w_2 \ldots w_d > 0$
+        
+        $\q{x, y} = w_1x_1y_1 + w_2x_2y_2 + \ldots + w_dx_dy_d$
+
+        \item $X = C[a, b];\ \q{f, g} = \int\limits_a^b f(x)g(x)dx$
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Неравенство Коши-Буняковского
+        
+        $\q{x, y}^2 \leq \q{x, x} \cdot \q{y, y}$
+
+        \item $\parl{x} := \sqrt{\q{x, x}}$ -- норма
+        \item $\parl{\cdot}$ -- норма в $X \Rightarrow \rho(x, y) := \parl{x - y}$ -- метрика в $X$
+        \item $\parl{x - y} \geq |\parl{x} - \parl{y}|$
+    \end{enumerate}
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $f(t) := \q{x + ty, x + ty} \geq 0$
+    
+    $f(t) = \q{x, x + ty} + t\q{y, x + ty} = \q{x, x} + t\q{x, y} + t\q{y, x} + t^2\q{y, y} = t^2\q{y, y} + 2t\q{x, y} + \q{x, x}$ -- квадратный трехчлен
+
+    $\Rightarrow f$ имеет не больше одного корня $\Rightarrow D \leq 0 \Leftrightarrow (2\q{x, y})^2 - 4\q{x, x}\q{y, y} \leq 0$
+
+    Сократили на 4 и победили
+
+    \item $\parl{\alpha x} = \sqrt{\q{\alpha x, \alpha x}} = \sqrt{\alpha^2\q{x, x}} = |\alpha|\sqrt{\q{x, x}} = |\alpha|\parl{x}$
+    
+    Неравенство треугольника: $\parl{x + y} \stackrel{?}{\leq} \parl{x} + \parl{y}$, т.е. $\sqrt{\q{x + y, x + y}} \leq \sqrt{\q{x, x}} + \\ + \sqrt{\q{y, y}}$
+
+    Т.е. $\q{x + y, x + y} \leq \q{x, x} + \q{y, y} + 2\sqrt{\q{x,x}} \cdot \sqrt{\q{y, y}}$
+
+    Но $\q{x + y, x + y} = \q{x, x} + 2\q{x, y} + \q{y, y}$. После сокращения осталось КБШ
+
+    \item $\parl{x - y} \geq 0$ и $\parl{x - y} = 0 \Leftrightarrow x - y = \overrightarrow{0} \Leftrightarrow x = y$
+    
+    $\rho(y, x) = \parl{y - x} = \parl{(-1)(x - y)} = |-1| \cdot \parl{x - y} = \rho(x, y)$
+
+    Неравенство треугольника: $\rho(x, y) + \rho(y, z) \geq \rho(x, z)$
+
+    $\parl{x - y} + \parl{y - z} \geq \parl{x - y + y - z} = \parl{x - z}$
+
+    \item Нужно доказать, что $-\parl{x - y} \leq \parl{x} - \parl{y} \leq \parl{x - y}$
+    
+    \begin{itemize}
+        \item Правое:
+        
+        $\parl{x} - \parl{y} \leq \parl{x - y}$, т.е. $\parl{x - y} + \parl{y} \geq \parl{x - y + y} = \parl{x}$
+
+        \item Левое:
+        
+        $\parl{x} - \parl{y} \geq -\parl{x - y}$, т.е. $\parl{x - y} + \parl{x} = \parl{y - x} + \parl{x} \geq \parl{y - x + x} = \parl{y}$
+    \end{itemize}
+\end{enumerate}
+
+\begin{Exercise}{}
+    Доказать, что норма $\parl{}$ в векторном пространстве $X$ порождается некоторым скалярным произведением $\Leftrightarrow \parl{x + y}^2 + \parl{x - y}^2 = 2\parl{x}^2 + 2\parl{y}^2$
+\end{Exercise}
+
 \end{document}

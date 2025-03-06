@@ -1810,14 +1810,353 @@ $a_{i, \pi(i)} = 0 \Rightarrow A_\pi = 0 \Rightarrow \det A = A_{id} = a_{11} \l
 
     $M_{kl} = \det (a_{ij})_{i \neq k, j \neq l}$ -- определитель матрицы $\in M_{n - 1}(K)$
 
-    $i$ -- fix
+    \begin{enumerate}
+        \item $i$ -- fix
 
-    $\det A = \sum\limits_{j = 1}^n (-1)^{i + j} a_{ij} M_{ij}$
+        $\det A = \sum\limits_{j = 1}^n (-1)^{i + j} a_{ij} M_{ij}$
 
-    А если $j$ -- fix, то 
+        \item А если $j$ -- fix, то 
 
-    $\det A = \sum\limits_{i = 1}^n (-1)^{i + j} a_{ij} M_{ij}$
+            $\det A = \sum\limits_{i = 1}^n (-1)^{i + j} a_{ij} M_{ij}$
+    \end{enumerate}
 \end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $A = \begin{pmatrix}
+        r_1 \\
+        r_2 \\
+        \vdots \\
+        r_i \\
+        \vdots \\
+        r_n
+    \end{pmatrix}$
+
+    $r_i = a_{i1}f_1 + a_{i2}f_2 + \ldots + a_{in}f_n$
+
+    По полилинейности $\det A = \sum\limits_{j = 1}^n a_{ij} \det \begin{pmatrix}
+        r_1 \\ 
+        r_2 \\
+        \vdots \\
+        f_j \\
+        \vdots \\
+        r_n
+    \end{pmatrix}$
+
+    Сам определитель назовем $M_j$
+
+    $M_i = \det \begin{pmatrix}
+        r_1 \\
+        r_2 \\
+        \vdots \\
+        f_i \\
+        \vdots \\
+        r_n
+    \end{pmatrix} = (-1)^{i - 1} \cdot \det \begin{pmatrix}
+        f_i \\
+        r_1 \\
+        \vdots \\ 
+        r_n 
+    \end{pmatrix} = (-1)^{i - 1} \cdot (-1)^{j - 1} \det \begin{pmatrix}
+        f_1 \\
+        r_1 \\
+        \vdots \\
+        r_n
+    \end{pmatrix} = (-1)^{i + j} M_{ij}$
+
+    Здесь $M_{ij} = \det \tilde{A}$ и $\tilde{A}$ -- это $A$ без $i$-й строки и $j$-го столбца
+
+    Осталось заметить, что $\det B$ не меняется, если добавить слева столбец, сверху строку, в которых все нули, кроме $b_{11}$
+\end{enumerate}
+
+\begin{theo}{Следствие}
+    $k \neq i$
+
+    $\sum\limits_{j = 1}^n (-1)^{k + j} a_{ij} M_{kj} = 0$
+\end{theo}
+
+\textit{Доказательство:}
+
+По предыдущей теореме это выражение -- определитель матрицы с $r_i$ вместо $r_k$ (НУО $k < i$)
+
+$= \det \tilde{A} = \det \begin{pmatrix}
+    r_1 \\
+    r_2 \\
+    \vdots \\
+    r_i  \\
+    \vdots \\
+    r_i \\
+    \vdots \\
+    r_n
+\end{pmatrix}$
+
+$\det \tilde{A}$ с одной стороны 0 по кососимметричности, с другой стороны выражение из следствия если разложить по $k$-й строке
+
+\begin{Remark}{}
+    Аналогично со столбцом
+\end{Remark}
+
+\begin{defin}{Присоединенная матрица}
+    $A = (a_{ij})$, $M_{ij}$ -- соответствующие миноры
+
+    $A^{adj} = (A_{ij})$, где $A_{ij} = (-1)^{i + j} M_{ji}$
+
+    $A^{adj}$ -- присоединенная матрица
+\end{defin}
+
+\begin{theo}{}
+    $A \cdot A^{adj} = A^{adj} \cdot A = (\det A) \cdot E$
+
+    В частности $\det A \neq 0 \Rightarrow A^{-1} = \frac{1}{\det A} A^{adj}$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A \cdot A^{adj} = (b_{ij})$
+
+$b_{ij} = \sum\limits_{k = 1}^n a_{ik} (A^{adj})_{kj} = \sum\limits_{k = 1}^n (-1)^{k + j} a_{ik} M_{jk} = \left[ \begin{gathered}
+    0;\ i \neq j \\
+    \det A;\ i = j
+\end{gathered} \right.$
+
+Т.е. $A \cdot A^{adj} = \det A \cdot E$
+
+$A^{adj} \cdot A = E$ -- аналогично (разложение по столбцу)
+
+\begin{Example}{}
+    $A = \begin{pmatrix}
+        a & b \\
+        c & d 
+    \end{pmatrix}$
+
+    $A^{adj} = \begin{pmatrix}
+        d & -b \\
+        -c & a
+    \end{pmatrix}$
+
+    $A^{-1} = \frac{1}{ad - bc} \begin{pmatrix}
+        d & -b \\
+        -c & a
+    \end{pmatrix} = \begin{pmatrix}
+        \frac{d}{ad - bc} & \frac{b}{bc - ad} \\
+        \frac{c}{bc - ad} & \frac{a}{ad - bc}
+    \end{pmatrix}$
+\end{Example}
+
+\begin{theo}{Теорема Крамера}
+    $A \cdot X = B$ -- СЛУ. $A \in M_n(K);\ X, B \in K^n$
+
+    $\Delta = \det A \neq 0$
+
+    $\Delta_i$ -- определитель матрицы, полученной из $A$ заменой $c_i$ на $B$
+
+    $\Leftrightarrow$ единственное решение системы $\begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+    \end{pmatrix} = \begin{pmatrix}
+        \frac{\Delta_1}{\Delta} \\
+        \frac{\Delta_2}{\Delta} \\
+        \vdots \\
+        \frac{\Delta_n}{\Delta}
+    \end{pmatrix}$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A = (a_{ij})$
+
+$\det A \neq 0 \Leftrightarrow \exists A^{-1}$
+
+$AX = B \Leftrightarrow X = A^{-1}B$
+
+$A^{-1} = (a'_{ij})$
+
+$x_k = (A^{-1}B)_k = \sum\limits_{i = 1}^n a'_{ki}b_i = \sum \frac{(-1)^{k + i}}{\det A} M_{ik} \cdot b_i = \frac{1}{\det A} \sum (-1)^{k + i} M_{ik}b_i$ -- разложение по $k$-му столбцу для матрицы $\tilde{A} = \begin{pmatrix}
+    a & \ldots & c_{k - 1} & B & c_{k + 1} & \ldots & c_n 
+\end{pmatrix} = \frac{1}{\Delta} \Delta_k$
+
+\begin{nota}{}
+    $f : (K^n)^n \to K$
+
+    $f$ -- полилинейна и кососимметрична и $f(e_1 \ldots e_n) = 1 \Rightarrow $f = $\det$
+\end{nota}
+
+\begin{Remark}{}
+    Если $f$ -- только полилинейна и кососимметрична, то $f = \det \cdot c$ для какой-то $c \in K$
+\end{Remark}
+
+\textit{Доказательство:}
+
+Пусть $c = f(E)$
+
+$\tau (A) = \frac{1}{c} f(A)\ (c \neq 0)$
+
+$\tau(A)$ -- полилинейна, кососимметрична и $\tau(E) = 1$
+
+$\tau = \det \Rightarrow f = \det \cdot c$
+
+Если $c = 0$, то $f(e_1 \ldots e_n) = 0 \xRightarrow{\text{кососимметричность}} f(e_{\pi(1)} \ldots e_{\pi(n)}) = (-1)^{\ldots} \cdot 0 = 0$
+
+$f(e_{i1} \ldots e_{in}) = 0$ всегда $\Rightarrow f(v_1 \ldots v_n) = 0$ по полилинейности
+
+$f \equiv 0 = 0 \cdot \det A$
+
+\begin{theo}{Определитель -- мультипликативный гомоморфизм}
+    $\det (AB) = \det A \cdot \det B$
+
+    В частности $\det(A^{-1}) = \frac{1}{\det A}$ (если $\det A \neq 0$)
+
+    $\det : M_n(K) \to K$ -- гомоморфизм по умножению
+
+    $\det : GL_n(K) \to K^*$ -- гомоморфизм групп 
+
+    $(M_n(K))^* \to K^*$
+\end{theo}
+
+\textit{Доказательство:}
+
+fix $A$. $B$ -- переменная
+
+$f_A(B) = det(AB)$. $f$ -- полилинейная и кососимметричная
+
+Пусть у $B$ 2 одинаковых столбца $\Rightarrow B$ -- вырождееная $\Rightarrow AB$ -- вырожденная $\Rightarrow f(AB) = 0$
+
+$\det (A \cdot (c_1' + c_1'' | c_2 | \ldots | c_n)) = \ldots = \det (Ac_1' + Ac_1'' | Ac_2 | \ldots | Ac_n) = \det (Ac_1' | Ac_2 | \ldots | Ac_n) + \det (Ac_1'' | Ac_2 | \ldots | Ac_n) = \det A \cdot \det (c_1' | c_2 | \ldots | c_n) + \det A \cdot \det (c_1'' | c_2 | \ldots | c_n)$
+
+Поэтому $f_A(B) = c \cdot \det B$
+
+$B = E$
+
+$\det (A \cdot E) = c \cdot \det(E) = c \Rightarrow c = \det A \Rightarrow \det (AB) = f_A(B) = \det (A) \cdot \det (B)$
+
+\begin{theo}{Определитель блочной матрицы}
+    $A = \begin{pmatrix}
+        B & X \\
+        0 & C
+    \end{pmatrix}$ или $A = \begin{pmatrix}
+        B & 0 \\
+        X & C
+    \end{pmatrix}$
+
+    Блок $B \in M_n(K);\ C \in M_m(K);\ X \in M_{n \times m}(K)$
+
+    Тогда $\det A = \det B \cdot \det C$
+\end{theo}
+
+\textit{Доказательство:}
+
+fix $B$ и $X$
+
+$f_B(C) = \det \begin{pmatrix}
+    B & X \\
+    0 & C
+\end{pmatrix}$
+
+$f_B$ -- полилинейна и кососимметрична как функция от строк $C$ (из полилинейности $\det$ большой матрицы)
+
+$\Rightarrow f_B(C) = c \cdot \det C$
+
+$c_b = f_B(E) = \det \begin{pmatrix}
+    B & X \\
+    0 & E
+\end{pmatrix}$
+
+$X$ -- fix 
+
+$g(B) = \det \begin{pmatrix}
+    B & X \\
+    0 & E
+\end{pmatrix}$
+
+Она полилинейна и кососимметрична относительно столбцов $B$
+
+$g_B = c \cdot \det(B)$
+
+$c = g_B(E) = \det \begin{pmatrix}
+    E & X \\
+    0 & E
+\end{pmatrix} = 1$, т.к. матрица треугольная
+
+Тогда $g_B = \det B$
+
+$c_B = \det B$
+
+$f_B(C) = \det B \cdot \det C$
+
+\begin{theo}{Следствие}
+    $\det \begin{pmatrix}
+        A_1 & * & \ldots & * \\
+        0 & A_2 & \ldots & * \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & A_n
+    \end{pmatrix} = \det (A_1) \cdot \ldots \cdot \det (A_n)$
+\end{theo}
+
+\section{Операторы}
+
+\begin{defin}{Оператор}
+    Оператор на $B$ -- это $f : V \to V$, где $f$ -- $k$-линейно
+\end{defin}
+
+\begin{defin}{}
+    Множество операторов на $V$ -- $\End(V)$ -- кольцо относительно сложения и композиции
+
+    $\End(V) \cong M_n(K)$
+
+    $n = \dim V$
+\end{defin}
+
+\begin{Remark}{}
+    $A$ -- оператор 
+
+    Матрица $A : A = [A]_e$
+
+    В частности $\Id \leftrightarrow E$ (в любом базисе)
+
+    А обычно $A$ зависит от базиса
+\end{Remark}
+
+\begin{nota}{Задача}
+    Для каждого $A$ найти максимально хороший базис (с очень простой матрицей $A$)
+\end{nota}
+
+\begin{nota}{}
+    У $A$ можно искать
+
+    \begin{enumerate}
+        \item Ядро $AX = 0$
+        \item Неподвижные точки $AX = X$
+        \item Неподвижные прямые $AX = \lambda X$
+    \end{enumerate}
+\end{nota}
+
+\begin{defin}{Собственное число и собственный вектор}
+    $A$ -- оператор $x \in V;\ x \neq 0$
+
+    $A(x) = \lambda x;\ \lambda \in K \Rightarrow \begin{gathered}
+        x \text{ -- собственный вектор} \\
+        \lambda \text{ -- собственное число}
+    \end{gathered}$
+
+    $A(kx) = k\lambda x$
+
+    Знаем $\lambda \Rightarrow AX = \lambda X$ -- СЛУ 
+
+    $\lambda$ -- собственное число $\Leftrightarrow A(x) = \lambda x$ имеет решение $x \neq 0$
+
+    $(A - \Id)x = 0 \Leftrightarrow \Ker(A - \lambda \Id) \neq 0 \Leftrightarrow A - \lambda \Id$ вырожденная $\Leftrightarrow \det(A - \lambda E) = 0$
+\end{defin}
+
+\begin{defin}{Характеристический многочлен}
+    $\det(A - \lambda E) = \ldots = \chi_A(\lambda)$ -- характеристический многочлен (многочлен от $\lambda$ степени $n$)
+\end{defin}
+
+\begin{Remark}{}
+    Как итог: собственные числа $A$ -- корни его характеристического многочлена
+\end{Remark}
 
 \end{document}
 

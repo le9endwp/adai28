@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1740389375.19275 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1740389377.22646 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1740389374.91011 63354 0b4bded651be75e467a1602483d206e8 ""
+["pdflatex"] 1740994386.12726 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1740994388.32407 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1740994385.87934 73670 b8aaf1c9bf34e1ec1c27a418baf2fd99 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -287,11 +287,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1740386759.27414 6152 c71e415d7b62ddbadf2c42210b2fdcdd ""
-  "Линал.aux" 1740389377.08315 1041 983adc07a307f2b8e5f450622e7d077c "pdflatex"
-  "Линал.out" 1740389377.08441 1439 b27fe1041ec37fc74a196b9b83bc0769 "pdflatex"
-  "Линал.tex" 1740389374.91011 63354 0b4bded651be75e467a1602483d206e8 ""
-  "Линал.toc" 1740389377.08481 603 1e7399c029b2d7ce9bce2de37e8d7ef2 "pdflatex"
+  "config.sty" 1740994290.53393 6232 4fc1dca2161ac9924171a1f011df5be6 ""
+  "Линал.aux" 1740994388.1864 1157 b9709c71d9e52a7933fd4382b4ed6eb9 "pdflatex"
+  "Линал.out" 1740994388.18761 1554 d1fcb3453a5927b53f051a8a4742ed88 "pdflatex"
+  "Линал.tex" 1740994385.87934 73670 b8aaf1c9bf34e1ec1c27a418baf2fd99 ""
+  "Линал.toc" 1740994388.18806 678 cb8784879251ae959b41d5b04a32dc01 "pdflatex"
   (generated)
   "Линал.aux"
   "Линал.log"

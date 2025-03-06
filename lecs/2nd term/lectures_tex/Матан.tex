@@ -1,12 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage{config}
 \usepackage{subfiles}
+\pgfplotsset{compat=1.18}
 
-\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
-\def\divby{%
-  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
-}
-\newcommand{\q}[1]{\langle #1 \rangle}
+
 
 \begin{document}
 
@@ -1807,12 +1804,12 @@ $x \in Cl A = X \setminus \Int (X \setminus A) \Leftrightarrow x \notin \Int (X 
 \end{Example}
 
 \begin{defin}{Норма}
-    $X$ -- векторное пространство. $\parallel \parallel$ -- норма на $X$, если 
+    $X$ -- векторное пространство. $\parl{\ }$ -- норма на $X$, если 
 
-    $\parallel \cdot \parallel : X \to R$
+    $\parl{\cdot} : X \to R$
 
     \begin{enumerate}
-        \item $\parallel x \parallel \forall x \in X$ и $\parallel x \parallel = 0 \Leftrightarrow x = \overrightarrow{0}$
+        \item $\parl{x} \forall x \in X$ и $\parl{x} = 0 \Leftrightarrow x = \overrightarrow{0}$
         \item $\parl{\alpha x} = |\alpha| \cdot \parl{x}\ \forall x \in X\ \forall \alpha \in \R$
         \item $\parl{x + y} \leq \parl{x} + \parl{y}\ \forall x, y \in X$ (неравенство треугольника)
     \end{enumerate}
@@ -1910,7 +1907,607 @@ $x \in Cl A = X \setminus \Int (X \setminus A) \Leftrightarrow x \notin \Int (X 
 \end{enumerate}
 
 \begin{Exercise}{}
-    Доказать, что норма $\parl{}$ в векторном пространстве $X$ порождается некоторым скалярным произведением $\Leftrightarrow \parl{x + y}^2 + \parl{x - y}^2 = 2\parl{x}^2 + 2\parl{y}^2$
+    Доказать, что норма $\parl{\ }$ в векторном пространстве $X$ порождается некоторым скалярным произведением $\Leftrightarrow \parl{x + y}^2 + \parl{x - y}^2 = 2\parl{x}^2 + 2\parl{y}^2$
 \end{Exercise}
+
+\subsection{\S 2. Предел в метрическом пространстве}
+
+\begin{defin}{}
+    $(X, \rho)$ -- метрическое пространтсво, $x_n \in X;\ a \in X$. $\lim x_n = a$, если
+
+    \begin{enumerate}
+        \item Вне любого шара с центром в точке $a$ содержится лишь конечное число членов последовательности
+        \item $\forall \varepsilon > 0\ \exists N : \forall n > N\ \rho(x_n, a) < \varepsilon$
+        \item $\lim \rho(x_n, a) = 0$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{}
+    Эти определения равносильны 
+\end{theo}
+
+\begin{defin}{Ограниченное множество}
+    $A \subset X$, $A$ -- ограниченное множество, если оно содержится в каком-то шаре
+\end{defin}
+
+\begin{nota}{Свойства пределов}
+    \begin{enumerate}
+        \item Предел единственный
+        
+        Т.е. если $\lim x_n = a$ и $\lim x_n = b$, то $a = b$
+
+        \item Если $\lim x_n \lim y_n = a$, то предел последовательности, полученной перемешиванием $x_n$ и $y_n$ также равен $a$
+        
+        \item Если $\lim x_n = a$, то последовательность полученная из $x_n$ перестановкой членов, также стремится к $a$
+        
+        \item Если $\lim x_n = a$, то предел ее подпоследовательность также равен $a$
+        
+        \item Если последовательность имеет предел, то она ограничена как множество
+        \item Если $\lim x_n = a;\ \lim y_n = b \Rightarrow \lim \rho(x_n, y_n) = \rho(a, b)$
+    \end{enumerate}
+\end{nota}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Пусть $a \neq b$. Возьмем $\varepsilon = \frac{1}{2}\rho(a, b) > 0$
+    
+    $\exists N_1 : \forall n > N_1\ \rho(x_n, a) < \varepsilon$ и $\exists N_2 : \forall n > N_2\ \rho(x_n, b) < \varepsilon$
+
+    Возьмем $n > \max(N_1, N_2) \Rightarrow \rho(a, b) \leq \rho(a, x_n) + \rho(x_n, b) < 2\varepsilon = \rho(a, b)$
+
+    \item Очевидно
+    \item Еще более очевидно 
+    \item Ссылка на 1 семестр
+    \item Пусть $\lim x_n = a$. Вне $B_1(a)$ конечное число членов последовательности ($x_{i_1} \ldots x_{i_k}$). \\
+    $R := \max\{1, \rho(a, x_{i_1}) \ldots \rho(a, x_{i_k})\} \Rightarrow x_n \in \overline{B}_R(a)\ \forall n$
+
+    \item $\rho(a, b) \leq \rho(x_n, a) + \rho(x_n, y_n) + \rho(y_n, b)$
+    
+    $\rho(x_n, y_n) \leq \rho(x_n, a) + \rho(a, b) + \rho(y_n, b)$
+
+    Тогда $|\rho(a, b) - \rho(x_n, y_n)| \leq \rho(x_n, a) + \rho(y_n, b) \xrightarrow[n \to \infty]{} 0$
+\end{enumerate}
+
+\begin{theo}{Теорема об арифметических действиях с пределами в нормированном пространстве}
+    $X$ -- нормированное пространство, $\lim x_n = a;\ \lim y_n = b;\ a, b, x_n, y_n \in X;\\
+    \lim \lambda_n = \mu;\ \lambda_n, \mu \in \R$
+
+    Тогда
+
+    \begin{enumerate}
+        \item $\lim (x_n \pm y_n) = a \pm b$
+        \item $\lim (\lambda_n x_n) = \mu a$
+        \item $\lim \parl{x_n} = \parl{a}$
+        \item Если в $X$ есть скалярное произведение, то $\lim \q{x_n, y_n} = \q{a, b}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\parl{(x_n + y_n) - (a + b)} \leq \parl{x_n - a} + \parl{y_n - b} \to 0$
+    \item $\parl{\lambda_n x_n - \mu a} \leq \parl{\lambda_n x_n - \mu x_n + \mu x_n - \mu a} \leq \parl{\lambda_nx_n - \mu x_n} + \parl{\mu x_n - \mu a} = \\
+    = |\lambda_n - \mu| \cdot \parl{x_n} + |\mu| \cdot \parl{x_n - a} \to 0$
+    \item $\parl{x_n} = \rho(x_n, 0) \to \rho(a, 0) = \parl{a}$
+    \item $\q{x_n, y_n} - \q{a, b} = \q{x_n, y_n} - \q{a, y_n} + \q{a, y_n} - \q{a, b} = \q{x_n - a, y_n} + \q{a, y_n - b}$
+    
+    $|\q{x_n, y_n} - \q{a, b}| \leq |\q{x_n - a, y_n}| + |\q{a, y_n - b}| \leq \parl{x_n - a} \cdot \parl{y_n} + \parl{a} \cdot \parl{y_n - b} \to 0$
+\end{enumerate}
+
+\begin{defin}{Покоординатная сходимость в $\R^d$}
+    $x_n = (x_n^{(1)} \ldots x_n^{(d)});\ a = (a^{(1)} \ldots a^{(d)})$
+
+    $x_n$ покоординатно сходится к $a$, если $\lim x_n^{(k)} = a^{(k)}\ \forall k = 1 \ldots d$
+\end{defin}
+
+\begin{theo}{}
+    В $\R^d$ покоординатная сходимость и сходимость по норме совпадают
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\parl{x_n - a} = \sqrt{(x_n^{(1)} - a^{(1)})^2 + \ldots + (x_n^{(d)} - a^{(d)})^2} \leq |x_n^{(1)} - a^{(1)}| + \ldots + |x_n^{(d)} - a^{(d)}| \to 0$
+    
+    \item[$\Leftarrow$] $|x_n^{(k)} - a^{(k)}| \leq \sqrt{(x_n^{(1)} - a^{(1)})^2 + \ldots + (x_n^{(d)} - a^{(d)})^2} = \parl{x_n - a} \to 0$
+    
+    $\Rightarrow \lim x_n^{(k)} = a^{(k)}$
+\end{itemize}
+
+\begin{defin}{Фундаментальная последовательность}
+    $\forall \varepsilon > 0\ \exists N : \forall m, n \geq N\ \rho(x_n, x_m) < \varepsilon$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Сходящаяся последовательность -- фундаментальная
+        \item Фундаментальная последовательность ограничена
+        \item Если у фундаментальной последовательности есть подпоследовательность, сходящаяся к $a$, то сама последовательность тоже сходится к $a$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\lim x_n = a \Rightarrow \forall \varepsilon > 0\ \exists N : \forall n \geq N\ \rho(x_n, a) < \frac{\varepsilon}{2}$ и $\forall m \geq N\ \rho(x_m, a) < \frac{\varepsilon}{2}$
+    
+    $\Rightarrow \rho(x_n, x_m) \leq \rho(x_n, a) + \rho(a, x_m) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+
+    \item Возьмем $\varepsilon = 1. \exists N : \forall m, n \geq N\ \rho(x_n, x_m) < 1 \Rightarrow x_n \in B_1(x_N)$ при $n \geq N$
+    
+    $R := \max\{1, \rho(x_1, x_N) \ldots \rho(x_{N - 1}, x_N)\} \Rightarrow x_n \in \overline{B}_R(x_N)\ \forall n$
+
+    \item Пусть $x_{n_k} \to a$. Зафиксируем $\varepsilon > 0\ \begin{gathered}
+        \exists N : \forall m, n \geq N\ \rho(x_n, x_m) < \varepsilon \\
+        \exists K : \forall k \geq K\ \rho(x_{n_k}, a) < \varepsilon
+    \end{gathered}$
+
+    Возьмем $k = \max\{K, N\}$. Тогда $n_k \geq N \Rightarrow \rho(x_{n_k}, a) < \varepsilon$ и $\rho(x_{n_k}, x_n) < \varepsilon\ \forall n$
+
+    $\Rightarrow \rho(x_n, a) \leq \rho(x_n, x_{n_k}) + \rho(x_{n_k}, a) < 2\varepsilon$ при $n \geq N$
+\end{enumerate}
+
+\begin{defin}{Полное метрическое пространство}
+    $(X, \rho)$ -- метрическое пространство
+
+    Оно называется полным, если любая фундаментальная последовательность имеет предел
+\end{defin}
+
+\begin{Example}{}
+    $R$. $\rho(x, y) = |x - y|$ -- полное метрическое пространство
+
+    $\Q$ не полное. $x_n = \frac{[10^n\pi]}{10^n}$ фундаментальна, но не имеет предела в $\Q$
+\end{Example}
+
+\begin{theo}{}
+    $\R^d$ -- полное пространство
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $x_n = (x_n^{(1)} \ldots x_n^{(d)})$ -- фундаментальная последовательность
+
+Т.е. $\forall \varepsilon > 0\ \exists N : \forall m, n \geq N\ \parl{x_n - x_m} < \varepsilon$
+
+$\parl{x_n - x_m} = \sqrt{(x_n^{(1)} - x_m^{(1)})^2 + \ldots + (x_n^{(d)} - x_m^{(d)})^2} \geq |x_n^{(k)} - x_m^{(k)}|$
+
+Следовательно, числовая последовательность $x_n^{(k)}$ фундаментальная $\Rightarrow$ у нее есть предел $a^{(k)} := \lim x_n^{(k)} \Rightarrow x_n$ покоординатно сходится к $a = (a^{(1)} \ldots a^{(d)}) \Rightarrow$ сходится по норме
+
+\begin{Remark}{}
+    $(X, \rho)$ -- полное метрическое пространство. $Y \subset X$
+
+    $(Y, \rho)$ -- полное $\Leftrightarrow Y$ замкнуто 
+\end{Remark}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Leftarrow$] $y_n$ -- фундаментальная последовательность в $Y \Rightarrow y_n$ фундаментальная в $X$
+    
+    $\Rightarrow y_n$ имеет предел в $X$, т.е. $b := \lim y_n$ и $b \in X$
+    
+    $\Rightarrow b$ предельная точка $Y \Rightarrow b \in Y$, т.к. $Y$ замкнуто
+
+    \item[$\Rightarrow$] Возьмем предельную точку $b$ множества $Y \Rightarrow$ найдется $y_n \in Y : \lim y_n = b \Rightarrow y_n$ фундаментальна в $X \Rightarrow y_n$ фундаментальна в $Y \Rightarrow$ у нее есть предел в $Y$
+    
+    т.е. $\lim y_n = a \in Y \Rightarrow a = b$ по единственности предела
+\end{itemize}
+
+\subsection{\S 3. Компактность}
+
+\begin{defin}{Покрытие}
+    $A, B_\alpha$. $B_\alpha,\ \alpha \in I$ -- покрытие множества $A$, если $A \subset \bigcup\limits_{\alpha \in I} B_\alpha$
+\end{defin}
+
+\begin{defin}{Открытое покрытие}
+    Открытое покрытие -- покрытие открытыми множествами
+\end{defin}
+
+\begin{defin}{Подпокрытие}
+    Подпокрытие какого-то покрытия -- из какого-то покрытия выкинулы какое-то количество множеств и оно осталось покрытием
+\end{defin}
+
+\begin{defin}{Компакт}
+    $K$ -- компакт (компактное множество), если из любого покрытия $K$ открытыми множествами можно извлечь конечное подпокрытие 
+\end{defin}
+
+\begin{theo}{Теорема о свойствах компактов}
+    $(X, \rho)$ -- метрическое пространство
+
+    \begin{enumerate}
+        \item $K \subset Y \subset X$. Тогда $K$ -- компакт в $(X, \rho) \Leftrightarrow K$ -- компакт в $(Y, \rho)$
+        \item $K$ -- компакт $\Rightarrow K$ -- замкнуто и ограничено
+        \item Замкнутое подмножество компакта -- компакт
+    \end{enumerate}
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item 
+    
+    \begin{itemize}
+        \item[$\Rightarrow$] $K \subset \bigcup\limits_{\alpha \in I} U_\alpha$, где $U_\alpha$ -- открыты в $(Y, \rho)$
+        
+        Тогда $\exists G_\alpha$ открытые в $(X, \rho) : U_\alpha = G_\alpha \cap Y \Rightarrow K \subset \bigcup\limits_{\alpha \in I} U_\alpha \subset \bigcup\limits_{\alpha \in I} G_\alpha$ -- открытое покрытие в $(X, \rho)$ $\Rightarrow$ можно выбрать конечное подпокрытие 
+
+        $K \subset \bigcup\limits_{i = 1}^n G_{\alpha_i} \Rightarrow K = K \cap Y \subset \bigcup\limits_{i = 1}^n G_{\alpha_i} \cap Y = \bigcup\limits_{i = 1}^n U_{\alpha_i} \Rightarrow K$ -- компакт в $(Y, \rho)$
+
+        \item[$\Leftarrow$] $K \subset \bigcup\limits_{\alpha \in I} G_\alpha$, где $G_\alpha$ -- открыты в $(X, \rho) \Rightarrow U_\alpha := G_\alpha \cap Y$ -- открыты в $(Y, \rho)$ и $K \subset \bigcup\limits_{\alpha \in I} U_\alpha \Rightarrow$ можно выбрать конечное подпокрытие $K \subset \bigcup\limits_{i = 1}^n U_{\alpha_i} \subset \bigcup\limits_{i = 1}^n G_{\alpha_i} \Rightarrow K$ -- компакт в $(X, \rho)$
+    \end{itemize}
+
+    \item $\left. \right.$
+    
+    \begin{itemize}
+        \item[Ограниченность.] Возьмем $a \in K$ и рассмотрим покрытие $K \subset \bigcup\limits_{n = 1}^\infty B_n(a)$ -- открытое покрытие
+        
+        Выберем конечное подпокрытие $\Rightarrow K \subset \bigcup\limits_{n = 1}^N B_n(a) = B_N(a) \Rightarrow K$ -- ограничено
+
+        \item[Замкнутость.] Надо доказать, что $X \setminus K$ открыто. Возьмем $a \in X \setminus K$ и покажем, что для некоторого $r > 0\ B_r(a) \subset X \setminus K$
+        
+        Возьмем такое $r_x > 0$, что $B_{r_x}(x) \cap B_{r_x}(a) = \varnothing$
+
+        $K \subset \bigcup\limits_{x \in K} B_{r_x}(x)$ -- открытое покрытие. Выберем конечное подпокрытие $K \subset \bigcup\limits_{i = 1}^n B_{r_{x_i}}(x_i)$
+
+        $r := \min\{r_{x_1}, r_{x_2} \ldots r_{x_n}\} > 0$
+
+        Покажем что $B_r(a) \subset X \setminus K$, т.е. что $B_r(a) \cap K = \varnothing$
+
+        $B_{r_{x_i}}(a) \cap B_{r_{x_i}}(x_i) = \varnothing \Rightarrow B_r(a) \cap B_{r_{x_i}}(x_i) = \varnothing \Rightarrow B_r(a) \cap \bigcup\limits_{i = 1}^n B_{r_{x_i}}(x_i) = \varnothing$
+
+        \item $K$ -- компакт, $K \supset \tilde{K}$ -- замкнуто. Покажем, что $\tilde{K}$ -- компакт. Рассмотрим открытое покрытие $\tilde{K} \subset \bigcup\limits_{\alpha \in I} U_\alpha$, где $U_\alpha$ -- открыты в $(X, \rho)$
+
+        $X \setminus \tilde{K}$ -- открыто $\Rightarrow K \subset (X \setminus \tilde{K}) \cup \bigcup\limits_{\alpha \in I} U_\alpha$ -- открытое покрытие $K$ -- компакт $\Rightarrow$ можно выбрать конечное подпокрытие
+
+        $\tilde{K} \subset K \subset (X \setminus \tilde{K}) \cup \bigcup\limits_{i = 1}^n U_{\alpha_i} \Rightarrow \tilde{K} \subset \bigcup\limits_{i = 1}^n U_{\alpha_i} \Rightarrow \tilde{K}$ -- компакт
+    \end{itemize}
+\end{enumerate}
+
+\begin{theo}{}
+    $K_\alpha$ -- семейство компактов в $(X, \rho) :$ пересечение любого их конечно количество непусто. Тогда $\bigcap\limits_{\alpha \in I} K_\alpha \neq \varnothing$
+\end{theo}
+
+\textit{Доказательство:}
+
+Зафиксируем компакт $K_{\alpha_0}$. Предположим, что $\bigcap\limits_{\alpha \in I} K_\alpha = \varnothing$
+
+$K_{\alpha_0} \cap \bigcap\limits_{\alpha \neq \alpha_0} K_\alpha = \varnothing$, т.е. $K_{\alpha_0} \subset X \setminus \bigcap\limits_{\alpha \neq \alpha_0} K_\alpha = \bigcup\limits_{\alpha \neq \alpha_0} (X \setminus K_\alpha)$
+
+Это открытое покрытие $K_{\alpha_0}$. Выберем конечное подпокрытие 
+
+$K_{\alpha_0} \subset \bigcup\limits_{i = 1}^n (X \setminus K_{\alpha_i}) = X \setminus \bigcap\limits_{i = 1}^n K_{\alpha_i} \Rightarrow \bigcap\limits_{i = 0}^n K_{\alpha_i} = \varnothing$ -- противоречие
+
+\begin{theo}{Следствие}
+    $K_1 \supset K_2 \supset \ldots$ -- непустые компакты
+
+    Тогда $\bigcap\limits_{n = 1}^\infty K_n \neq \varnothing$
+\end{theo}
+
+\begin{defin}{Секвенциально компактное множество}
+    $(X, \rho)$ -- метрическое пространство $K \subset X$
+
+    $K$ -- секвенциально компактное, если из любой последовательности точек множества $K$ можно выбрать подпоследовательность, сходящуюся к какой-то точке из $K$
+\end{defin}
+
+\begin{Remark}{}
+    Секвенциальный компакт замкнут 
+\end{Remark}
+
+\begin{theo}{}
+    Всякое бесконечное подмножество компакта имеет предельную точку
+\end{theo}
+
+\textit{Доказательство:}
+
+$K$ -- компакт, $A \subset K$ -- бесконечное подмножество
+
+Предположим, что $A' = \varnothing \Rightarrow A$ -- замкнуто $\subset K \Rightarrow A$ -- компакт 
+
+Возьмем $a \in A$, она не предельная $\Rightarrow \exists r_a > 0 : \mathring{B}_{r_a}(a) \cap A = \varnothing \Rightarrow B_{r_a}(a) \cap A = \{a\}$
+
+Рассмотрим открытое покрытие $A \subset \bigcup\limits_{a \in A} B_{r_a}(a)$. Из этого покрытия нельзя выкинуть ни одно из множеств $\Rightarrow$ нельзя выбрать конечное подпокрытие. Противоречие 
+
+\begin{theo}{Следствие}
+    Компактность $\Rightarrow$ секвенциальная компактность
+\end{theo}
+
+\textit{Доказательство:}
+
+$K$ -- компакт, $\{x_n\}$ -- последовательность точек из $K$
+
+$D := \{x_1, x_2, x_3 \ldots\}$
+
+Если $\#D < + \infty$, то какой-то член последовательности повторяется бесконечное число раз. Возьмем его в качестве подпоследовательности
+
+Если $\#D = + \infty$, то по теореме у $D$ есть предельная точка $\Rightarrow$ найдутся различные $y_n \in D : \lim y_n = a$ -- предельная точка 
+
+Переставим члены последовательности $y_n$ и получим подпоследовательность. $a \in K$, т.к. $K$ -- замкнуто
+
+\begin{theo}{}
+    $K$ -- компакт (секвенциальный компакт) в $(X, \rho) \Rightarrow (K, \rho)$ -- полное
+\end{theo}
+
+\textit{Доказательство:}
+
+$x_n \in K$ фундаментальная последовательность. $K$ -- секвенциальный компакт $\Rightarrow$ в ней можно выбрать сходящуюся подпоследовательность $\Rightarrow$ у $x_n$ есть предел 
+
+\begin{defin}{Эпсилон-сеть}
+    $A \in X,\ (X, \rho)$ -- метрическое пространство, $\varepsilon > 0$
+
+    $E \subset A$ -- $\varepsilon$-сеть, если $\forall a \in A\ \exists e \in E : \rho(a, e) < \varepsilon$
+\end{defin}
+
+\begin{Remark}{}
+    Здесь написано, что $A \subset \bigcup\limits_{e \in E} B_\varepsilon(e)$
+\end{Remark}
+
+\begin{defin}{Конечная эпсилон-сеть}
+    $E$ -- конечное множество и $\varepsilon$-сеть $\Rightarrow E$ -- конечная $\varepsilon$-сеть для $A$
+\end{defin}
+
+\begin{defin}{Вполне ограниченное множество}
+    $A$ -- вполне ограниченое, если $\forall \varepsilon > 0$ в множестве $A$ есть конечная $\varepsilon$-сеть
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Вполне ограниченность $\Rightarrow$ ограниченность 
+        \item В $\R^d$ верно и обратное
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\varepsilon = 1$. Возьмем конечную $\varepsilon$-сеть $x_1 \ldots x_n$. $R := 1 + \max\limits_{k \neq 1}(\rho(x_1, x_k))$
+    
+    $\overline{B}_R(x_1) \supset A$
+
+    Берем $y \in A \Rightarrow \exists x_i  : \rho(x_i, y) \leq 1 \Rightarrow \rho(x_1, y) \leq \rho(x_1, x_i) + \rho(x_i, y) \leq R$
+
+    \item $A$ -- ограниченное в $\R^d \Rightarrow A \subset B_R(0) \subset [-R; R]^d$
+    
+    Нарежем каждую сторону на $n$ частей. Получим $n^d$ кубиков, сторона которых $\frac{2R}{n}$. Если наше множество $A$ пересекается с каким-то кубиком, то выбираем в нем произвольную точку, в остальных не берем вообще ничего
+
+    Получили $\frac{2R}{n}\sqrt{d}$-сеть
+\end{enumerate}
+
+\begin{theo}{}
+    Секвенциальная компактность $\Rightarrow$ вполне ограниченность
+\end{theo}
+
+\textit{Доказательство:}
+
+От противного. Пусть для $\varepsilon > 0$ в множестве $A$ не нашлось конечной $\varepsilon$-сети. Возьмем $x_1 \in A \Rightarrow x_1$ -- не $\varepsilon$-сеть $\Rightarrow$ найдется $x_2 \in A : \rho(x_1, x_2) > \varepsilon \Rightarrow x_1, x_2$ -- не $\varepsilon$-сеть $\Rightarrow$ найдется $x_3 \in A : \rho(x_1, x_3) > \varepsilon$ и $\rho(x_2, x_3) > \varepsilon$ и так далее
+
+На $n$ шаге: $x_1 \ldots x_n$ -- не $\varepsilon$-сеть $\Rightarrow$ найдется $x+{n + 1} \in A : \rho(x_k, x_{n + 1}) > \varepsilon\ \forall k \leq n$
+
+Построили последовательность $x_n$. Выберем сходящуюся подпоследовательность $x_{n_k} \Rightarrow$ она фундаментальна. Но это не так, $\rho(x_{n_i}, x_{n_j}) > \varepsilon$
+
+\begin{theo}{Теорема Хаусдорфа}
+    Если $K$ вполне ограничено и $(K, \rho)$ -- полное $\Rightarrow K$ -- компакт
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+$K \subset \bigcup\limits_{\alpha \in I} U_\alpha$, $U_\alpha$ -- открытые. Пусть нельзя выделить конечное подпокрытие 
+
+$\varepsilon = 1$. Существует конечная $1$-сеть $S_1 \Rightarrow K \subset \bigcup\limits_{x \in S_1} \overline{B}_1(x)$
+
+Для какого-то из множеств $K \cap \overline{B}_1(x),\ x \in S_1$ нельзя выделить конечное подпокрытие. Возьмем одно такое и назовем его $A_1$
+
+Существует конечная $\frac{1}{2}$-сеть $S_2 \Rightarrow A_1 \subset K \subset \bigcup\limits_{x \in S_2} \overline{B}_{\frac{1}{2}}(x)$
+
+Для какого-то из множеств $A_1 \cap \overline{B}_{\frac{1}{2}}(x),\ x \in S_2$ нельзя выделить конечное подпокрытие. Возьмем одно такое и назовем его $A_2$ и так далее
+
+На $n$ шаге: существует конечная $\frac{1}{n}$-сеть $S_n \Rightarrow A_{n - 1} \subset K \subset \bigcup\limits_{x \in S_n} \overline{B}_{\frac{1}{n}}(x)$
+
+Для какого-то из множеств $A_{n - 1} \cap \overline{B}_{\frac{1}{n}}(x),\ x \in S_n$ нельзя выделить конечное подпокрытие. Возьмем одно такое и назовем его $A_n$
+
+$K \supset A_1 \supset A_2 \supset \ldots;\ A_n = A_{n - 1} \cap \overline{B}_{\frac{1}{n}}(x_n)$
+
+Проверим, что $x_1, x_2 \ldots$ фундаментальная. Возьмем $k > n \Rightarrow$ найдется $y \in A_k \Rightarrow y \in \overline{B}_{\frac{1}{k}}(x_k)$ и $y \in \overline{B}_{\frac{1}{n}}(x_n) \Rightarrow \rho(x_k, x_n) \leq \rho(x_k, y) + \rho(y, x_n) < \frac{1}{k} + \frac{1}{n} < \frac{2}{n}$ -- фундаментальная, значит $\exists \lim x_n = x_* \in K \Rightarrow$ найдется $U_{\alpha_0} \ni x_* \Rightarrow \exists r > 0\ x_* \in B_r(x_*) \subset U_{\alpha_0}$
+
+$\lim x_n = x_* \Rightarrow \exists N : \forall n > N\ \rho(x_n, x_*) < \frac{r}{2}$. А еще $A_n \subset \overline{B}_{\frac{1}{n}}(x_n) \subset \overline{B}_{\frac{1}{n} + \frac{r}{2}}(x_*) \subset \overline{B}_{r}(x_*)$ при $n > \frac{2}{r}$
+
+\begin{theo}{Следующие условия равносильны}
+    \begin{enumerate}
+        \item $K$ -- компакт
+        \item $K$ -- секвенциальный компакт
+        \item $K$ -- вполне ограниченное и $(K, \rho)$ -- полное
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{}
+    $(X, \rho)$ -- полное метрическое пространство. Следующие условия равносильны
+
+    \begin{enumerate}
+        \item $K$ -- компакт
+        \item $K$ -- секвенциальный компакт
+        \item $K$ -- замкнуто и вполне ограниченно
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+Если $(X, \rho)$ -- полное, то $K$ -- замкнуто $\Leftrightarrow (K, \rho)$ -- полное, тогда третьи строчки из двух предыдущих теорем -- одно и то же
+
+\begin{theo}{Характеристика компакта в $\R^d$}
+    $K \in \R^d$, следующие условия равносильны
+
+    \begin{enumerate}
+        \item $K$ -- компакт
+        \item $K$ -- секвенциальный компакт
+        \item $K$ -- замкнуто и ограничено 
+    \end{enumerate}
+\end{theo}
+
+\begin{lem}{Лемма Лебега}
+    $K$ -- компакт, $K \subset \bigcup\limits_{\alpha \in I} U_\alpha$ -- открытое 
+
+    Тогда $\exists r > 0 : \forall x \in K$ шар $B_r(x)$ целиком накрывается каким-то $U_\alpha$
+\end{lem}
+
+\textit{Доказательство:}
+
+$\forall x \in K\ x$ покрыта каким-то $U_{\alpha_0}$ -- открытое $\Rightarrow \exists r_x > 0 : B_{r_x}(x) \subset U_{\alpha_0}$
+
+Рассмотрим покрытие $K \subset \bigcup\limits_{x \in K} B_{\frac{r_x}{2}}(x)$. Выделим конечное подпокрытие $K \subset \bigcup\limits_{i = 1}^n B_{\frac{r_{x_i}}{2}}(x_i)$
+
+$r := \min\{\frac{r_1}{2}, \frac{r_2}{2} \ldots \frac{r_n}{2}\}$ подходит. Возьмем $y \in K$. Хотим доказать, что $B_r(y) \subset B_{r_{x_i}}(x_i)$ для некоторой $i$
+
+Возьмем $z \in B_r(y),\ \rho(y, z) < r \leq \frac{r_{x_i}}{2},\ y \in K \Rightarrow y \in B_{\frac{r_{x_i}}{2}}(x_i)$ для некоторого $i \Rightarrow \rho(y, x_i) < \frac{r_{x_i}}{2}$
+
+$\rho(z, x_i) \leq \rho(z, y) + \rho(y, x_i) < r_{x_i}$
+
+\subsection{\S 4. Непрерывные отображения}
+
+\begin{defin}{Непрерывность функции в точке}
+    $(X, \rho)$ и $(Y, \rho)$ -- метрические пространства. $E \subset X;\ f : E \to Y;\ a \in E$
+
+    $f$ -- непрерывна в $a$, если
+
+    \begin{enumerate}
+        \item $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x \in E\ \rho_X(x, a) < \delta \Rightarrow \rho_Y(f(x), f(a)) < \varepsilon$
+        \item $\forall \varepsilon > 0\ \exists \delta > 0 : f(B_\delta(a) \cap E) \subset B_\varepsilon(f(a))$
+        \item Для любой последовательность $x_n \in E : \lim x_n = a \Rightarrow \lim f(x_n) = f(a)$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{}
+    Эти определения равносильны
+\end{theo}
+
+\begin{Exercise}{}
+    Докажите
+\end{Exercise}
+
+\begin{defin}{Предел функции в точке}
+    $\lim\limits_{x \to a} f(x) = b$, если
+    
+    \begin{enumerate}
+        \item $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x \in E, x \neq a\ \rho_X(x, a) < \delta \Rightarrow \rho_Y(f(x), b) < \varepsilon$
+        \item $\forall \varepsilon > 0\ \exists \delta > 0 : f(\mathring{B}_\delta(a) \cap E) \subset B_\varepsilon(b)$
+        \item Для любой последовательности $x_n \in E, x_n \neq a : \lim x_n = a \Rightarrow \lim f(x_n) = b$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{Критерий Коши}
+    $a$ -- предельная точка $E$. Существование предела $\lim\limits_{x \to a} f(x) \Leftrightarrow \forall \varepsilon > 0\ \exists \delta > 0 : \begin{cases}
+        \forall \rho(x, a) < \delta \\
+        \forall \rho(y, a) < \delta \\
+        x, y \neq a 
+    \end{cases} \Rightarrow \rho_Y(f(x), f(y)) < \varepsilon$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\lim\limits_{x \to a} f(x) = b \Rightarrow \exists \delta > 0 : \begin{cases}
+        \rho_X(x, a) < \delta  \Rightarrow \rho_Y(f(x), b) < \frac{\varepsilon}{2} \\
+        \rho_X(y, a) < \delta  \Rightarrow \rho_Y(f(y), b) < \frac{\varepsilon}{2}
+    \end{cases} \Rightarrow \rho_Y(f(x), f(y)) < \varepsilon$
+
+    \item[$\Leftarrow$] Проверим определение по Гейне. Берем $x_n \to a$
+    
+    $\exists N : \forall n \geq N\ \rho_X(x_n, a) < \delta \Rightarrow \forall m, n \geq N\ \begin{cases}
+        \rho_X(x_n, a) < \delta \\
+        \rho_X(x_m, a) < \delta 
+    \end{cases} \Rightarrow \rho_Y(f(x_n), f(x_m)) < \varepsilon$
+
+    Т.е. $f(x_n)$ -- фундаментальная последовательность $\Rightarrow$ у нее есть предел
+\end{itemize}
+
+\begin{theo}{Арифметические действия с пределами}
+    $f, g : E \to Y$ -- нормированное пространство, $a$ -- предельная точка $E$
+    
+    $\lim\limits_{x \to a} f(x) = A,\ \lim\limits_{x \to a} g(x) = B,\ \lim\limits_{x \to a} \lambda(x) = \mu$. Тогда:
+
+    \begin{enumerate}
+        \item $\lim\limits_{x \to a} (f(x) \pm g(x)) = A \pm B$
+        \item $\lim\limits_{x \to a} \lambda(x) f(x) = \mu A$
+        \item $\lim\limits_{x \to a} \parl{f(x)} = \parl{A}$
+        \item Если в $Y$ есть скалярное произведение, то $\lim\limits_{x \to a} \q{f(x), g(x)} = \q{A, B}$
+        \item Если $Y = \R$ и $B \neq 0$, то $\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+Смотрим на определение по Гейне
+
+\begin{theo}{Теорема о непрерывности композиции}
+    $D \subset X;\ f : D \to Y;\ f(D) \subset E;\ g : E \to Z;\ a \in D$
+
+    $f$ -- непрерывна в точке $a,\ g$ -- непрерывна в точке $f(a)$. Тогда $g \circ f$ непрерывна в $a$
+\end{theo}
+
+\textit{Доказательство:}
+
+Гейне. Берем $x_n \in E : x_n \to a \Rightarrow f(x_n) \to f(a) \Rightarrow g(f(x_n)) \to g(f(a))$
+
+\begin{theo}{Характеристика непрерывных в терминах открытых множеств}
+    $f : X \to Y$. Тогда следующие условия равносильны
+
+    \begin{enumerate}
+        \item $f$ -- непрерывна в точке $a$
+        \item Для любого $U \subset Y$ открытого $f^{-1}(U) := \{x \in X : f(x) \in U\}$ -- открыто 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2$] Возьмем $U$ -- открытое. Проверим, что $f^{-1}(U)$ -- открыто 
+    
+    Возьмем $a \in f^{-1}(U) \Rightarrow f(a) \in U$ -- открытом $\Rightarrow \varepsilon > 0\ B_\varepsilon(f(a)) \subset U$
+
+    $f$ -- непрерывна в точке $a$. Возьмем $\delta > 0$ из определения непрерывности $f$ в точке $a$
+
+    $f(B_\delta(a)) \subset B_\varepsilon(f(a)) \subset U \Rightarrow B_\delta(a) \subset f^{-1}(U) \Rightarrow a$ -- внутренняя точка $f^{-1}(U) \Rightarrow \\
+    \Rightarrow f^{-1}(U)$ -- открыто
+
+    \item[$2 \Rightarrow 1$] Возьмем $a \in X$ и докажем, что $f$ -- непрерывна в точке $a$
+    
+    Возьмем $\varepsilon > 0$ и рассмотрим $U = B_\varepsilon(f(a))$ -- открытое $\Rightarrow a \in f^{-1}(U)$ -- открытое $\Rightarrow \\
+    \Rightarrow \exists \delta > 0 : B_\delta(a) \subset f^{-1}(U) \Rightarrow f(B_\delta(a)) \subset U = B_\varepsilon(f(a))$
+\end{itemize}
+
+\begin{theo}{}
+    Непрерывный образ компакта -- компакт
+\end{theo}
+
+\textit{Доказательство:}
+
+$f : K \to Y;\ K$ -- компакт. $f$ непрерывна во всех точках $\Rightarrow f(K)$ -- компакт
+
+Рассмотрим покрытие $f(K) \subset \bigcup\limits_{\alpha \in I} U_\alpha$ -- открытое $\Rightarrow K \subset f^{-1}(\bigcup U_\alpha) = \bigcup\limits_{\alpha \in I} f^{-1}(U_\alpha)$ -- открытое
+
+Выделим конечное подпокрытие $K \subset \bigcup\limits_{i = 1}^n f^{-1}(U_{\alpha_i}) = f^{-1}(\bigcup\limits_{i = 1}^n U_{\alpha_i}) \Rightarrow f(K) \subset \bigcup\limits_{i = 1}^n U_{\alpha_i}$
+
+\begin{defin}{Ограниченная функция}
+    $f: E \to Y$ -- ограничена если $f(E)$ -- ограниченное множество
+\end{defin}
+
+\begin{theo}{Следствия}
+    \begin{enumerate}
+        \item $f : K \to Y;\ K$ -- компакт, $f$ -- непрерывна $\Rightarrow f$ -- ограничена
+        \item $f : K \to \R;\ K$ -- компакт, $f$ -- непрерывна $\Rightarrow f$ -- ограничена и достигает своего минимума и максимума
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $f(K)$ -- компакт $\Rightarrow f(K)$ -- ограничено
+    \item $f(K)$ -- ограниченное множество. $b := \sup f(K) \in \R$
+    
+    $\forall n\ b - \frac{1}{n}$ -- не верхняя граница $\Rightarrow \exists x_n \in K : b > f(x_n) > b - \frac{1}{n} \Rightarrow \lim f(x_n) = b \Rightarrow \\ \Rightarrow f(x_{n_k}) \to f(x_n) = b$
+\end{enumerate}
 
 \end{document}

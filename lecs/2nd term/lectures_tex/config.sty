@@ -171,4 +171,12 @@
 \newcommand{\todos}[1]{{\color{red}\textbf{ TODO: #1}}}
 \newtcolorbox[auto counter,number within=section]{Example}[2][]{colback=magenta!5!white,colframe=magenta!59.9!black,fonttitle=\bfseries, title=Example \thetcbcounter. #2,#1}
 \DeclareMathOperator{\Cl}{Cl}
-\newcommand{\parl}[1]{\parallel #1 \parallel}
+\newcommand{\parl}[1]{|| #1 ||}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Id}{Id}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\def\divby{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+\newcommand{\q}[1]{\langle #1 \rangle}

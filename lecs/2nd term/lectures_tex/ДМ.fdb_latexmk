@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1740401183.01177 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" "ДМ.pdf" "ДМ" 1740401184.67456 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" 1740401182.76483 27638 d19f6e12785bde5bb26064ae96dbbdcb ""
+["pdflatex"] 1741611503.24251 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" "ДМ.pdf" "ДМ" 1741611504.99544 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/ДМ.tex" 1741611502.9537 31050 066ba8ac8e2200553acef4b698aef05b ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -288,11 +288,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1740386759.27414 6152 c71e415d7b62ddbadf2c42210b2fdcdd ""
-  "ДМ.aux" 1740401184.52543 683 2c913578ffe94ffd5ad1021734ea02ef "pdflatex"
-  "ДМ.out" 1740401184.52638 690 01526835cbc4ee5574baf058e2ae188e "pdflatex"
-  "ДМ.tex" 1740401182.76483 27638 d19f6e12785bde5bb26064ae96dbbdcb ""
-  "ДМ.toc" 1740401184.5268 327 eadec40106d90c1fcde4f089c371e063 "pdflatex"
+  "config.sty" 1741594748.1628 6478 e606e47d2e6058080e17c563b153de5e ""
+  "ДМ.aux" 1741611504.85824 683 b6b65c7a43a74eaec079f58228844a79 "pdflatex"
+  "ДМ.out" 1741611504.85923 690 01526835cbc4ee5574baf058e2ae188e "pdflatex"
+  "ДМ.tex" 1741611502.9537 31050 066ba8ac8e2200553acef4b698aef05b ""
+  "ДМ.toc" 1741611504.85962 327 eadec40106d90c1fcde4f089c371e063 "pdflatex"
   (generated)
   "ДМ.aux"
   "ДМ.log"

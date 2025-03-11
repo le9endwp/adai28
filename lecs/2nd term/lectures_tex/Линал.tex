@@ -2,12 +2,6 @@
 \usepackage{config}
 \usepackage{subfiles}
 
-\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
-\def\divby{%
-  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
-}
-\newcommand{\q}[1]{\langle #1 \rangle}
-
 \begin{document}
 
 \begin{flushright}
@@ -2158,5 +2152,288 @@ $f_B(C) = \det B \cdot \det C$
     Как итог: собственные числа $A$ -- корни его характеристического многочлена
 \end{Remark}
 
-\end{document}
+\begin{theo}{Следствие}
+    $\dim V = n \Rightarrow$ у $\A$ не более $n$ собственных чисел
+\end{theo}
 
+\textit{Доказательство:}
+
+$\deg \chi_A(t) = n \Rightarrow$ у $\chi_A(t)$ не более $n$ корней
+
+\begin{Remark}{}
+    Определение $\chi_A(t)$ корректно:
+
+    $A_1$ и $A_2$ -- матрицы $\A$ в разных базисах
+
+    $\det(A_1 - tE) = \det(A_2 - tE)$
+\end{Remark}
+
+\begin{nota}{}
+    $A, \tilde{A}$ -- матрицы $\A$ в разных базисах $\Rightarrow A = C^{-1}\tilde{A}D$, где $C, D$ -- матрицы перехода
+
+    В нашем случае $A_2 = C^{-1}A_1C,\ C$ -- матрица перехода
+\end{nota}
+
+\begin{Remark}{}
+    $\det(A_2 - tE) = \det(C^{-1}A_1C - tE) = \det(C^{-1}A_1C - tC^{-1}EC) = \det(C^{-1}(A_1 - tE)C) = \\
+    = \det(C^{-1}) \det(A_1 - tE) \det(C) = \frac{1}{\det C} \det(A_1 - tE) \det C = \det(A_1 - tE)$
+\end{Remark}
+
+\begin{lem}{}
+    $\A : V \to V;\ v_1 \ldots v_k$ -- собственные вектора, соответствующие различным собственным числам $\lambda_1 \ldots \lambda_k$
+
+    Тогда $v_1 \ldots v_k$ -- ЛНЗ
+\end{lem}
+
+\textit{Доказательство:}
+
+Индукция по $k$. База: $k = 1$
+
+$v_1$ -- ЛНЗ $\Leftrightarrow v_1 \neq 0$ -- по определению собственного вектора
+
+Переход: $k \to k + 1$
+
+Пусть $v_1 \ldots v_{k + 1}$ -- линейно зависимы
+
+$\A v_i = \lambda_i v_i$
+
+$(*)\ \sum\limits_{i = 1}^{k + 1} a_i v_i = 0$ Применим к обеим частям $\A$
+
+$0 = \A(\sum a_i v_i) = \sum a_i \A(v_i) = \sum a_i \lambda_i v_i$
+
+$(*) \cdot \lambda_{k + 1} = a_1 \lambda{k + 1} v_1 + \ldots + a_k \lambda_{k + 1} v_k + a_{k + 1} \lambda_{k + 1} v_{k + 1} = 0$
+
+Получили две равные штуки, сократим на последнее слагаемое, получим
+
+$\sum\limits_{i = 1}^k a_i(\lambda_{k + 1} - \lambda_i)v_i = 0 \xRightarrow{\text{ИП}} a_i = 0\ \forall i \in [1; k] \Rightarrow a_{k + 1} = 0$
+
+\begin{theo}{Следствие}
+    $\A : V \to V;\ \chi_\A(t) = \prod\limits_{i = 1}^k t - \lambda_i;\ \lambda_i \neq \lambda_j$
+
+    Тогда в $V$ есть базис из собственных векторов $\A$
+
+    $[\A]_{e_1 \ldots e_k}$ -- диагональная
+\end{theo}
+
+\textit{Доказательство:}
+
+Знаем: $\lambda_i$ -- собственное число $\Rightarrow \exists$ собственные вектор $e_i$
+
+Все $\lambda_i$ различные $\Rightarrow e_1 \ldots e_n$ -- ЛНЗ
+
+$n = \dim V \Rightarrow e_1 \ldots e_n$ -- базис
+
+\begin{defin}{Диагонализуемый оператор}
+    $\A$ называется диагонализуемым, если $\exists$ базис из собственных векторов
+
+    ($\Leftrightarrow [\A]$ -- диагональная)
+\end{defin}
+
+\begin{Remark}{Препятствия в диагонализуемости}
+    \begin{enumerate}
+        \item $V$ -- бесконечномерное, нет $\chi_A(t)$
+        
+        Может не быть собственных чисел
+
+        \begin{Example}{}
+            $v_1 \ldots v_n \ldots$ -- базис $V$
+
+            $\A(v_i) = v_{i + 1}$ -- оператор сдвига
+        \end{Example}
+
+        \item $\chi_A(t)$ не имеет разложения на линейные множители
+        
+        \begin{Example}{}
+            $K = \R$
+
+            $f(t) = t^2 + 1$
+
+            $f: \R^2 \to \R^2$ -- поворот на $\pi$
+
+            $f(e_1) = e_2;\ f(e_2) = -e_1$
+        \end{Example}
+
+        \item $\chi_A(t)$ имеет кратные корни
+        
+        \begin{Example}{}
+            $V = K[x]_n$
+
+            $D(f) = f'$ -- линейный оператор
+
+            $D(f) = \lambda f$ -- только если $f = const;\ \lambda = 0$
+
+            $\chi_0(t) = (-t)^{n + 1}$, но только 1 собственный вектор
+        \end{Example}
+    \end{enumerate}
+\end{Remark}
+
+\begin{defin}{Собственное подпространство}
+    $\A : V \to V$ -- линейный оператор
+
+    $\lambda$ -- осбственное число $\A$ -- корень $\chi_A(t)$
+
+    $V_{\lambda} = \{ v \in V : \A(v) = \lambda v \}$ -- собственное подпространство
+\end{defin}
+
+\begin{Remark}{}
+    Это действительно подпространство 
+\end{Remark}
+
+\textit{Доказательство:}
+
+$V_\lambda \leq V$
+
+$\begin{gathered}
+    \A v_1 = \lambda v_1 \\
+    \A v_2 = \lambda v_2
+\end{gathered} \A(v_1 + v_2) = \lambda v_1 + \lambda v_2 = \lambda(v_1 + v_2)$
+
+\begin{defin}{}
+    $m_a(\lambda)$ -- кратность $\lambda$ в $\chi_A(t)$ -- алгебраическая кратность
+
+    $m_g(\lambda) = \dim V_\lambda$ -- геометрическая кратность (максимальное количество ЛНЗ векторов, соответствующих $\lambda$)
+\end{defin}
+
+\begin{Example}{}
+    $\A = 0;\ \chi_A(t) = t^n$
+
+    $m_a(0) = n;\ m_g(0) = n$
+
+    А если $\A = D$ из примера 6.3
+
+    $m_a(0) = n + 1;\ m_g(0) = 1$
+\end{Example}
+
+\begin{theo}{}
+    \begin{enumerate}
+        \item $\forall \lambda\ m_a(\lambda) \geq m_g(\lambda)$
+        \item $\A$ -- диагонализуем $\Leftrightarrow \chi_A(t)$ раскладывается на линейные множители и $m_a(\lambda) = \\ = m_g(\lambda)\ \forall \lambda$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Пусть $v_1 \ldots v_k$ -- базис $V_\lambda$ ($k = m_g(\lambda)$)
+    
+    $v_1 \ldots v_k \ldots v_n$ -- базис $V$
+
+    $\A v_1 = \lambda v_1$
+
+    $\A v_2 = \lambda v_2$
+
+    $\A v_k = \lambda v_k$
+
+    $\A v_{k + 1} = \ldots$
+
+    $[\A]_{v_1 \ldots v_n} = \begin{pmatrix}
+        \lambda E_k & B \\
+        0 & C
+    \end{pmatrix}$
+
+    $\A - tE = \begin{pmatrix}
+        (\lambda - t)E_k & B \\
+        0 & C - tE_{n - k}
+    \end{pmatrix}$
+
+    $\Rightarrow \det(\A - tE) = \det(\lambda - t)E_k \cdot \det(C - tE_{n - k}) = (\lambda - t)^k \cdot f(t) \Rightarrow \chi_a(t) \geq k$
+
+    \item Пусть $\A$ -- диагонализуем $\Rightarrow$ есть базис из собственных векторов
+    
+    $v_1^1 \ldots v_k^1$ -- базис $V_{\lambda_1}$
+
+    $v_1^2 \ldots v_k^2$ -- базис $V_{\lambda_2}$
+
+    $v_1^s \ldots v_k^s$ -- базис $V_{\lambda_s}$
+
+    $\deg \chi_\A(t) = n \geq \sum m_a(\lambda_i) \geq \sum m_g(\lambda_i) \geq \sum k_i = n \Rightarrow$ все неравенства -- равенства 
+
+    $m_a(\lambda_i) = m_g(\lambda_i)\ \forall i$
+
+    $n = \sum m_a(\lambda_i) \Leftrightarrow \chi_A(t)$ раскладывается на линейные множители
+
+    Обратно: $\A$ -- диагонализуем $\Leftrightarrow \chi_A(t)$ раскладывается на линейные множители и $m_a(\lambda) = m_g(\lambda)\ \forall \lambda$
+
+    Пусть $v_1^i \ldots v_{k_i}^i$ -- базис $V_{\lambda_i}$ ($k_i = m_g(\lambda_i)$)
+
+    Всего выбрали $\sum k_i = \sum m_g(\lambda_i) = \sum m_a(\lambda_i) = n$ векторов
+
+    Осталось проверить, что они ЛНЗ
+    Пусть $\sum\limits_{i, j} a_{ij}v_j^i = 0 \Rightarrow 0 = \sum\limits_i(\sum a_{ij}v_j^i)$
+
+    $\forall i\ \sum a_{ij}v_j^i \in V_{\lambda_i}$
+
+    Тогда $\sum w_i = 0 \Rightarrow$ по лемме о ЛНЗ собственных чисел $\Rightarrow w_1 = \ldots = w_s = 0$
+
+    $w_i = \sum a_{ij}v_j^i = 0 \Rightarrow$ все $a_{ij} = 0$, т.к. $v_1^i \ldots v_{k_i}^i$ -- ЛНЗ
+\end{enumerate}
+
+\section{Нильпотентные операторы}
+
+\begin{defin}{Нильпотентный оператор}
+    $\A : V \to V$ -- линейный оператор
+
+    $\A$ называется нильпотентным, если $\exists N : A^N = 0$
+\end{defin}
+
+\begin{Remark}{}
+    $\A^N = 0 \Rightarrow \A^{\dim V} = 0$
+\end{Remark}
+
+\begin{theo}{Свойство}
+    $\lambda$ -- собственное число $\A \Rightarrow \lambda = 0$
+
+    ($K = \C \Rightarrow def \Leftrightarrow$ свойству)
+\end{theo}
+
+\begin{Remark}{}
+    $\A$ -- нильпотентен и диагонализуем $\Rightarrow \A \equiv 0$
+\end{Remark}
+
+\begin{defin}{Жорданова цепочка}
+    Жорданова цепочка для оператора $\A$ -- вектора $v_1 \ldots v_k : \A v_i = v_{i + 1};\ \A v_k = 0$
+\end{defin}
+
+\begin{theo}{}
+    $\A$ -- нильпотентный оператор на $V \Rightarrow \exists$ базис, состоящий из (непересекающихся) жордановых цепочек
+\end{theo}
+
+Пусть цепочка одна
+
+$\A v_1 = v_2 = 0 \cdot v_1 + 1 \cdot v_2 + \ldots$
+
+Тогда $[\A]_{v_1 \ldots v_k} = \begin{pmatrix}
+    0 & 0 & 0 & \ldots & 0 & 0 \\
+    1 & 0 & 0 & \ldots & 0 & 0 \\
+    0 & 1 & 0 & \ldots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \ldots & 1 & 0
+\end{pmatrix} = \iota_k(0)$ -- жорданов блок
+
+В общем случае и сама матрица делится на блоки, идущие по диагонали (посмотрите запись пожалуйста...)
+
+\textit{Доказательство:}
+
+Шаг 0: $v_1^0 \ldots v_n^0$ -- базис $V$
+
+$\forall i\ v_i^0 \ldots v_i^{k_i}$ -- жорданова цепочка
+
+$\A(v_i^{k_i}) = 0$
+
+$\{ v_i^j \}$ -- порождающая система векторов, состоящая из набора цепочек, $\q{v_i^j} = V$
+
+Основной шаг: $\{v_i^j \}$ -- ЛЗ $\Rightarrow$ преобразуем набор цепочек : количество $\{v_i^j\}$ уменьшается, а факт, что $\q{\{v_i^j\}} = V$ сохраняется
+
+$\Rightarrow$ за несколько шагов придем к ЛНЗ систеиме $\Rightarrow$ к базису, состоящему из жордановых цепочек
+
+\begin{nota}{Детали}
+    Пусть $\{v_i^j\}$ -- ЛЗ $\Rightarrow \exists a_{ij}$ не все 0 : $\sum a_{ij}v_i^j = 0$ -- считаем, что здесь уже выкинули все нулевые
+
+    \begin{enumerate}
+        \item Можно считать: $\forall i\ \exists$ не более 1 $j : a_{ij} \neq 0$
+        
+        Иначе будем применять $\A$ пока это не станет так 
+    \end{enumerate}
+\end{nota}
+
+\end{document}

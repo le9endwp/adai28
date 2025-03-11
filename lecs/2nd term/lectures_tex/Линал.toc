@@ -5,3 +5,4 @@
 \contentsline {section}{\numberline {4}Элементарные матрицы и метод Гаусса}{19}{section.4}%
 \contentsline {section}{\numberline {5}Явные формулы линнейной алгебры}{23}{section.5}%
 \contentsline {section}{\numberline {6}Операторы}{31}{section.6}%
+\contentsline {section}{\numberline {7}Нильпотентные операторы}{36}{section.7}%

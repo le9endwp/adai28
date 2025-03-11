@@ -1,12 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{config}
 \usepackage{subfiles}
-
-\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
-\def\divby{%
-  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
-}
-\newcommand{\q}[1]{\langle #1 \rangle}
+\pgfplotsset{compat=1.18}
 
 \begin{document}
 
@@ -671,5 +666,125 @@ $(\overline{x_1} \land \overline{x_2} \land \ldots \land x_n)$ -- истинно
 Делаем так вплоть до $(x_1 \ldots x_n)$
 
 Теперь скажем, что берем $n$-ую скобку только если $f_n$ -- истина. Объединяем все через $\lor$
+
+\begin{defin}{КНФ}
+    Можем $\begin{pmatrix}
+        x_1 & \ldots & x_k & f \\
+        0 & \ldots & 0 & f_1 \\
+        0 & \ldots & 1 & f_2 \\
+        \ldots & \ldots & \ldots & \ldots \\
+        1 & \ldots & 1 & f_{2^n}
+    \end{pmatrix}$
+    
+    Если $f_i = 1$, то берем $x_1 \land x_2 \land \overline{x_3} \ldots \land x_k$ (если $x_i = 0$, то берем $\overline{x_i}$)
+    
+    Делаем $\bigvee$ по всем $i$ таким, что $f_i = 1$
+    
+    Это конъюнктивная нормальная форма
+\end{defin}
+
+\begin{defin}{Моном}
+    $\bigwedge x_i$ -- моном
+\end{defin}
+
+\begin{defin}{Полином Жегалкина}
+    Если сделаем моном на $\oplus$, то получим полином Жегалкина
+\end{defin}
+
+\begin{theo}{}
+    Любую булеву функцию можно представить в виде полинома Жегалкина
+\end{theo}
+
+\textit{Доказательство:}
+
+$\overline{A} = A \oplus 1$
+
+$A \lor B = A \oplus B \oplus (A \land B)$
+
+$A \land B = AB$ -- это можно честно перемножить
+
+\begin{theo}{Критерий Поста}
+    Система связок полна $\Leftrightarrow$ она не входит ни в один из 5 классов:
+
+    \begin{enumerate}
+        \item Монотонные функции
+        
+        Есть функция $f$, она монотонная, если 
+        
+        $a_1 \ldots a_k \geq b_1 \ldots b_k \Leftrightarrow f(a_1 \ldots a_k) \geq f(b_1 \ldots b_k)$
+
+        \item Функции, сохраняющие 0
+        \item Функции, сохраняющие 1
+        \item Линейные функции 
+        \item Самодвойственные функции
+        
+        $f(\overline{x_1} \ldots \overline{x_k}) = \overline{f(x_1 \ldots x_k)}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+$f$ -- не сохраняет 0
+
+$f(0 \ldots 0) = 1$
+
+$f(1 \ldots 1) = \left[ \begin{gathered}
+    0 \\
+    1
+\end{gathered} \right.$
+
+$g$ -- не сохраняет 1
+
+$g(0 \ldots 0) = \left[ \begin{gathered}
+    0 \\
+    1
+\end{gathered} \right.$
+
+$g(1 \ldots 1) = 1$
+
+$h(1, 0 \ldots 0) = 0$
+
+$h(0, 0 \ldots 0) = 1$
+
+То есть даже из двух констант умеем получать отрицание
+
+$P(x_1 \ldots x_k)$ -- нелинейная
+
+НУО $P(x_1 \ldots x_k) = x_1x_2A(x_3 \ldots x_k) \oplus x_1B(x_3 \ldots x_k) \oplus x_2C(x_3 \ldots x_k) \oplus D(x_3 \ldots x_k)$
+
+Зафиксируем набор $\alpha = x_3 \ldots x_k : A(\alpha) = 1$
+
+$P(x_1, x_2, \alpha) = \begin{cases}
+    x_1x_2 \\
+    x_1x_2 \oplus x_1 \\
+    x_1x_2 \oplus x_2 \\
+    x_1x_2 \oplus x_1 \oplus x_2 \\
+    x_1x_2 \oplus 1 \\
+    x_1x_1 \oplus x_1 \oplus 1 \\
+    x_1x_2 \oplus x_2 \oplus 1 \\
+    x_1x_2 \oplus x_1 \oplus x_2 \oplus 1
+\end{cases}$
+
+А тут уже есть и $\land$, и $\lor$, значит есть полная система связок, значит доказали
+
+\begin{defin}{}
+    $C_b(f)$ -- минимальный размер схемы элементов из $B$ для вычисления $f$
+\end{defin}
+
+\begin{Remark}{}
+    $\exists \lambda$
+
+    $C_{B_1}(f) \leq \lambda C_{B_2}(f)$
+
+    $C_{B_2}(f) \leq \lambda C_{B_1}(f)$
+\end{Remark}
+
+\begin{nota}{}
+    $X = x_1 \ldots x_k$
+
+    $Y = y_1 \ldots y_k$ (НУО равны, иначе к меньше в начало докидаем нули)
+
+    Хотим функцию Compare. Какого она может быть размера?
+\end{nota}
 
 \end{document}

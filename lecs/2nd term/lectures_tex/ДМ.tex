@@ -787,4 +787,74 @@ $P(x_1, x_2, \alpha) = \begin{cases}
     Хотим функцию Compare. Какого она может быть размера?
 \end{nota}
 
+\begin{theo}{Список аксиом}
+    \begin{enumerate}
+        \item $A \to (B \to A)$
+        \item $(A \to (B \to C)) \to ((A \to B) \to (A \to C))$
+        \item $(A \land B) \to A$
+        \item $(A \land B) \to B$
+        \item $A \to (B \to (A \land B))$
+        \item $A \to (A \lor B)$
+        \item $B \to (A \lor B)$
+        \item $(A \to C) \to ((B \to C) \to ((A \lor B) \to C))$
+        \item $\neg A \to \overline{A}$
+        \item $(A \to B) \to ((A \to \neg B) \to \neg A)$
+        \item $A \lor \neg A$
+    \end{enumerate}
+\end{theo}
+
+\begin{Remark}{}
+    К этому набору аксиом (являющихся тавтологиями) добавим правило вывода -- modus ponens. Таким образом получим всю теорию исчисления высказываний
+\end{Remark}
+
+\begin{theo}{Теорема о корректности исчисления высказываний}
+    Любая теорема является тавтологией
+\end{theo}
+
+\textit{Доказательство:}
+
+Для доказательства нужно доказать, что это все действительно тавтологии + доказать правило вывода
+
+\begin{Exercise}{}
+    Доказать, что все это тавтологии
+\end{Exercise}
+
+\begin{theo}{Теорема о полноте исчисления высказываний}
+    Любая тавтология является теоремой исчисления высказываний
+\end{theo}
+
+\begin{lem}{}
+    $D$ -- некоторая формула $\Rightarrow (D \to D)$ -- теорема
+\end{lem}
+
+\begin{defin}{Вывод}
+    $\Gamma$ -- некоторое множество формул
+
+    Вывод из $\Gamma$ -- конечная последовательность формул, все они 
+
+    \begin{enumerate}
+        \item Аксиомы
+        \item Элементы $\Gamma$
+        \item Получены из предыдущих по правилу вывода
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Выводимость}
+    $\Gamma \vdash A$ -- $A$ выводима из $\Gamma$, т.е. является в ней последней формулой
+
+    Если $\Gamma = \varnothing$, то пишут просто $\vdash A$
+\end{defin}
+
+\begin{lem}{Лемма о дедукции}
+    $\Gamma \vdash A \to B \Leftrightarrow \Gamma \cup \{A\} \vdash B$
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\Gamma \cup \{A\} \vdash A \to B$
+    
+    $\Gamma \cup \{A\} \vdash A$. Тогда по MP $\Gamma \cup \{A\} \vdash B$
+\end{itemize}
+
 \end{document}

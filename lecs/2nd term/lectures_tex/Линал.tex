@@ -2436,4 +2436,253 @@ $\Rightarrow$ за несколько шагов придем к ЛНЗ сист
     \end{enumerate}
 \end{nota}
 
+НУО все $i$ различны. $\sum a_{is_i}v_i^{s_i} = 0$
+
+$\sum a_{is_i}\A^{s_i}(v_i^0) = 0$ и $s_1 = \min \{s_i\}$
+
+$\sum a_{is_i}\A^{s_1}\cdot(\A^{s_i - s_1}(v_i^0)) = 0$
+
+$\A^{s_1}(\sum a_{is_i}\A^{s_i - s_1}(v_i^0)) = 0$
+
+Распишем эту штуку: $\sum a_{is_i}\A^{s_i - s_1}(v_i^0) = a_{1s_1} \cdot v_1^0 + \sum\limits_2 a_{is_i}\A^{s_i - s_1}(v_i^0) = 0$. А теперь часть суммы (понятно какую) объявим как $(v_1^0)_{new}$
+
+Заменяем: $v_1^0 \to (v_1^0)_{new}$ (и всю его цепочку)
+
+$\A^{s_1}(v_1^0) \neq 0$, но $\A^{s_1}((v_1^0)_{new}) = 0 \Rightarrow$ первая цепочка укоротилась $\Rightarrow$ количество $\{v_i^j\}$ уменьшилось. Осталось доказать, что это все еще порождающая система
+
+Надо проверить, что $(v_i^j)_{old} \in \q{\{v_i^j\}_{new}}$
+
+$(v_i^j)_{old} = (v_i^j)_{new}$ при $i > 1$. Остается одно значение: $(v_1^0)_{old} = (v_1^0)_{new} - \sum\limits_2 a_{is_i}v_i^{s_i - s_1}$
+
+$(v_1^0)_{old} = \A^s(v_1^0) = \frac{(v_1^s)_{new} - \sum a_{i{s_i}}(v_i^{s_i - s_1 + s})_{new}}{a_{1{s_1}}}$
+
+\begin{nota}{Матричная переформулировка}
+    $A \in M_n(K);\ A^N = 0 \Rightarrow \exists C$ -- обратимая, такая что
+
+    $C^{-1}AC = \begin{pmatrix}
+        J_{k_1}(0) & 0 & \ldots & 0 \\
+        0 & J_{k_2}(0) & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & J_{k_s}(0)
+    \end{pmatrix}$
+
+    $\sum k_i = n$
+
+    $J_k(0)$ -- матрица нильпотентного оператора в базисе жордановой цепочки
+\end{nota}
+
+\begin{Remark}{Анонс}
+    $\A X = \mu X \Leftrightarrow (\A - \lambda \Id)X = (\mu - \lambda)X$
+
+    $\lambda$ -- единственное собственное число $\A$ ($\A : V \to V$ и $V$ над $\C$) $\Rightarrow \A - \lambda \Id$ единсвтенное собственное число 0 $\Rightarrow \A$ -- нильпотентна $\Rightarrow \exists$ базис из жордановых цепочек
+
+    $[\A - \lambda \Id] = \begin{pmatrix}
+        0 & 0 & \ldots & 0 \\
+        1 & 0 & \ldots & 0 \\
+        0 & 1 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 0
+    \end{pmatrix} \Rightarrow [\A] = \begin{pmatrix}
+        \lambda & 0 & \ldots & 0 & 0 & 0 & \ldots & 0 \\
+        1 & \lambda & \ldots & 0 & 0 & 0 & \ldots & 0 \\
+        0 & 1 & \ldots & 0 & 0 & 0 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \lambda & 0 & 0 & \ldots & 0 \\
+        0 & 0 & \ldots & 1 & \lambda & 0 & \ldots & 0 \\
+        0 & 0 & \ldots & 0 & 1 & \lambda & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 0 & 0 & 0 & \ldots & \lambda
+    \end{pmatrix}$
+\end{Remark}
+
+\begin{theo}{Теорема Гамильтона-Кэли}
+    $\A^n = 0$ или $(\A - \lambda \Id)^n = 0$ -- знаем что делать. Хотим: какое-нибудь тождество $\forall \A$
+
+    Матричный язык: $(A - \lambda E)^n = 0$. $\A^n - C_n^1\lambda\A^{n - 1} + C_n^2\lambda^2\A^{n - 2} - \ldots + (-1)^n\lambda^nE = 0$
+
+\begin{Remark}{}
+    Бином Ньютона ОК
+
+    Бинок НЕОК $A, B \in M_n$ -- не коммутируют, т.е. $(A + B)^2 \begin{gathered}
+        \neq A^2 + 2AB + B^2 \\
+        = A^2 + AB + BA + B^2
+    \end{gathered}$ (т.к. $AB \neq BA$)
+
+    И вообще $f(\A) \circ g(\A) = (f \circ g)(\A)$
+
+    \begin{Example}{}
+        $(\A - E)(\A - 2E) = \A \circ \A - 3\A + 2E$
+    \end{Example}
+\end{Remark}
+    $\A$ -- оператор ($A$ -- матрица). $f = \chi_A(t)$. Тогда $f(\A) = 0;\ f(A) = 0$
+
+    $\chi_A(\A) = 0$
+\end{theo}
+
+\textit{Доказательство:}
+
+Для двоичников: $\chi_A(t) = \det(\A - tE)$
+
+$\det(A - \A) = \det(0) = 0$
+
+Нормальное:
+
+\begin{Reminder}{}
+    $(A - tE)^{Adj}$ -- матрица, составленная из миноров матрицы $A - tE$ и такая, что
+
+    $(A - tE)^{Adj}(A - tE) = \det(A - tE)E = \chi_A(t)E$
+\end{Reminder}
+
+$A - tE \in M_n(K[t]);\ A \in M_n(K)$
+
+Или: $K[t] < K(t)$ -- поле дробно-рациональных функций
+
+Все формулы про $\det$ не использующие деления верны в любом коммутативном кольце
+
+С другой стороны $(A - tE)^{Adj}(A - tE) \in M_n(K[t])$
+
+$(A - tE)^{Adj}(A - tE) = (B_0 + tB_1 + t^2B_2 + \ldots + t^{n-1}B_{n-1})(A - tE) = a_0E + a_1tE + a_2t^2E + \ldots + a_nt^nE$
+
+$\begin{cases}
+    B_0A = a_0E \\
+    B_1A - B_0 = a_1E \\
+    B_2A - B_1 = a_2E \\
+    \ldots \\
+    -B_{n - 1} = a_nE
+\end{cases}$
+
+Домножим на что-то ($A^i$) так, чтобы в правой части было $a_0E + a_1A + a_2A^2 + \ldots = \chi_A(A)$
+
+В левой части будет $B_0A + (B_1A^2 - B_0A) + (B_2A^3 - B_1A^2) + \ldots + (-B_{n - 1}A^n) = 0$
+
+\begin{Example}{}
+    $n = 1$
+
+    $A = (a)$
+
+    $\chi_A(t) = a - t$ и $(a) - (a) = 0$
+
+    $n = 2$
+
+    $A = \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}$
+
+    $\chi_A(t) = \det \begin{pmatrix}
+        a - t & b \\
+        c & d - t
+    \end{pmatrix} = (a - t)(d - t) - bc = t^2 - (a + d)t + ad - bc = t^2 - \Tr(A)t + \det(A)$
+
+    Итого: $A^2 = (a + d)A - (ad - bc)E$
+\end{Example}
+
+\begin{Remark}{}
+    В общем случае $\Tr(A) = \sum a_{ii}$ -- след матрицы
+
+    $\Tr(A)$ -- минус коэффициент при $t^{n - 1}$ в $\chi_A(t)$
+
+    $\Tr(A)$ -- сумма корней $\chi_A(t)$ (сумма собственных чисел с учетом алгебраической кратности)
+\end{Remark}
+
+\begin{Reminder}{}
+    $\chi_A(A) = 0;\ \chi_A(t) = p_1^{a_1} \cdot \ldots \cdot p_k^{a_k}$ ($p_i$ -- неразложимые и $k$ -- любое)
+
+    $\chi_A(t) = (t - \lambda_1)^{a_1} \cdot \ldots \cdot (t - \lambda_k)^{a_k};\ K = \C$
+
+    $p_i \neq p_j\ (i \neq j)\ (p_i, p_j) = 1$
+\end{Reminder}
+
+\begin{defin}{Инвариантное подпространство}
+    $\A : V \to V;\ U \leq V$ -- называется инвариантным, если $\A(u) \in U\ \forall u \in U$. ($\A(U) \leq U$)
+\end{defin}
+
+\begin{Remark}{}
+    $\A$ задает новый оператор $\A|_U : U \to U$
+\end{Remark}
+
+\begin{lem}{}
+    \begin{enumerate}
+        \item $\A : V \to V;\ U$ -- инвариантное подпространство
+
+        $v_1, v_2 \ldots v_k \ldots v_n$ -- базис $V$ (префикс до $k$ -- базис $U$)
+
+        $[\A] = \begin{pmatrix}
+            [\A|_U] & B \\
+            0 & C
+        \end{pmatrix}$
+
+        \item Если $U = \q{v_{k + 1} \ldots v_n}$ -- инвариантное подпространство, то
+        
+        $[\A] = \begin{pmatrix}
+            [\A|_U] & 0 \\
+            0 & [\A|_U]
+        \end{pmatrix}$
+    \end{enumerate}
+\end{lem}
+
+\textit{Доказательство:}
+
+Очев: $i$-ый столбец $[\A]$ ($i \leq k$)
+
+$\A(v_i) \in U = \q{v_1 \ldots v_k};\ \A(v_i) = a_1v_1 + \ldots + a_kv_k + 0 \cdot \ldots$
+
+Пункт б аналогично (смотрим $\A(v_i); i > k$)
+
+\begin{Remark}{}
+    $v_1 \ldots v_{k_1}, v_{k_1 + 1} \ldots v_{k_2}, \ldots$ -- базис $V$
+
+    И каждый блок $\forall i\ \q{v_{k_i} + 1} \ldots v_{k_{i + 1}}$ -- инвариантное подпространство
+
+    $[\A] = \begin{pmatrix}
+        \A_1 & 0 & \ldots & 0 \\
+        0 & \A_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \A_l 
+    \end{pmatrix}$
+
+    Крайний случай: все $v_i$ -- одномерны $\Rightarrow$ базис из собственных векторов, т.е. блоки размером $1 \times 1$
+\end{Remark}
+
+\begin{Example}{}
+    $V \leq V;\ \{0\}$ -- инвариантное подпространство
+
+    $\q{v}$ -- инвариантно $\Leftrightarrow v$ -- собственный вектор
+
+    $\forall \lambda\ v_\lambda = \{v \in V : \A(v) = \lambda v\}$ -- собственное подпространство, соответствующее $\lambda$ -- инвариантно 
+
+    При $\lambda = 0$ -- ядро $\A$
+
+    $\Im \A$ -- очевидно инвариантно
+\end{Example}
+
+\begin{Reminder}{}
+    $V$ -- векторное пространство над $K$. $V_1 \ldots V_k \leq V$
+
+    $V_1 \oplus V_2 \oplus \ldots \oplus V_k \to V$
+
+    $(V_1 \ldots V_k) \mapsto V_1 + \ldots + V_k$
+\end{Reminder}
+
+\begin{theo}{}
+    Следующие условия равносильны:
+
+    \begin{enumerate}
+        \item $F$ -- изоморфизм векторных пространств 
+        \item $V = V_1 + \ldots + V_k$ и $V_i \cap (V_1 + \ldots + V_{i - 1} + V_{i + 1} + \ldots + V_k) = \{0\}\ \forall i$
+    \end{enumerate}
+
+    В этом случае говорят, что $V$ -- внутренняя прямая сумма своих подпространств
+\end{theo}
+
+\textit{Доказательство:}
+
+$F$ -- сюръективно $\Leftrightarrow (1)$ по определению
+
+$F$ -- инъективно $\Leftrightarrow (2)$ чуть менее прямо но тоже в общем совершенно понятно
+
+$F$ -- не инъективно $\Leftrightarrow \Ker F \neq \{0\} \Leftrightarrow \exists (v_1 \ldots v_k) \neq (0 \ldots 0)$
+
+$F(v_1 \ldots v_k) = 0 \Leftrightarrow v_k = -\sum\limits_{i \neq k} v_i$, т.е. $v_k \cap (v_1 \ldots ) \neq \{0\}$
+
 \end{document}

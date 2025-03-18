@@ -62,10 +62,10 @@
 \newtcolorbox[auto counter,number within=section]{propos}[2][]{colback=purple!5!white,colframe=purple!60!black,fonttitle=\bfseries, title=Proposition \thetcbcounter. #2,#1}
 \newtcolorbox[auto counter,number within=section]{Remark}[2][]{colback=violet!5!white,colframe=violet!50!black,fonttitle=\bfseries, title=Remark \thetcbcounter. #2,#1}
 \newtcolorbox[auto counter,number within=section]{Exercise}[2][]{colback=cyan!5!white,colframe=cyan!60!black,fonttitle=\bfseries, title=Exercise \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{Reminder}[2][]{colback=yellow!5!white,colframe=yellow!50!black,fonttitle=\bfseries,title=Reminder \thetcbcounter. #2,#1}
 \newtheorem* {corollary}{Corollary}
 \newtheorem* {example}{Example}
 \newtheorem* {remark}{Remark}
-\newtheorem* {reminder}{Reminder}
 \newtheorem* {exercise}{Exercise}
 
 
@@ -172,6 +172,7 @@
 \newtcolorbox[auto counter,number within=section]{Example}[2][]{colback=magenta!5!white,colframe=magenta!59.9!black,fonttitle=\bfseries, title=Example \thetcbcounter. #2,#1}
 \DeclareMathOperator{\Cl}{Cl}
 \newcommand{\parl}[1]{|| #1 ||}
+\newcommand{\pparl}[1]{||| #1 |||}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Id}{Id}
@@ -180,3 +181,4 @@
   \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
 }
 \newcommand{\q}[1]{\langle #1 \rangle}
+\DeclareMathOperator{\Tr}{Tr}

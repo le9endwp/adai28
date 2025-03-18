@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741177143.10786 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1741177145.63658 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1741177142.87022 129407 bde47eeb70f30833fc2b6f9cffa4b5c6 ""
+["pdflatex"] 1741781861.85911 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1741781864.57786 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1741781861.58623 142789 e593cebcb24e6dee90f0ed3560de426f ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -290,11 +290,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1741173220.06285 6477 7b41ecc7586346aa72b8a59cfd8d28d0 ""
-  "Матан.aux" 1741177145.46488 2011 28343f1aaba2eb4e7415f315309f593b "pdflatex"
-  "Матан.out" 1741177145.46595 2987 debc1e9cd3c594697342d10d7f4d4c1e "pdflatex"
-  "Матан.tex" 1741177142.87022 129407 bde47eeb70f30833fc2b6f9cffa4b5c6 ""
-  "Матан.toc" 1741177145.46633 1318 f235a3daeb9c0889eb600fd4dde0de1a "pdflatex"
+  "config.sty" 1741774990.77999 6513 1869dda7180dd0d5e6f7e65fa534dff7 ""
+  "Матан.aux" 1741781864.43675 2149 1b2c153506475dbe1f15bae6d74987e6 "pdflatex"
+  "Матан.out" 1741781864.43807 3167 d07c8a529f9469ddde5b1414ddebaeaa "pdflatex"
+  "Матан.tex" 1741781861.58623 142789 e593cebcb24e6dee90f0ed3560de426f ""
+  "Матан.toc" 1741781864.43853 1414 70ac3563bd94f168847b4119d3f860d8 "pdflatex"
   (generated)
   "Матан.aux"
   "Матан.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  5 MAR 2025 15:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  12 MAR 2025 15:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1174,27 +1174,32 @@ Overfull \hbox (13.32129pt too wide) in paragraph at lines 2153--2154
 []$\OML/cmm/m/it/12 K \OMS/cmsy/m/n/12 ^^Z [] \OML/cmm/m/it/12 B[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$ \T2A/cmr/m/n/12 -- от-кры-тое по-кры-тие. Вы-бе-рем ко-неч-ное под-по-кры-тие $\OML/cmm/m/it/12 K \OMS/cmsy/m/n/12 ^^Z [] \OML/cmm/m/it/12 B[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )$ 
  []
 
-[40] [41] [42] [43] [44] [45] [46] (./РњР°С‚Р°РЅ.aux)
+[40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
+Overfull \hbox (34.4884pt too wide) in paragraph at lines 2713--2714
+[]$[] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 ^^T [] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) + \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 )) + \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) + [] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ))$ 
+ []
+
+[50] [51] (./РњР°С‚Р°РЅ.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `РњР°С‚Р°РЅ.out' has not changed.
-(rerunfilecheck)             Checksum: DEBC1E9CD3C594697342D10D7F4D4C1E;2987.
+(rerunfilecheck)             Checksum: D07C8A529F9469DDDE5B1414DDEBAEAA;3167.
  ) 
 Here is how much of TeX's memory you used:
- 44534 strings out of 474116
- 1036337 string characters out of 5743681
+ 44603 strings out of 474116
+ 1037404 string characters out of 5743681
  1961187 words of memory out of 5000000
- 65666 multiletter control sequences out of 15000+600000
+ 65695 multiletter control sequences out of 15000+600000
  571054 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,16n,115p,836b,1186s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on РњР°С‚Р°РЅ.pdf (46 pages, 452695 bytes).
+Output written on РњР°С‚Р°РЅ.pdf (51 pages, 478182 bytes).
 PDF statistics:
- 941 PDF objects out of 1000 (max. 8388607)
- 823 compressed objects within 9 object streams
- 498 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1009 PDF objects out of 1200 (max. 8388607)
+ 886 compressed objects within 9 object streams
+ 538 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 

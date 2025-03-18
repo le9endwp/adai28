@@ -2510,4 +2510,286 @@ $f : K \to Y;\ K$ -- компакт. $f$ непрерывна во всех то
     $\forall n\ b - \frac{1}{n}$ -- не верхняя граница $\Rightarrow \exists x_n \in K : b > f(x_n) > b - \frac{1}{n} \Rightarrow \lim f(x_n) = b \Rightarrow \\ \Rightarrow f(x_{n_k}) \to f(x_n) = b$
 \end{enumerate}
 
+\begin{theo}{}
+    $f : X \to Y;\ (X, \rho_X)$ и $(Y, \rho_Y)$ -- метрические пространства
+
+    $f$ -- непрерывная биекция и $X$ -- компакт $\Rightarrow f^{-1} : Y \to X$ -- непрерывна
+\end{theo}
+
+\textit{Доказательство:}
+
+$g := f^{-1}$. Надо доказать для $g$, что прообраз открытого -- открытое
+
+Берем $U$ -- открытое $\subset X$. $g^{-1}(U) = f(U)$ 
+
+$X \setminus U$ -- замкнутое подмножество компакта $X \Rightarrow X \setminus U$ -- компакт $\Rightarrow f(X \setminus U)$ -- компакт $\Rightarrow f(X \setminus U)$ -- замкнутое $\Rightarrow Y \setminus f(X \setminus U)$ -- открытое, а это $f(U)$
+
+\begin{defin}{Равномерная непрерывность отображений}
+    $f : E \to Y;\ E \subset X;\ (X, \rho_X)$ и $(Y, \rho_Y)$ -- метрические пространства
+
+    $f$ равномерно непрерывная, если 
+    
+    $\forall \varepsilon > 0\ \exists \delta > 0 : \forall x, y \in E\ \rho_X(x, y) < \delta \Rightarrow \rho_Y(f(x), f(y)) < \varepsilon$
+\end{defin}
+
+\begin{theo}{Теорема Кантора}
+    $f : K \to Y$ -- непрерывна, $K$ -- компакт $\Rightarrow f$ равномерно непрерывна
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+Фиксируем $\varepsilon > 0$. Возьмем $x \in K$, $f$ непрерывна в точке $x \Rightarrow \exists r_x : f(B_{r_x}(x)) \subset B_{\frac{\varepsilon}{2}}(f(x))$
+
+$K \subset \bigcup\limits_{x \in K} B_{r_x}(x)$ -- покрытие $K$ открытыми множествами
+
+Берем $\delta > 0$ из леммы Лебега. Любой шарик $B_{\delta}(a)$ целиком содержится в каком-то элементе покрытия
+
+Покажем, что это $\delta$ подходит. Пусть $x, y \in K : \rho_X(x, y) < \delta \Rightarrow x \in B_\delta(y) \subset B_{r_a}(a)$ (какой-то элемент покрытия) $\Rightarrow f(x), f(y) \in f(B_\delta(y)) \subset f(B_{r_a}(a)) \subset B_{\frac{\varepsilon}{2}}(f(a))$
+
+$\rho_Y(f(x), f(y)) \leq \rho_Y(f(x), f(a)) + \rho_Y(f(a), f(y)) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+
+\begin{Exercise}{}
+    Модифицировать старое доказательство теоремы Кантора на случай отображений
+\end{Exercise}
+
+\begin{defin}{}
+    $X$ -- векторное пространство и $\parl{\cdot}$ и $\pparl{\cdot}$ -- нормы в $X$
+
+    Эти нормы эквивалентны, если $\exists c_1$ и $c_2 > 0 : c_1 \parl{x} \leq \pparl{x} \leq c_2 \parl{x}\ \forall x \in X$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Это отношение эквивалентности
+        \item Если $\parl{\cdot}$ и $\pparl{\cdot}$ эквивалентны, то $x_n \to a$ в смысле $\parl{\cdot}$ и в смысле $\pparl{\cdot}$ одно и то же
+        \item Предельные точки в смысле $\parl{\cdot}$ и $\pparl{\cdot}$ совпадают
+        \item Замкнутые и открытые множества в смысле $\parl{\cdot}$ и $\pparl{\cdot}$ совпадают
+        \item Непрерывность в смысле $\parl{\cdot}$ и $\pparl{\cdot}$ совпадает
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    В $\R^d$ все нормы эквивалентны
+\end{theo}
+
+\textit{Доказательство:}
+
+Достаточно доказать, что любая норма эквивалентна $\parl{x} = \sqrt{x_1^2 + \ldots + x_d^2}$
+
+$p : \R^d \to \R$ -- норма
+
+$p(x) = p(\sum\limits_{k = 1}^d x_ke_k)$ ($e_k$ -- стандартный базис)
+
+$p(\sum\limits_{k = 1}^d x_ke_k) \leq \sum\limits_{k = 1}^d p(x_ke_k) = \sum\limits_{k = 1}^d |x_k|p(e_k) \leq (\sum\limits_{k = 1}^d |x_k|^2)^\frac{1}{2}(\sum\limits_{k = 1}^d p(e_k)^2)^\frac{1}{2}$. Первое это $\parl{x}$, второе -- какая-то константа $c_2$
+
+$|p(x) - p(y)| \leq p(x - y) \leq c_2 \parl{x - y} \Rightarrow p$ -- непрерывна
+
+$S := \{x \in \R^d : \parl{x} = 1\}$ -- компакт
+
+По теореме Вейерштрасса $\exists a \in S : 0 < p(a) \leq p(x)\ \forall x \in S$. Зададим $c_1 := p(a)$
+
+$p(x) = p(\frac{x}{\parl{x}} \cdot \parl{x}) = \parl{x} \cdot p(\frac{x}{\parl{x}})$. Аргумент $\frac{x}{\parl{x}} \in S \Rightarrow \parl{x} \cdot p(\frac{x}{\parl{x}}) \geq \parl{x} \cdot p(a)$
+
+\newpage
+
+\subsection{\S 5. Длина кривой}
+
+\begin{defin}{Путь}
+    $\gamma : [a, b] \to \R^d$ (или даже в $X$ -- метрическое пространство) -- непрерывная
+
+    Тогда $\gamma$ -- путь
+
+    Начало пути $\gamma(a)$, конец пути $\gamma(b)$
+\end{defin}
+
+\begin{defin}{Замкнутые путь}
+    Путь замкнутый, если $\gamma(a) = \gamma(b)$
+\end{defin}
+
+\begin{defin}{Простой (несамопересекающийся путь)}
+    Путь простое, если $\gamma(x) \neq \gamma(y)$ если $\forall x \neq y$ за исключением $\gamma(a) = \gamma(b)$
+\end{defin}
+
+\begin{defin}{Носители пути}
+    Носитель пути -- $\gamma([a, b])$
+\end{defin}
+
+\begin{defin}{Линейно связное множество}
+    $A \subset X$ -- линейно связное, если 
+
+    $\forall p, q \in A$ существует путь в $A$ с началом в $p$ и концом в $q$    
+\end{defin}
+
+\begin{theo}{Теорема Больцано-Коши}
+    $A$ -- линейно связное, $f : A \to \R$ -- непрерывная
+
+    $p, q \in A$. Тогда $f$ принимает все значения между $f(p)$ и $f(q)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A$ -- линейно связное $\Rightarrow \exists \gamma : [a, b] \to A : \gamma(a) = p, \gamma(b) = q$
+
+$f \circ \gamma : [a, b] \to \R$ непрерывна и $f(p) = f \circ \gamma(a);\ f(q) = f \circ \gamma(b)$
+
+\begin{defin}{Противоположный путь}
+    $\gamma : [a, b] \to X$
+
+    $\gamma^{-1}: [a, b] \to X$ и $\gamma^{-1}(t) := \gamma(a + b - t)$
+
+    Начало $\gamma^{-1}$ -- конец $\gamma$
+
+    Конец $\gamma^{-1}$ -- начало $\gamma$
+\end{defin}
+
+\begin{defin}{Эквивалентные пути}
+    $\gamma : [a. b] \to X$ и $\tilde{\gamma} : [c, d] \to X$
+
+    Найдется $\tau : [c, d] \to [a, b]$ -- строго возрастающая биекция (и непрерывна), такое что $\tilde{\gamma} = \gamma \circ \tau$ 
+\end{defin}
+
+\begin{defin}{Кривая}
+    Кривая -- класс эквивалентности путей
+
+    Параметризация кривой -- выбор конкретного представителя класса эквивалентности
+\end{defin}
+
+\begin{defin}{Гладкий путь}
+    $\gamma : [a, b] \to \R^d$ -- гладкий путь, если $\gamma = \begin{pmatrix}
+        \gamma_1 \\
+        \vdots \\
+        \gamma_d 
+    \end{pmatrix}$ и $\gamma_1 \ldots \gamma_d$ -- непрерывные дифференцируемые 
+\end{defin}
+
+\begin{defin}{Гладкая кривая}
+    Кривая гладкая, если у нее есть гладкая параметризация
+\end{defin}
+
+\begin{Remark}{}
+    Начало, конец кривой определяет и носитель тоже
+\end{Remark}
+
+\begin{defin}{Длина пути}
+    $\gamma : [a, b] \to X$
+
+    Берем дробление $[a, b] : t_0 = a, t_1, t_2 \ldots t_n = b$
+
+    $l(\gamma) := \sup \{ \sum\limits_{k = 1}^n \rho(\gamma(t_k), \gamma(t_{k - 1})) \}$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $l(\gamma) \geq \rho(\gamma(a), \gamma(b))$
+        \item Длина пути $\geq$ длины вписанной в него ломаной
+        \item Длины эквивалентных путей равны 
+        \item $l(\gamma) = l(\gamma^{-1})$
+    \end{enumerate}
+\end{theo}
+
+\begin{defin}{Длина кривой}
+    Длина кривой -- длина любого из путей ее класса эквивалентности 
+\end{defin}
+
+\begin{theo}{Единственность длины пути}
+    $\gamma : [a, b] \to X$. Тогда $l(\gamma) = l(\gamma|_{[a, c]}) + l(\gamma|_{[c, b]})$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[<<$\geq$>>] $l(\gamma) \geq \sum\limits_{j = 1}^m \rho(\gamma(t_j), \gamma(t_{j - 1})) + \sum\limits_{k = 1}^n \rho(\gamma(u_k), \gamma(u_{k - 1}))$
+    
+    Зафиксируем $t$-шки и перейдем к $\sup$ по $u$-шкам
+
+    $l(\gamma) \geq \sum\limits_{j = 1}^m \rho(\gamma(t_j), \gamma(t_{j - 1})) + \sup \{ \sum\limits_{k = 1}^n \rho(\gamma(u_k), \gamma(u_{k - 1})) \}$. Зададим супремум как $l(\gamma|_{[c, b]})$
+
+    $l(\gamma) \geq \sup \{ \sum \rho(\gamma(t_j), \gamma(t_{j - 1})) \} + l(\gamma|_{[c, b]})$. Зададим супрмум как $l(\gamma|_{[a, c]})$
+
+    \newpage
+
+    \item[<<$\leq$>>] $\sum\limits_{k = 1}^n \rho(\gamma(t_k), \gamma(t_{k - 1})) \leq \sum\limits_{k = 1}^m \rho(\gamma(t_k), \gamma(t_{k - 1})) + \rho(\gamma(t_m), \gamma(c)) + \rho(\gamma(c), \gamma(t_{m + 1})) + \sum\limits_{k = m + 1}^n \rho(\gamma(t_k), \gamma(t_{k - 1}))$
+    
+    Первые два слагаемых $\leq l(\gamma|_{[a, c]})$, вторые два $\leq l(\gamma|_{[c, b]})$
+
+    $\sum\limits_{k = 1}^n \rho(\gamma(t_k), \gamma(t_{k - 1})) \leq l(\gamma|_{[a, c]}) + l(\gamma|_{[c, b]})$
+
+    Осталось перейти к $\sup$ и получим $l(\gamma) \leq l(\gamma|_{[a, c]}) + l(\gamma|_{[c, b]})$
+\end{itemize}
+
+\begin{theo}{Длина гладкого пути}
+    $\gamma : [a, b] \to \R^d$
+
+    Тогда $l(\gamma) = \int\limits_a^b \parl{\gamma'(t)}dt = \int\limits_a^b \sqrt{\gamma_1'(t)^2 + \ldots + \gamma_d'(t)^2}dt$
+\end{theo}
+
+\begin{lem}{}
+    $\Delta \subset [a, b]$ -- отрезок
+
+    $m_\Delta^{(k)} := \min\limits_{t \in \Delta} |\gamma_k'(t)|$
+
+    $M_\Delta^{(k)} := \max\limits{t \in \Delta} |\gamma_k'(t)|$
+
+    $m_\Delta := (\sum\limits_{k = 1}^d(m_\Delta^{(k)})^2)^\frac{1}{2}$
+
+    $M_\Delta := (\sum\limits_{k = 1}^d(M_\Delta^{(k)})^2)^\frac{1}{2}$
+
+    Тогда $m_\Delta \cdot l(\Delta) \leq l(\gamma|_\Delta) \leq M_\Delta \cdot l(\Delta)$
+\end{lem}
+
+\textit{Доказательство:}
+
+Рассмотрим дробление $\Delta$ $t_0 < t_1 < \ldots < t_n$ и $a_j$ -- длина $j$-го звена ломаной по этому дроблению
+
+$a_j^2 = (\gamma_1(t_j) - \gamma_1(t_{j - 1}))^2 + \ldots + (\gamma_d(t_j) - \gamma_d(t_{j - 1}))^2$
+
+Каждую скобочку зададим как $\gamma_i(\xi_{ij})(t_j - t_{j - 1})$, где $\xi_{1i} \in [t_{j - 1}, t_j]$
+
+$a_j^2 \leq (|\gamma'_1(\xi_{1j})|^2 + \ldots + |\gamma_d'(\xi_{dj})|^2)(t_j - t_{j - 1})^2$
+
+Но каждый модуль $\leq (M_\Delta^{(i)})^2$
+
+Тогда $a_j^2 \leq (M_\Delta)^2(t_j - t_{j - 1})^2$
+
+Аналогично снизу и извлекаем корень
+
+$m_\Delta(t_j - t_{j - 1}) \leq a_j \leq M_\Delta(t_j - t_{j - 1})$
+
+И просуммируем по $j$ от 1 до $n$
+
+$m_\Delta(t_n - t_0) \leq \sum\limits_{j = 1}^n a_j \leq M_\Delta(t_n - t_0)$
+
+А еще $t_n - t_0 = l(\Delta)$
+
+\textit{Доказательство теоремы 2.43:}
+
+$M_{[t_{k - 1}, t_k]} =: M_k$ и аналогично с $m$
+
+$l(\gamma) = l(\gamma|_{[t_0, t_1]}) + \ldots + l(\gamma|_{[t_{n - 1}, t_n]})$
+
+Но для каждой такой штуки мы знаем оценку снизу и сверху ($m_i(t_i - t_{i - 1})$ и $M_i(t_i - t_{i - 1})$ соответственно)
+
+$\int\limits_a^b \parl{\gamma'} = \int\limits_{t_0}^{t_1} + \ldots + \int\limits_{t_{n - 1}}^{t_n}$
+
+$m_k(t_k - t_{k - 1}) \leq \int\limits_{t_{k - 1}}^{t_k} \parl{\gamma'(t)}dt \leq M_k(t_k - t_{k - 1})$
+
+$\sum\limits_{k = 1}^n m_k(t_k - t_{k - 1}) \leq \left[ \begin{gathered}
+    l(\gamma) \\
+    \int\limits_a^b \parl{\gamma'}
+\end{gathered} \right] \leq \sum\limits_{k = 1}^n M_k(t_k - t_{k - 1})$
+
+Докажем, что $\sum\limits_{k = 1}^m (M_k - m_k)(t_k - t_{k - 1}) \to 0$ если мелкость $\to 0$
+
+$M_k - m_k = (\sum\limits_{j = 1}^d (M^{(j)}_{[t_{k - 1}, t_k]})^2)^\frac{1}{2} - (\sum\limits_{j = 1}^d (m^{(j)}_{[t_{k - 1}, t_k]})^2)^\frac{1}{2} \leq (\sum\limits_{j = 1}^d (M^{(j)}_{[t_{k - 1}, t_k]} - m^{(j)}_{[t_{k - 1}, t_k]})^2)^\frac{1}{2}$
+
+$I \leq \sum\limits_{k = 1}^n (\sum\limits_{j = 1}^d (M^{(j)}_{[t_{k - 1}, t_k]} - m^{(j)}_{[t_{k - 1}, t_k]})^2)^\frac{1}{2}(t_k - t_{k - 1})$
+
+Зададим $M := |\gamma_j'(\eta_{jk})|$ и $m := |\gamma_j'(\zeta_{jk})|$
+
+$|\gamma_j'(\eta_{jk}) - \gamma_j'(\zeta_{jk})| \leq \omega_{\gamma_j'}(|\tau|)$
+
+Тогда та штука сверху $\leq \sum\limits_{k = 1}^n(\sum\limits_{j = 1}^d \omega^2_{\gamma_j'}(|\tau|))^\frac{1}{2}(t_k - t_{k - 1}) = (b - a) (\sum\limits_{j = 1}^d \omega^2_{\gamma_j'}(|\tau|))^\frac{1}{2} \leq \omega_{\gamma_j'}(|\tau|)$
+
 \end{document}

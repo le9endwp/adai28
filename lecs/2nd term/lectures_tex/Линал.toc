@@ -6,3 +6,9 @@
 \contentsline {section}{\numberline {5}Явные формулы линнейной алгебры}{23}{section.5}%
 \contentsline {section}{\numberline {6}Операторы}{31}{section.6}%
 \contentsline {section}{\numberline {7}Нильпотентные операторы}{36}{section.7}%
+\contentsline {section}{\numberline {8}Операторы над произвольными полями}{41}{section.8}%
+\contentsline {section}{\numberline {9}Геометрия в векторных пространствах}{42}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Евклидовы и унитарные пространства}{44}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Операторы в еклидовых и унитарных пространствах}{46}{section.10}%
+\contentsline {section}{\numberline {11}Самосопряженные оператора и квадратичные формы}{49}{section.11}%
+\contentsline {section}{\numberline {12}Ортогональные и унитарные операторы}{51}{section.12}%

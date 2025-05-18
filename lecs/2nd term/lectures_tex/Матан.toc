@@ -11,3 +11,8 @@
 \contentsline {subsection}{\numberline {2.3}\S 3. Компактность}{39}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}\S 4. Непрерывные отображения}{44}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}\S 5. Длина кривой}{48}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}\S 6. Свойства равносильности сходящихся последовательностей и рядов}{57}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Разложение элементарных функций в ряд Тейлора}{58}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Глава n. Функции многих переменных}{60}{section.3}%
+\contentsline {subsection}{\numberline {3.1}\S 1. Дифференцируемые отображения}{60}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}\S 2. Непрерывная дифференцируемость}{64}{subsection.3.2}%

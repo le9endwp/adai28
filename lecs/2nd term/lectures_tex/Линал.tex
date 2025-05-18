@@ -1029,7 +1029,7 @@ $dim(U_1 + U_2) = dimU_1 + dimU_2$. Осталось понять: $dimKerA = di
 
 $KerA = \{ (u_1, u_2) | u_1 + u_2 = 0 \} = \{ (u_1, u_2) | u_1 = -u_2 \} \Rightarrow$ отображение $U_1 \cap U_2 \rightarrow KerA$ -- изоморфизм векторного пространства
 
-\textbf{TODO lec 02/03}
+\textbf{\todo lec 02/03}
 
 \begin{defin}{Канонеческий вид матрицы линейного отображения}
     $A \mapsto CAD = \begin{pmatrix}
@@ -2684,5 +2684,725 @@ $F$ -- инъективно $\Leftrightarrow (2)$ чуть менее прямо
 $F$ -- не инъективно $\Leftrightarrow \Ker F \neq \{0\} \Leftrightarrow \exists (v_1 \ldots v_k) \neq (0 \ldots 0)$
 
 $F(v_1 \ldots v_k) = 0 \Leftrightarrow v_k = -\sum\limits_{i \neq k} v_i$, т.е. $v_k \cap (v_1 \ldots ) \neq \{0\}$
+
+\todo 04/07
+
+\section{Операторы над произвольными полями}
+
+\begin{Example}{}
+    $A \in M_n(\R)\ \chi_A(t) = t^n + t^3 + t^2 + t + 1$
+
+    Выберем $\forall v_1 \in \R^4,\ v_2 = Av_1,\ v_3 = Av^2,\ v_4 = Av^3,\ v_5 = A^4v_1$
+
+    Скорее всего (если $v \in Z^4$ то точно) $v_1 \ldots v_5$ -- ЛНЗ (упражнение)
+
+    Т.к. $A^4 + A^3 + A^2 + A + E = 0 \Rightarrow v_5 = -v_4 - v_3 - v_2 - v_1$
+
+    $\begin{cases}
+        Av_1 = v_2 \\
+        Av_2 = v_3 \\
+        Av_3 = v_4 \\
+        Av_4 = - \sum v_i
+    \end{cases} \Rightarrow \tilde{A} = [A]_{\{v_i\}} = \begin{pmatrix}
+        0 & 0 & 0 & - 1 \\
+        1 & 0 & 0 & - 1 \\ 
+        0 & 1 & 0 & - 1 \\
+        0 & 0 & 1 & - 1
+    \end{pmatrix}$ -- Фробенисова форма матрицы
+\end{Example}
+
+\begin{nota}{Общий случай}
+    $\A \in Lin(V, V)$, $V$ над $K$
+
+    $v \in V$. Строим $v_1 = v, v_2 \ldots v_k$, где $Av_{i + 1} = \A(v_i)$ до тех пор пока $v_1 \ldots v_k$ -- ЛНЗ
+
+    $\Rightarrow v_{k + 1} \in \q{v_1 \ldots v_k};\ v_{k + 1} = a_1v_1 + \ldots + a_kv_k = (a_1 Id + \ldots + a_k \A^{k - 1})(v_1)$
+
+    $(\A^k - a_k\A^{k - 1} \ldots - a_1Id)v_1 = 0$
+
+    Заметим: $(\A^k - a_k\A^{k - 1} \ldots a_1Id)v_2 = (\ldots)\A(v_1) = \A((\ldots)v_1) = 0$
+
+    Аналогично для $v_3 \ldots v_k$
+\end{nota}
+
+\begin{defin}{Циклическое подпространство}
+    $_\A\q{v} = \q{v_1 \ldots v_k}$ -- циклическое подпространство, порожденное $v$ -- инвариантное подпространство (очев)
+\end{defin}
+
+\begin{defin}{Фробениусова клетка}
+    $[\A]_{v_1 \ldots v_k} = \begin{pmatrix}
+        0 & 0 & \ldots & 0 & -a_1 \\
+        1 & 0 & \ldots & 0 & -a_2 \\
+        0 & 1 & \ldots & 0 & -a_3 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \ldots & 1 & -a_k
+    \end{pmatrix}$
+
+    $\chi_A(t) = t^k - a_kt^{k - 1} - \ldots - a_2t - a_1$ 
+\end{defin}
+
+\begin{Exercise}{}
+    Знаем, что $\chi_A(\A(v_i)) = 0\ \forall i$
+
+    И для $v_1$ нет многочлена меньшей степени с тем же свойством (по построению)
+\end{Exercise}
+
+\begin{Remark}{}
+    Если $v$ выбран случайно, то скорее всего $\q{v} = V$
+\end{Remark}
+
+\begin{theo}{В общем случае верна следующая теорема}
+    $\exists$ разложение $V$ в прямую сумму циклических подпространств
+
+    $V = \q{v_1} \oplus \q{v_2} \ldots \oplus \q{v_k}$ -- многочленами
+
+    Иными словами $\forall$ оператора $\exists$ базис : $[A]$ состоит из фробениусовых клеток и $\chi_A = f_1 \ldots f_k$
+\end{theo}
+
+\section{Геометрия в векторных пространствах}
+
+\begin{defin}{Главная геометрическая операция}
+    Это скалярное произведение векторов
+\end{defin}
+
+\begin{Example}{}
+    В $\R^2$ -- $\left(\begin{pmatrix}
+        x_1 \\
+        x_2
+    \end{pmatrix}, \begin{pmatrix}
+        y_1 \\
+        y_2
+    \end{pmatrix}\right) = x_1y_1 + x_2y_2$ -- полилинейная
+\end{Example}
+
+\begin{defin}{Билинейность}
+    $V$ -- векторное пространство над $K$. Билинейная форма -- это отображение $f : V \times V \to K$, линейное по каждому аргументу
+
+    $f(ax + by, z) = af(x, z) + bf(y, z)$
+\end{defin}
+
+\begin{Example}{Билинейная форма в координатах}
+    $v_1 \ldots v_n$ -- базис $V$
+
+    $x, y \in V$. $\begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_n
+    \end{pmatrix}$ и $\begin{pmatrix}
+        y_1 \\
+        \vdots \\
+        y_n
+    \end{pmatrix}$ -- координаты $x$ и $y$ в этом базисе
+
+    $f(x, y) = f(x_1v_1 + \ldots + x_nv_n, y_1v_1 + \ldots + y_nv_n) = \sum x_if(v_i, \sum y_jv_j) = \sum f(v_i, v_j)x_iy_j = \\
+    = \sum x_ia_{ij}y_j = (x_1 \ldots x_n) \begin{pmatrix}
+        \sum a_{ij}y_j \\
+        \sum a_{ij}y_j \\
+        \vdots \\
+        \sum a_{ij}y_j
+        \end{pmatrix} = (x_1 \ldots x_n)(a_{ij})\begin{pmatrix}
+        y_1 \\
+        \vdots \\
+        y_n
+        \end{pmatrix} = x^TAy$
+\end{Example}
+
+\begin{defin}{}
+    $A = (f(v_i, v_j))$ -- называется матрицей билинейной формы (матрица Грама) $f$ относительно базиса $v_1 \ldots v_n$
+
+    $x \to Ax$ -- линейное отображение
+
+    $(x, y) \to x^TAy$ -- билинейная форма
+\end{defin}
+
+\begin{Example}{}
+    $A = E$
+
+    $f(x, y) = x_1y_1 + x_2y_2 + \ldots + x_ny_n$
+
+    Пусть $v_1 \ldots v_n$ -- старый базис и $u_1 \ldots u_n$ -- yовый $C$ -- матрица перехода $\begin{cases}
+        x \to Cx \\
+        y \to Cy
+    \end{cases}$
+
+    $f(x, y) = x^TA_{old}y = (Cx)^TA_{new}Cy = x^TC^TA_{new}Cy = x^TA_{old}y\ \forall x, y \in \R^n$
+
+    $\Rightarrow C^TA_{new}C = A_{old}$
+
+    $A \to C^TAC$ (формула замены)
+
+    $A \to C^{-1}AC$ (формула для операторов)
+\end{Example}
+
+\begin{defin}{Симметрическая билинейная форма}
+    Симметрической билинейной формой называется $f$ -- билинейная на $V$ такая, что $f(x, y) = f(y, x)$
+
+    $Byl(V, V)$ -- билинейные формы
+
+    $Sym(V, V) \subset Byl(V, V)$ -- симметрические
+\end{defin}
+
+\begin{Remark}{}
+    $Byl(V, V)$ -- векторное пространство над $V$
+
+    $Sym(V, V)$ -- подпространство $Byl(V, V)$
+\end{Remark}
+
+\begin{theo}{Утверждение}
+    $f \in Byl(V, V)$, $A_f$ -- ее матрица Грама
+
+    $f$ -- cимметричная $\Leftrightarrow f(x, y) = f(y, x) \Leftrightarrow f(v_i, v_j) = f(v_j, v_i)$ для любых базисных $\Leftrightarrow A_f = A_f^T$ -- симметрическая матрица
+
+    $A = A^T \Rightarrow x^TAy = (x^TAy)^T = y^TA^t(x^T)^T = y^TAx \Rightarrow f(x, y) = f(y, x)$
+\end{theo}
+
+\begin{Remark}{}
+    Любая квадратная матрица задает билинейную форму, любая симметричная матрица задает симметричную билинейную форму
+
+    $(x, y) \to x^TAy$ -- очев билинейно 
+\end{Remark}
+
+\begin{defin}{}
+    $f$ -- билинейная форма на $V$
+
+    $q_f$ -- ее квадратичная форма: $q_f(v) = f(v, v)$
+
+    $q_f : V \to K$
+
+    Свойства:
+
+    \begin{enumerate}
+        \item $q_f(kv) = k^2q_f(v)$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{Утверждение}
+    $f$ (симметричная) однозначно восстанавливается по $q_f$, т.е. $q_{f_1} = q_{f_2} \Rightarrow f_1 = f_2$
+
+    $2xy = (x + y)^2 - x^2 - y^2$
+\end{theo}
+
+\begin{Remark}{}
+    $char K \neq 2$
+\end{Remark}
+
+\textit{Доказательство:}
+
+Заметим, что $\forall v_1, v_2 \in V$
+
+$\frac{q_f(v_1 + v_2) - q_f(v_1) - q_f(v_2)}{2} = \frac{f(v_1 + v_2, v_1 + v_2) -f(v_1, v_1) - f(v_2, v_2)}{2} = \frac{2f(v_1, v_2)}{2} = f(v_1, v_2)$
+
+Т.е. $f$ однозначно выражается через $q_f$
+
+\subsection{Евклидовы и унитарные пространства}
+
+$K = \R$
+
+\begin{defin}{Евклидово пространство}
+    Евклидово пространство -- это пара $(V, f)$, где $V$ -- векторное пространство над $\R$ и $f$ -- симметрическая билинейная форма и $f$ -- положительно определенная
+
+    Т.е. $\forall v \in V\setminus\{0\} f(v, v) > 0$ и $q_f(v) > 0$ (и $f(0, v) = 0$)
+\end{defin}
+
+\begin{nota}{}
+    Обозначим $f(x, y) = (x, y)$
+\end{nota}
+
+\begin{defin}{Длина вектора (норма)}
+    $\parl{x} = \sqrt{(x, x)}$
+
+    $(V, \parl{\cdot})$ -- (нормированное) метрическое пространство
+
+    $d(x, y) = \parl{x - y}$ -- удовлетворяет неравенству треугольника
+
+    КБШ: $\forall x, y \in V\ |(x, y)|^2 \leq \parl{x} \cdot \parl{y}$
+
+    $\arccos{\frac{(x, y)}{\parl{x} \cdot \parl{y}}} = \angle(x, y)$ -- угол между векторами $x$ и $y$
+\end{defin}
+
+\todo 04/21
+
+\begin{nota}{Какое-то резюме прошлых пар}
+    $f((x_1 \ldots x_n), (y_1 \ldots y_n)) = \sum a_{ij}x_iy_j$ -- билинейная форма на $\R^n$ и $A = (a_{ij})$
+
+    $f((x_1 \ldots x_n), (y_1 \ldots y_n)) = \sum x_iy_i \to (a_{ij}) = E$ -- скалярное произведение (симметрично и положительно определено)
+
+    Знаем: $f$ -- симметрично положительно определено $\Rightarrow \exists$ ОНБ $\Rightarrow$ можно лом. координаты 
+
+    $(\R^n, f)$ -- евклидово пространство 
+
+    $f \to f_0; \begin{gathered}
+        x_i = \sum\limits_1^n c_{ij}x_j' \\
+        y_i = \sum\limits_1^n c_{ij}y_j'
+    \end{gathered}$
+
+    $f \to f_0 - \sum x_i'y_i'$ при этом $f$ -- симметрично положительно определено $\Leftrightarrow a_{ij} = a_{ji}$ и все угловые миноры $(a_{ij})$ -- положительны
+
+    Т.е. $\exists$ изоморфмизм $i : \R^n \to V$ векторное пространство и $f(i(x), i(y)) = f_0(x, y) = \sum x_iy_i$. Доказательство через сопоставление ОНБ 
+\end{nota}
+
+Пусть $\C^n$, хотим скалярное произведение на $\C^n$ -- примерно с теми же свойствами, в частности $v \to \parl{v} \in \R_{\geq 0}$ и $d(x, y) = \parl{x - y}$ -- метрическое пространство 
+
+$((x_1 \ldots x_n), (y_1 \ldots y_n)) = \sum x_iy_i$ -- плохо, потому что $\parl{x} = \sum x_i^2 \not\in \R_{\geq 0}$
+
+Правильная формула: $x_1 \to x_1 \cdot x_1$ -- плохо, а вот $x_1 \to \overline{x_1} \cdot x_1$ -- хорошо
+
+Тогда $((x_1 \ldots x_n), (y_1 \ldots y_n)) = \sum x_i\overline{y_i}$ -- скалярное произведение на $\C^n$
+
+\begin{defin}{Полуторалинейная форма}
+    $V$ -- векторно пространство над $\C$
+
+    $f : V \times V \to \C$ -- полуторалинейная форма, если 
+
+    \begin{enumerate}
+        \item $f(x_1 + x_2, y) = f(x_1, y) + f(x_2, y)$
+        \item $f(y, x_1 + x_2) = f(y, x_1) + f(y, x_2)$
+        \item $f(ax, y) = af(x, y)$
+        \item $f(x, ay) = \overline{a}f(x, y)$
+    \end{enumerate}
+
+    (наш пример полуторолинеен)
+\end{defin}
+
+\begin{defin}{Эрмитова форма}
+    Полуторалинейная форма называется эрмитовой, если $\forall x, y \in V\ f(x, y) = \overline{f(y, x)}$
+\end{defin}
+
+\begin{defin}{}
+    Эрмитова форма -- положительно определена, если $\forall x \neq 0\ f(x, x) \in \R_+$
+\end{defin}
+
+\begin{Remark}{}
+    $f$ -- полуторалинейная эрмитова, то $\forall x\ f(x, x) = \overline{f(x, x)} \in \R$
+\end{Remark}
+
+\begin{defin}{}
+    Унитарным пространство называется пара $(V, f)$, где $V$ -- векторное пространство над $\C$ и $f$ -- полуторалинейная эрмитова форма и положительно определена на $V$
+
+    $f$ называется скалярным произведением
+\end{defin}
+
+\begin{Example}{}
+    $V = \C^n;\ f((x_1 \ldots x_n), (y_1 \ldots y_n)) = \sum x_i\overline{y_i} \Rightarrow (V, f)$ -- унитарное пространство
+
+    $\R^n \subset \C^n$ и $f|_{\R^n}$ -- старое скалярное произведение
+\end{Example}
+
+\begin{nota}{}
+    $A = (f(v_i, v_j))$ -- матрица Грама $f$ в базисе $f_1 \ldots f_n$
+
+    $f(x, y) = X^TAY;\ X, \overline{Y}$ -- координатры $x, y$ в $(v_1 \ldots v_n)$ (доказательство -- упр)
+
+    При замене базиса $A \to C^TA\overline{C}$
+
+    $V$ -- унитарное пространство. $\parl{v} = \sqrt{(v, v)}$ -- норма. $d(u, v) = \parl{u - v}$ -- метрика (ничего не меняется)
+
+    Уточнение: $\cos\varphi = \frac{(x, y)}{\parl{x}\parl{y}}$. Можно доказать КБШ 
+
+    $\angle(x, y) \in [0, \frac{\pi}{2}]$ -- угол между прямыми и $\angle(x, y) = \arccos|{\frac{(x, y)}{\parl{x}\parl{y}}}|$
+
+    Ортогональность, ОНБ -- определяется как раньше
+
+    Ортогонализация Грама-Шмидта -- как раньше $\to$ в любом унитарно $V\ \exists$ ОНБ $e_1 \ldots e_n$ 
+
+    В координатах $(e_1 \ldots e_n)\ V = (\C^n;\ f_0);\ f_0$ -- стандартное произведение 
+
+    Теорема об ортогональных дополнениях сохраняется 
+\end{nota}
+
+\section{Операторы в еклидовых и унитарных пространствах}
+
+\begin{defin}{Отображение}
+    $\A : U \to V$ -- линейное отображение. $U, V$ -- евклидовы или унитарные пространства
+
+    $\B : V \to U$ -- называется сопряженным к $\A$, если $\forall u \in U, v \in V\ (\A(u), v) = (u, \B(v))$
+\end{defin}
+
+Существование и единственность: 
+
+$u_1 \ldots u_n$ и $v_1 \ldots v_m$ -- ОНБ в $U$ и $V$
+
+$\B$ -- сопряженное к $\A$:
+
+$\forall i \in 1 \ldots n,\ j \in 1 \ldots m\ (\A u_i, v_j) = (u_i, \B v_j)$
+
+$(\sum a_{ki}v_k, v_j) = (u_i, \sum b_{lj}u_l)$
+
+$a_{ji} = \overline{b_{ij}}$ (т.к. ортогональность + нормированность)
+
+Получается $A^T = \overline{B}$ ($B = \overline{A^T} \Rightarrow$ единственность)
+
+Существование: 
+
+$B = \overline{A^T} \Rightarrow (\A u_i, v_j) = (u_i, \B v_j) \Rightarrow (\A(\sum a_iu_i), \sum b_jv_j) = \sum a_i\overline{b_j}(\A(u_j), v_j) = \sum a_i\overline{b_j}(u_i, V b_j) = (\sum a_iv_i, \B(\sum b_jv_j))$
+
+Обозначим $\B = \A^*$
+
+$\A \in End(V, V)$
+
+$\A : V \to V$ -- линейный
+
+$\A^* : V \to V$ -- линейный 
+
+$A$ -- матрица $\A$ в ОНБ $\Rightarrow \overline{A^T}$ -- матрица $\A^*$ в ОНБ
+
+\begin{theo}{Свойства сопряженного оператора}
+    \begin{enumerate}
+        \item $0^* = 0$
+        \item $Id^* = Id$
+        \item $(A + B)^* = A^* + B^*$
+        \item $(\lambda A)^* = \overline{\lambda}A^*$
+        \item $A^{**} = A$
+    \end{enumerate}
+\end{theo}
+
+\begin{Exercise}{}
+    Как выглядит формула для $[\A^*]$ в произвольном базисе?
+\end{Exercise}
+
+\begin{defin}{Самосопряженные операторы}
+    Оператор $\A$ называется самосопряженным, если $\A = \A^*$
+
+    В матрицах: 
+    
+    \begin{itemize}
+        \item $V$ -- евклидово (ОНБ). $A = A^T$ -- симметрическая матрица
+        \item $V$ -- унитарное. $A = \overline{A^T}$ ($\overline{A} = A^T$) -- эрмитова матрица
+    \end{itemize} 
+\end{defin}
+
+\begin{Remark}{}
+    $A$ -- эрмитова -- матрица Грама эрмитовой формы
+\end{Remark}
+
+\begin{Remark}{}
+    $V$ -- евклидово пространство $(\ , \ )$ -- стандартное скалярное произведение 
+
+    $A$ -- матрица Грама в ОНБ (отн стандартного) другого скалярного произведения $f(\ , \ )$
+
+    Тогда $f(x, y) = (Ax, y)$ (упражнение)
+\end{Remark}
+
+\begin{lem}{}
+    \begin{enumerate}
+        \item $V$ -- унитарна, $\A = \A^* \Rightarrow$ собственные числа $\A$ вещественны
+        \item $V$ -- евклидово, $\A = \A^* \Rightarrow$ $\chi_\A(t) = \prod(t - \lambda)\ \lambda_i \in \R$
+    \end{enumerate}
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\lambda$ -- собственное число ($v \neq 0$ -- собственные вектор $\lambda$)
+    
+    $(\A v, v) = (v, \A^* v)$
+
+    $(\A v, v) = (\lambda v, v) = (v, \lambda v)$
+
+    $\lambda(v, v) = \overline{\lambda}(v, v) \Rightarrow \lambda = \overline{\lambda} \Rightarrow \lambda \in \R$
+
+    \item $\A = \A^*$
+    
+    $A = A^T$ в $M_n(\R)$
+
+    $A = \overline{A^T}$ в $M_n(\C)$ -- матрица самосопряженного оператора $\Rightarrow$ все собственные числа вещественные корни $\chi_\A(t) \in \R$
+\end{enumerate}
+
+\begin{lem}{}
+    $\A = \A^*;\ \A : V \to V$ и $U \leq V$ -- инвариантное подпространство 
+
+    $\Rightarrow U^\perp$ -- инвариантное подпространство 
+\end{lem}
+
+\textit{Доказательство:}
+
+$v \in U^\perp$. ?$\A(v) \in U^\perp$
+
+$\forall u \in U\ (\A(v), u) = (v, \A u) = 0 \Rightarrow \A(v) \in U^\perp$
+
+\begin{theo}{}
+    $V$ -- евклидово/унитарное пространство. $\A : V \to V$ -- линейный 
+
+    $\A = \A^* \Leftrightarrow$ у $\A$ есть ОНБ из собственных векторов с вещественными собственными числами 
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Leftarrow$] $e_1 \ldots e_n$ -- такой базис 
+    
+    в ОНБ $[\A] = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_n
+    \end{pmatrix} = A$
+
+    $A = \overline{A^T} \Rightarrow \A = \A^*$
+
+    \item[$\Rightarrow$] Индукция по $\dim V$
+    
+    $n \to n + 1$
+
+    $\A = \A^* \Rightarrow \exists \lambda \in \R$ собственное число $\Rightarrow \exists v_{n + 1} \neq 0 : \A v_{n + 1} = \lambda v_{n + 1}$. $U = \q{v_{n + 1}}$ -- инвариантно 
+
+    По лемме $U^\perp$ -- инвариантное подпространство, т.е. $\A|_{U^\perp} : U^\perp \to U^\perp$ и $\A|_{U^\perp}$ -- самосопряженный $\Rightarrow \exists$ ОНБ $v_1 \ldots v_n$ (по ИП)
+
+    $\A v_i = \lambda_i v_i,\ \forall i = 1 \ldots n$. $\tilde{v_{n + 1}} := \frac{v_{n + 1}}{\parl{v_{n + 1}}}$
+
+    $\A v_{n + 1} = \lambda_n v_{n + 1} = \lambda_{n + 1} v_{n + 1}$
+
+    $\lambda_{n + 1} \perp v_1 \ldots v_n$, т.к. $\q{v_1 \ldots v_n} = (\q{v_{n + 1}})^\perp$
+\end{itemize}
+
+\begin{theo}{Следствие}
+    Собственные вектора самосопряженного оператора, соответствующие различным собственным числам, ортогональны 
+\end{theo}
+
+\begin{Exercise}{}
+    Доказать (ясно)
+
+    Напрямую
+\end{Exercise}
+
+\begin{nota}{Геометрическая формулировка}
+    Самосопряженный оператор -- композиция растяжений пространства в нескольких попарно перпендикулярных направлениях
+
+    Все вектора ОНБ переходят в себя, один из них $e_i \to \lambda_i e_i$
+\end{nota}
+
+\newpage
+
+\section{Самосопряженные оператора и квадратичные формы}
+
+\begin{defin}{}
+    $V$ -- евклидово, $\A$ -- самосопряженный 
+
+    $f(x, y) = (\A x, y) = (x, \A y);\ f : V \times V \to \R$ -- симметричная билинейная форма
+
+    $q : V \to \R$ -- квадратичная форма
+
+    $e_1 \ldots e_n$ -- ОНБ 
+
+    $x \mapsto X \in \R^n;\ y \mapsto Y \in \R^n;\ \A \mapsto A \in M_n(\R)$
+
+    $(\A x, y) = \sum\limits_{i = 1}^n (A x)_i y_i = (AX)^T Y = X^TAY$
+
+    Вывод: матрица $\A$ и матрица Грама $f_\A$ совпадают
+\end{defin}
+
+\begin{nota}{Оценка квадратичной формы}
+    $f$ -- положительно определенная квадратичная форма. $q(x) = f(x, x) > 0\ (x \neq 0)$
+
+    Хотим: $M \parl{x}^2 > f(x) > m \parl{x}^2$
+
+    В координатах: $M(\sum x_i^2) > \sum a_{ij}x_ix_j > m(\sum x_i^2)$
+
+    $f(x, y) = x^2 + xy + y^2$. Тогда $\frac{3}{2}(x^2 + y^2) \geq x^2 + xy + y^2 \geq \frac{1}{2}(x^2 + y^2)$
+\end{nota}
+
+\begin{theo}{}
+    $\lambda_{\max} \cdot \parl{x}^2 \geq q(x) \geq \lambda_{\min} \cdot \parl{x}^2$
+
+    Здесь $\lambda_{\min} > 0$ и константы нельзя улучшить
+\end{theo}
+
+\textit{Доказательство:}
+
+$q(x) = (\A x, x);\ x = \sum c_ie_i;\ e_1 \ldots e_n$ -- собственный базис $\A$
+
+$q(x) = (\A(\sum c_ie_i), \sum c_ie_i) = (\sum c_i\lambda_i e_i, \sum c_ie_i) = \sum c_i^2\lambda_i$
+
+$\lambda_{\min} = \min(\lambda_1 \ldots \lambda_n);\ \lambda_{max} = \max(\lambda_1 \ldots \lambda_n)$
+
+$\lambda_{\min} \sum c_i^2 \leq \sum c_i^2 \lambda_i \leq \lambda_{\max} \sum c_i^2$
+
+$\parl{x}^2 = \sum c_i^2$ ($e_1 \ldots e_n$ -- ОНБ)
+
+$\lambda_{\min} \parl{x}^2 \leq q(x) \leq \lambda_{\max} \parl{x}^2$
+
+\begin{Remark}{}
+    $x$ -- собственный вектор для $\lambda_{\min}$ ($x = e_{min}$), то неравенство превращается в равенство 
+
+    В частности $\lambda_{\min} > 0$
+\end{Remark}
+
+\begin{Remark}{}
+    Основное неравенство верно всегда 
+\end{Remark}
+
+\begin{nota}{}
+    $V$ -- евклидово/унитарное пространство, $e_1 \ldots e_n$ -- стандартный ОНБ 
+
+    $\A$ -- самосопряженный. В $f_1 \ldots f_n$ -- ОНБ $[\A]_{f_1 \ldots f_n} = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_n
+    \end{pmatrix}$
+
+    $A = [\A]_{e_1 \ldots e_n}$. $\exists C : C^{-1}AC = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_n
+    \end{pmatrix}$
+
+    Что можно сказать о $C$ -- матрице перехода
+
+    Столбцы $C$ -- столбцы $f_1 \ldots f_n$ в базисе $e_1 \ldots e_n$
+
+    $f_{i} = \begin{pmatrix}
+        c_{1i} \\
+        c_{2i} \\
+        \vdots \\
+        c_{ni}
+    \end{pmatrix};\ f_{j} = \begin{pmatrix}
+        c_{1j} \\
+        c_{2j} \\
+        \vdots \\
+        c_{nj}
+    \end{pmatrix}$
+
+    Знаем, что $\delta_{ij} = (f_i, f_j) = \sum\limits_{k = 1}^n c_{ki}\overline{c_{kj}}$
+
+    То есть столбцы $C$ -- ОНБ $\R^n/\C^n$ 
+
+    То есть $C \cdot \overline{C^T} = E \Leftrightarrow \overline{C^T} \cdot C = E$ или $C^T \cdot \overline{C} = E$ итд 
+\end{nota}
+
+\begin{Reminder}{}
+    $\overline{C^T} = C^*$ -- матрица сопряженного оператора, т.е. $C^* = C^{-1}$
+\end{Reminder}
+
+\begin{nota}{}
+    $D = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_n
+    \end{pmatrix} = C^{-1}AC = C^*AC \begin{gathered}
+        = C^TAC \text{ евклидово} \\
+        = \overline{C^T}AC \text{ унитарное}
+    \end{gathered}$
+
+    $C^{-1}AC$ -- формула для оператора, а $C^TAC$ -- формула для квадратичной формы 
+
+    Итого: $\forall$ квадратичной формы существует замена переменных с матрицей $C : C^* = C^{-1}$ (ортогональная замена), т.ч. $q \to \sum x_l x_i^2$. При этом $\lambda_i$ определены однозначно (собственные числа матрицы $\A$)
+\end{nota}
+
+\section{Ортогональные и унитарные операторы}
+
+\begin{defin}{}
+    $V$ -- евклидово/унитарное пространство. $C$ называется ортогональным/унитарным (или изометрией) ($C \in Lin(V, V)$), если выполнено одно из равносильных условий:
+
+    \begin{enumerate}
+        \item $\forall x, y\ (C x, C y) = (x, y)$
+        \item $\forall x\ \parl{Cx} = \parl{x}$
+        \item В ОНБ $C^T = \overline{C^{-1}}$
+        \item $C$ -- матрица перехода от ОНБ к ОНБ
+        \item $C$ переводит любой ОНБ в ОНБ
+        \item $\exists$ ОНБ $e_1 \ldots e_n$, такой что $Ce_1 \ldots Ce_n$ -- ОНБ 
+    \end{enumerate}
+\end{defin}
+
+\textit{"Доказательство":}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2$] $(Cx, Cx) = (x, x)$
+    \item[$2 \Rightarrow 1$] $(x, y) = \frac{(x + y, x + y) - (x, x) - (y, y)}{2}$ (если $V$ -- евклидово, унитарное -- упраженние)
+    \item[$3 \Leftrightarrow 4$] Чуть выше 
+    \item[$4 \Leftrightarrow 6$] Очев. Матрица перехода от $\{e_i\}$ к $\{f_i\} =$ матрица отображения ($f_i \mapsto e_i$)
+    \item[$5 \Rightarrow 6$] Очев 
+    \item[$6 \Rightarrow 1$] $Ce_i = f_i$, где $\{e_i\}, \{f_i\}$ -- ОНБ 
+    
+    $\forall x, y\ (Cx, Cy) = (C(\sum a_ie_i), C(\sum b_ie_i)) = (C(\sum a_if_i), C(\sum b_if_i)) = \sum a_ib_i = (x, y)$
+
+    \item[$1 \Rightarrow 5$] Очев 
+\end{itemize}
+
+\begin{Example}{Ортогональные/унитарные матрицы}
+    $n = 1$. $\overline{C}C^T = E$ при $C = (c)$. Значит $\overline{C}C^T = (c \overline{c})$
+
+    $\begin{gathered}
+        C \text{ -- ортогональная, значит } c = \pm 1 \\
+        C \text{ -- унитарная, значит } c = (\cos\alpha + i\sin\alpha)
+    \end{gathered}$
+
+    $n = 2;\ K = \R$
+
+    $\begin{pmatrix}
+        a & c \\
+        b & d 
+    \end{pmatrix}$ -- ортогональная $\Leftrightarrow \begin{cases}
+        a^2 + b^2 = 1 \\
+        c^2 + d^2 = 1 \\
+        ac + bd = 0
+    \end{cases}$
+
+    $C = \begin{pmatrix}
+        \cos\alpha & -\sin\alpha \\
+        \sin\alpha & \cos\alpha
+    \end{pmatrix}$ или $\begin{pmatrix}
+        \cos\alpha & \sin\alpha \\
+        \sin\alpha & -\cos\alpha
+    \end{pmatrix}$
+
+    В первом случае это матрица поворота на $\alpha$, во втором -- матрица симметрии
+
+    $C : \R^2 \to \R^2$
+
+    $C(0) = 0$ и $C$ -- сохраняет расстояния $\Rightarrow C$ -- поворот или симметрия
+\end{Example}
+
+\begin{theo}{Утверждение}
+    Ортогональные/унитарные матрицы образуют группу. Обозначается $O_n(\R)$ или $U_n(\C)$
+
+    $O_n(\R) \leq GL_n(\R)$ -- обратимые матрицы и $|\det A| = 1$ для любой такой матрицы 
+\end{theo}
+
+\textit{Доказательство:}
+
+$\A, \B$ -- сохраняют скалярное произведение $\Rightarrow \A \circ \B$ -- сохраняет скалярное произведение
+
+$Id$ -- сохраняет скалярное произведение. $\A$ -- сохраняет $\Rightarrow \A^{-1}$ -- сохраняет
+
+Почему $\A$ -- ортогональный/унитарный $\Rightarrow \A$ -- обратим?
+
+$\A$ -- необратима $\Leftrightarrow \Ker \A \neq 0 \Leftrightarrow \exists x \neq 0 : \A x = 0$, но $0 = (\A x, \A x) = (x, x) \neq 0$ ????
+
+$A \cdot \overline{A^T} = E$
+
+$\det(A) \cdot \det(\overline{A^T}) = \det(E) = 1$
+
+$1 = \det(A) \cdot \det(\overline{A}) = \det(A) \cdot \overline{\det(A)} = |\det(A)|^2$
+
+\begin{nota}{Ориентация}
+    $e_1 \ldots e_n$ и $f_1 \ldots f_n$ -- базисы $V$ над $\R$
+
+    $C$ -- матрица перехода от $\{e_i\}$ к $\{f_i\}$
+
+    $\{e_i\}$ и $\{f_i\}$ -- одинаково ориентированы, если $\det(C) > 0$
+
+    Очевидно, что одинаковая ориентированность -- отношение эквивалентности
+\end{nota}
+
+\begin{theo}{Утверждение}
+    Существует ровно 2 класса эквивалентности базисов
+\end{theo}
+
+\textit{Доказательство:}
+
+$\{e_i\}, \{f_i\}, \{g_i\}$ -- 3 базиса 
+
+Пусть $\{e_i\} \not\sim \{f_i\} \not\sim \{g_i\}$
+
+$\det C_{e \to f} < 0$ и $\det C_{f \to g} < 0$
+
+$\det C_{e \to g} = \det C_{e \to f} \cdot \det C_{f \to g} > 0 \Rightarrow \not\exists$ 3 разных классов
+
+\begin{defin}{}
+    $\A \in Lin(V, V)$ -- невырожденный
+
+    $\A$ сохраняет ориентацию, если переводит каждый класс базисов в себя 
+
+    $\A$ меняет ориентацию, если он переставляет классы 
+\end{defin}
 
 \end{document}

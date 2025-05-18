@@ -2792,4 +2792,691 @@ $|\gamma_j'(\eta_{jk}) - \gamma_j'(\zeta_{jk})| \leq \omega_{\gamma_j'}(|\tau|)$
 
 Тогда та штука сверху $\leq \sum\limits_{k = 1}^n(\sum\limits_{j = 1}^d \omega^2_{\gamma_j'}(|\tau|))^\frac{1}{2}(t_k - t_{k - 1}) = (b - a) (\sum\limits_{j = 1}^d \omega^2_{\gamma_j'}(|\tau|))^\frac{1}{2} \leq \omega_{\gamma_j'}(|\tau|)$
 
+\newpage
+
+\todo Много лекций. Тут с 04/23
+
+\begin{defin}{Пространство $l^\infty(E)$}
+    $l^\infty(E) := \{f : E \to \R \text{ огр.}\}$
+
+    $\parl{f}_{l^\infty(E)} = \parl{f}_\infty := \sup\limits_{x \in E}|f(x)|$ норма
+\end{defin}
+
+\begin{defin}{Пространство $C(K)$}
+    $C(K) := \{f : K \to \R \text{ непр.}\}$
+
+    $\parl{f}_{C(K)} = \parl{f}_\infty := \max\limits_{x \in K}|f(x)|$ норма
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $C(K) \subset l^\infty(K)$
+        \item $f_n \rightrightarrows f$ на $E \Leftrightarrow \parl{f_n - f}_\infty \to 0$
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    $l^\infty(E)$ -- полное нормированное пространство
+\end{theo}
+
+\textit{Доказательство:}
+
+$f_n$ -- фундаментальная последовательность в $l\infty(E)$
+
+$\forall \varepsilon > 0 \exists N\ \forall n, m \geq N\ \sup\limits_{x \in E} |f_n(x) - f_m(x)| \parl{f_n - f_m}_\infty < \varepsilon$
+
+$\forall \varepsilon > 0 \exists N\ \forall n, m \geq N\ \forall x \in E \Rightarrow |f_n(x) - f_m(x)| < \varepsilon$
+
+$\Rightarrow  \exists f : E \to D : f_n \rightrightarrows f \Rightarrow \parl{f-n - f}_\infty \to 0$
+
+Осталось доказать, что $f \in l^\infty(E) \Leftrightarrow f$ -- ограничена
+
+$f_n \in l^\infty(E) \Rightarrow f_n$ -- ограничена. $\sup\limits{x \in E} |f_n(x) - f(x)| < 1$ НСНМ $\Rightarrow f_n - f$ -- ограничена $\Rightarrow f$ ограничена
+
+\begin{theo}{}
+    $f, f_n : E \to \R;\ a \in E,\ f_n \rightrightarrows f \text{ на } E$
+
+    Если $f_n$ непрерывна в $a$, то $f$ непрерывна в $a$
+\end{theo}
+
+\textit{Доказательство:}
+
+Возьмем $\varepsilon > 0$
+
+$f_n \toto f$ на $E \Rightarrow \exists n : \forall x \in E\ |f_n(x) - f(x)| < \varepsilon$
+
+$|f(x) - f(a)| \leq |f(x) - f_n(x)| + |f_n(x) - f_n(a)| + |f_n(a) - f(a)| < 2\varepsilon + |f_n(x) - f_n(a)| = (*)$
+
+Но $f_n$ непрерывна в $a \Rightarrow \exists \delta > 0 : \forall x \in E\ |x - a| < \delta \Rightarrow |f_n(x) - f_n(a)| < \varepsilon$
+
+$(*) < 3\varepsilon \Rightarrow f$ -- непрерывна в $a$
+
+\begin{theo}{Следствие (теорема Стокса-Зайделя)}
+    $f, f_n : E \to \R;\ f_n \toto f$ на $E$
+
+    Если $f_n$ -- непрерывна, то $f$ -- непрерывна
+\end{theo}
+
+\begin{theo}{}
+    $C(K)$ -- полное нормированное пространство ($K$ -- компакт)
+\end{theo}
+
+\textit{Доказательство:}
+
+$C(K)$ -- замкнутое подпространство $l^\infty(K)$
+
+Подпространство, т.к. непрерывная на компакте функция ограничена
+
+Замкнутость -- теорема Стокса-Зайделя
+
+\begin{defin}{Поточечная сходимость}
+    $u_n : E \to \R$ функциональный ряд $\sum\limits_{k = 1}^\infty u_k(x)$
+
+    Поточечно сходится, если $\forall x \in E\ \sum\limits_{k = 1}^\infty u_k(x)$ -- сходится
+\end{defin}
+
+\begin{defin}{Равномерная сходимость}
+    $u_n : E \to \R$ функциональный ряд $\sum\limits_{k = 1}^\infty u_k(x)$
+
+    Равномерная сходимость $S_n(x) := \sum\limits_{k = 1}^n u_k(x)$ если $S_n$ равномерно сходится
+\end{defin}
+
+\begin{theo}{Критерий Коши для равномерной сходимости ряда}
+    $u_n : E \to \R$ 
+    
+    Ряд $\sum\limits_{k = 1}^\infty u_k(x)$ равномерно сходится на $E \Leftrightarrow \forall \varepsilon > 0\ \exists N\ \forall n, m \geq N\ \forall x \in E \Rightarrow |\sum\limits_{k = n + 1}^m u_k(x)| < \varepsilon$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\sum\limits_1^\infty u_k(x)$ равномерно сходится на $E \Leftrightarrow S_n$ равномерно сходится на $E \Leftrightarrow \forall \varepsilon > 0 \exists N\ \forall n, m \geq N\ \forall x \in E\ |S_n(x) - S_m(x)| = |\sum\limits_{k = n + 1}^m u_k(x)| < \varepsilon$
+
+\begin{defin}{}
+    Пусть $\sum\limits_1^\infty u_k(x)$ сходится поточечно
+
+    $r_n(x) := \sum\limits_{k = n + 1}^\infty u_k(x)$ -- остаток ряда (все называют хвостом)
+\end{defin}
+
+\begin{theo}{}
+    \begin{enumerate}
+        \item Ряд $\sum u_k(x)$ равномерно сходится на $E \Leftrightarrow r_n \toto 0$ на $E$
+        \item (Необходимое условие сходимости) Ряд $\sum u_k(x)$ равномерно сходится на $E \Rightarrow u_k \toto 0$ на $E$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $S(x) := \sum\limits_{k = 1}^\infty u_k(x)$, $S_n(x) := \sum\limits_{k = 1}^n u_k(x) \Rightarrow r_n = S - S_n$
+
+    Ряд равномерно сходится $\Leftrightarrow S_n \toto S$ на $E \Leftrightarrow r_n = S - S_n \toto 0$ на $E$
+
+    \item $S_n \toto S$ на $E \Rightarrow u_n = S_n - S_{n - 1} \toto S - S = 0$ на $E$
+\end{enumerate}
+
+\begin{Remark}{}
+    Если найдутся $x_n \in E : u_n(x_n) \not\to 0$, то $\sum u_k(x)$ не может сходиться равномерно на $E$ (будет противорече=ие $u_n \toto 0$ на $E$)
+\end{Remark}
+
+\begin{Example}{}
+    $\sum\limits x^n$ поточечно сходится на $(0, 1)$, но равномерной сходимости нет
+\end{Example}
+
+\begin{Remark}{}
+    Расходимость ряда $u_n(x_n)$ ничего не дает 
+\end{Remark}
+
+\begin{theo}{Признак сравнения}
+    $u_n, v_n : E \to \R$ и $|u_n(x)| \leq v_n(x)\ \forall n\ \forall x \in E$
+
+    Если $\sum\limits_{n = 1}^\infty v_n(x)$ сходится равномерно на $E$, то $\sum\limits_{n = 1}^\infty u_n(x)$ сходится равномерно на $E$
+\end{theo}
+
+\textit{Доказательство:}
+
+Критерий Коши
+
+$\sum v_n(x)$ равномерно сходится $\Rightarrow \forall \varepsilon > 0\ \exists N\ \forall m > n \geq N\ \forall x \in E\ |\sum\limits_{k = n + 1}^m v_k(x)| < \varepsilon$, но логично $|\sum u_k(x)| \leq \sum |u_k(x)| \leq \sum v_k(x) \Rightarrow \sum u_k(x)$ тоже сходится равномерно на $E$
+
+\begin{theo}{Следствие}
+    Если $\sum |u_n(x)|$ равномерно сходится на $E$, то $\sum u_n(x)$ тоже равномерно сходится на $E$
+\end{theo}
+
+\textit{Доказательство:}
+
+$v_n(x) := |u_n(x)|$ 
+
+\begin{theo}{Следствие (признак Вейерштрасса)}
+    Если $|u_n(x)| \leq a_n\ \forall n\ \forall x \in E$ и ряд $\sum a_n$ сходится, то $\sum u_n(x)$ равномерно сходится на $E$
+\end{theo}
+
+\textit{Доказательство:}
+
+$v_n(x) := a_n$
+
+\begin{Example}{}
+    $\sum \frac{\sin(nx)}{n^2}$ -- равномерно сходится на $\R$
+
+    $a_n := \frac{1}{n^2}$ -- сходится и признак Вейерштрасса
+\end{Example}
+
+\begin{Remark}{}
+    Абсолютная и равномерная сходимость про разное
+
+    \begin{Example}{}
+        \begin{enumerate}
+            \item $\sum x^n$ на $(-1, 1)$ сходится абсолюьтно, но не равномерно
+            \item $\sum \frac{(-1)^n}{n}$ сходится равномерно, но не абсолютно
+            \item Бывает ряд $\sum u_n(x)$ сходящийся равномерно, абсолютно, но $\sum |u_n(x)|$ сходится неравномерно
+        \end{enumerate}
+    \end{Example}
+\end{Remark}
+
+\begin{defin}{}
+    $f_n : E \to \R$ -- равномерно ограничена на $E$, если $\exists M : |f_n(x)| \leq M\ \forall n\ \forall x \in E$
+\end{defin}
+
+\begin{theo}{}
+    Равномерная ограниченность на равномерно стремящуюся к нулю -- равномерно стремится к 0
+\end{theo}
+
+\textit{Доказательство:}
+
+$|g_n(x)| \leq M$ и $f_n \toto 0$ на $E \Rightarrow \sup\limits_{x \in E} |f_n(x)| \toinfty 0 \Rightarrow \sup\limits_{x \in E} |f_n(x)g_n(x)| \leq M\sup\limits_{x \in E} |f_n(x)| \to 0$
+
+\begin{theo}{Признак Дирихле}
+    $a_n, b_n : E \to \R$. Если 
+
+    \begin{enumerate}
+        \item $|\sum\limits_1^n a_k(x)| \leq K\ \forall x \in E\ \forall n$
+        \item $b_n \toto 0$ на $E$
+        \item $b_n(x)$ монотонна при любом фиксированном $x \in E$
+    \end{enumerate}
+
+    Тогда $\sum\limits_1^\infty a_n(x)b_n(x)$ равномерно сходится на $E$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A_n := \sum\limits_1^n a_k(x)$. Признак Абеля $\Rightarrow \sum\limits_1^n a_kb_k = A_n b_n + \sum\limits_1^{n - 1} A_k (b_k - b_{k + 1})$
+
+Надо доказать, что $A_n b_n$ и $\sum\limits_1^{n - 1} A_k (b_k - b_{k + 1})$ сходятся равномерно
+
+$A_nb_n \toto 0$, т.к. $A_n$ равномерно ограничена и $b_n \toto 0$
+
+Проверим равномерную сходимость ряда $\sum A_k(x)(b_k(x) - b_{k + 1}(x))$
+
+$|A_k(x)(b_k(x) - b_{k + 1}(x))| \leq K |b_k(x) - b_{k + 1}(x)|\ \forall x\ \forall k$
+
+Надо доказать, что $\sum |b_k(x) - b_{k + 1}(x)|$ сходится равномерно
+
+$S_n(x) := \sum\limits_1^n |b_k(x) - b_{k + 1}(x)| = |\sum\limits_1^n (b_k(x) - b_{k + 1}(x))| = |b_1(x) - b_{n + 1}(x)| \toto |b_1(x)|$ на $E$
+
+Следовательно $S_n$ равномерно сходятся
+
+\begin{theo}{Следствие (признак Лейбница)}
+    $b_n : E \to \R$. Если
+
+    \begin{enumerate}
+        \item $b_n \toto 0$ на $E$
+        \item $b_n(x)$ -- монотонна при любом фиксированном $x \in E$
+    \end{enumerate}
+
+    Тогда ряд $\sum (-1)^{n-1}b_n(x)$ равномерно сходится на $E$
+\end{theo}
+
+\begin{Example}{}
+    $\sum \frac{(-1)^{n-1}x^n}{n}$ -- на $(0, 1)$ сходится абсолютно
+
+    $\sum |\frac{(-1)^{n-1}x^n}{n}| = \sum \frac{x^n}{n}$ сходится по признаку Даламбера 
+
+    Сходится равномерно по признаку Лейбница: $b_n(x) := \frac{x^n}{n} \toto 0$, т.к. $\sup = \frac{1}{n}$
+
+    Но ряд $\sum \frac{x_n}{n}$ не сходится равномерно 
+
+    Возьмем $\varepsilon = \frac{1}{2}\ \sum\limits_{n + 1}^{2n} \frac{x^k}{k} \to \sum \frac{1}{k} > \frac{1}{2}$
+\end{Example}
+
+\begin{theo}{Признак Абеля}
+    $a_n, b_n : E \to \R$. Если
+
+    \begin{enumerate}
+        \item $\sum\limits_1^\infty a_n(x)$ сходится равномерно на $E$
+        \item $b_n$ -- равномерно ограничены 
+        \item $b_n(x)$ -- монотонна при любом фиксированном $x \in E$
+    \end{enumerate}
+
+    Тогда $\sum\limits_1^\infty a_n(x)b_n(x)$ равномерно сходится на $E$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A_n := \sum\limits_1^n a_k(x);\ A := \sum\limits_1^\infty a_k(x)$ и $\alpha_n := A - A_n = \sum\limits_{n + 1}^\infty a_k(x)$
+
+$\sum\limits_1^n a_kb_k = A_nb_n + \sum\limits_1^{n - 1} A_k(b_k - b_{k + 1}) = (A - \alpha_n)b_n + \sum\limits_1^{n - 1} (A - \alpha_n)(b_k - b_{k + 1}) = Ab_n - \alpha_nb_n + \\ + A\sum\limits_1^{n - 1}(b_k - b_{k + 1}) - \sum\limits_1^{n - 1} \alpha_k(b_k - b_{k + 1}) = Ab_1 - \alpha b_n - \sum\limits_1^{n - 1} \alpha_k(b_k - b_{k + 1})$
+
+$\alpha_nb_n \toto 0$ на $E$, т.к. $\alpha_n \toto 0$ и $b_n$ -- равномерно ограничена
+
+Осталось доказать, что ряд $\sum\limits_1^\infty \alpha_k(b_k - b_{k + 1})$ сходится равномерно. Проверим для этого ряда условие из критерия Коши
+
+Возьмем $\varepsilon > 0$. $b_n$ равномерно ограничена $\Rightarrow |b_n(x)| \leq M\ \forall x \in E\ \forall n$
+
+$\exists N\ \forall n \geq N\ \forall x \in E\ |\alpha_n(x)| < \varepsilon$ (т.к. $\alpha_n \toto 0$ на $E$)
+
+Рассмотрим $m > n \geq N$ и $|\sum\limits_{k = n + 1}^m \alpha_k(x) (b_k(x) - b_{k + 1}(x))| \leq |\sum\limits_{k = n + 1}^m |\alpha_k(x)| \cdot |b_k(x) - b_{k + 1}(x)| < \\ < \varepsilon \sum\limits_{k = n + 1}^m |b_k(x) - b_{k + 1}(x)| = \varepsilon |\sum\limits_{n + 1}^m (b_k(x) - b_{k + 1}(x))| = \varepsilon |b_{n + 1}(x) - b_{m + 1}(x)| \leq \varepsilon (|b_{n + 1}(x)| + |b_{m + 1}(x)|) \leq 2\varepsilon M$
+
+\begin{theo}{Признак Дини}
+    $u_n \in C(K), u_n \geq 0, S(x) := \sum u_n(x)$
+
+    Если $S \in C(K)$, то ряд равномерно сходится на $K$
+\end{theo}
+
+\textit{Доказательство:}
+
+$S_n := \sum\limits_{k = 1}^n u_k;\ r_n := S - S_n = \sum\limits_{n + 1}^\infty u_k \in C(K)$
+
+Хотим проверить, что $r_n \toto 0$ на $K$. $r_1 \geq r_2 \geq r_3 \geq \ldots$
+
+Надо доказать, что $\forall \varepsilon\ \exists n : \forall m \geq n\ \forall x \in K \Rightarrow |r_m(x)| < \varepsilon$
+
+Достаточно проверить, что $\forall \varepsilon\ \exists n : \forall x \in K \Rightarrow r_n(x) < \varepsilon$
+
+От противного. Зафиксируем $\varepsilon > 0$. Тогда $\forall n\ \exists x_n \in K : r_n(x_n) \geq \varepsilon$
+
+Выберем сходящуюся подпоследовательность $x_{n_k} \to x_* \in K$
+
+$\varepsilon \leq r_{n_k}(x_{n_k}) \leq r_{m}(x_{n_k})$ при $m \leq n_k \Rightarrow r_1(x_{n_k}) \geq \varepsilon$
+
+$\varepsilon \leq r_m(x_{n_k}) \to r_m(x_*)$, т.к. $r_m$ непрерывна в $x_* \Rightarrow r_m(x_*) \geq \varepsilon\ \forall m \Rightarrow r_m(x_*) \not\to 0 \Rightarrow$ ряд $\sum u_n(x_*)$ расходится. Противоречие 
+
+\subsection{\S 6. Свойства равносильности сходящихся последовательностей и рядов}
+
+\begin{theo}{}
+    $f_n, f : E \to \R$, $a$ -- предельная точка $E$, $\R \ni b_n := \lim\limits_{x \to a} f_n(x)$ и $f_n \toto f$ на $E$. Тогда пределы $\lim b_n$ и $\lim\limits_{x \to a} f(x)$ существуют конечны и равны. Т.е. $\lim\limits_{n \to \infty} b_n = \lim\limits_{x \to a} f(x)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$f_n \toto f$ на $E \Rightarrow \forall \varepsilon > 0\ \exists N\ \forall m, n \geq N\ \forall x \in E \Rightarrow |f_n(x) - f_m(x)| < \varepsilon$ и $|f_n(x) - f(x)| \to |b_n - b_m|$ при $x \to a$
+
+Следовательно $\forall m, n \geq N \Rightarrow |b_n - b_m| \leq \varepsilon \Rightarrow b_n$ -- фундаментальная числовая последовательность $\Rightarrow$ существует конечный $\lim b_n =: b$
+
+Надо доказать, что $\lim\limits_{x \to a} f(x) = b$
+
+$|f(x) - b| \leq |f(x) - f_n(x)| + |f_n(x) - b_n| + |b_n - b|$
+
+$\exists N_1\ \forall x \in E\ \forall n \geq N_1 \Rightarrow |f_n(x) - f(x)| < \varepsilon$
+
+$\exists N_2\ \forall n \geq N_2 \Rightarrow |b_m - b| < \varepsilon$
+
+Возьмем $n = \max\{N_1, N_2\}$
+
+Знаем что $\lim\limits_{x \to a} f_n(x) = b_n \Rightarrow \exists \delta > 0\ \forall |x - a| < \delta\ \Rightarrow |f_n(x) - b_n| < \varepsilon$
+
+Это $\delta$ и возьмем 
+
+\newpage
+
+\textit{05/14}
+
+\subsection{Разложение элементарных функций в ряд Тейлора}
+
+\begin{Reminder}{}
+    \begin{enumerate}
+        \item $e^x = \sum\limits_{n = 0}^\infty \frac{x^n}{n!}\ \forall x \in \R$
+        \item $\cos{x} = \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}\ \forall x \in \R$
+        \item $\sin{x} = \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{2n + 1}}{(2n + 1)!}\ \forall x \in \R$
+    \end{enumerate}
+\end{Reminder}
+
+\begin{Reminder}{}
+    Ряды $\sum\limits_{n = 0}^\infty \frac{z^n}{n!};\ \sum\limits_{n = 0}^\infty \frac{(-1)^n z^{2n}}{(2n)!};\ \sum\limits_{n = 0}^\infty \frac{(-1)^n z^{2n + 1}}{(2n + 1)!}$ сходятся $\forall z \in \C$
+\end{Reminder}
+
+\begin{defin}{}
+    $\exp{z} := \sum\limits_{n = 0}^\infty \frac{z^n}{n!}$
+
+    $\cos{z} := \sum\limits_{n = 0}^\infty (-1)^n \frac{z^{2n}}{(2n)!}$
+
+    $\sin{z} := \sum\limits_{n = 0}^\infty (-1)^n \frac{z^{2n + 1}}{(2n + 1)!}$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $\cos(-z) = \cos{z};\ \sin(-z) = -\sin{z};\ \exp(-z) = \exp{z}$
+        \item Формула Эйлера: $\exp{z} = \cos{z} + i\sin{z}$
+        \item $\cos{z} = \frac{\exp(iz) + \exp(-iz)}{2};\ \sin{z} = \frac{\exp(iz) - \exp(-iz)}{2i}$
+        
+        \begin{Exercise}{}
+            \begin{enumerate}
+                \item Доказать, что $\sin^2{z} + \cos^2{z} = 1\ \forall z \in \C$
+                \item $\exp{z} \cdot \exp{w} = \exp(z + w)\ \forall z, w \in \C$
+            \end{enumerate}
+        \end{Exercise}
+    \end{enumerate}
+\end{Remark}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $\ln(1 + x) = \sum\limits_{n = 1}^\infty \frac{(-1)^{n - 1} x^n}{n}$ при $|x| < 1$
+        
+        \textit{Доказательство:} 
+        
+        $(\ln(1 + x))' = \frac{1}{1 + x};\ \ln(1 + x) = \int\limits_0^x \frac{1}{1 + t}dt = \int\limits_0^x \sum\limits_{n = 0}^\infty (-1)^n t^n dt = \sum\limits_{n = 0}^\infty (-1)^n \int\limits_0^x t^n dt = \\ = \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{n + 1}}{n + 1}$
+
+        \item $\arctg{x} = \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{2n + 1}}{2n + 1}$ при $|x| < 1$
+        
+        \textit{Доказательство:}
+
+        $\arctg{x} = \int\limits_0^x \frac{dt}{1 + t^2} = \int\limits_0^x \sum\limits_{n = 0}^\infty (-1)^n t^{2n} dt = \sum\limits_{n = 0}^\infty (-1)^n \int\limits_0^x t^{2n} dt = \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{2n + 1}}{2n + 1}$
+
+        \begin{theo}{Следствие}
+            $\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \frac{1}{11} + \ldots$
+        \end{theo}
+
+        \textit{Доказательство:}
+
+        Ряд $f(x) := \sum\limits_{n = 0}^\infty (-1)^n \frac{x^{2n + 1}}{2n + 1}$ сходится при $x = 1$
+
+        Тогда по теореме Абеля $f(1) = \lim\limits_{x \to 1_-} f(x) = \lim\limits_{x \to 1_-} \arctg{x} = \frac{\pi}{4}$
+    \end{enumerate}
+\end{Remark}
+
+\begin{defin}{Нисходящая факториальная степень}
+    $p^{\underline{n}} := p(p - 1)(p - 2) \ldots (p - n + 1)$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $n! = n^{\underline{n}}$
+        \item $C_n^k = \frac{n^{\underline{k}}}{k!}$
+        \item $p^{\underline{n + 1}} + np^{\underline{n}} = p \cdot p^{\underline{n}}$
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    \begin{enumerate}
+        \item Ряд $\sum\limits_{n = 0}^{\infty} \frac{p^{\underline{n}}}{n!} x^n$ сходится при $|x| < 1$
+        \item Если $f(x)$ это его сумма, то $(1 + x)f'(x) = pf(x)$
+        \item $f(x) = (1 + x)^p$, т.е. $(1 + x)^p = \sum\limits_{n = 0}^\infty \frac{p^{\underline{n}}}{n!} x^n$ при $|x| < 1$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Проверим абсолютную сходимость по признаку Даламбера
+    
+    $\frac{p^{\underline{n + 1}}}{(n + 1)!} x^{n + 1} : \frac{p^{\underline{n}}}{n!} x^n = \frac{p - n}{n + 1} x \toinfty -x$
+
+    \item $(1 + x)f'(x) = (1 + x)\sum\limits_{n = 0}^\infty \frac{p^{\underline{n}}}{n!} nx^{n - 1} = (1 + x)\sum\limits_{n = 0}^\infty \frac{p^{\underline{n + 1}}}{n!} x^n = \sum\limits_{n = 0}^\infty \frac{p^{\underline{n + 1}}}{n!} x^n + \sum\limits_{n = 0}^\infty \frac{p^{\underline{n + 1}}}{(n + 1)!} x^{n + 1} = \\ = \sum\limits_{n = 0}^\infty \frac{p^{\underline{n + 1}}}{n!}x^n + \sum\limits_{n = 0}^\infty \frac{p^{\underline{n}}}{n!} nx^n = \sum\limits_{n = 0}^\infty \frac{p \cdot p^{\underline{n}}}{n!} x^n = pf(x)$
+    
+    \item Проверим, что $(1 + x)^{-p}f(x) = 1$
+    
+    $((1 + x)^{-p}f(x))' = -p(1 + x)^{-p-1}f(x) + (1 + x)^{-p}f'(x) = (1 + x)^{-p-1}(-pf(x) + (1 + x)f'(x)) = (1 + x)^{-p-1} \cdot 0 = 0$
+\end{enumerate}
+
+\begin{Example}{Частный случай}
+    $p = -\frac{1}{2}$
+
+    $\frac{1}{\sqrt{1 + x}} = \sum\limits_{n = 0}^\infty \frac{(-1/2)^{\underline{n}}}{n!} x^n = \sum\limits_{n = 0}^\infty \frac{(-1)^{n}(2n - 1)!!}{2^n n!} x^n = \sum\limits_{n = 0}^\infty \frac{C_{2n}{n}}{4^n} x^n$
+\end{Example}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item[6.] $\arcsin{x} = \sum\limits_{n = 0}^\infty \frac{C_{2n}{n}}{4^n} \cdot \frac{x^{2n + 1}}{2n + 1}$ при $|x| < 1$
+        
+        $\arcsin{x} = \int\limits_0^x \frac{dt}{\sqrt{1 - t^2}} = \int\limits_0^x \sum\limits_{n = 0}^\infty \frac{C_{2n}^n}{4^n}t^{2n}dt = \sum\limits_{n = 0}^\infty \frac{C_{2n}^n}{4^n} \cdot \frac{x^{2n + 1}}{2n + 1}$
+    \end{enumerate}
+\end{Remark}
+
+\section{Глава n. Функции многих переменных}
+
+\subsection{\S 1. Дифференцируемые отображения}
+
+\begin{defin}{Дифференциал функции}
+    $f : E \to \R;\ E \subset{\R^n};\ a \in \Int{E}$. $f$ дифференцируема в точке $a$, если существует такое линейное отображение $T : \R^n \to \R^m$, что $f(a + h) = f(a) + Th + o(\parl{h})$ при $h \to 0$
+
+    Обозначение: $d_af$
+\end{defin}
+
+\begin{Remark}{}
+    Если $f$ дифференцируема в точке $a$, то $T$ определено однозначно
+\end{Remark}
+
+\textit{Доказательство:}
+
+Зафиксируем $h \in \R^n;\ t \in \R \to 0$
+
+$\frac{f(a + th) - f(a)}{t} = \frac{T(th) + o(\parl{th})}{t} = \frac{tTh + to(1)}{t} = Th + o(1) \xrightarrow[t \to 0]{} Th$
+
+\begin{defin}{Матрица Якоби}
+    Матрица оператора $T$ называется матрицей Якоби функции $f$ в точке $a$
+
+    Обозначается $f'(a)$
+\end{defin}
+
+\begin{Remark}{}
+    Если $f$ дифференцируема в точке $a$, то $f$ непрерывна в точке $a$
+
+    $f(a + h) = f(a) + Th + o(\parl{h}) \xrightarrow[h \to 0]{} f(a)$
+\end{Remark}
+
+\begin{Example}{Важный частный случай}
+    $m = 1;\ f : E \to \R;\ E \subset \R^n$
+
+    $f$ дифференцируема в точке $a \Leftrightarrow$ сущесвтует вектор $V \in \R^n : f(a + h) = f(a) + \q{V, h} + o(\parl{h})$ при $h \to 0$
+\end{Example}
+
+\begin{defin}{}
+    Этот вектор $V$ называется градиентом функции $f$ в точке $a$
+
+    Обозначается $grad f(a)$ или $\nabla f(a)$
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $f(x) = const$
+        
+        $f(a + h) = f(a)$, т.е. $T \equiv 0$ и $o(\parl{h}) \equiv 0$
+
+        \item Линейное отображение, т.е. $f(x + y) = f(x) + f(y)$
+        
+        $f(a + h) = f(a) + f(h)$, т.е. $Th = f(h)$ и $o(\parl{h}) \equiv 0$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{Координатные функции}
+    $f : E \to \R; E \subset \R^n$
+
+    $f = \begin{pmatrix}
+        f_1 \\
+        \vdots \\
+        f_n 
+    \end{pmatrix};\ f_1 \ldots f_n : E \to \R$ -- координатные функции
+\end{defin}
+
+\begin{theo}{}
+    $f : E \to \R^m;\ a \in \Int E$. Тогда дифференцируемость $f$ в точке $a$ равносильна дифференцируемости в точке $a$ всех ее координатных функций
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $f(a + h) = f(a) + Th + \alpha(h)\parl{h}$, где $\alpha(h) \to 0$ при $h \to 0$
+    
+    Запишем равенство покоординатно: $f_k(a + h) = f_k(a) + T_kh + \alpha_k(h)\parl{h}$
+
+    $T_k$ -- линейное отображение $: \R^n \to \R;\ \alpha_k(h) \to 0$ при $h \to 0$
+
+    \item[$\Leftarrow$] Запишем дифф. $f_k : f_k(a + h) = f_k(a) + T_kh + \alpha_k(h)\parl{h}$, где $\alpha_k(h) \to 0$ при $h \to 0$
+    
+    Соберем их в равенство для векторов
+
+    $f(a + h) = f(a) + Th + \alpha(h)\parl{h}$. Надо понять, что $\alpha(h) \to 0$ при $h \to 0$
+
+    Это следует из равносильности покоординатной сходимости и сходимости по норме 
+\end{itemize}
+
+\begin{theo}{Следствие}
+    Строки матрицы Якоби для $f$ -- градиенты координатных функций
+
+    $f'(a) = \begin{pmatrix}
+        \nabla f_1(a) \\
+        \vdots \\
+        \nabla f_m(a)
+    \end{pmatrix}$
+\end{theo}
+
+\begin{defin}{Производная по направлению}
+    $\parl{h} = 1;\ f : E \to \R;\ E \subset \R^n;\ a \in \Int E$
+
+    $\frac{\partial f}{\partial h}(a) := \lim\limits_{t \to 0;\ t \in \R} \frac{f(a + th) - f(a)}{t}$
+\end{defin}
+
+\begin{Remark}{}
+    $g(t) := f(a + th) \Rightarrow \frac{\partial f}{\partial h}(a) = g'(0)$
+\end{Remark}
+
+\begin{theo}{}
+    $f : E \to \R; E \subset \R^n;\ a \in \Int E;\ f$ -- дифференцируема в точке $a;\ \parl{h} = 1$
+
+    Тогда $\frac{\partial f}{\partial h}(a) = d_af(h) = \q{\nabla f(a), h}$
+\end{theo}
+
+\begin{theo}{Слествие}
+    \begin{enumerate}
+        \item Экстремальное свойство градиента 
+        
+        $f : E \to \R;\ E \subset \R^n;\ a \in \Int E;\ f$ -- дифференцируема в точке $a$ и $\nabla f(a) \neq 0$
+
+        Тогда $\forall h \in \R^n : \parl{h} = 1 \Rightarrow |\frac{\partial f}{\partial h}(a)| \leq \parl{\nabla f(a)}$ и равенство достигается $\Leftrightarrow \\ \Leftrightarrow h = \pm \frac{\nabla f(a)}{\parl{\nabla f(a)}}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+$|\frac{\partial f}{\partial h}(a)| = |\q{\nabla f(a), h}| \leq \parl{\nabla f(a)} \cdot \parl{h} = \parl{\nabla f(a)}$
+
+Равенство $\Leftrightarrow$ векторы сонаправлены
+
+\begin{defin}{Частная производная}
+    $f : E \to \R;\ a \in E;\ E \subset \R^n$
+
+    $e_k = \begin{pmatrix}
+        0 \\
+        \vdots \\
+        1 \\
+        \vdots \\
+        0
+    \end{pmatrix}$ -- $k$-я позиция
+
+    Обозначения: $f_{x_k}';\ \partial_k f;\ \frac{\partial f}{\partial x_k};\ D_k f$
+
+    $f_{x_k}' = \frac{\partial f}{\partial e_k}(a)$
+\end{defin}
+
+\begin{Example}{}
+    $f(x, y) = x^y$
+
+    $\frac{\partial f}{\partial x} = \lim\limits_{h \to 0} \frac{f(x + k, y) - f(x, y)}{h}$, т.е. $y$ -- параметр, а дифференцирование по $x$
+
+    $\frac{\partial f}{\partial x} = y \cdot x^{y - 1}$
+
+    $\frac{\partial f}{\partial y} = \lim\limits_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h}$, т.е. $x$ -- параметр, а дифференцирование по $y$
+
+    $\frac{\partial f}{\partial y} = x^y \cdot \ln{x}$
+\end{Example}
+
+\begin{theo}{Следствие}
+    \begin{enumerate}
+        \item[2.] $\grad{f}{x_k}(a) = \q{\nabla f, e_k}$, т.е. $\nabla f(a) = (\grad{f}{x_1}(a), \grad{f}{x_2}(a) \ldots \grad{f}{x_k}(a))$
+        \item[3.] $f : E \to \R^m;\ E \in \R^n;\ a \in \Int E;\ f$ -- дифференцируема в точке $a$
+        
+        Тогда $f'(a) = \begin{pmatrix}
+            \grad{f_1}{x_1}(a) & \ldots & \grad{f_1}{x_n}(a) \\
+            \vdots & \ddots & \vdots \\
+            \grad{f_m}{x_1}(a) & \ldots & \grad{f_m}{x_n}(a)
+        \end{pmatrix}$
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{Линейность}
+    $f, g : E \to \R;\ E \subset \R^n;\ a \in \Int E;\ f, g$ -- дифференцируемы в точке $a$
+
+    Тогда $f + g$ и $\lambda f$ -- дифференцируемы в точке $a$ и $d_a(f + g) = d_a f + d_a g;\ d_a(\lambda f) = \lambda d_a f$
+
+    $(f + g)'(a) = f'(a) + g'(a);\ (\lambda f)'(a) = \lambda f'(a)$
+\end{theo}
+
+\textit{Доказательство:}
+
+Посмотрите запись...
+
+\begin{theo}{Дифференцирование композиции}
+    $f : D \to \R^n; g : E \to \R^l;\ D \subset \R^n;\ E \subset \R^l;\ a \in \Int D;\ f(D) \subset E;\ f(a) \in \Int E; f$ -- дифференцируема в точке $a$ и $g$ -- дифференцируема в точке $f(a)$
+
+    Тогда $g \circ f$ -- дифференцируема в точке $a$ и $d_a(g \circ f) = d_{f(a)} g \circ d_a f$ и $(g \circ f)'(a) = \\ = g'(f(a)) \cdot f'(a)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$f(a + h) = f(a) + d_a f(h) + \alpha(h)\parl{h}$ и $\alpha(h) \to 0$ при $h \to 0$
+
+$b := f(a);\ g(b + k) = g(b) + d_b g(k) + \beta(k)\parl{k}$ и $\beta(k) \to 0$ при $k \to 0$
+
+Возьмем $k = d_af(h) + \alpha(h)\parl{h} \to 0$ при $h \to 0$
+
+$f(a + h) = b + k$
+
+$g(f(a + h)) = g(b + k) = g(b) + d_b g(k) + \beta(k)\parl{k} = g(f(a)) + d_b g(d_af(h)) + \parl{h}d_bf(\alpha(h)) + \beta(k)\parl{k}$
+
+$d_b g(d_af(h))$ -- линейное отображение 
+
+$d_bf(\alpha(h)) \to d_bf(0) = 0 \Rightarrow \parl{h}d_bf(\alpha(h)) = o(\parl{h})$
+
+$\frac{\beta(k)\parl{k}}{\parl{h}} \xrightarrow{?} 0$
+
+$\parl{k} = \parl{d_af(h) + \alpha(h)\parl{h}} \leq \parl{d_af(h)} + \parl{\alpha(h)\parl{h}} \leq \parl{d_af} \cdot \parl{h} + \parl{\alpha(h)} \cdot \parl{h} \to 0 \Rightarrow \\ \Rightarrow$ ограничено 
+
+\begin{theo}{}
+    $E \subset \R^n;\ a \in \Int E;\ f : E \to \R^m;\ \lambda : E \to \R;\ f, \lambda$ -- дифференцируемы в точке $a$
+
+    Тогда $\lambda f$ -- дифференцируема в точке $a$ и $d_a(\lambda f)(h) = d_a\lambda(h)f(a) + \lambda(a)d_a f(h)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$f(a + h) = f(a) + d_a f(h) + \alpha(h)\parl{h}$ и $\alpha(h) \to 0$ при $h \to 0$
+
+$\lambda(a + h) = \lambda(a) + d_a\lambda(h) + \beta(h)\parl{h}$ и $\beta(h) \to 0$ при $h \to 0$
+
+\newpage
+
+$\lambda(a + h)f(a + h) = \lambda(a)f(a) + \lambda(a)d_af(h) + d_a\lambda(h)f(a) + d_a\lambda(h)d_af(h) + \beta(h)\parl{h}f(a) + \lambda(a)\alpha(h)\parl{h} + \\ + d_af(h)\alpha(h)\parl{h} + \beta(h)\parl{h}d_af(h) + \alpha(h)\beta(h)\parl{h}^2$
+
+Много что $\to 0$ или $o(\parl{h})$
+
+$\parl{d_a\lambda(h)d_af(h)} = |d_a\lambda(h)| \cdot \parl{d_af(h)} \leq \parl{d_a\lambda} \cdot \parl{h} \cdot \parl{d_af} \cdot \parl{h} = o(\parl{h})$
+
+Первое слагаемое останется чистым, 2 и 3 -- линейное отображение
+
+\begin{theo}{}
+    $f, g : E \to \R^m;\ E \subset \R^n;\ a \in \Int E;\ f, g$ -- дифференцируемы в точке $a$
+
+    Тогда $\q{f, g}$ -- дифференцируемо в точке $a$ и $d_a\q{f, g}(h) = \q{d_a f(h), g(a)} + \q{f(a), d_a g(h)}$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\q{f, g} = \sum\limits_{k = 1}^m f_k g_k;\ f_kg_k$ -- дифференцируемы в точке $a$ и $d_a(f_kg_k)(h) = d_a f_k(h)g_k(a) + f_k(a)d_a g_k(h)$
+
+И проссумируем
+
+\subsection{\S 2. Непрерывная дифференцируемость}
+
+\begin{theo}{}
+    $f : E \to \R;\ E \subset \R^n;\ a \in \Int E$, все частные производные функции $f$ существуют в окрестности точки $a$ и непрерывны в точке $a$
+\end{theo}
+
 \end{document}

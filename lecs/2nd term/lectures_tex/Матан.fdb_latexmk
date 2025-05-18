@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741781861.85911 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1741781864.57786 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1741781861.58623 142789 e593cebcb24e6dee90f0ed3560de426f ""
+["pdflatex"] 1747224707.83828 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1747224710.66948 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1747224704.73504 174697 2b99eb8ced41339b4e1d813919f6003e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -44,8 +44,10 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb" 1290383964 25452 d4e98a3bf6b13d4b7dcffd6302990a65 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb" 1290383964 25570 857e8ef1d068e88b2d8db4f6176e0f5c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1215737283 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb" 1215737283 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb" 1215737283 139826 9213617a7cb78635fc326b859c0b2273 ""
@@ -290,11 +292,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1741774990.77999 6513 1869dda7180dd0d5e6f7e65fa534dff7 ""
-  "Матан.aux" 1741781864.43675 2149 1b2c153506475dbe1f15bae6d74987e6 "pdflatex"
-  "Матан.out" 1741781864.43807 3167 d07c8a529f9469ddde5b1414ddebaeaa "pdflatex"
-  "Матан.tex" 1741781861.58623 142789 e593cebcb24e6dee90f0ed3560de426f ""
-  "Матан.toc" 1741781864.43853 1414 70ac3563bd94f168847b4119d3f860d8 "pdflatex"
+  "config.sty" 1747223247.87253 6774 243ad3790a778a2e839e255f9673631d ""
+  "Матан.aux" 1747224710.54101 3080 8edc127023f68df9cfe5840f6919a399 "pdflatex"
+  "Матан.out" 1747224710.54185 5107 18d959eb41d977860c984167da680592 "pdflatex"
+  "Матан.tex" 1747224704.73504 174697 2b99eb8ced41339b4e1d813919f6003e ""
+  "Матан.toc" 1747224710.54218 2137 6d27d5ea2f272ea7ecbfacb584b98e8b "pdflatex"
   (generated)
   "Матан.aux"
   "Матан.log"

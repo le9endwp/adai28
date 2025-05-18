@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  12 MAR 2025 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  14 MAY 2025 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1051,14 +1051,15 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 56.
 \c@tcb@cnt@propos=\count377
 \c@tcb@cnt@Remark=\count378
 \c@tcb@cnt@Exercise=\count379
-\c@tcb@cnt@Example=\count380
+\c@tcb@cnt@Reminder=\count380
+\c@tcb@cnt@Example=\count381
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count381
+\l__color_backend_stack_int=\count382
 \l__pdf_internal_box=\box135
 ) (./Матан.aux)
 \openout1 = `Матан.aux'.
@@ -1091,16 +1092,16 @@ Package hyperref Info: Link coloring ON on input line 8.
 
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count382
+\scratchcounter=\count383
 \scratchdimen=\dimen330
 \scratchbox=\box136
-\nofMPsegments=\count383
-\nofMParguments=\count384
+\nofMPsegments=\count384
+\nofMParguments=\count385
 \everyMPshowfont=\toks59
-\MPscratchCnt=\count385
+\MPscratchCnt=\count386
 \MPscratchDim=\dimen331
-\MPnumerator=\count386
-\makeMPintoPDFobject=\count387
+\MPnumerator=\count387
+\makeMPintoPDFobject=\count388
 \everyMPtoPDFconversion=\toks60
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1144,7 +1145,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count388
+\c@lstlisting=\count389
 (./Матан.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1179,27 +1180,32 @@ Overfull \hbox (34.4884pt too wide) in paragraph at lines 2713--2714
 []$[] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 ^^T [] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) + \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 )) + \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )) + [] \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ))$ 
  []
 
-[50] [51] (./Матан.aux)
+[50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]
+Overfull \hbox (2.9154pt too wide) in paragraph at lines 3456--3457
+[]$\OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 h\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 d[]f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 d[]^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 d[]^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 d[]f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 ^^L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 jj \OT1/cmr/m/n/12 +
+ []
+
+[64] (./Матан.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Матан.out' has not changed.
-(rerunfilecheck)             Checksum: D07C8A529F9469DDDE5B1414DDEBAEAA;3167.
+(rerunfilecheck)             Checksum: 18D959EB41D977860C984167DA680592;5107.
  ) 
 Here is how much of TeX's memory you used:
- 44603 strings out of 474116
- 1037404 string characters out of 5743681
+ 44805 strings out of 474116
+ 1040340 string characters out of 5743681
  1961187 words of memory out of 5000000
- 65695 multiletter control sequences out of 15000+600000
+ 65777 multiletter control sequences out of 15000+600000
  571054 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,16n,115p,836b,1186s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Матан.pdf (51 pages, 478182 bytes).
+ 114i,16n,115p,836b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on Матан.pdf (64 pages, 553004 bytes).
 PDF statistics:
- 1009 PDF objects out of 1200 (max. 8388607)
- 886 compressed objects within 9 object streams
- 538 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1227 PDF objects out of 1440 (max. 8388607)
+ 1085 compressed objects within 11 object streams
+ 658 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

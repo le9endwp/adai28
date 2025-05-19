@@ -581,7 +581,7 @@ $f$ -- сюръективно и инъективно: по определени
 \begin{defin}{Ядро и образ}
     $A : U \rightarrow V$ -- линейное
 
-    Ядро: $ker(A) = \{x \in U | A(x) = \overline{0} \} \subset U$
+    Ядро: $Ker(A) = \{x \in U | A(x) = \overline{0} \} \subset U$
 
     $Im(A) = \{ A(x) | x \in U \} \subset V$
 
@@ -3404,5 +3404,267 @@ $\det C_{e \to g} = \det C_{e \to f} \cdot \det C_{f \to g} > 0 \Rightarrow \not
 
     $\A$ меняет ориентацию, если он переставляет классы 
 \end{defin}
+
+\textit{05/19}
+
+\begin{theo}{Предположение}
+    $V$ -- векторное пространство над $\R$
+    $\A : V \to V$ -- линейный невырожденный 
+
+    $\Rightarrow \left[ \begin{gathered}
+        \A \text{ сохраняет все ориентации} \\
+        \A \text{ меняет все ориентации}
+    \end{gathered} \right.$
+\end{theo}
+
+\textit{Доказательство:}
+
+$A = [\A]_{\{e_i\}}$
+
+$C = [Id]_{\{u_i\}, \{e_i\}}$
+
+$AC = [\A]_{\{u_i\}, \{e_i\}}$
+
+Пусть $\det A > 0 \Rightarrow \{e_i\}$ и $\{\A(e_i)\}$ -- одинаково ориентированы
+
+Матрица перехода от $\{u_i\}$ к $\{\A(u_i)\}$ -- это $C^{-1}AC;\ \det A > 0 \Rightarrow \det(C^{-1}AC) > 0 \Rightarrow \{u_i\}$ и $\{\A(u_i)\}$ -- одинаково ориентированы. Аналогично $\det A < 0$
+
+$O_n$ -- группа ортогональных операторов $\{\A : V \to V \mid \A^* = \A^{-1}\} \Rightarrow \det A = \pm 1$
+
+$O_n = SO_n \cup SO_n^-$, с определителем $1$ и $-1$ соответственно 
+
+\begin{Example}{}
+    В $\R^3 : \exists$ ОНБ $A = \begin{pmatrix}
+        \cos \alpha & -\sin\alpha & 0 \\
+        \sin\alpha & \cos\alpha & 0 \\
+        0 & 0 & \pm 1
+    \end{pmatrix}$
+
+    \begin{enumerate}
+        \item $+1$ -- повороты вокруг оси (сохраняют ориентацию)
+        \item $-1$ -- повороты + зеркальная симметрия (меняют ориентацию)
+    \end{enumerate}
+\end{Example}
+
+\begin{nota}{}
+    Движение с неповоротной точкой $\sim$ ортогональные операторы. Возьмем неповоротную точку за ноль и далее \dots 
+\end{nota}
+
+\begin{Remark}{}
+    Пусть $K = \C$, т.е. унитарный оператор на $V$ -- в.п. над $\C$
+
+    $V = \C^n;\ \A : \C^n \to \C^n\ \A(x) = Ax;\ A^T = \overline{A}^{-1}$
+
+    Пусть $A \in M_n(\R) \mapsto \A : \R^n \to \R^n$ -- ортогональный оператор
+
+    $A^T = A^{-1}$
+\end{Remark}
+
+\begin{theo}{}
+    $V$ -- унитарное пространство, $\A : V \to V$ -- унитарный 
+
+    Тогда $\exists$ ОНБ из собственный чисел для $\A$, причем $|\lambda = 1\ \forall \lambda$ -- собственного числа $\A$ 
+
+    $\exists [\A]_{\{e_i\}} = \begin{pmatrix}
+        z_{\alpha_1} & \ldots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \ldots & z_{\alpha_n}
+    \end{pmatrix}$
+
+    $z_\alpha = e^{i\alpha}$ 
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Пусть $\lambda$ -- собственное число $A$
+    
+    $\A x = \lambda x;\ x \neq 0\ x \in V$
+
+    $(\A x, \A x) = (x, x)$
+
+    $(\lambda x, \lambda x) = (x, x) \Rightarrow \lambda \overline{\lambda}(x, x) = (x, x) \neq 0 \Rightarrow \lambda \overline{\lambda} = 1 \Rightarrow |\lambda|^2 = 1$
+
+    \item Докажем: $\A$ -- ортогональный/унитарный на $V$. $U$ -- инвариантное подпространство $\Rightarrow U^\perp$ -- инвариантное подпространство
+    
+    Надо проверить: $v \in U^\perp \Rightarrow \A v \in U^\perp$, т.е. $\forall u \in U\ (\A v, u) = 0$
+
+    Знаем: $\A$ -- обратим. $(\A v, u) = (\A v, \A(u')) = (v, u') = 0$, т.к. $v \in U^\perp;\ u' \in U$
+
+    \begin{Remark}{}
+        Использовали: $\A : V \to V$ -- обратимый 
+
+        $U \leq V;\ \A(U) \subset U \Rightarrow \A^{-1}(U) \subset U$
+    \end{Remark}
+
+    Далее как в случае $\A = \A^*$ индукция по $\dim V$
+
+    (Находим собственный вектор $e_1 : \A e_1 = \lambda e_1$. $U = \q{e_1};\ \dim U^\perp = \dim V - 1$. По и.п $\exists e_2 \ldots e_n$ -- ОНБ из собственных в $U^\perp \Rightarrow e_1 \ldots e_n$ -- ОНБ из собственных в $V$)
+\end{enumerate}
+
+\begin{theo}{}
+    Следующие условия равносильны:
+
+    \begin{enumerate}
+        \item $\A : V \to V$ -- ортогонален 
+        \item $\exists$ ОНБ $e_1 \ldots e_n$ такой, что $[\A]_{e_i} = \begin{pmatrix}
+            (B_1) & \ldots & 0 & 0 & \ldots & 0 \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & \ldots & (B_k) & 0 & \ldots & 0 \\
+            0 & \ldots & 0 & \pm 1 & \ldots & 0 \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & \ldots & 0 & 0 & \ldots & \pm 1
+        \end{pmatrix}$
+
+        $B_i = \begin{pmatrix}
+            \cos \alpha_i & -\sin \alpha_i \\
+            \sin \alpha_i & \cos \alpha_i
+        \end{pmatrix}$ -- матрица поворота 
+
+        Геометрически: $\forall$ ортогональное преобразование -- композиция двумерных поворотов и зеркальных симметрий
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+Сразу считаем $V = \R^n;\ \A(x) = Ax$
+
+$V_{\C} = \C^n;\ \A^{\C}(x) = Ax$. $\A^{\C}$ -- унитарный оператор $\Rightarrow$ по предыдущей теореме $\exists$ ОНБ из собственных столбцов в $\C^n$
+
+$V_\lambda = \{ x \in \C^n \mid Ax = \lambda x \}$ -- собственное подпространство 
+
+$\C^n = V_1 \oplus V_{-1} \oplus (V_{\lambda_1} \oplus V_{\overline{\lambda_1}}) \oplus \ldots$
+
+$\dim V_{\lambda_i}$ -- кратность $\lambda_i$ в $\chi_\A(t) \in \R[t] \Rightarrow \dim V_{\lambda_i} = \dim V_{\ol{\lambda_i}}$
+
+$V_\lambda \perp V_\mu;\ \lambda \neq \mu;\ (x, y) = 0\ \forall x \in V_\lambda,\ y \in V_\mu$
+
+$V_\lambda = \q{e_{i_1} \ldots e_{i_k}};\ V_\mu = \q{e_{j_1} \ldots e_{j_k}}$
+
+$(e_{i_b}, e_{j_l}) = 0\ \forall b, l$
+
+Идея: переделать $e_i$ -- объединение базисов $V_\lambda$ в такой же ОНБ базис $\tilde{e_1} \ldots \tilde{e_n},\ \tilde{e_i} \in \R^n$
+
+\begin{enumerate}
+    \item Пусть $\lambda = \pm 1$
+    
+    $\dim V_1 = k = \dim(\Ker(A^\C - E)) = n - \rank(A - E) = \dim\Ker(A - Id)$
+
+    $\Rightarrow \exists \tilde{e_1} \ldots \tilde{e_k}$ -- ОНБ $\Ker(A - E)$ в $\rn$
+
+    Аналогично с $\lambda = -1$
+
+    $\tilde{e_{k + 1}} \ldots \tilde{e_l};\ (\tilde{e_i}, \tilde{e_{k + j}}) = 0\ (i \leq k)$, т.к. $\tilde{e_i} \in \Ker(A^\C - E) = V_1$ и $\tilde{e_{k + j}} \in \Ker(A^\C + E) = V_{-1}$
+
+    \item Пусть теперь $\lambda \in \R;\ \{\lambda, \ol{\lambda}\}$ -- зафиксировали $\lambda$
+    
+    $e_{j_1} \ldots e_{j_p}$ -- ОНБ $V_{\lambda} \in \C^n$
+
+    $\begin{pmatrix}
+        a_1 + b_1 i \\
+        \vdots \\
+        a_n + b_n i
+    \end{pmatrix} = \begin{pmatrix}
+        a_1 \\
+        \vdots \\
+        a_n
+    \end{pmatrix} + i \begin{pmatrix}
+        b_1 \\
+        \vdots \\
+        b_n
+    \end{pmatrix}$
+
+    $w \in \C^n;\ w = u + iv;\ u, v \in \R^n$
+
+    $e_{j_s} = u_s + iv_s;\ \lambda = \cos \alpha + i \sin \alpha$
+
+    $\A(e_{j_s}) = \lambda e_{j_s}$, т.е. $\lambda(u_s + iv_s) = (\cos \alpha + i \sin \alpha)(u_s + iv_s) = (\cos \alpha u_s - \sin \alpha v_s) + \\ + i(\sin \alpha u_s + \cos \alpha v_s) = \A(u_s) + i\A(v_s)$
+
+    Т.е. $\begin{cases}
+        Au_s = \cos \alpha u_s - \sin \alpha v_s \\
+        Av_s = \sin \alpha u_s + \cos \alpha v_s
+    \end{cases} \Rightarrow A(u_s - iv_s) = (\cos \alpha - i \sin \alpha)(u_s - iv_s)$, т.е. $u_s - iv_s \in V_{\ol{\lambda}}$
+
+    $e_{j_1} \ldots e_{j_p}$ -- базис $V_\lambda \Rightarrow \ol{e_{j_1}} \ldots \ol{e_{j_p}}$ -- базис $V_{\ol{\lambda}}$
+
+    Знаем $\dim V = \dim V_{\ol{\lambda}}$
+
+    $\ol{e_{j_i}}$ -- ЛНЗ 
+
+    $\sum a_i\ol{e_{j_i}} = 0 = \sum \ol{a_i} e_{j_i} = 0 \Rightarrow \ol{a_i} = 0 \Rightarrow a_i = 0$
+
+    $e_{j_1} \ldots e_{j_p}, \ol{e_{j_1}}, \ldots, \ol{e_{j_p}}$ -- базис $V_\lambda \oplus V_{\ol{\lambda}}$
+
+    $V_\lambda \oplus V_{\ol{\lambda}} = \bigoplus\q{e_{j_k}, \ol{e_{j_k}}} = \bigoplus\q{u_k + iv_k, u_k - iv_k} = \bigoplus\q{u_k, v_k}$ очев. $u_k, v_k \in \R^n$
+
+    Сделав так для каждой пары $(\lambda, \ol{\lambda})$ получим базис для $\R^n$
+
+    Почему базис? Потому что эти вектора ЛНЗ в $\C^n;\ \C^n = V_1 \oplus V_{-1} \oplus (V_{\lambda_1} \oplus V_{\ol{\lambda_1}}) \oplus \ldots$
+
+    $\begin{cases}
+        Au_s = \cos \alpha u_s - \sin \alpha v_s \\
+        Av_s = \sin \alpha u_s + \cos \alpha v_s
+    \end{cases} \Rightarrow [\A\mid_{\q{u_s, v_s}}\mid_{[u_s, v_s]}] = \begin{pmatrix}
+        \cos \alpha & sin \alpha \\
+        -\sin \alpha & \cos \alpha
+    \end{pmatrix} \Rightarrow$ итого $[\A]_{\{\tilde{e_1} \ldots e_{k + j}, \{u_i, v_i\}\}}$ имеет требуемый вид
+
+    Ортонормируемость.
+
+    $V_1 \oplus V_{-1} \ni \tilde{e_1} \ldots \tilde{e_{k + i}} \perp \{u_s, v_s\} \in \bigoplus (V_\lambda \oplus V_{\ol{\lambda}})$
+
+    Аналогично $u_s, v_s \perp u_i, v_i$ если они соответствуют разным парам $(\lambda, \ol{\lambda})$ и $(\mu, \ol{\mu})$
+
+    Что внутри $V_\lambda \oplus V_{\ol{\lambda}}$?
+
+    $\begin{cases}
+        \A(u_s) = \cos \alpha u_s - \sin \alpha v_s \\
+        \A(v_s) = \sin \alpha u_s + \cos \alpha v_s
+    \end{cases}$
+
+    $i \neq j \Rightarrow (u_i, u_j) = (e_i + \ol{e_i}, e_j + \ol{e_j}) = 0$
+
+    $(u_s, v_s) = (\frac{(u_s + iv_s) + (u_s - iv_s)}{2}, \frac{(u_s + iv_s) - (u_s - iv_s)}{2}) = \frac{1}{4}(e + \ol{e} + e - \ol{e}) = 0$
+
+    $e \perp \ol e$, т.к. $e \in V_\lambda;\ \ol{e} \in V_{\ol{\lambda}}$
+
+    $(u_s, u_s) = (e + \ol{e}, e + \ol{e}) = 2$
+
+    $u_s \to \frac{u_s}{\sqrt{2}};\ v_s \to \frac{v_s}{\sqrt{2}}$ -- теперь ОНБ
+
+    $A_{u, v} = \begin{pmatrix}
+        a & b \\
+        c & d 
+    \end{pmatrix} \Rightarrow A_{\frac{u}{2}, \frac{v}{2}} = \begin{pmatrix}
+        a & b \\
+        c & d 
+    \end{pmatrix}$
+
+    Это было $1 \Rightarrow 2$
+
+    $2 \Rightarrow 1 : \begin{pmatrix}
+        (B_1) & \ldots & 0 & 0 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & \ldots & (B_k) & 0 & \ldots & 0 \\
+        0 & \ldots & 0 & \pm 1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & \ldots & 0 & 0 & \ldots & \pm 1
+    \end{pmatrix}^{-1} = \begin{pmatrix}
+        (B_1)^T & \ldots & 0 & 0 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & \ldots & (B_k)^T & 0 & \ldots & 0 \\
+        0 & \ldots & 0 & \pm 1 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & \ldots & 0 & 0 & \ldots & \pm 1
+    \end{pmatrix}$
+
+    $\begin{pmatrix}
+        \cos \alpha & - \sin \alpha \\
+        \sin \alpha & \cos \alpha
+    \end{pmatrix}^{-1} = \begin{pmatrix}
+        \cos \alpha & \sin \alpha \\
+        -\sin \alpha & \cos \alpha
+    \end{pmatrix}$
+\end{enumerate}
 
 \end{document}

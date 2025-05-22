@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1747224707.83828 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1747224710.66948 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1747224704.73504 174697 2b99eb8ced41339b4e1d813919f6003e ""
+["pdflatex"] 1747829597.37476 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" "Матан.pdf" "Матан" 1747829600.42402 0
+  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Матан.tex" 1747829597.15275 187827 107afbbd1b2c1fbca8a76e95c0c6d671 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -292,11 +292,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1747223247.87253 6774 243ad3790a778a2e839e255f9673631d ""
-  "Матан.aux" 1747224710.54101 3080 8edc127023f68df9cfe5840f6919a399 "pdflatex"
-  "Матан.out" 1747224710.54185 5107 18d959eb41d977860c984167da680592 "pdflatex"
-  "Матан.tex" 1747224704.73504 174697 2b99eb8ced41339b4e1d813919f6003e ""
-  "Матан.toc" 1747224710.54218 2137 6d27d5ea2f272ea7ecbfacb584b98e8b "pdflatex"
+  "config.sty" 1747646551.00016 6841 912bd99799e50efbe9e12047920bce50 ""
+  "Матан.aux" 1747829600.28011 3262 cb07edb6a8c1b5302324da87b60fbada "pdflatex"
+  "Матан.out" 1747829600.28119 5471 0c711990e86cc3ee19b60ce1f5a1eb17 "pdflatex"
+  "Матан.tex" 1747829597.15275 187827 107afbbd1b2c1fbca8a76e95c0c6d671 ""
+  "Матан.toc" 1747829600.28147 2277 ee17fa6c6daa440d64be885a43bf1698 "pdflatex"
   (generated)
   "Матан.aux"
   "Матан.log"

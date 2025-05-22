@@ -16,3 +16,4 @@
 \contentsline {section}{\numberline {3}Глава n. Функции многих переменных}{60}{section.3}%
 \contentsline {subsection}{\numberline {3.1}\S 1. Дифференцируемые отображения}{60}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}\S 2. Непрерывная дифференцируемость}{64}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}\S 3. Частные производные высших порядков}{65}{subsection.3.3}%

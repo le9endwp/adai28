@@ -3477,6 +3477,255 @@ $\q{f, g} = \sum\limits_{k = 1}^m f_k g_k;\ f_kg_k$ -- дифференциру�
 
 \begin{theo}{}
     $f : E \to \R;\ E \subset \R^n;\ a \in \Int E$, все частные производные функции $f$ существуют в окрестности точки $a$ и непрерывны в точке $a$
+
+    Тогда $f$ дифференцируема в точке $a$
 \end{theo}
+
+\textit{Доказательство:}
+
+Надо показать, что $f(a + h) = f(a) + \q{\nabla f(a), h} + o(\parl{h})$ при $h \to 0$
+
+$R(h) := f(a + h) - f(a) - \sum\limits_{k = 1}^n \grad{f}{x_k}(a)h_k$. Надо доказать, что $R(h) = o(\parl{h})$ при $h \to 0$
+
+$b_k := \begin{pmatrix}
+    a_1 + h_1 \\
+    \vdots \\
+    a_k + h_k \\
+    a_{k + 1} \\
+    \vdots \\
+    a_n
+\end{pmatrix};\ F_k(t) := f(b_{k - 1} + th_ke_k);\ \begin{cases}
+    F_k(0) = f(b_{k - 1}) \\
+    F_k(1) = f(b_k)
+\end{cases};\ b_n = a + h;\ b_0 = a$
+
+$f(a + h) - f(a) = F_n(1) - F_1(0) = \sum\limits_{k = 1}^n \left( F_k(1) - F_k(0) \right) = \sum\limits_{k = 1}^n F'_k(\Theta_k)$, где $\Theta_k \in (0, 1)$. \\ $= \sum\limits_{k = 1}^n \grad{f}{x_k}(b_{k - 1} + \Theta_kh_ke_k)h_k$
+
+$F_k(t) = f(a_1 + h_1, \ldots, a_{k - 1} + h_{k - 1}, a_k + th_k, a_{k + 1}, \ldots, a_n) \Rightarrow F_k'(t) = \grad{f}{x_k}(b_{k - 1} + th_ke_k) \cdot h_k$
+
+$|R(h)| = |\sum\limits_{k = 1}^n \left( \grad{f}{x_k}(c_k) - \grad{f}{x_k}(a) \right)h_k| \leq \left( \sum\limits_{k = 1}^n\left( \grad{f}{x_k}(c_k) - \grad{f}{x_k}(a)\right)^2\right)^\frac{1}{2} \cdot \left( \sum\limits_{k = 1}^n h_k^2 \right)^\frac{1}{2}$
+
+Осталось понять, что $\sum\limits-{k = 1}^n \left( \grad{f}{x_k}(c_k) - \grad{f}{x_k}(a)\right)^2 \xrightarrow[h \to 0]{} 0$
+
+$c_k \to a$ при $h \to 0$ и $\grad{f}{x_k}$ непрерывна в точке $a$
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item $f(a + h_1e_1) = f(a) + \grad{f}{x_1}(a) h_1 + o(h_1)$ 
+        
+        Без непрерывности $\grad{f}{x_1}$ в точке $a$ доказательство тоже проходит
+
+        \item Дифференцирование в точке не дает даже существование частных производных в окрестности 
+        
+        $f(x, y) = \begin{cases}
+            x^2 + y^2 \text{ если одно из чисел рационально} \\
+            0
+        \end{cases}$
+
+        $f(x, y) = O(x^2 + y^2) = f(0, 0) + 0 + o(\sqrt{x^2 + y^2})$
+
+        Но функция не является непрерывной при $(x, y) \neq (0, 0)$ и у нее нет частных производный ни в какой точке, отличной от $(0, 0)$
+    \end{enumerate}
+\end{Remark}
+
+\begin{defin}{}
+    $f$ непрерывно дифференцируема в точке $a$, если $f$ дифференцируема в окрестности точки $a$ и $\parl{d_xf - d_af} \xrightarrow[x \to a]{} 0$
+\end{defin}
+
+\begin{theo}{}
+    $f : E \to \R^m;\ E \subset \R^n;\ a \in \Int E$. Тогда 
+
+    $f$ непрерывно дифференцируема в точке $a \Leftrightarrow f$ дифференцируема в окрестности $a$ и все частные производные всех координатных функций непрерывны в точке $a$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Leftarrow$] $\parl{d_xf - d_af}^2 \leq \sum\limits_{k = 1}^m \sum\limits_{j = 1}^n \left( \grad{f_k}{x_j}(x) - \grad{f_k}{x_j}(a) \right)^2 \xrightarrow[x \to a]{} 0$
+    \item[$\Rightarrow$] $|\grad{f_k}{x_j}(x) - \grad{f_k}{x_j}(a)| \leq \underbrace{\parl{d_xf(e_k) - d_af(e_k)}}_{= f'(x)e_k - f'(a)e_k} = \parl{\left(d_xf - d_af\right)(e_k)} \leq \parl{d_xf - d_af} \cdot \parl{e_k}$
+\end{itemize}
+
+\begin{theo}{}
+    Непрерывная дифференцируемость сохраняется при линейной комбинации скалярный произведений, композиций 
+\end{theo}
+
+\textit{Доказательство:}
+
+См. лекцию, доказательство на словах 
+
+\subsection{\S 3. Частные производные высших порядков}
+
+\begin{nota}{Обозначения}
+    $\grad{^2f}{x_i \partial x_j} := \grad{}{x_i}\left(\grad{f}{x_j}\right)$
+
+    $f''_{x_jx_i} := \left(f'_{x_j}\right)'_{x_i}$
+
+    Если существует $\grad{^rf}{x_{i_k} \ldots \partial{x_{i_1}}}$ в окрестности точки $a$, то у нее можно рассмотреть производну, т.е. $\grad{^{r + 1}}{x_{i{k + 1}} \ldots \partial{x_{i_1}}}$
+\end{nota}
+
+\begin{Remark}{}
+    Всего частных производных порядка $r$ будет $n^r$
+\end{Remark}
+
+\begin{Example}{}
+    $f(x, y) = x^y;\ f'_x = yx^{y - 1};\ f'_y = x^y \ln{x}$
+
+    $f''_{xx} = \left(yx^{y - 1}\right)'_x = y(y - 1)x^{y - 2};\ f''_{yy} = \left(x^y \ln{x}\right)'_y = x^y \left(\ln{x}\right)^2$
+
+    $f_{xy}'' = x^{y - 1} + yx^{y - 1}\ln{x};\ f_{yx}'' = yx^{y - 1} \ln{x} + x^{y - 1}$
+\end{Example}
+
+\begin{Example}{Когда все плохо}
+    $f(x, y) = \begin{cases}
+        \frac{x^2 - y^2}{x^2 + y^2} \cdot xy & (x, y) \neq (0, 0) \\
+        0 & (x, y) = (0, 0)
+    \end{cases}$
+
+    $\underset{(x, y) \neq (0, 0)}{f'_x(x, y)} = \frac{(3x^2y - y^3)(x^2 + y^2) - 2x(x^3y - xy^3)}{(x^2 + y^2)^2} = \frac{3x^4y + 3x^2y^3 - x^2y^3 - y^5 - 2x^4y + 2x^2y^3}{(x^2 + y^2)^2} = \frac{x^4y + 4x^2y^3 - y^5}{(x^2 + y^2)^2}$
+
+    $f'_x(0, 0) = \lim\limits_{h \to 0} \frac{f(h, 0) - f(0, 0)}{h} = \lim\limits_{h \to 0} \frac{0 - 0}{h} = 0$
+
+    $f''_{xy}(0, 0) = \lim\limits_{h \to 0} \frac{f'_x(0, h) - f'_x(0, 0)}{h} = \lim\limits_{h \to 0} \frac{1}{h} \cdot \frac{-h^5}{h^4} = -1$
+
+    Но $f''_{yx}(0, 0) = 1 \neq f''_{yx}(0, 0)$
+\end{Example}
+
+\begin{theo}{}
+    $f : E_{\subset \R^2} \to \R;\ (x_0, y_0) \in \Int E$
+
+    Частные производные $f'_x, f'_y$ и $f''_{xy}$ существует в окрестности $(x_0, y_0)$ и $f''_{xy}$ непрерывна в точке $(x_0, y_0)$
+    
+    Тогда существует $f''_{yx}(x_0, y_0)$ и $f''_{xy}(x_0, y_0) = f''_{yx}(x_0, y_0)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\varphi(s) := f(s, y_0 + k) - f(s, y_0);\ \psi(t) := f'_x(x_0 + \Theta h, t)$
+
+$\varphi(x_0 + h) - \varphi(x_0) = h \cdot \varphi'(x_0 + \Theta h) = h\left(f'_x(x_0 + \Theta h, y_0 + k) - f'_x(x_0 + \Theta h, y_0)\right) = h\left(\psi(y_0 + k) - \psi(y_0)\right) =\ = hk\psi'(y_0 + \tilde{\Theta}k) = hk \cdot \underbrace{f''_{xy}(x_0 + \Theta h, y_0 + \tilde{\Theta}k)}_{f''_{xy}(x_0, y_0) + \alpha(h, k);\ \alpha(h, k) \xrightarrow[(h, k) \to 0]{} 0}$
+
+$\frac{\varphi(x_0)}{k} = \frac{f(x_0, y_0 + k) - f(x_0, y_0)}{k} \xrightarrow[k \to 0]{} f'_y(x_0, y_0)$
+
+$\frac{\varphi(x_0 + h)}{k} = \frac{f(x_0 + h, y_0 + k) - f(x_0 + h, y_0)}{k} \xrightarrow[k \to 0]{} f'_y(x_0 + h, y_0)$
+
+$|\frac{1}{k} \cdot \frac{\varphi(x_0 + h) - \varphi(x_0)}{h} - f''_{xy}(x_0, y_0)| < \varepsilon$ при $(h, k)$ близким к 0 $\Rightarrow |\frac{f'_y(x_0 + h, y_0) - f'_y(x_0, y_0)}{h} - f''_{xy}(x_0, y_0)| \leq \varepsilon$ при малых $h \Rightarrow \lim\limits_{h \to 0} \frac{f'_y(x_0 + h, y_0) - f'_y(x_0, y_0)}{h} = f''_{xy}(x_0, y_0)$
+
+\begin{Exercise}{}
+    Доказать, что если $f'_x$ и $f'_y$ определны в окрестности $(x_0, y_0)$ и дифференцируемы в этой точке, то $f''_{xy}(x_0, y_0) = f''_{yx}(x_0, y_0)$
+\end{Exercise}
+
+\begin{defin}{$r$-гладкость}
+    $f : D_{\subset \R^n} \to \R;\ D$ -- открытое 
+
+    $f$ -- $r$ раз непрерывно дифференцируема ($= r$-гладкая), если все ее частные производные до $r$-го порядка включительно существуют и непрерывны
+
+    Обозначение: $C^r(D)$
+\end{defin}
+
+\begin{theo}{}
+    $f : D \to \R;\ D$ -- открытое $\subset \R^n;\ f \in C^r(D)$
+
+    $(i_1 \ldots i_r)$ -- перестановка $(j_1 \ldots j_r)$. Тогда $\grad{^rf}{x_{i_1} \ldots \partial x_{i_r}} = \grad{^rf}{x_{j_1} \ldots \partial x_{j_r}}$ 
+\end{theo}
+
+\textit{Доказательство:}
+
+Любая перестановка может быть получена последовательным выполнением транспозиций. Поэтому достаточно доказать теорему для транспозиций
+
+$\underset{=(i_1 \ldots i_r)}{(j_1 \ldots j_{k - 1}, j_{k + 1}, j_k, j_{k + 2} \ldots j_r)}$
+
+$g(x) := \grad{^{r - k - 1}f}{x_{j_{k + 2}} \ldots \partial x_{j_r}}$
+
+$\underset{\text{из предыдущей теоремы}}{\grad{^2g}{x_{j_k} \partial x_{j_{k + 1}}} = \grad{^2g}{x_{j_{k + 1}} \partial x_{j_k}}} \Rightarrow 
+\underbrace{\grad{^{k - 1}}{x_{j_1} \ldots \partial x_{j_{k + 1}}}\left(\grad{^2g}{x_{j_k} \partial x_{j_{k - 1}}}\right)}_{= \grad{^rf}{x_{j_1} \ldots \partial x_{j_r}}} = 
+\underbrace{\grad{^{k - 1}}{x_{j_1} \ldots \partial x_{j_{k - 1}}}\left(\grad{^2g}{x_{j_{k + 1}} \partial x_{j_k}}\right)}_{= \grad{^rf}{x_{j_1} \ldots \partial x_{j_r}}}$
+
+\begin{defin}{Мультииндексы}
+    $k = (k_1 \ldots k_n);\ k_1 \ldots k_n$ -- неотрицательные целые числа 
+
+    $k! := k_1!\ldots k_n!;\ h^k := h_1^{k_1} \ldots h_n^{k_n};\ h \in \R^n$
+\end{defin}
+
+\begin{defin}{Высота мультииндекса}
+    $|k| := k_1 + \ldots + k_n$
+
+    $f^{(k)} := \frac{\partial^{|k|}f}{(\partial x_1)^{k_1} \ldots (\partial x_n)^{k_n}} = \grad{^{|k|}f}{^{k_1}x_1 \ldots \partial^{k_n}x_n}$
+\end{defin}
+
+\begin{defin}{Полиномиальный (мультиномиальный) коэффициент}
+    ${|k| \choose k_1 \ldots k_n} = \frac{|k|!}{k_1! \ldots k_n!} = \frac{|k|!}{k!}$
+
+    Это количество способов покрасить $|k|$ шариков в $n$ цветов так, чтобы было $k_1$ шариков первого цвета, $k_2$ шариков второго цвета итд 
+\end{defin}
+
+\begin{lem}{}
+    $f : D \to \R;\ f \in C^r(D);\ D$ -- открытое $\subset \R^n;\ [x, x + h] \subset D$
+
+    $F(t) := f(x + th);\ F : [0, 1] \to \R$
+
+    Тогда $F \in C^r[0, 1]$ и $F^{(l)}(t) = \sum\limits_{|k| = l}{l \choose k_1 \ldots k_n}f^{(k)}(x + th)h^k$ 
+\end{lem}
+
+\newpage 
+
+\textit{Доказательство:}
+
+$g : D \to \R;\ g \in C^1(D);\ G(t) := g(x + th)$
+
+$G'(t) = g'(x + th) \cdot \left(x + th\right)'_t = \left(g'_{x_1}(x + th) \ldots g'_{x_n}(x + th)\right)\begin{pmatrix}
+    h_1 \\
+    \vdots \\
+    h_n
+\end{pmatrix} = \sum\limits_{j = 1}^n g'_{x_j}(x + th)h_j$
+
+$t \to x + th = \begin{pmatrix}
+    x_1 + th_1 \\
+    \vdots \\
+    x_n + th_n
+\end{pmatrix}$
+
+Тогда $F^{(l)}(t) = \sum\limits_{i_l = 1}^n \sum\limits_{i_{l - 1} = 1}^n \ldots \sum\limits_{i_1 = 1}^n \grad{^lf}{x_{i_l} \ldots \partial x_{i_1}}(x + th)h_{i_l} \ldots h_{i_1} = (*)$
+
+$k := \left(\#\{j : i_j = 1\}, \ldots, \#\{j : i_j = n\}\right)$ -- мультииндекс
+
+$(*) = \sum\limits_{|k| = l} f^{(k)}(x + th)h^k{l \choose k_1 \ldots k_n} = \sum\limits_{|k| = l} \frac{l!}{k!}f^{(k)}(x + th)h^k$ -- запись покороче
+
+\begin{theo}{Многомерная формула Тейлора с остатком в форме Лагранжа}
+    $D \in \R^n$ открытое; $f \in C^{r + 1}(D); f : D \to \R;\ [a, x] \subset D;\ h := x - a$
+
+    Тогда существует $\Theta \in (0, 1)$ такое, что 
+
+    $f(x) = \sum\limits_{|k| \leq r} \frac{f^{(k)}(a)}{k!}h^k + \sum\limits_{|k| = r + 1} \frac{f^{(k)}(a + \Theta h)}{k!}h^k$
+\end{theo}
+
+\textit{Доказательство:}
+
+$F(t) := f(a + th)$. По лемме $F \in C^{r + 1}[0, 1]$
+
+Тогда $f(x) = f(a + h) = F(1) = \sum\limits_{i = 1}^r \frac{F^{(i)}(0)}{i!} \cdot 1^i + \frac{F^{(r + 1)}(\Theta)}{(r + 1)!} = (*)$ для некоторого $\Theta \in (0, 1)$
+
+$(*) = \sum\limits_{i = 1}^r \frac{1}{i!}\sum\limits_{|k| = i} \frac{i!}{k!}f^{(k)}(a)h^k + \frac{1}{(r + 1)!} \sum\limits_{|k| = r + 1} \frac{(r + 1)!}{k!}f^{(k)}(a + \Theta h)h^k$ и посокращать дроби 
+
+\begin{defin}{Многочлен Тейлора степени $r$ в точке $a$ для функции $f$}
+    $\sum\limits_{|k| \leq r} \frac{f^{(k)}(a)}{k!}(x - a)^k$
+\end{defin}
+
+\begin{theo}{Многомерная формула Тейлора с остатком в форме Пеано}
+    $f \in C^r(D);\ f : D \to \R;\ D$ -- открытое $\subset \R^n;\ a \in D$
+
+    Тогда при $x \to a$
+
+    $f(x) = \sum\limits_{|k| \leq r} \frac{f^{(k)}(a)}{k!}(x - a)^k + o(\parl{x - a}^r)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$h := x - a$
+
+$f(x) = \sum\limits_{|k| \leq r - 1} \frac{f^{(k)}(a)}{k!}(x - a)^k + \sum\limits_{|k| = r} \frac{f^{(k)}(a + \Theta(x - a))}{k!}(x - a)^k = \sum\limits_{|k| \leq r} \frac{f^{(k)}(a)}{k!}h^k + \underbrace{\sum\limits_{|k| = r} \frac{f^{(k)}(a + \Theta h) - f^{(k)}(a)}{k!}h^k}_{\stackrel{?}{=} o(\parl{h}^r)}$
+
+$\frac{|h^k|}{\parl{h}^r} \leq 1$, где $r = |k|;\ \frac{|h_1^{k_1} \ldots h_n^{k_n}|}{\parl{h}^{k_1 + \ldots + k_n}} \leq 1$
+
+Осталось понять, что $\frac{f^{(k)}(a + \Theta h) - f^{(k)}(a)}{k!} \xrightarrow[h \to 0]{} 0$ -- это из непрерывности $f^{(k)}$
 
 \end{document}

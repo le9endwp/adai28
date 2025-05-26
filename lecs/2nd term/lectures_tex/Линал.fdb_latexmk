@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1747648516.05674 "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1747648518.62131 0
-  "/Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1747648515.8187 134597 c7250236915b2986301dcaa049c6cd91 ""
+["pdflatex"] 1748251918.64873 "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1748251921.45449 0
+  "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1748251918.43048 144575 507a02833fa28629010623e73f3004ef ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -293,11 +293,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1747646551.00016 6841 912bd99799e50efbe9e12047920bce50 ""
-  "Линал.aux" 1747648518.48022 2345 29429dcbd3c8e4b9c7f203ea432e1cc2 "pdflatex"
-  "Линал.out" 1747648518.48097 3908 a913091ab6499bdaa65ba05b0e895d9c "pdflatex"
-  "Линал.tex" 1747648515.8187 134597 c7250236915b2986301dcaa049c6cd91 ""
-  "Линал.toc" 1747648518.4812 1579 0230e28a785cf4fa82d277b0defb1313 "pdflatex"
+  "config.sty" 1748208927.30094 6841 912bd99799e50efbe9e12047920bce50 ""
+  "Линал.aux" 1748251921.22628 2625 bd9b19afe1ac5aff9659655210bc30df "pdflatex"
+  "Линал.out" 1748251921.22707 4326 ecd13260639a19ba6797410ccc62591b "pdflatex"
+  "Линал.tex" 1748251918.43048 144575 507a02833fa28629010623e73f3004ef ""
+  "Линал.toc" 1748251921.2273 1777 832dc2c2e3719f5c9986c5ff1bdf64b8 "pdflatex"
   (generated)
   "Линал.aux"
   "Линал.log"

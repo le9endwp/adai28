@@ -3667,4 +3667,249 @@ $(e_{i_b}, e_{j_l}) = 0\ \forall b, l$
     \end{pmatrix}$
 \end{enumerate}
 
+\begin{defin}{Параллельный перенос}
+    $B \in \R^n;\ t_B : \R^n \to \R^n;\ t(x) = x + B$ -- параллельный перенос на вектор $B$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Сохраняет расстояния 
+        
+        $d(t(x), t(y)) = |t(x) - t(y)| = |(x + B) - (y + B)| = |x - y| = d(x, y)$
+
+        \item Не линейный оператор (если $B \neq 0$)
+        
+        $t_B(0) = B \neq 0$ 
+    \end{enumerate}
+\end{theo}
+
+\begin{lem}{}
+    $f : \R^n \to \R^n$ -- отображение, сохраняющее расстояния 
+
+    Тогда $\exists B : f = t_B \circ g;\ g$ -- сохраняет расстояния и $g(0) = 0$
+\end{lem}
+
+\textit{Доказательство:}
+
+$t_B$ -- биекция $\forall B$. Пусть $B = f(0)$
+
+Рассмотрим $g = t^{-1}_B \circ ;\ f, t_B$ -- сохраняют расстояния $\Rightarrow t_B^{-1}$ и $t_B^{-1} \circ f$ -- тоже
+
+При этом $g(0) = t^{-1}_B(f(0)) = t^{-1}_B(B) = B - B = 0$
+
+\begin{theo}{}
+    Если $f$ -- сохраняет расстояния и $f(0) = 0$, то $f$ -- ортогональный оператор
+\end{theo}
+
+\textit{Доказательство:}
+
+Пока нет (от Антипова нет) \todo
+
+\begin{nota}{}
+    Итого: $\forall$ движение -- композиция параллельного переноса, двумерных поворотов и зеркальных симметрий 
+\end{nota}
+
+\section{Полярное разложение}
+
+\begin{defin}{Положительные операторы}
+    $\A$ -- положительный оператор, если $\A$ -- самосопряжен и $(\A x, x) > 0\ \forall x \neq 0$
+
+    $\angle(\A x, x) < \frac{\pi}{2}$
+\end{defin}
+
+\begin{theo}{Утверждение}
+    $V$ -- евклидово, $\A$ -- самосопряжен $\Rightarrow \\ \A > 0 \Leftrightarrow$ все собственные числа $\A$ положительны
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] $\A$ -- положительный, $v$ -- собственный вектор $\Rightarrow (\A v, v) = (\lambda v, v) = \lambda (v, v) > 0 \Rightarrow \lambda > 0$
+    
+    \item[$\Leftarrow$] $v_1 \ldots v_n$ -- собственный ОНБ. $\forall v = \sum a_iv_i$
+    
+    $(\A v, v) = \sum \lambda_ia_i^2 > 0$
+\end{itemize}
+
+\begin{theo}{}
+    $\A$ -- положительный оператор на $V \Rightarrow \exists!$ положительный оператор $\B : \B \circ \B = \A$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Существование] $\exists v_1 \ldots v_n$ -- ОНБ для $\A$
+    
+    $\A(v_i) = \lambda_i v_i$
+
+    $\B(v_i) = \sqrt{\lambda_i}v_i \Rightarrow \forall i\ \B\B(v_i) = \B(\sqrt{\lambda_i}v_i) = \sqrt{\lambda_i}\B(v_i) = v_i \Rightarrow \B \circ \B(v) = \A(v)\ \forall v \in V$ по линейности
+
+    $\B$ -- самосопряжен, т.к. диагонален в ОНБ. $\B > 0$, т.к. $\sqrt{\lambda_i} > 0$
+
+    \item[Единственность] Пусть $\B^2 = \A;\ \A, \B > 0$
+    
+    $V = V_{\lambda_1}^\A \oplus \ldots \oplus V_{\lambda_n}^\A;\ \lambda_1 \ldots \lambda_k$ -- различные собственные числа $\A$
+
+    Аналогично $V = V_{\mu_1}^\B \oplus \ldots \oplus V_{\mu_s}^\B;\ \mu_1 \ldots \mu_s$ -- различные собственные числа $\B$
+
+    $\sum \dim V_{\lambda_i}^\A = \dim V = \sum \dim V_{\mu_i}^\B$
+
+    $\forall i\ \forall v \in V_{\mu_i}^\B\ \ \B^2 = \mu_i^2 v = \A v \Rightarrow \exists k_i : \mu_i^2 = \lambda_{k_i}$. Соответствие $\mu_i \mapsto \lambda_{k_i}$ -- инъективно 
+
+    И $V_{\mu_i}^\B \leq V_{\lambda_{k_i}}^\A$. $V = \bigoplus V_{\mu_i}^\B \leq \bigoplus V_{\lambda_{k_i}}^\A \leq V \Rightarrow \forall i\ V_{\mu_i}^\B = V_{\lambda_{k_i}}^\A$ и все собственные числа $\A$ имеют вид $\lambda_{k_i}$
+
+    Итого: $\forall \lambda_i\ B\mid_{V_{\lambda_i}^\A}(v) = \sqrt{\lambda_i}v \Rightarrow \B$ -- определен однозначно
+\end{itemize}
+
+\begin{theo}{Полярное разложение}
+    $V$ -- евклидово пространство, $\A : V \to V$ -- невырожденный линейный оператор 
+
+    Тогда $\exists! S, U : S > 0, U$ -- ортогонален и $\A = S \circ U$
+
+    $\exists! S', U' : S' > 0, U'$ -- ортогонален и $\A = U' \circ S'$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Единственность] $\A^* \circ \A > 0 : (\A^* \circ \A)^* = \A^* \circ A$
+    
+    $(\A^* \A u, u) = (\A u, \A u) > 0$, т.к. $\A u \neq 0$ ($\A$ -- невырожденный)
+    
+    Пусть $\A = S \circ U$. $\A \circ \A^* = (S \circ U) \circ (S \circ U)^* = S \circ \underbrace{U \circ U^*}_{= id} \circ S^* = S \circ S^* = S^2 \Rightarrow \\ \Rightarrow S = \sqrt{\A \circ \A^*}$
+
+    По предыдущей теореме $\exists! S > 0 : S^2 = \A \circ \A^* \Rightarrow S$ -- определен однозначно
+
+    С другой стороны $U = S^{-1} \circ \A$ -- определен однозначно ($\exists S^{-1}$, т.к. все собственные числа $S$ положительны)
+
+    \item[Существование] Положим $S = \sqrt{\A \circ \A^*};\ S > 0$
+    $U = S^{-1}\A$
+
+    $S \circ U = SS^{-1}\A = \A$ и $S > 0$ по построению 
+
+    $U \circ U^* = (S^{-1}\A)(S^{-1}\A)^* = S^{-1} \A \A^* \underbrace{(S^{-1})^*}_{= S^{-1}} = S^{-1} S^2 S^{-1} = id$ 
+\end{itemize}
+
+\begin{Remark}{}
+    $S$ -- cамосопряженный. Скажем $S \geq 0$ если $(Sx, x) \geq 0$
+
+    Тогда $\forall \A\ \exists S \geq 0$ и $U$ -- ортогональный $: \A = S \circ U$
+
+    Единственности тут нет. Например $0 = 0 \circ U$, где $U$ -- любой ортогональный
+\end{Remark}
+
+\section{Сингулярное разложение}
+
+\begin{nota}{}
+    $\A : U \to V$ -- линейное отображение 
+
+    \begin{Reminder}{}
+        $\exists$ базисы $U, V :$
+
+        $[\A] = \begin{pmatrix}
+            1 & \ldots & 0 & \ldots & 0 \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0 & \ldots & 1 & \ldots & 0 \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0 & \ldots & 0 & \ldots & 0
+        \end{pmatrix}$
+    \end{Reminder}
+
+    Пусть теперь $U$ и $V$ евклидовы и хотим $u_1 \ldots u_k;\ v_1 \ldots v_l$ -- ОНБ
+\end{nota}
+
+\begin{theo}{}
+    $\A : U \to V;\ U, V$ -- евклидовы 
+
+    $\exists u_1 \ldots u_k;\ v_1 \ldots v_l$ -- ОНБ $U$ и $V$ такие, что 
+
+    $[\A] = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_n & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & \ldots & 0 & \ldots & 0
+    \end{pmatrix};\ \lambda_i > 0$
+\end{theo}
+
+\textit{Доказательство:}
+
+Рассмотрим $\A^*\A : U \to U$
+
+\begin{Reminder}{}
+    $\A : U \to V;\ \A^* : V \to U : \forall u \in U, v \in V\ (\A u, v) = (u, \A^* v)$
+
+    $[\A^*] = [\A]^T$ в ОНБ
+\end{Reminder}
+
+$\A^*\A$ -- самосопряженный, $\geq 0$ (как в полярном разложении)
+
+$\exists$ ОНБ $U : \begin{cases}
+    \A^*\A u_1 = \mu_1 u_1 \\
+    \ldots \\
+    \A^*\A u_k = \mu_k u_k \\
+    \A^*\A u_n = 0 & n > k 
+\end{cases}$
+
+$\tilde{v_i} := \A(u_i);\ i = 1 \ldots k$
+
+Заметим, что $i > k \Rightarrow 0 = (\underbrace{\A^*\A u_i}_{= 0}, u_i) = (\A u_i, \A u_i) \Rightarrow \A u_i = 0$
+
+При $i, j < k\ (\A(u_i), \A(u_j)) = (\A^* \A u_i, u_j) = (\mu_i u_i, u_j) = \mu_i(u_i, u_j) = \left[ \begin{gathered}
+    0\ \ i \neq j \\
+    \mu_i\ i = j
+\end{gathered} \right. \Rightarrow \\ \Rightarrow \tilde{v_1} \ldots \tilde{v_k}$ -- ортогональная система
+
+$v_i = \frac{\tilde{v_i}}{\parl{\tilde{v_i}}} = \frac{1}{\sqrt{\mu_i}}\tilde{v_i}$. Дополним $v_1 \ldots v_k$ до ОНБ $V$
+
+Итак: $u_1 \ldots u_n$ -- ОНБ $U$ и $v_1 \ldots v_s$ -- ОНБ $V$
+
+$\A(u_i) = 0$ при $i > k$
+
+$\A(u_i) = \tilde{v_i} = \sqrt{\mu_i}v_i$ при $i \leq k$
+
+Положим $\lambda_i = \sqrt{\mu_i}$ -- сингулярные числа оператора $\A$
+
+$[\A] = \begin{pmatrix}
+    \lambda_1 & \ldots & 0 & \ldots & 0 \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & \ldots & \lambda_k & \ldots & 0 \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & \ldots & 0 & \ldots & 0
+\end{pmatrix}$
+
+\newpage 
+
+\begin{theo}{}
+    $A \in M_{m, n}(\R)$
+
+    $\exists U, V$ -- ортогональные матрицы и $D = \begin{pmatrix}
+        \lambda_1 & \ldots & 0 & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & \ldots & \lambda_k & \ldots & 0 \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & \ldots & 0 & \ldots & 0
+    \end{pmatrix}$ такие, что 
+
+    $A = U D V$. $U \in O_m(\R);\ V \in O_n(\R)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\A : \R^n \to \R^m$
+
+$\A(x) = Ax$, где $A$ -- матрица $\A$ в стандартных ОНБ
+
+$\exists$ другие ОНБ такие, что $[\A] = D = \begin{pmatrix}
+    \lambda_1 & \ldots & 0 & \ldots & 0 \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & \ldots & \lambda_k & \ldots & 0 \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & \ldots & 0 & \ldots & 0
+\end{pmatrix}$
+
+Знаем, что $UDV = [\A] = D$, где $U$ и $V$ -- матрицы перехода 
+
+Все базисы -- ОНБ $\Rightarrow$ все матрицы перехода ортогональны
+
 \end{document}

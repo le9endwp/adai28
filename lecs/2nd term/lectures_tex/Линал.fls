@@ -1,8 +1,8 @@
-PWD /Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex
+PWD /Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/legendwp/HSE/2024-2025/shit_for_gh/adai28/lecs/2nd term/lectures_tex/Линал.tex
+INPUT /Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex
 OUTPUT Линал.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls

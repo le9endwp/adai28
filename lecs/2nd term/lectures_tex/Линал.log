@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  26 MAY 2025 12:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  2 JUN 2025 12:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1195,27 +1195,27 @@ Overfull \hbox (10.1829pt too wide) in paragraph at lines 3604--3611
 []$[] \OMS/cmsy/m/n/12 ) \OT1/cmr/m/n/12 [\OMS/cmsy/m/n/12 A j[]j[]\OT1/cmr/m/n/12 ] = [] \OMS/cmsy/m/n/12 )$ \T2A/cmr/m/n/12 ���-�� $\OT1/cmr/m/n/12 [\OMS/cmsy/m/n/12 A\OT1/cmr/m/n/12 ][]$
  []
 
-[55] [56] [57] [58] [59] (./Линал.aux)
+[55] [56] [57] [58] [59] [60] [61] [62] [63] (./Линал.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Линал.out' has not changed.
-(rerunfilecheck)             Checksum: ECD13260639A19BA6797410CCC62591B;4326.
+(rerunfilecheck)             Checksum: 411DC7EE2426A38D44BAFC7A8BFEA4A8;4563.
  ) 
 Here is how much of TeX's memory you used:
- 44557 strings out of 474116
- 1037682 string characters out of 5743681
+ 45167 strings out of 474116
+ 1050295 string characters out of 5743681
  1962187 words of memory out of 5000000
- 65761 multiletter control sequences out of 15000+600000
+ 66342 multiletter control sequences out of 15000+600000
  571054 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,16n,115p,814b,1698s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Линал.pdf (59 pages, 517213 bytes).
+Output written on Линал.pdf (63 pages, 539344 bytes).
 PDF statistics:
- 925 PDF objects out of 1000 (max. 8388607)
- 789 compressed objects within 8 object streams
- 426 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 979 PDF objects out of 1000 (max. 8388607)
+ 838 compressed objects within 9 object streams
+ 455 named destinations out of 1000 (max. 500000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 

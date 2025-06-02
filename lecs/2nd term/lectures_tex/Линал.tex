@@ -3912,4 +3912,287 @@ $\exists$ другие ОНБ такие, что $[\A] = D = \begin{pmatrix}
 
 Все базисы -- ОНБ $\Rightarrow$ все матрицы перехода ортогональны
 
+\section{Квадратичные поверхности}
+
+\begin{nota}{}
+    $\R^2$: прямая $\{(x, y) \mid ax + by + c = 0\} = f^{-1}(-c);\ f : \R^2 \to \R$
+
+    Алгебраическая кривая в $\R^2$ -- $\{(x, y) \mid f(x, y) = 0\};\ f \in \R[x, y]$
+
+    Алгебраическое многообразие в $\R^n$ -- $\{(x_1 \ldots x_n) \in \R^n \mid \begin{cases}
+        f_1(x_1 \ldots x_n) = 0 \\
+        \vdots \\
+        f_k(x_1 \ldots x_n) = 0
+    \end{cases}; \\ f_i \in \R[x_1, \ldots, x_n]\}$
+
+    В $\R^n$ система -- пересечение плоскостей (чаще кривая)
+
+    В $\R^2 \begin{cases}
+        f(x, y) = 0 \\
+        g(x, y) = 0
+    \end{cases}$ -- конечное множество точек (реже кривая)
+\end{nota}
+
+\begin{Example}{Простейший случай}
+    $\begin{cases}
+        f_1(x_1 \ldots x_n) = 0 \\
+        \vdots \\
+        f_k(x_1 \ldots x_n) = 0
+    \end{cases};\ f_i = a_1x_1 \ldots a_nx_n$
+
+    Множество решений -- $k$-мерное подпространство в $\R^n$
+\end{Example}
+
+\begin{theo}{}
+    Любое алгебраическое многообразие можно представить как множество решений 
+
+    $\begin{cases}
+        f_1(x_1 \ldots x_n) = 0 \\
+        \vdots \\
+        f_k(x_1 \ldots x_n) = 0
+    \end{cases};\ \deg f_i \leq 2$ -- пересечение гиперповерхностей второго порядка
+\end{theo}
+
+\begin{defin}{Квадратичная гиперповерхность}
+    $\{(x_1 \ldots x_n) \in \R^n \mid \underbrace{\sum\limits_{i \leq j} a_{ij}x_ix_j}_{\text{квадратичная форма}} + \underbrace{\sum b_ix_i}_{L : \R^n \to \R} + c = 0\}$
+
+    В матричное виде $X^TQX + LX + C = 0$, где $Q$ -- симметричная матрица, \\ $L \in\ ^n\R;\ C \in \R;\ X \in \R^n$
+
+    Меняем координаты: $\begin{gathered}
+        Q \mapsto \tilde{Q};\ C^TQ \\
+        L \mapsto \tilde{L};\ LC 
+    \end{gathered}$ -- вид уравнения не меняется при ортогональном преобразовании
+
+    Параллельный перенос: $\begin{cases}
+        x_1 = x_1' + d_1 \\ 
+        \vdots \\
+        x_n = x_n' + d_n
+    \end{cases}$. Пусть $D := \begin{pmatrix}
+        d_1 \\
+        \vdots \\
+        d_n
+    \end{pmatrix};\ x' := \begin{pmatrix}
+        x_1' \\
+        \vdots \\
+        x_n'
+    \end{pmatrix}$
+
+    $x = x' + D \mapsto (x' + D)^TQ(x' + D) + L(x' + D) + C = 0$
+
+    $(x')^TQx' + (x')^TQD + D^TQx' + D^TQD + Lx' + LD + C = 0$
+
+    Заметим, что $Q^T = Q$
+
+    $(x')^TQx' + D^TQx' + D^TQx' + Lx' + D^TQD + LD + C = 0$
+
+    $(x')^TQ(x') + \underbrace{(2D^TQ + L)}_{= L_{new}}x' + \underbrace{(D^TQD + LD + C)}_{= C_{new}} = 0$
+
+    $Q = Q_{new}$
+
+    \textbf{Вывод:} определение не зависит от выбора координат (не меняется при линейном (ортогональном) преобразовании и параллельном переносе)
+\end{defin}
+
+\begin{Example}{Какими они бывают?}
+    $n = 2$. Кривые второго порядка (рисунки на записи)
+
+    \begin{enumerate}
+         \item Эллипс $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$
+
+            \begin{tikzpicture}[scale=0.3]
+                \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+                \draw[thick,->] (0,-2) -- (0,2) node[anchor=south east] {$y$};
+                \draw[thick,blue] (0,0) ellipse (2 and 1);
+                \node[anchor=north] at (2,0) {$a$};
+                \node[anchor=east] at (0,1) {$b$};
+            \end{tikzpicture}
+
+            \item Гипербола $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$
+            
+            \begin{tikzpicture}[scale=0.3]
+                \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+                \draw[thick,->] (0,-3) -- (0,3) node[anchor=south east] {$y$};
+                \draw[thick,blue,domain=1.0:2.5,samples=100] plot (\x,{sqrt((\x)^2 - 1)});
+                \draw[thick,blue,domain=1.0:2.5,samples=100] plot (\x,{-sqrt((\x)^2 - 1)});
+                \draw[thick,blue,domain=-2.5:-1.0,samples=100] plot (\x,{sqrt((\x)^2 - 1)});
+                \draw[thick,blue,domain=-2.5:-1.0,samples=100] plot (\x,{-sqrt((\x)^2 - 1)});
+                \node[anchor=north] at (2,0) {$a$};
+                \node[anchor=east] at (0,1.5) {$b$};
+            \end{tikzpicture}
+
+        \item $y - ax^2 = 0$
+        
+            \begin{tikzpicture}[scale=0.3]
+                \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+                \draw[thick,->] (0,-1) -- (0,4) node[anchor=south east] {$y$};
+                \draw[thick,blue,domain=-2.5:2.5,samples=100] plot (\x,{(\x)^2});
+            \end{tikzpicture}
+
+        \item Пара пересекающихся прямых $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 0$
+        
+        \begin{tikzpicture}[scale=0.3]
+            \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+            \draw[thick,->] (0,-3) -- (0,3) node[anchor=south east] {$y$};
+            \draw[thick,blue] (-2.5,-2.5) -- (2.5,2.5);
+            \draw[thick,blue] (-2.5,2.5) -- (2.5,-2.5);
+        \end{tikzpicture}
+
+        \item Пара $\parallel$ прямых $(x - a)(x - b) = 0$
+        
+        \begin{tikzpicture}[scale=0.3]
+            \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+            \draw[thick,->] (0,-3) -- (0,3) node[anchor=south east] {$y$};
+            \draw[thick,blue] (-1.5,-2.5) -- (-1.5,2.5);
+            \draw[thick,blue] (1.5,-2.5) -- (1.5,2.5);
+        \end{tikzpicture}
+
+        \item Прямая $ax + by + c = 0$
+        
+        \begin{tikzpicture}[scale=0.3]
+            \draw[thick,->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+            \draw[thick,->] (0,-3) -- (0,3) node[anchor=south east] {$y$};
+            \draw[thick,blue] (-2.5,-1.5) -- (2.5,1.5);
+        \end{tikzpicture}
+
+        \item Пустое множество $\frac{x^2}{a^2} + \frac{y^2}{b^2} = -1$ 
+        \item Точка $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 0$ 
+        \item Все $\R^2$ $a = 0;\ L = 0;\ c = 0 \Rightarrow 0 = 0$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{}
+    Поверхность $P$ называется центральное, если она имеет центр симметрии, то есть \\ $\exists x_0 \in \R^n : x_0 + y \in P \Leftrightarrow x_0 - y \in P$
+\end{defin}
+
+\begin{Example}{}
+    $x_0 = 0 \Rightarrow Y \in P \Leftrightarrow -Y \in P$ 
+\end{Example}
+
+\begin{theo}{Утверждение}
+    $L = 0 \Rightarrow P$ -- симметрично относительно 0, т.е. $Q(x) = Q(-x)$
+
+    В содержательных случаях это равносильно
+
+    $P$ -- поверхность. Существует ли такая замена координат, после которой $L = 0$?
+
+    Сделаем перенос на $D$ (см. выше)
+
+    $L \mapsto 2D^TQ + L$
+
+    $L^T \mapsto 2QD + L^T$
+
+    \begin{enumerate}
+        \item Пусть $Q$ -- невырожденная квадартичная форма. Т.е. $\exists D : QD = \frac{-L^T}{2} \Rightarrow L_{new} = 0$
+        
+        Получаем уравнение $X^TQX = -C$
+
+        Существует ортогональное преобразование $Q \mapsto \tilde{Q} = \begin{pmatrix}
+            a_1 & \ldots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \ldots & a_n 
+        \end{pmatrix}$
+
+        $\Rightarrow$ уравнение превращается в $a_1x_1^2 + \ldots + a_nx_n^2 = const$
+
+        Если $x' = \sqrt{|a_i|}x$, то получим $\pm x_1^2 \pm \ldots \pm x_n^2 = c$
+
+        \begin{Example}{}
+            $n = 2$
+
+            $\pm x_1^2 \pm x_2^2 = 1$ -- эллипс/гипербола/$\varnothing$
+        
+            $\pm x_1^2 \pm x_2^2 = 0$ -- точка/две прямые
+        \end{Example}
+
+        \item $Q$ вырождена, $\frac{-L^T}{2} \in \im Q \Rightarrow$ можем сделать $L = 0$ и диагонализировать $Q$ ортогональным преобразованием $\Rightarrow a_1x_1^2 + \ldots + a_kx_k^2 = -c\ k < n$
+        
+        \begin{Example}{}
+            $n = 2$
+
+            $ax^2 = 0$ -- прямая
+
+            $0 = 0$ -- $\R^2$
+        \end{Example}
+
+        \item $\frac{-L^T}{2} \notin \im Q \Rightarrow$ не можем сделать $L = 0$, <<остается только плакать и жаловаться на жизнь>>
+        
+        Диагонализуем $Q$
+
+        $a_1x_1^2 \ldots + a_kx_k^2 + b_1x_1 + \ldots + b_nx_n + c = 0;\ k < n$
+
+        Если $b_{k + 1} + \ldots + b_n = 0$, то получим $\sum\limits_{i = 1}^k (a_ix_i^2 + b_ix_i) + c = 0$, т.е. $\sum a_ix_i'^2 + c' = 0$
+
+        Пусть НУО $b_{k + 1} \neq 0$, тогда $x_i' = x_i\ \forall i \neq k + 1$
+
+        $x_{k + 1}' = \sum b_ix_i$
+
+        Получим точно обратимую матрицу, т.е. невырожденная замена (можно сделать ортогональную)
+
+        В новых координатах $a_1x_1'^2 + \ldots + a_kx_k'^2 + x_{k + 1}' + c = 0$
+
+        $x_{k + 1}'' = x_{k + 1}' + c$
+
+        Вывод: любая нецентральная квадратичная поверхность заменой координат приводится к уравнению $x_{k + 1} = \sum a_ix_i^2$
+    \end{enumerate}
+\end{theo}
+
+\begin{Example}{}
+    В случае $n = 2$
+
+    $x_1 = ax_1^2$ -- парабола
+
+    $x_1 = 0$ -- прямая 
+\end{Example}
+
+\begin{nota}{Обязательно посмотрите запись там много рисунков!}
+    На самом деле эллипс, гипербола и парабола -- это одно и то же 
+
+    Рассмотрим $\R^3 = \{ \begin{pmatrix}
+        x \\
+        y \\
+        z 
+    \end{pmatrix} \mid x, y, z \in \R \}$
+
+    На $\R^3 \setminus \{0\}$ зададим $\sim$
+
+    $\begin{pmatrix}
+        x \\
+        y \\
+        z 
+    \end{pmatrix} \sim \begin{pmatrix}
+        x' \\
+        y' \\
+        z'
+    \end{pmatrix}$, если $\exists k \neq 0 : \begin{cases}
+        x' = kx \\
+        y' = ky \\
+        z' = kz
+    \end{cases}$
+
+    $(\R^3 \setminus \{0\})/_{\sim} = \R p^2$ -- проективная плоскость
+
+    $\R^2 \sim \{ \begin{pmatrix}
+        x \\
+        y \\
+        1
+    \end{pmatrix} \mid x, y \in \R \} = L$
+
+    Существует биекция $L \leftrightarrow \{ \ol{\begin{pmatrix}
+        x \\
+        y \\
+        z 
+    \end{pmatrix}} \mid z \neq 0 \}$
+
+    Можно представить $\R p^2 = L \cup \{ \overline{\begin{pmatrix}
+        x \\
+        y \\
+        0
+    \end{pmatrix}}\}$ -- эти классы соответствуют направлениям в плоскости $L$
+
+    $\ol{\begin{pmatrix}
+        x \\
+        y \\
+        0
+    \end{pmatrix}}$ -- бесконечно удаленная точка в направлении вектора $x, y$
+\end{nota}
+
 \end{document}

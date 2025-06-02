@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1748251918.64873 "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1748251921.45449 0
-  "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1748251918.43048 144575 507a02833fa28629010623e73f3004ef ""
+["pdflatex"] 1748856706.22082 "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" "Линал.pdf" "Линал" 1748856709.15864 0
+  "/Users/legendwp/HSE/adai28/lecs/2nd term/lectures_tex/Линал.tex" 1748856706.01046 155902 9b36d15f0cee4bce03b6c1b4755ee00e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -293,11 +293,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1748208927.30094 6841 912bd99799e50efbe9e12047920bce50 ""
-  "Линал.aux" 1748251921.22628 2625 bd9b19afe1ac5aff9659655210bc30df "pdflatex"
-  "Линал.out" 1748251921.22707 4326 ecd13260639a19ba6797410ccc62591b "pdflatex"
-  "Линал.tex" 1748251918.43048 144575 507a02833fa28629010623e73f3004ef ""
-  "Линал.toc" 1748251921.2273 1777 832dc2c2e3719f5c9986c5ff1bdf64b8 "pdflatex"
+  "config.sty" 1748855316.56223 6841 9254878e0c85021f130624ac03b186b0 ""
+  "Линал.aux" 1748856709.0277 2772 c042eb444c82481cc36287f12705845c "pdflatex"
+  "Линал.out" 1748856709.02877 4563 411dc7ee2426a38d44bafc7a8bfea4a8 "pdflatex"
+  "Линал.tex" 1748856706.01046 155902 9b36d15f0cee4bce03b6c1b4755ee00e ""
+  "Линал.toc" 1748856709.02902 1883 b3324154d3cac10583ce3d390d5cd94b "pdflatex"
   (generated)
   "Линал.aux"
   "Линал.log"

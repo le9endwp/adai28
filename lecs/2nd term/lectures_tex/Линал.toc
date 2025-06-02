@@ -14,3 +14,4 @@
 \contentsline {section}{\numberline {12}Ортогональные и унитарные операторы}{51}{section.12}%
 \contentsline {section}{\numberline {13}Полярное разложение}{56}{section.13}%
 \contentsline {section}{\numberline {14}Сингулярное разложение}{57}{section.14}%
+\contentsline {section}{\numberline {15}Квадратичные поверхности}{59}{section.15}%

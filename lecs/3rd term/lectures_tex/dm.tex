@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage{config}
+\usepackage{subfiles}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp 
+\end{flushright}
+
+\tableofcontents
+\newpage
+
+\section{\S 1. Производящие функции}
+
+\begin{defin}{Производящая функция}
+    Пусть $(a_n)_{n = 0}^\infty$ -- последовательность. Ее производящая функция -- это формальный степенной ряд $A(t) = \sum\limits_{n = 0}^\infty a_n t^n = a_0 + a_1t + a_2t^2 + \ldots$
+\end{defin}
+
+\begin{nota}{Элементарные операции}
+    \begin{enumerate}
+        \item $A(t) \pm B(t) = \sum\limits_{n = 0}^\infty (a_n \pm b_n) t^n$
+        \item $c \in \C \Rightarrow c \cdot A(t) = \sum\limits_{n = 0}^\infty (ca_n)t^n$
+        \item $A(t)B(t) = a_0b_0 + (a_0b_1 + a_1b_0)t + \ldots + (a_0b_n + a_1b_{n - 1} + a_2b_{n - 2} + \ldots + a_nb_0)t^n + \ldots$
+    \end{enumerate}
+\end{nota}
+
+\begin{defin}{Свертка}
+    Последовательность $(c_n)_{n = 0}^\infty$, где $c_n = a_0b_n + a_1b_{n - 1} + \ldots + a_{n - 1}b_1 + a_nb_0$ называется сверткой последовательностей $(a_n)_{n = 0}^\infty$ и $(b_n)_{n = 0}^\infty$
+\end{defin}
+
+\begin{Remark}{}
+    Множество производящих функций образует коммутативное кольцо с единицей; векторное пространство над полем $\C$
+
+    Вообще это называется коммутативная алгебра с единицей
+\end{Remark}
+
+\begin{defin}{Композиция производящих функций}
+    Пусть $b_0 = 0$
+
+    $A(B(t)) = a_0 + a_1B(t) + a_2B(t)^2 + \ldots = a_0 + a_1(b_1t + b_2t^2 + b_3t^3 + \ldots) + \\
+    + a_2(b_1^2t^2 + 2b_1b_2t^3 + \ldots) + a_3(b_1^3t^3 + \ldots) = a_0 + a_1b_1t + (a_1b_2 + a_2b_1)t^2 + (a_1b_3 + 2a_2b_1b_2 + a_3b_1^3)t^3$
+
+    \begin{Example}{}
+        $A(-t) = a_0 - a_1t + a_2t^2 - a_3t^3 + \ldots$
+    \end{Example}
+\end{defin}
+
+\newpage
+
+\begin{theo}{}
+    Пусть $a_0 \neq 0$. Тогда $\exists! B(t)$, т.ч. $A(t) B(t) = 1$
+\end{theo}
+
+\textit{Доказательство:}
+
+Ищем $B(t) = b_0 + b_1t + b_2t^2 + \ldots$
+
+$A(t)B(t) = a_0b_0 + (a_0b_1 + a_1b_0)t + (a_2b_0 + a_1b_1 + a_0b_2)t^2 + \ldots = 1$
+
+$a_0b_0 = 1 \Rightarrow$ находим $b_0$
+
+$\underbrace{a_1b_0}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ находим $b_1$
+
+$\underbrace{a_2b_0 + a_1b_1}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ находим $b_2$
+
+И так далее \dots
+
+\begin{theo}{}
+    $b_0 = 0, b_1 \neq 0$. Тогда $\exists! A(t)$ и $C(t)$, т.ч. $a_0 = c_0 = 0$ и $A(B(t)) = B(C(t)) = t$
+\end{theo}
+
+\begin{Exercise}{}
+    Доказать теорему 1.2.
+\end{Exercise}
+
+\begin{defin}{Производная}
+    $A'(t) = a_1 + 2a_2t + 3a_3t^2 + \ldots = \sum\limits_{n = 1}^\infty na_nt^{n - 1}$
+
+    $t \cdot A'(t) = \sum\limits_{n = 0}^\infty na_nt^n$
+\end{defin}
+
+\begin{defin}{Первообразная}
+    $\int A(t)dt = a_0t + \frac{a_1}{2}t^2 + \frac{a_2}{3}t^3 + \ldots$
+\end{defin}
+
+\begin{Remark}{}
+    $(\int A(t)dt)' = A(t);\ \int A'(t)dt = A(t) - a_0$
+\end{Remark}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $a_n \equiv 1 \Rightarrow A(t) = \sum\limits_{n = 0}^\infty t^n = \frac{1}{1 - t}$
+        
+        Пусть $(b_n)_{n = 0}^\infty$ -- произвольная последовательность
+
+        $c_n = \underbrace{b_0 + b_1 + \ldots + b_n}_\text{свертка послед. выше}$; $C(t) = \frac{B(t)}{1 - t}$
+
+        \item $e^t = \sum\limits_{k = 0}^\infty \frac{t^k}{k!}$
+        \item $\sum\limits_{n = 0}^\infty t^n = \frac{1}{1 - t};\ \sum\limits_{n = 0}^\infty nt^n = t(\frac{1}{1 - t})' = \frac{t}{(1 - t)^2}$
+    \end{enumerate}
+\end{Example}
+
+\begin{Example}{Числа Фиббоначи}
+    $F_0 = 0,\ F_1 = 1,\ F_{n + 2} = F_{n + 1} + F_n \Rightarrow F_{n + 2}t^{n + 2} = F_{n + 1}t^{n + 2} + F_n t^{n + 2}$
+
+    $F(t) = \sum\limits_{n = 0}^\infty F_n t^n;\ \underbrace{\sum\limits_{n = 0}^\infty F_{n + 2}t^{n + 2}}_{F(t) - t} = \underbrace{\sum\limits_{n = 0}^\infty F_{n + 1}t^{n + 2}}_{t (\sum\limits_{n = 0}^\infty F_{n + 1}t^{n + 1}) = tF(t)} + \underbrace{\sum\limits_{n = 0}^\infty F_nt^{n + 2}}_{t^2F(t)}$
+
+    $F(t) - t = tF(t) + t^2F(t)$
+
+    $F(t) = \frac{t}{1 - t - t^2}$ -- производящая функция для чисел Фиббоначи
+
+    Корни знаменателя $(t_2 + t - 1 = 0 \Leftrightarrow t = \frac{-1 \pm \sqrt{5}}{2});\ \varphi = \frac{1 + \sqrt{5}}{2};\ \psi = \frac{1 - \sqrt{5}}{2}$
+
+    $1 - t - t^2 = (1 - \varphi t)(1 - \psi t)$
+
+    Ищем разложение на простейшие $\frac{t}{1 - t - t^2} = \frac{A}{1 - \varphi t} + \frac{B}{1 - \psi t} \Leftrightarrow \\ 
+    \Leftrightarrow t = A(1 - \psi t) + B(1 - \varphi t) \Leftrightarrow \begin{cases}
+        A + B = 0 \\
+        A \psi + B \varphi = -1
+    \end{cases} \Leftrightarrow  \\ \Leftrightarrow \begin{cases}
+        B = -A \\
+        A \psi - A \varphi = - 1 \Rightarrow  \begin{cases}
+            A = \frac{1}{\varphi - \psi} = \frac{1}{\sqrt{5}} \\
+            B = - \frac{1}{\sqrt{5}}
+        \end{cases}
+    \end{cases}$
+
+    Итого: $F(t) = \frac{1}{\sqrt{5}}(\frac{1}{1 - \varphi t} - \frac{1}{1 - \psi t}) = \frac{1}{\sqrt{5}}(\sum\limits_{n = 0}^\infty \varphi^nt^n - \sum\limits_{n = 0}^\infty \psi^nt^n)$
+
+    $F_n = \frac{1}{\sqrt{5}}((\frac{1 + \sqrt{5}}{2})^n - (\frac{1 - \sqrt{5}}{2})^n) \approx \frac{1}{\sqrt{5}}(\frac{1 + \sqrt{5}}{2})^n$
+\end{Example}
+
+\begin{nota}{Как решать линейные рекуррентные соотношения?}
+    $a_{n + k} = c_1a_{n + k - 1} + c_2a_{n + k - 2} + \ldots + c_ka_n$; знаем $a_0, a_1 \ldots a_{k - 1}$
+
+    $A(t) = \sum\limits_{n = 0}^\infty a_nt^n$
+
+    $a_{n + k}t^{n + k} = c_1ta_{n + k - 1}t^{n + k - 1} + c_2t^2a_{n + k - 2}t^{n + k - 2} + \ldots + c_kt^ka_nt^n$
+
+    Суммируем по $n = 0 : \underbrace{\sum\limits_{n = 0}^\infty a_{n + k}t^{n + k}}_{A(t) - a_0 - a_1t - \ldots - a_{k - 1}t^{k - 1}} = c_1t\underbrace{\sum\limits_{n = 0}^\infty a_{n + k - 1}t^{n + k - 1}}_{A(t) - a_0 - a_1t - \ldots - a_{k - 2}t^{k - 2}} + \ldots + c_kt^k\underbrace{\sum\limits_{n = 0}^\infty a_nt^n}_{A(t)}$
+
+    Получаем уравнение: $(1 - c_1t - c_2t^2 - \ldots - c_kt^k)A(t) = \underbrace{P(t)}_\text{многочлен, знаем}$
+
+    $A(t) = \frac{P(t)}{Q(t)}$ -- рациональная функция 
+
+    $Q(t) = (1 - \alpha_1t)^{r_1} (1 - \alpha_2t)^{r_2} \ldots (1 - \alpha_et)^{r_e}$
+
+    Раскладываем на простейшие вида $\frac{1}{(1 - \alpha_s t)^{m}}$
+
+    $\frac{1}{1 - \alpha_s t} = \sum\limits_{n = 0}^\infty \alpha_s^nt^n$
+
+    $\frac{1}{(1 - \alpha_st)^2} = \sum\limits_{n = 0}^\infty (n + 1)\alpha_s^nt^n$
+\end{nota}
+
+\end{document}

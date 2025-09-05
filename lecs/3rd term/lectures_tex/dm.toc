@@ -1,0 +1,2 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}\S 1. Производящие функции}{2}{section.1}%

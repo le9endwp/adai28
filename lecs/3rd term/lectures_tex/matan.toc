@@ -1,0 +1,4 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Глава 9. Теория меры}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}§1. Системы множеств}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}§2. Объем и мера}{8}{subsection.1.2}%

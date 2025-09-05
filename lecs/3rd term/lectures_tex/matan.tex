@@ -1,0 +1,429 @@
+\documentclass[12pt]{article}
+\usepackage{config}
+\usepackage{subfiles}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\begin{flushright}
+    Конспект Шорохова Сергея
+
+    Если нашли опечатку/ошибку - пишите @le9endwp 
+\end{flushright}
+
+\tableofcontents
+\newpage
+
+\section{Глава 9. Теория меры}
+
+\subsection{§1. Системы множеств}
+
+\begin{defin}{Объемлющее множество}
+    $X$ -- объемлющее множество. Будем рассматривать $A \subset X$
+\end{defin}
+
+\begin{declar}{Обозначения}
+    $A \sqcup B$ -- объединение множеств $A$ и $B$ и множества $A$ и $B$ не пересекаются
+
+    $\bigsqcup\limits_{k = 1}^n A_k$ -- объединение и $A_i \cap A_j = \varnothing$
+
+    Дизъюнктные множества = непересекающиеся множества
+\end{declar}
+
+\begin{defin}{Разбиение множества}
+    Множества $E_\alpha,\ \alpha \in I$ -- разбиение множества $E$, если $E = \bigsqcup\limits_{a \in I} E_\alpha$
+\end{defin}
+
+\begin{defin}{Система подмножеств и ее свойства}
+    $\A$ -- система подмножеств $X$ (т.е. $\A \subset 2^X$)
+
+    \begin{enumerate}
+        \item $\A$ имеет свойство $\sigma_0$, если $\forall A, B \in \A \Rightarrow A \cup B \in \A$
+        \item $\A$ имеет свойство $\delta_0$, если $\forall A, B \in \A \Rightarrow A \cap B \in \A$
+        \item $\A$ имеет свойство $\sigma$, если $\forall A_1, A_2 \ldots \in \A \Rightarrow \bigcup\limits_{n = 1}^\infty A_n \in \A$
+        \item $\A$ имеет свойство $\delta$, если $\forall A_1, A_2 \ldots \in \A \Rightarrow \bigcap\limits_{n = 1}^\infty A_n \in \A$
+        \item $\A$ -- симметричная система, если $\forall A \in \A \Rightarrow X \setminus A \in \A$
+    \end{enumerate}
+\end{defin}
+
+\begin{Reminder}{}
+    $X \setminus \bigcup\limits_{\alpha \in I} A_\alpha = \bigcap\limits_{\alpha \in I} X \setminus A_\alpha$
+
+    $X \setminus \bigcap\limits_{\alpha \in I} A_\alpha = \bigcup\limits_{\alpha \in I} X \setminus A_\alpha$
+\end{Reminder}
+
+\begin{propos}{}
+    Если $\A$ симметричная система, то $\begin{gathered}
+        (\sigma_0) \Leftrightarrow (\delta_0) \\
+        (\sigma) \Leftrightarrow (\delta)
+    \end{gathered}$
+\end{propos}
+
+\begin{defin}{Алгебра}
+    $\A$ -- алгебра, если
+
+    \begin{enumerate}
+        \item $\varnothing \in \A$
+        \item $\A$ -- симметричная система 
+        \item Есть свойства $(\sigma_0)$ и $(\delta_0)$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{$\sigma$-алгебра}
+    $\A$ -- $\sigma$-алгебра, если 
+
+    \begin{enumerate}
+        \item $\varnothing \in \A$
+        \item $\A$ -- симметричная система
+        \item Есть свойства $(\sigma)$ и $(\delta)$
+    \end{enumerate}
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Если $\A$ -- алгебра и $A_1 \ldots A_n \in \A$, то $\bigcup\limits_{k = 1}^n A_k$ и $\bigcap\limits_{k = 1}^n A_k \in \A$
+        \item Если $\A$ -- $\sigma$-алгебра, то $\A$ -- алгебра
+        \item Если $\A$ -- алгебра и $A, B \in \A$, то $\underbrace{A \setminus B}_{A \cap (X \setminus B)} \in \A$ 
+    \end{enumerate}
+\end{theo}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $X = \R^n$
+        
+        $\A$ -- все ограниченные множества и их дополнения. Это алгебра, но не $\sigma$-алгебра
+
+        \item $2^X$ -- $\sigma$-алгебра
+        \item Индуцированная ($\sigma$-)алгебра 
+        
+        $Y \subset X,\ \A$ -- ($\sigma$-)алгебра подмножеств $X$
+
+        $\B := \{A \cap Y : A \in \A\}$ -- ($\sigma$-)алгебра подмножеств $Y$
+
+        \item $X \supset A, B$
+        
+        $\A$ -- алгебра подмножеств $X$
+
+        $\varnothing, X, A, B, A \cup B, A \cap B, A \setminus B, B \setminus A, X \setminus A, X \setminus B, A \triangle B, X \setminus (A \cap B), X \setminus (A \cup B), \\ X \setminus (A \triangle B), X \setminus (A \setminus B), X \setminus (B \setminus A)$
+
+        \item $A_\alpha$ -- ($\sigma$-)алгебра подмножеств $X$
+        
+        Тогда $\B = \bigcap\limits_{\alpha \in I} \A_\alpha$ -- ($\sigma$-)алгебра подмножеств $X$
+
+        \textit{Доказательство:}
+
+        \begin{enumerate}
+            \item $\varnothing \in \A_\alpha \Rightarrow \varnothing \in \B$
+            \item $A \in \B \Rightarrow A \in \A_\alpha \forall \alpha \Rightarrow X \setminus A \in \A_\alpha \forall \alpha \Rightarrow X \setminus A \in \B$
+        \end{enumerate}
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{}
+    Пусть $\E$ -- система подмножеств $X$
+
+    Тогда существует наименьшая по включению ($\sigma$-)алгебра $\A$, содержащая $\E$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\A_\alpha$ -- всевозможные алгебры, содержащие $\E$ ($2^X$ подходит)
+
+$\A := \bigcap\limits_{\alpha \in I} \A_\alpha$ -- алгебра и $\A \subset \A_\alpha \forall \alpha$
+
+\newpage
+
+\begin{defin}{Борелевская оболочка}
+    $\E$ -- система подмножеств $X$
+
+    Борелевская оболочка системы $\E$ -- наименьшая по включению $\sigma$-алгебра, содержащая $\E$
+\end{defin}
+
+\begin{declar}{Обозначение}
+    $\B(\E)$
+\end{declar}
+
+\begin{defin}{Борелевская $\sigma$-алгебра}
+    Борелевская $\sigma$-алгебра -- это $\B(\E)$, где $\E$ -- всевозможные открытые множества в $\R^n$
+\end{defin}
+
+\begin{declar}{Обозначение}
+    $\B^n$
+\end{declar}
+
+\begin{Remark}{}
+    $\B^n \neq 2^{\R^n}$
+\end{Remark}
+
+\begin{defin}{Кольцо}
+    $\A$ -- семейство подмножеств $X$
+
+    $\A$ -- кольцо, если 
+    
+    \begin{enumerate}
+        \item $\varnothing \in \A$
+        \item $A, B \in \A \Rightarrow A \cap B \in \A,\ A \cup B \in \A$
+        \item $A, B \in \A \Rightarrow A \setminus B \in \A$
+    \end{enumerate}
+\end{defin}
+
+\begin{Remark}{}
+    $\A$ -- алгебра $\Leftrightarrow \A$ -- кольцо и $X \in \A$
+\end{Remark}
+
+\begin{defin}{}
+    $\P$ -- семейство подмножеств $X$
+
+    $\P$ -- полукольцо, если 
+
+    \begin{enumerate}
+        \item $\varnothing \in \P$
+        \item $\forall A, B \in \P \Rightarrow A \cap B \in \P$
+        \item $\forall A, B \in \P\ \exists Q_1 \ldots Q_m \in \P$, т.ч. $A \setminus B = \bigsqcup\limits_{k = 1}^m Q_k$
+    \end{enumerate}
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $X = \R;\ \P := \{(a, b] : a, b \in \R\}$ -- полукольцо
+        \item $X = \R;\ \P := \{(a, b] : a, b \in \Q\}$ -- полукольцо
+    \end{enumerate}
+\end{Example}
+
+\begin{lem}{}
+    $\bigcup\limits_{k = 1}^n A_k = \bigsqcup\limits_{k = 1}^n \underbrace{(A_k \setminus \bigcup\limits_{j = 1}^{k - 1} A_j)}_{B_k}$ (для $\infty$ вместо $n$ тоже верно)
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item $B_k \subset A_k \Rightarrow\ \supset$ верно
+    \item $\subset$ возьмем $x \in \bigcup\limits_{k = 1}^n A_k \Rightarrow$ найдется наименьший индекс $m$, т.ч. $x \in A_m$ и $x \notin A_{m - 1} \ldots A_1 \Rightarrow \\ \Rightarrow x \in B_m$
+    \item Дизъюнктность $k < m \Rightarrow B_k \cap B_m = \varnothing$
+
+    $B_m = A_m \setminus \bigcup\limits_{j = 1}^{m - 1} A_j \subset A_m \setminus A_k \subset A_m \setminus B_k$
+    
+    $B_k \subset A_k$
+\end{itemize}
+
+\begin{theo}{}
+    $\P$ -- полукольцо. Тогда
+
+    \begin{enumerate}
+        \item $P, P_1 \ldots P_n \in \P \Rightarrow \exists Q_1 \ldots Q_m \in \P$, т.ч. $P \setminus \bigcup\limits_{k = 1}^n P_k = \bigsqcup\limits_{j = 1}^m Q_j$
+        \item $P_1, P_2 \ldots \in \P \Rightarrow \exists Q_{ij} \in \P$, т.ч. $\bigcup\limits_{k = 1}^n P_k = \bigsqcup\limits_{k = 1}^n\bigsqcup\limits_{j = 1}^{m_k} Q_{kj}$, где $Q_{kj} \subset P_k \forall\ k, j$
+        \item В п. 2 можно вместо $n$ написать $\infty$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Индукция. База $n = 1$ -- определение полукольца
+    
+    Переход $n \to n + 1$
+
+    $P \setminus \bigcup\limits_{k = 1}^{n + 1}P_k = \underbrace{(P \setminus \bigcup\limits_{k = 1}^n P_k)}_\text{инд. предполож.} \setminus P_{n + 1} = \underbrace{(\bigsqcup\limits_{j = 1}^m Q_j)}_\text{где $Q_j \in \P$} \setminus P_{n + 1} = \bigsqcup\limits_{j = 1}^m Q_j \setminus P_{n + 1} = \bigsqcup\limits_{j = 1}^m\bigsqcup\limits_{i = 1}^{m_j} Q_{ji}$
+
+    \item $\bigcup\limits_{k = 1}^n P_k = \bigsqcup\limits_{k = 1}^n \underbrace{(P_k \setminus \bigcup\limits_{j = 1}^{k - 1} P_j)}_\text{п. 1}$
+\end{enumerate}
+
+\begin{defin}{}
+    $\P$ -- полукольцо подмножеств $X$
+
+    $\QQ$ -- полукольцо подмножеств $Y$
+
+    $\P \times \QQ := \{A \times B : A \in \P \text{ и } B \in \QQ\}$ -- декартово произведение полуколец $\P$ и $\QQ$
+\end{defin}
+
+\newpage
+
+\begin{theo}{}
+    Декартово произведение полуколец -- полукольцо
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item Пустые очев
+    \item $C \times D$ и $A \times B \in \P \times \QQ \Rightarrow (A \times B) \cap (C \times D) = \underbrace{(A \cap C)}_{\in \P} \times \underbrace{(B \cap D)}_{\in \QQ}$
+    \item $A \times B, C \times D \in \P \times \QQ \xRightarrow[]{?} (A \times B) \setminus (C \times D) = \bigsqcup\limits_{k = 1}^m \underbrace{P_k}_{\in \P} \times \underbrace{Q_k}_{\in \QQ}$
+    
+    $(A \times B) \setminus (C \times D) = \underbrace{(A \setminus C)}_{\bigsqcup\limits_{j = 1}^m P_j} \times \underbrace{B}_{\in \QQ} \sqcup \underbrace{(A \cap C)}_{\in \P} \times \underbrace{(B \setminus D)}_{\bigsqcup\limits_{i = 1}^n Q_i}$
+\end{enumerate}
+
+\begin{defin}{Замкнутый и открытый параллелепипеды}
+    $a, b \in \R^n$
+
+    Замкнутый параллелепипед $[a, b] := [a_1, b_1] \times \ldots \times [a_n, b_n]$
+
+    Открытый параллелепипед $(a, b) := (a_1, b_1) \times \ldots \times (a_n, b_n)$
+\end{defin}
+
+\begin{defin}{Ячейка}
+    $a, b \in \R^n$
+
+    Ячейка $(a, b] := (a_1, b_1] \times \ldots \times (a_n, b_n]$
+\end{defin}
+
+\begin{Remark}{}
+    $(a, b) \subset (a, b] \subset [a, b]$
+\end{Remark}
+
+\begin{propos}{}
+    \begin{enumerate}
+        \item Непустая ячейка -- объединение возрастающей (по включению) последовательности замкнутых параллелепипедов
+        \item Непустая ячейка -- пересечение убывающей (по включению) последовательности открытых параллелепипедов
+    \end{enumerate}
+\end{propos}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $A_k := [a_1 - \frac{1}{k}, b_1] \times [a_2 - \frac{1}{k}, b_2] \times \ldots \times [a_n - \frac{1}{k}, b_n]$
+    
+    $A_{k + 1} \supset A_k$ и $\bigcup\limits_{k = 1}^\infty A_k = (a, b]$
+
+    \item $B_k := (a_1, b_1 + \frac{1}{k}) \times (a_2, b_2 + \frac{1}{k}) \times \ldots \times (a_n, b_n + \frac{1}{k})$
+    
+    $B_{k + 1} \subset B_k$ и $\bigcap\limits_{k = 1}^\infty B_k = (a, b]$
+\end{enumerate}
+
+\begin{declar}{Обозначения}
+    $\P^n := \{(a, b] : a, b \in \R^n\}$
+
+    $\P_\Q^n := \{(a, b] : a, b \in \Q^n\}$
+\end{declar}
+
+\begin{propos}{}
+    $\P^n$ и $\P^n_\Q$ -- полукольца
+\end{propos}
+
+\textit{Доказательство:}
+
+$\P^n = \underbrace{\P^1 \times \P^1 \times \ldots \times \P^1}_\text{полукольца}$
+
+\begin{theo}{}
+    $G$ -- непустое открытое множество в $\R^m$
+
+    Тогда $G$ представимо в виде счетного дизъюнктного объединения ячеек с рациональными координатами вершин
+\end{theo}
+
+\textit{Доказательство:}
+
+У АИ тут рисуночки, посмотрите запись!
+
+Для $x \in G$ построим ячейку $P_x$ с рациональными координатами вершин, т.ч. $P_x \in G$ и $x \in P_x$
+
+$\bigcup\limits_{x \in G} P_x = G$
+
+Ячеек с рациональными координатами вершин счетное число. Значит если выкинуть повторы из объединения выше, то останется счетное объединение
+
+$G = \bigcup\limits_{n = 1}^\infty P_{x_n} = \bigsqcup\limits_{n = 1}^\infty \bigsqcup\limits_{j = 1}^{m_n} Q_{nj}$ -- ячейки с рациональными координатами вершин
+
+\begin{theo}{Следствие}
+    $\B^m = \B(\P^m) = \B(\P^m_\Q)$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $\B^m \supset \B(\P^m)$. Достаточно доказать, что $\B^m \supset \P^m$
+    
+    $(a, b]$ -- счетное пересечение открытых параллелепипедов (т.к. открытых множеств) $\Rightarrow (a, b]$ лежит в $\sigma$-алгебре, содержащей все открытые множества
+
+    \item $\B(\P^m) \supset \B(\P^m_\Q)$. Достаточно доказать, что $\B(\P^m) \supset \P^m_\Q$, но $\B(\P^m) \supset \P^m \supset \P^m_\Q$
+    
+    \item $\B(\P^m_\Q) \supset \B^m$. Достаточно доказать, что $\B(\P^m_\Q)$ содержит все открытые множества. Это следует из теоремы 1.5.
+\end{enumerate}
+
+\newpage
+
+\subsection{§2. Объем и мера}
+
+\begin{defin}{Объем}
+    $\P$ -- полукольцо. $\mu : \P \to [0, + \infty]$
+
+    $\mu$ -- объем, если 
+
+    \begin{enumerate}
+        \item $\mu \varnothing = 0$
+        \item Если $A_1, \ldots A_n$ и $\bigsqcup\limits_{k = 1}^n A_k \in \P$, то $\mu(\bigsqcup\limits_{k = 1}^n A_k) = \sum\limits_{k = 1}^n \mu A_k$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Мера}
+    $\P$ -- полукольцо. $\mu : \P \to [0, + \infty]$
+
+    $\mu$ -- мера, если 
+
+    \begin{enumerate}
+        \item $\mu \varnothing = 0$
+        \item Если $A_1, A_2 \ldots$ и $\bigsqcup\limits_{k = 1}^\infty A_k$, то $\mu(\bigsqcup\limits_{k = 1}^\infty A_k) = \sum\limits_{k = 1}^\infty \mu A_k$
+    \end{enumerate}
+\end{defin}
+
+\begin{Exercise}{}
+    Если $\mu \varnothing \neq +\infty$, то $\mu \varnothing = 0$ из свойства 2
+\end{Exercise}
+
+\begin{Example}{Примеры объемов}
+    \begin{enumerate}
+        \item $X = \R,\ \P^1$. Длина -- объем. $\mu(a, b] = b - a$
+        \item $X = \R,\ \P^1$. $g : \R \to \R$ -- нестрого возрастающая функция
+        
+        $\nu_g(a, b] := g(b) - g(a)$
+
+        \item Классический объем на $\P^m$
+        
+        $\lambda_m(a, b] = (b_1 - a_1)(b_2 - a_2) \ldots (b_m - a_m)$ -- объем и даже мера (докажем позже)
+
+        \item $x_0 \in X;\ \mu A = \begin{cases}
+            0 & x_0 \notin A \\
+            1 & x_0 \in A
+        \end{cases}$
+
+        \item $X = \R^2;\ \P$ -- ограниченные множества и их дополнения
+        
+        $\mu A = \begin{cases}
+            0 & A \text{ -- ограничена} \\
+            1 & A \text{ дополнение ограничено}
+        \end{cases}$ -- объем, но не мера
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{Свойства объема}
+    $\P$ -- полукольцо, $\mu$ -- объем на $\P$. Тогда 
+
+    \begin{enumerate}
+        \item Монотонность
+        
+        $P, \tilde{P} \in \P$ и $P \subset \tilde{P} \Rightarrow \mu P \leq \mu \tilde{P}$
+
+        \item Усиленная монотонность 
+        
+        $P_1, P_2 \ldots P_n, \tilde{P} \in \P$ и $\bigsqcup\limits_{k = 1}^n P_k \subset \tilde{P} \Rightarrow \sum\limits_{k = 1}^n \mu P_k \leq \mu \tilde{P}$
+
+        \item[2'.] $P_1, P_2 \ldots, \tilde{P} \in \P$ и $\bigsqcup\limits_{k = 1}^\infty P \subset \tilde{P} \Rightarrow \sum\limits_{k = 1}^\infty \mu P_k \leq \mu \tilde{P}$
+        
+        \item[3.] Конечная полуаддитивность
+        
+        $P_1 \ldots P_n, P \in \P$ и $P \subset \bigcup\limits_{k = 1}^n P_k \Rightarrow \mu P \leq \sum\limits_{k = 1}^n \mu P_k$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item[2.] $\tilde{P} \setminus \bigsqcup\limits_{k = 1}^n P_k = \bigsqcup\limits_{j = 1}^m Q_j$, где $Q_j \in \P$
+    
+    $\tilde{P} = \bigsqcup\limits_{k = 1}^n P_k \sqcup \bigsqcup\limits_{j = 1}^m Q_j \Rightarrow \mu \tilde{P} = \sum\limits_{k = 1}^n \mu P_k + \underbrace{\sum\limits_{j = 1}^m}_{\geq 0} \mu Q_j \geq \sum\limits_{k = 1}^n \mu P_k$
+
+    \item[2'.] Предельный переход в неравенстве
+    
+    \item[3.] $P'_k := P_k \cap P \in \P \Rightarrow P = \bigcup\limits_{k = 1}^n P_k' \underbrace{=}_\text{th.} \bigsqcup\limits_{k = 1}^n \bigsqcup\limits_{j = 1}^{m_k} Q_{kj}$ (они из $\P$) $\Rightarrow \mu P = \sum\limits_{k = 1}^n \sum\limits_{j = 1}^{m_k} \mu Q_{kj}$
+    
+    $P_k \supset P_k' \supset \bigsqcup\limits_{j = 1}^{m_k} Q_{kj} \Rightarrow \mu P_k \geq \sum\limits_{j = 1}^{m_k} \mu Q_{kj}$
+\end{enumerate}
+
+\end{document}

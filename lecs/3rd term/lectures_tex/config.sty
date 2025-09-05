@@ -1,0 +1,192 @@
+\ProvidesPackage{config}
+
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[russian]{babel}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{titlesec}
+
+\RequirePackage[unicode, pdftex]{hyperref}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{extarrows}
+\RequirePackage{mathtools}
+\RequirePackage{commath}
+\RequirePackage{ulem}
+\RequirePackage{placeins}
+\RequirePackage{bbold}
+\RequirePackage{listing}
+\RequirePackage{color}
+\RequirePackage{xcolor}
+
+
+\RequirePackage{relsize}
+
+\RequirePackage{multicol}
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+\setlength{\columnsep}{0.5cm}
+
+
+\RequirePackage{blindtext}
+\RequirePackage{wrapfig,amsthm}
+\RequirePackage[top=1cm,bottom=2cm,bindingoffset=0cm,left = 2cm,right=2cm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{pgfplots}
+\RequirePackage{pgfplotstable}
+
+\RequirePackage{enumitem}
+\setlist{nosep}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\RequirePackage{centernot}
+\RequirePackage[most]{tcolorbox}
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgray,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\newtcolorbox[auto counter, number within=section]{theo}[2][]{colback=blue!5!white,colframe=blue!50!black,fonttitle=\bfseries,title=Theorem \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{nota}[2][]{colback=black!5!white,colframe=black!50!black,fonttitle=\bfseries,title=Notation \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{defin}[2][]{colback=green!5!white,colframe=green!40!black,fonttitle=\bfseries,title=Definition \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{lem}[2][]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=Lemma \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter,number within=section]{propos}[2][]{colback=purple!5!white,colframe=purple!60!black,fonttitle=\bfseries, title=Proposition \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter,number within=section]{Remark}[2][]{colback=violet!5!white,colframe=violet!50!black,fonttitle=\bfseries, title=Remark \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter,number within=section]{Exercise}[2][]{colback=cyan!5!white,colframe=cyan!60!black,fonttitle=\bfseries, title=Exercise \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{Reminder}[2][]{colback=yellow!5!white,colframe=yellow!50!black,fonttitle=\bfseries,title=Reminder \thetcbcounter. #2,#1}
+\newtcolorbox[auto counter, number within=section]{declar}[2][]{colback=gray!10!white,colframe=black!50,fonttitle=\bfseries,title=Declaration \thetcbcounter. #2,#1}
+\newtheorem* {corollary}{Corollary}
+\newtheorem* {example}{Example}
+\newtheorem* {remark}{Remark}
+\newtheorem* {exercise}{Exercise}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Собственные команды %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\braket}{\lang}{\rang}
+
+
+\newcommand{\ra}{\Rightarrow}
+\newcommand{\la}{\Leftarrow}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\cupn}{\bigcup\limits_{i=1}^n}
+\newcommand{\capn}{\bigcap\limits_{i=1}^n}
+\newcommand{\cupinfty}{\bigcup\limits_{i=1}^\infty}
+\newcommand{\capinfty}{\bigcap\limits_{i=1}^\infty}
+
+\newcommand{\sumn}{\sum\limits_{i=1}^n}
+\newcommand{\prodn}{\prod\limits_{i=1}^n}
+\newcommand{\suminfty}{\sum\limits_{i=1}^{\infty}}
+\newcommand{\prodinfty}{\prod\limits_{i=1}^{\infty}}
+
+\newcommand{\rn}{\mathbb{R}^n}
+\newcommand{\rk}{\mathbb{R}^k}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\renewcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathcal{F}}
+
+
+
+\renewcommand{\theta}{\Theta}
+\renewcommand{\Pr}{\mathrm{Pr}}
+\newcommand{\inte}{\int\limits_E}
+\let\diff\dif
+\let\Diff\Dif
+\newcommand{\horline}{\noindent\rule{0.85\paperwidth}{1pt}}
+
+\newcommand{\lang}{\langle}
+\newcommand{\rang}{\rangle}
+
+\newcommand{\liminfty}{\underset{n\to\infty}{\lim}}
+\newcommand{\toinfty}{\xrightarrow[n\to\infty]{}}
+
+
+\let\longeq\xlongequal
+\newcommand{\defeq}{\overset{\operatorname{def}}{=}}
+
+\newcommand{\fii}{\varphi}
+
+\newcommand{\todo}{{\color{red}\textbf{ TODO }}}
+
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\supp}{supp}
+
+
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\E}{\mathcal{E}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\QQ}{\mathcal{Q}}
+
+%%% Bigger sums and ints
+\newcommand{\bigsum}{\mathop{\mathlarger{\sum}}}
+\newcommand{\bbigsum}{\mathop{\mathlarger{\mathlarger{\sum}}}}
+\newcommand{\bbbigsum}{\mathop{\mathlarger{\mathlarger{\mathlarger{\sum}}}}}
+\newcommand{\Bigsum}{\mathop{\mathlarger{\mathlarger{\mathlarger{\mathlarger{\sum}}}}}}
+
+\newcommand{\bigint}{\mathop{\mathlarger{\int}}}
+\newcommand{\bbigint}{\mathop{\mathlarger{\mathlarger{\int}}}}
+\newcommand{\bbbigint}{\mathop{\mathlarger{\mathlarger{\mathlarger{\int}}}}}
+\newcommand{\Bigint}{\mathop{\mathlarger{\mathlarger{\mathlarger{\mathlarger{\int}}}}}}
+
+\newcommand{\bigiint}{\mathop{\mathlarger{\iint}}}
+\newcommand{\bbigiint}{\mathop{\mathlarger{\mathlarger{\iint}}}}
+\newcommand{\bbbigiint}{\mathop{\mathlarger{\mathlarger{\mathlarger{\iint}}}}}
+\newcommand{\Bigiint}{\mathop{\mathlarger{\mathlarger{\mathlarger{\mathlarger{\iint}}}}}}
+
+
+\newcommand{\Lip}{\mathrm{Lip}}
+\newcommand{\Liploc}{\mathrm{Lip}_{\mathrm{loc}}}
+\newcommand{\wto}{\rightharpoondown}
+\newcommand{\divby}{\: \vdots \:}
+\def\acts{\curvearrowright}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% всякие штуки для оформления %%%%%%%%%%%%%%%%%%%%%
+\newcommand{\circled}[2][none]{%
+ \tikz[baseline=(a.base)]\node[draw,circle,inner sep=0.5pt, outer sep=0pt,fill=#1](a){\ensuremath #2\strut};
+ }
+ \tcbset{highlight math style={enhanced,
+  colframe=red,colback=white,arc=0pt,boxrule=1pt}}
+\newcommand{\mboxed}[1]{\tcbhighmath[fuzzy halo=1mm with blue!50!white,arc=2pt,
+  boxrule=0pt,frame hidden]{#1}}
+\definecolor{mag}{RGB}{128, 0, 255}
+\newcommand{\sms}[1]{\textcolor{mag}{#1}}
+\newtheorem* {comments}{Comment}
+\newcommand{\todos}[1]{{\color{red}\textbf{ TODO: #1}}}
+\newtcolorbox[auto counter,number within=section]{Example}[2][]{colback=magenta!5!white,colframe=magenta!59.9!black,fonttitle=\bfseries, title=Example \thetcbcounter. #2,#1}
+\DeclareMathOperator{\Cl}{Cl}
+\newcommand{\parl}[1]{|| #1 ||}
+\newcommand{\pparl}[1]{||| #1 |||}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Id}{Id}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac(){0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+\def\divby{%
+  \mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
+}
+\newcommand{\q}[1]{\langle #1 \rangle}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\toto}{\rightrightarrows}
+\newcommand{\grad}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ol}[1]{\overline{#1}}
+\DeclareMathOperator{\rank}{rk}

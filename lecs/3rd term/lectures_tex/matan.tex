@@ -426,4 +426,382 @@ $G = \bigcup\limits_{n = 1}^\infty P_{x_n} = \bigsqcup\limits_{n = 1}^\infty \bi
     $P_k \supset P_k' \supset \bigsqcup\limits_{j = 1}^{m_k} Q_{kj} \Rightarrow \mu P_k \geq \sum\limits_{j = 1}^{m_k} \mu Q_{kj}$
 \end{enumerate}
 
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Если $\mu$ -- объем на алгебре $\A$, $A \subset B;\ A, B \in \A$ и $\mu A < + \infty$, то $\mu (B \setminus A) = \mu B - \mu A$
+        
+        \textit{Доказательство:} Т.к. $B = A \sqcup (B \setminus A)$
+
+        \item Объем на полукольце можно продолжить на кольцо, состоящего из всевозможных объединений элементов полукольца
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    $\P$ и $\QQ$ -- полукольца подмножеств $X$ и $Y$. $\mu$ и $\nu$ -- объемы на $\P$ и $\QQ$
+
+    $\lambda \underbrace{(P \times Q)}_{P \in \P;\ Q \in \QQ} := \mu P \cdot \nu Q$ (считаем, что $0 \cdot + \infty = + \infty \cdot 0 = 0$)
+
+    Тогда $\lambda$ -- объем на $\P \times \QQ$
+\end{theo}
+
+\begin{theo}{Следствие}
+    Классический объем $\lambda_m$ -- объем
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Случай 1.] $P = \bigsqcup\limits_{j = 1}^m P_j$ и $Q = \bigsqcup\limits_{k = 1}^n Q_k$
+    
+    Тогда $P \times Q = \bigsqcup\limits_{j = 1}^m \bigsqcup\limits_{k = 1}^n P_j \times Q_k$
+
+    $\lambda(P \times Q) = \mu P \cdot \nu Q = \sum\limits_{j = 1}^m \mu P_j \cdot \sum\limits_{k = 1}^n \nu Q_k = \sum\limits_{j = 1}^m \sum\limits_{k = 1}^n \mu P_j \cdot \nu Q_k = \sum\limits_{j = 1}^m \sum\limits_{k = 1}^n \lambda(P_j \times Q_k)$
+
+    \item[Случай 2.] $P \times Q = \bigsqcup\limits_{k = 1}^n P_k \times Q_k \xRightarrow[]{?} \lambda(P \times Q) = \sum\limits_{k = 1}^n \lambda(P_k \times Q_k)$
+    
+    Разбиваем $P$ на кусочки $P = \bigsqcup\limits_{j = 1}^m P_j'$ и каждая $P_k$ -- дизъюнктное объединение \\ каких-то $P_j'$
+\end{itemize}
+
+\begin{Example}{Примеры мер}
+    \begin{enumerate}
+        \item $\lambda_m$ -- мера (потом докажем)
+        \item $g : \R \to \R$ -- нестрого возрастающая и непрерывная справа во всех точках
+        
+        $\nu_g(a, b] := g(b) - g(a)$ -- мера
+
+        \item $x_0 \in X;\ \mu A = \begin{cases}
+            1 & x_0 \in A \\
+            0 & x_0 \notin A 
+        \end{cases}$ -- мера на $2^X$
+
+        \item Считающая мера = количество элементов в множестве
+        \item $X;\ \begin{gathered}
+            t_1, t_2 \ldots \in X \\
+            w_1, w_2 \ldots \geq 0
+        \end{gathered};\ \mu A := \sum\limits_{k : t_k \in A} w_k$ -- мера на $2^X$
+
+        Счетная аддитивность: $A = \bigsqcup\limits_{k = 1}^\infty A_k \xRightarrow[]{?} \mu A = \sum\limits_{k = 1}^\infty \mu A_k$
+
+        В множестве $A_k$ гирьки $w_{k_1}, w_{k_2} \ldots$
+
+        $\mu A_k = \sum\limits_{j = 1}^\infty w_{k_j}$ и $\mu A = \sum w_{k_j}$
+        
+        Надо понять, что $\sum\limits_{k = 1}^\infty \sum\limits_{j = 1}^\infty w_{k_j} = \sum w_{k_j}$
+
+        \begin{itemize}
+            \item[$\leq :$] $\underbrace{\sum\limits_{k = 1}^K \sum\limits_{j = 1}^\infty w_{k_j}}_{\sum\limits_{j = 1}^\infty \sum\limits_{k = 1}^K w_{k_j}} \leq R \Rightarrow L \leq R$
+            \item[$\geq :$] Берем частичную сумму $S$ для $R$. Надо доказать, что $S \leq L$
+            
+            $\begin{gathered}
+                K = \max k \text{ в этой частичной сумме} \\
+                J = \max j \text{ в этой частичной сумме}
+            \end{gathered} \Rightarrow S \leq \sum\limits_{k = 1}^K \sum\limits_{j = 1}^J w_{k_j} \leq L$
+        \end{itemize}
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{}
+    $\mu : \P \to [0, + \infty]$ -- объем на полукольце $\P$. Тогда 
+
+    $\mu$ -- мера $\Leftrightarrow$ (счетная полуаддитивность)
+
+    $(P, P_k \in \P)\ \forall P \subset \bigcup\limits_{k = 1}^\infty P_k \Rightarrow \mu P \leq \sum\limits_{k = 1}^\infty \mu P_k$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Leftarrow :$] $P = \bigsqcup\limits_{k = 1}^\infty P_k \xRightarrow[\text{сч. полуадд.}]{} \mu P \leq \sum\limits_{k = 1}^\infty \mu P_k$
+    
+    $P = \bigsqcup\limits_{k = 1}^\infty P_k \xRightarrow[\text{усил. монот.}]{} \mu P \geq \sum\limits_{k = 1}^\infty \mu P_k$
+
+    \item[$\Rightarrow :$] $P_k' := P \cap P_k \Rightarrow P = \bigcup\limits_{k = 1}^\infty P_k' = \bigsqcup\limits_{k = 1}^\infty \bigsqcup\limits_{j = 1}^{m_k} Q_{k_j}$, где $Q_{k_j} \subset P_k' \subset P_k \xRightarrow[\mu \text{ -- мера}]{} \mu P = \sum\limits_{k = 1}^\infty \underbrace{\sum\limits_{j = 1}^{m_k} \mu Q_{k_j}}_{\leq \mu P_k}$
+    
+    $\bigsqcup\limits_{j = 1}^{m_k} Q_{k_j} \subset P_k \xRightarrow[\text{усил. монот.}]{} \mu P_k \geq \sum\limits_{j = 1}^{m_k} \mu Q_{k_j}$
+\end{itemize}
+
+\begin{theo}{Следствие}
+    $\mu$ -- мера на $\sigma$-алгебре. Тогда счетное объединение множеств нулевой меры -- множество нулевой меры 
+\end{theo}
+
+\textit{Доказательство:}
+
+$\mu A = 0;\ A := \bigcup\limits_{k = 1}^\infty A_k \Rightarrow \mu A \leq \sum\limits_{k = 1}^\infty \mu A_k = 0 \Rightarrow \mu A = 0$
+
+\begin{theo}{Непрерывность меры снизу}
+    $\mu$ -- объем на $\sigma$-алгебре $\A$. Тогда равносильны
+
+    \begin{enumerate}
+        \item $\mu$ -- мера 
+        \item $A_1 \subset A_2 \subset A_3 \subset \ldots;\ A_k \in \A$. Тогда $\mu (\bigcup\limits_{k = 1}^\infty A_k) = \lim\limits_{k \to \infty} \mu A_k$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2 :$] $A_0 \neq \varnothing$ и $B_k := A_k \setminus A_{k - 1};\ A := \bigcup\limits_{k = 1}^\infty A_k$
+    
+    Тогда $A = \bigsqcup\limits_{k = 1}^\infty B_k \Rightarrow \mu A = \sum\limits_{k = 1}^\infty \mu B_k = \lim\limits_{n \to \infty} \underbrace{\sum\limits_{k = 1}^n \mu B_k}_{\mu(\bigsqcup\limits_{k = 1}^n B_k)} = \lim\limits_{n \to \infty} \mu A_n$
+
+    \item[$2 \Rightarrow 1 :$] Пусть $A = \bigsqcup\limits_{k = 1}^\infty C_k;\ A_n := \bigsqcup\limits_{k = 1}^n C_k \Rightarrow A_1 \subset A_2 \subset \ldots \Rightarrow \mu A = \lim\limits_{n \to \infty} \mu A_n = \lim\limits_{n \to \infty} \mu(\bigsqcup\limits_{k = 1}^n C_k) = \\ = \lim\limits_{n \to \infty} \sum\limits_{k = 1}^n \mu C_k = \sum\limits_{k = 1}^\infty \mu C_k$
+\end{itemize}
+
+\begin{theo}{Непрерывность меры сверху}
+    $\mu$ -- объем на $\sigma$-алгебре $\A$ и $\mu X < + \infty$. Следующие условия равносильны 
+
+    \begin{enumerate}
+        \item $\mu$ -- мера 
+        \item Непрерывность меры сверху
+        
+        $A_1 \supset A_2 \supset A_3 \supset \ldots;\ A_k \in \A \Rightarrow \mu(\bigcap\limits_{k = 1}^\infty A_k) = \lim\limits_{k \to \infty} \mu A_k$
+        \item Непрерывность меры сверху на пустом множестве
+        
+        $A_1 \supset A_2 \supset A_3 \supset \ldots;\ A_k \in \A$ и $\bigcap\limits_{k = 1}^\infty A_k = 0 \Rightarrow \lim\limits_{k \to \infty} \mu A_k = 0$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2 :$] $B_k := A_1 \setminus A_k;\ B_1 \subset B_2 \subset B_3 \subset \ldots$
+    
+    $\bigcup\limits_{k = 1}^\infty B_k = A_1 \setminus \bigcap\limits_{k = 1}^\infty A_k$. По предыдущей теореме $\underbrace{\mu(\bigcup\limits_{k = 1}^\infty B_k)}_{\mu A_1 - \mu(\bigcap\limits_{k = 1}^\infty A_k)} = \lim\limits_{k \to \infty} \mu B_k = \mu A_1 - \lim\limits_{k \to \infty} \mu A_k$
+
+    \item[$2 \Rightarrow 3 :$] Очев, 3. -- частный случай 2.
+    
+    \newpage
+    
+    \item[$3 \Rightarrow 1 :$] $A = \bigsqcup\limits_{k = 1}^\infty C_k; A_n := \bigsqcup\limits_{k = n + 1}^\infty C_k;\ \bigcap\limits_{n = 1}^\infty A_n = \varnothing$ и $A_1 \supset A_2 \supset A_3 \supset \ldots \Rightarrow \lim \mu A_n = 0$
+    
+    $A = \bigsqcup\limits_{k = 1}^n C_k \sqcup A_n \Rightarrow \mu A = \underbrace{\sum\limits_{k = 1}^n \mu C_k}_{\to \sum\limits_{k = 1}^\infty \mu C_k} + \underbrace{\mu A_n}_{\to 0}$
+\end{itemize}
+
+\begin{theo}{Следствие}
+    $\mu$ -- мера на $\sigma$-алгебре $\A$ и $A_1 \supset A_2 \supset A_3 \supset \ldots$ и $\mu A_m < + \infty$ для некоторого $m$
+
+    Тогда $\mu(\bigcap\limits_{k = 1}^\infty A_k) = \lim \mu A_k$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пишем $A_m \setminus A_k$ вместо $A_1 \setminus A_k$
+
+\begin{Remark}{}
+    Условие $\mu X < + \infty$ важно. $A_n := [n, + \infty)$ и $\lambda_1 A_n = + \infty;\ \bigcap\limits_{n = 1}^\infty[n, + \infty) = \varnothing$
+\end{Remark}
+
+\begin{Exercise}{}
+    Придумать объем, не являющийся мерой, который обладает свойством из следствия
+\end{Exercise}
+
+\newpage
+
+\subsection{\S 3. Продолжение меры}
+
+\begin{defin}{Субмера}
+    $\nu : 2^X \to [0, + \infty]$ -- субмера, если 
+
+    \begin{enumerate}
+        \item $\nu \varnothing = 0$
+        \item Монотонность: $A \subset B \Rightarrow \nu A \leq \nu B$
+        \item Счетная полуаддитивность: $A \subset \bigcup\limits_{n = 1}^\infty A_n \Rightarrow \nu A \leq \sum\limits_{n = 1}^\infty \nu A_n$
+    \end{enumerate}
+\end{defin}
+
+\begin{Remark}{}
+    2. -- частный случай 3.
+\end{Remark}
+
+\begin{defin}{Полная мера}
+    $\mu$ -- мера на $\A$. $\mu$ -- полная мера, если 
+
+    $A \in \A$, т.ч. $\mu A = 0 \Rightarrow \forall B \subset A\ B \in \A$ (и тогда $\mu B = 0$)
+\end{defin}
+
+\begin{defin}{}
+    $\nu$ -- субмера. $E \subset X$
+
+    $E$ -- $\nu$-измеримое множество, если $\forall A \subset X \Rightarrow \nu A = \nu (A \cap E) + \nu (A \setminus E)$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Достаточно требовать $\geq$, т.к. $\leq$ из полуаддитивности 
+        \item $E_1, E_2 \ldots E_n$ -- $\nu$-измеримые и $E = \bigsqcup\limits_{k = 1}^n E_k \Rightarrow \nu(A \cap E) = \sum\limits_{k = 1}^n \nu(A \cap E_k)$
+        
+        Индукция по $n$. $n \to n + 1$
+
+        $\nu(A \cap \bigsqcup\limits_{k = 1}^{n + 1} E_k) = \nu \underbrace{((A \cap \bigsqcup\limits_{k = 1}^{n + 1} E_k) \cap E_{n + 1})}_{A \cap E_{n + 1}} + \nu \underbrace{((A \cap \bigsqcup\limits_{k = 1}^{n + 1} E_k) \setminus E_{n + 1})}_{A \cap \bigsqcup\limits_{k = 1}^n E_k}$
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{Теорема Каратеодори}
+    $\nu$ -- субмера. Тогда 
+
+    \begin{enumerate}
+        \item $\nu$-измеримые множества образуют $\sigma$-алгебру 
+        \item Сужение $\nu$ на эту $\sigma$-алгебру -- полная мера 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+$\A$ -- семейство всех $\nu$-измеримых множеств
+
+\begin{enumerate}
+    \item Маленькими шагами :)
+    
+    \begin{itemize}
+        \item[Шаг 1.] Если $\nu E = 0$, то $E$ будет $\nu$-измеримым
+        
+        $\nu \underbrace{(A \cap E)}_{\subset E} + \nu \underbrace{(A \setminus E)}_{\subset A} \leq \nu E + \nu A = 0 + \nu A = \nu A$
+    
+        \newpage 
+    
+        \item[Шаг 2.] $\A$ -- симметричная, т.к. если $E \in \A$, то $X \setminus E \in \A$
+        
+        $A \cap (X \setminus E) = A \setminus E;\ A \setminus (X \setminus E) = A \cap E$
+    
+        \item[Шаг 3.] Если $E$ и $F \in \A$, то $E \cup F \in \A$
+        
+        $\nu A = \nu (A \cap E) + \nu (A \setminus E) = \nu (A \cap E) + \nu ((A \setminus E) \cap F) + \nu \underbrace{((A \setminus E) \setminus F)}_{A \setminus (E \cup F)} \geq \\ \geq \nu (A \cap (E \cup F)) + \nu (A \setminus (E \cup F))$
+    
+        \item[Шаг 4.] $\A$ -- алгебра
+        \item[Шаг 5.] $E = \bigsqcup\limits_{n = 1}^\infty E_n$ и $E_n \in \A \xRightarrow[]{?} E \in \A$
+        
+        $\nu A = \nu (A \cap \bigsqcup\limits_{k = 1}^n E_k) + \nu (A \setminus \bigsqcup\limits_{k = 1}^n E_k) \geq \nu (A \cap \bigsqcup\limits_{k = 1}^n E_k) + \nu (A \setminus E) = \underbrace{\sum\limits_{k = 1}^n \nu (A \cap E_k)}_{\to \sum\limits_{k = 1}^\infty} + \nu (A \setminus E) \Rightarrow \\ 
+        \Rightarrow \nu A \geq \sum\limits_{k = 1}^\infty \nu (A \cap E_k) + \nu (A \setminus E) \geq \nu(\underbrace{\bigcup\limits_{k = 1}^\infty (A \cap E_k)}_{A \cap E}) + \nu (A \setminus E)$
+    
+        \item[Шаг 6.] $E = \bigcup\limits_{k = 1}^\infty E_k$
+        
+        Переделаем в дизъюнктное объединение
+    
+        Т.е. $\A$ -- $\sigma$-алгебра 
+    \end{itemize}
+
+    \item $\nu\mid_\A$ -- мера, т.к. это объем и счетная полуаддитивная
+    
+    $\nu (A \cap \bigsqcup\limits_{k = 1}^n E_k) = \sum\limits_{k = 1}^n \nu (A \cap E_k);\ A = X \Rightarrow$ объем
+
+    $\nu\mid_\A$ -- полная мера. Если $\nu B = 0$ и $A \subset B$, то $\nu A = 0$ и тогда $A \in \A$ по шагу 1
+\end{enumerate}
+
+\begin{defin}{Внешняя мера}
+    $\mu$ -- мера на полукольце $\P$. Внешняя мера, порожденная $\mu$ называется 
+    
+    $\mu^* A := \inf\{\sum\limits_{k = 1}^\infty \mu A_k : A \subset \bigcup\limits_{k = 1}^\infty A_k, A_k \in \P\}$
+
+    Если такого покрытия для $A$ нет, то $\mu^* A = + \infty$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Можем рассматривать только покрытия дизъюнктными множествами
+        
+        $\bigcup\limits_{k = 1}^\infty A_k = \bigsqcup\limits_{k = 1}^\infty \bigsqcup\limits_{j = 1}^{m_k} Q_{k_j}$ и $\bigsqcup\limits_{j = 1}^{m_k} Q_{k_j} \subset A_k$
+
+        \item Если $\mu$ -- мера на $\sigma$-алгебре, то $\mu^*A = \inf\{\mu B : B \supset A \text{ и } B \in \A\}$
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    $\mu^*$ -- субмера, совпадающая с $\mu$ на $\P$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Шаг 1.] Если $A \in \P$, то $\mu A = \mu^* A$
+    
+    \begin{itemize}
+        \item[$\geq$] Берем покрытие $A, \varnothing, \varnothing, \ldots$. $\mu^* A = \inf \leq \mu A$
+        \item[$\leq$] $A \subset \bigcup\limits_{n = 1}^\infty A_n \Rightarrow \mu A \leq \sum\limits_{n = 1}^\infty \mu A_n$ (счетная полуаддитивность меры) $\Rightarrow \mu A \leq \inf = \mu^* A$
+    \end{itemize}
+
+    \item[Шаг 2.] $\mu^*$ -- субмера 
+    
+    Надо проверить, если $A \subset \bigcup\limits_{n = 1}^\infty A_n \Rightarrow \mu^* A \leq \sum\limits_{n = 1}^\infty \mu^* A_n$
+
+    Если справа есть $+ \infty$, то все очев. Считаем, что $\mu^* A_n < + \infty$
+
+    Возьмем покрытие $A_n \subset \bigcup\limits_{k = 1}^\infty C_{nk}$, т.ч. $C_{nk} \in \P$ и $\sum\limits_{k = 1}^\infty \mu C_{nk} < \mu^* A_n + \frac{\varepsilon}{2^n} \Rightarrow A \subset \bigcup\limits_{n = 1}^\infty \bigcup\limits_{k = 1}^\infty C_{nk}$
+
+    $\mu^* A \leq \sum\limits_{n = 1}^\infty \sum\limits_{k = 1}^\infty \mu C_{nk} < \sum\limits_{n = 1}^\infty \mu^* (A_n + \frac{\varepsilon}{2^n}) = \varepsilon + \sum\limits_{n = 1}^\infty \mu^* A_n$
+\end{itemize}
+
+\begin{defin}{Стандартное продолжение меры}
+    $\mu_0$ -- мера на полукольце $\P$
+
+    $\mu_0^*$ -- внешняя мера, построенная по $\mu_0$ -- субмера 
+
+    $\mu$ -- сужение субмеры $\mu_0^*$ на $\mu_0^*$-измеримые множества 
+
+    $\mu$ называется стандартным продолжением $\mu_0$
+\end{defin}
+
+\begin{declar}{}
+    Будем писать $\mu$-измеримые, вместо $\mu_0^*$-измеримые 
+\end{declar}
+
+\begin{theo}{}
+    Это действительно продолжение. Т.е. множества из $\P$ будут $\mu$-измеримы
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[Шаг 1.] Если $E$ и $A \in \P$, то $\mu_0^* A \geq \mu_0^* (A \cap E) + \mu_0^*(A \setminus E)$
+    
+    $\mu_0^* A = \mu_0 A$ и $\mu_0^* (A \cap E) = \mu_0(A \cap E)$
+
+    $A \setminus E = \bigsqcup\limits_{k = 1}^m Q_k$, где $Q_k \in \P \Rightarrow A = (A \cap E) \sqcup \bigsqcup\limits_{k = 1}^m Q_k \Rightarrow \mu_0 A = \mu_0(A \cap E) + \underbrace{\sum\limits_{k = 1}^m \mu_0^* Q_k}_{\geq \mu_0^* (A \setminus E)} \geq \\
+    \geq \mu_0^*(A \cap E) + \mu_0^*(A \setminus E)$
+
+    \item[Шаг 2.] Если $E \in \P$, а $A \notin \P$
+    
+    Если $\mu_0^* A = + \infty$, то неравенство очевидно. Считаем, что $\mu_0^* A < + \infty$
+
+    Возьмем покрытие $A \subset \bigcup\limits_{n = 1}^\infty P_n$, т.ч. $\sum\limits_{k = 1}^\infty \mu_0 P_k < \mu_0^* A + \varepsilon$ ($P_n \in \P$)
+
+    $\mu_0 P_k \geq \mu_0^* (P_k \cap E) + \mu_0^* (P_k \setminus E)$
+
+    $\varepsilon + \mu_0^* A > \sum\limits_{k = 1}^\infty \mu_0 P_k \geq \sum\limits_{k = 1}^\infty \mu_0^* (P_k \cap E) + \sum\limits_{k = 1}^\infty \mu_0^* (P_k \setminus E) \geq \mu_0^* \underbrace{(\bigcup\limits_{k = 1}^\infty (P_k \cap E))}_{\supset A \cap E} + \mu_0^* \underbrace{(\bigcup\limits_{k = 1}^\infty (P_k \setminus E))}_{\supset A \setminus E} \geq \\
+    \geq \mu_0^* (A \cap E) + \mu_0^* (A \setminus E)$
+\end{itemize}
+
+\begin{defin}{$\sigma$-конечная мера}
+    Мера $\mu$ -- $\sigma$-конечная, если $X = \bigcup\limits_{n = 1}^\infty X_n$, т.ч. $\mu X_n < + \infty$
+\end{defin}
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Меру и ее стандартное продолжение будем обозначать одинаково
+        \item $\mu$ задана на $\sigma$-алгебре 
+        
+        $\mu A = \inf \{\sum\limits_{k = 1}^\infty \mu P_k : P_k \in \P,\ \bigcup\limits_{k = 1}^\infty P_k \supset A\}$
+
+        \item Применение стандартного продолжения к стандартному продолжению меры не дает ничего нового
+        \item Можно ли продолжить меру на более широкий класс множеств? 
+        
+        Обычно да, но нет однозначности продолжения 
+
+        \item Можно ли по-другому продолжить меру на $\sigma$-алгебру $\mu$-измеримых множеств?
+        
+        Если $\mu_0$ -- $\sigma$-конечная мера, то нет!
+
+        \item Обязательно ли полная мера задана на $\sigma$-алгебре $\mu$-измеримых множеств?
+        
+        Если $\mu_0$ -- $\sigma$-конечная, то да
+    \end{enumerate}
+\end{Remark}
+
+\begin{Exercise}{}
+    Доказать замечание 1.9.3.
+
+    Подсказка: нужно доказать, что $\mu_0^* = \mu^*$
+\end{Exercise}
+
+
+
 \end{document}

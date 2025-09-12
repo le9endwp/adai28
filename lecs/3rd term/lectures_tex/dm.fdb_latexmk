@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1757083086.89827 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1757083088.13636 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1757083086.69516 7102 c5145c8fb58eb426f8f08787faaea39e ""
+["pdflatex"] 1757687565.20847 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1757687566.52972 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1757687564.95874 13214 8fc89ca888240e1771b54a32798fe5be ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -13,10 +13,13 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold12.tfm" 1266369035 768 568afddd613f4818fa95373954d5df42 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold5.tfm" 1266369035 764 6e384685b780f01b6a1744eb2db32b69 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm" 1266369035 764 bc340104b2499eb440977e2d302aad8b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm" 1266369035 768 b3927d32cc38bf306f676b7e9ddf7414 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -286,10 +289,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1756986661.656 7096 02103e0bbe5034f9783b073a743d9fa8 ""
-  "dm.aux" 1757083088.0104 405 b54b101d4cbf219acacbeffaeff9ed4d "pdflatex"
-  "dm.out" 1757083088.01098 229 6fbdf098d018018c2212fb6e05f68f21 "pdflatex"
-  "dm.tex" 1757083086.69516 7102 c5145c8fb58eb426f8f08787faaea39e ""
-  "dm.toc" 1757083088.01117 131 fe0c41505086fa19e47e4eba7b5048aa "pdflatex"
+  "dm.aux" 1757687566.40123 405 8cdac608feb0d00abf32c3d19ccf15db "pdflatex"
+  "dm.out" 1757687566.40177 229 6fbdf098d018018c2212fb6e05f68f21 "pdflatex"
+  "dm.tex" 1757687564.95874 13214 8fc89ca888240e1771b54a32798fe5be ""
+  "dm.toc" 1757687566.40195 131 fe0c41505086fa19e47e4eba7b5048aa "pdflatex"
   (generated)
   "dm.aux"
   "dm.log"

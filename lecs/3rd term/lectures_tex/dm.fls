@@ -470,6 +470,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
 INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/lati1200.tfm
 INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm
 INPUT /Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/bbold/bbold5.tfm
 INPUT dm.aux
 INPUT ./dm.out
 INPUT ./dm.out

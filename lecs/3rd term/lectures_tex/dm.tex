@@ -156,4 +156,110 @@ $\underbrace{a_2b_0 + a_1b_1}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ нах
     $\frac{1}{(1 - \alpha_st)^2} = \sum\limits_{n = 0}^\infty (n + 1)\alpha_s^nt^n$
 \end{nota}
 
+\begin{Remark}{Вопрос}
+    Когда производящая функция -- рациональная?
+\end{Remark}
+
+\begin{defin}{Квазимногочлен}
+    Последовательность $(a_n)_{n = 0}^\infty$ -- квазимногочлен, если $a_n = c_1(n)q_1^n + c_2(n)q_2 + \ldots + c_k(n)q_k^n$, где $q_1 \ldots q_k \in \C;\ c_1(n) \ldots c_k(n)$ -- многочлены с комплексными коэффициентами 
+\end{defin}
+
+\begin{theo}{}
+    $A(t) = \sum\limits_{n = 0}^\infty a_nt^n;\ A(t)$ -- рациональна $\Leftrightarrow (a_n)_{n = 0}^\infty$ -- квазимногочлен, начиная с некоторого места
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item["$\Rightarrow$"\ ] $A(t)$ -- рациональная $\Rightarrow$ раскладываем на простейшие вида $(1 - qt)^{-m} + \underbrace{\text{ некоторый многочлен}}_\text{влияет на первые неск. эл. посл-ти}$
+    
+    $(1 - qt)^{-m} = \sum\limits_{n = 0}^\infty {m + n - 1 \choose n} q^nt^n = \sum\limits_{n = 0}^\infty \underbrace{\frac{(n + 1)(n + 2)\ldots(n + m - 1)}{(m - 1)!}}_\text{многочлен от $n$}q^nt^n$
+
+    \item["$\Leftarrow$"\ ] Надо доказать, что $(c(n)q^n)_{n = 0}^\infty$ имеет рациональную производящую функцию
+    
+    $c(n) = \sum\limits_{m \geq 0} \alpha_m n(n + 1)\ldots(n + m) = \alpha_0 + \alpha_1(n + 1) + \alpha_2(n + 1)(n + 2) + \ldots$
+
+    $\sum\limits_{n = 0}^\infty c(n)q^nt^n = \sum\limits_{n = 0}^\infty \sum\limits_{m \geq 0} \alpha_m(n + 1)(n + 2) \ldots (n + m) \cdot (qt)^n \stackrel{x = qt}{=} \sum\limits_{m \geq 0} \alpha_m \sum\limits_{n = 0}^\infty \underbrace{(n + 1)(n + 2) \ldots (n + m) x^n}_{(x^{n + m})^{(m)}} = \\
+     = \sum\limits_{m \geq 0} \alpha_m \cdot (\sum\limits_{n = 0}^\infty x^{n + m})^{(m)} = \sum\limits_{m \geq 0} \alpha_m (\sum\limits_{n = 0}^\infty x^n)^{(m)} = \sum\limits_{m \geq 0} \alpha_m (\frac{1}{1 - x})^{(m)}$
+
+     Получаем рациональную функцию 
+\end{itemize}
+
+\begin{defin}{Произведение Адамара}
+    $A(t) = \sum\limits_{n = 0}^\infty a_nt^n;\ B(t) = \sum\limits_{n = 0}^\infty b_nt^n$
+
+    Произведение Адамара $A(t) \odot B(t) = \sum\limits_{n = 0}^\infty (a_nb_n)t^n$
+\end{defin}
+
+\begin{theo}{Следствие}
+    Произведение Адамара рациональных функций -- рациональная функция (очевидно из теоремы)
+\end{theo}
+
+\begin{Example}{}
+    $F_1 + \ldots F_n = S_n =\ ?$
+
+    $\F(t) = \sum\limits_{n = 0}^\infty F_nt^n = \underbrace{\frac{t}{1 - t - t^2}}_{\frac{1}{\sqrt{5}}(\frac{1}{1 - \varphi 1} - \frac{1}{1 - \psi t})} = \sum\limits_{n = 0}^\infty S_nt^n = \frac{\F(t)}{1 - t}$
+
+    $S(t) = \frac{1}{\sqrt{5}}(\frac{1}{1 - \varphi t} - \frac{1}{1 - \psi t}) \frac{1}{1 - t}$
+
+    Разложим $\frac{1}{1 - \varphi t} \cdot \frac{1}{1 - t} = \frac{A}{1 - \varphi t} + \frac{B}{1 - t} \Leftrightarrow 1 = A(1 - t) + B(1 - \varphi t) \Leftrightarrow \begin{cases}
+        B = \frac{1}{1 - \varphi} = - \varphi \\
+        A = 1 + \varphi
+    \end{cases}$
+
+    Аналогично $\frac{1}{1 - \psi t} \cdot \frac{1}{1 - t} = \frac{1 + \psi}{1 - \psi t} - \frac{\psi}{1 - t}$
+
+    Итого, $S(t) = \frac{1}{\sqrt{5}}(\underbrace{\frac{1 + \varphi}{1 - \varphi t} - \frac{1 + \psi}{1 - \psi t}}_{\frac{1 + \varphi - \psi t - \varphi \psi t - 1 - \psi + \varphi t + \varphi \psi t}{1 - t - t^2}} - \underbrace{\frac{\varphi - \psi}{1 - t}}_{\frac{\sqrt{5}}{1 - t}})$
+
+    $S(t) = \frac{1 + t}{1 - t - t^2} - \frac{1}{1 - t}$
+
+    $\frac{t}{1 - t - t^2} = \sum\limits_{n = 0}^\infty F_nt^n = \F(t)$
+
+    $\frac{1}{1 - t - t^2} = \frac{\F(t)}{t} = \sum\limits_{n = 1}^\infty F_nt^{n - 1} = \sum\limits_{ n = 0}^\infty F_{n + 1}t^n$
+
+    Ответ: $F_{n + 2} - 1$
+\end{Example}
+
+\begin{Example}{Еще один пример}
+    \textbf{Осторожно! На записи рисуночки}
+
+    Взаимно рекуррентные последовательности
+
+    \textbf{Задача:} сколько способов разбить прямоугольник $3 \times n$ на доминошки $1 \times 2$?
+
+    $v_n$ -- кол-во способов разбить прямоугольник $3 \times n$ без левой нижней клетки
+
+    $u_n$ -- кол-во способов разбить прямоугольник $3 \times n$
+
+    Методом нехитрого посмотреть запись и увидеть красивые рисунки становится очевидно, что 
+
+    $\begin{cases}
+        u_n = 2v_{n - 1} + u_{n - 2} \\
+        v_n = u_{n - 1} + v_{n - 2}
+    \end{cases}$ при $u_1 = 0, u_2 = F_4 = 3;\ v_1 = 1, v_2 = 0$. Пусть $u_0 = 1;\ v_0 = 0$
+
+    $U(t) = \sum\limits_{n = 0}^\infty u_nt^n;\ V(t) = \sum\limits_{n = 0}^\infty v_nt^n$
+
+    $\begin{cases}
+        u_{n + 2}t^{n + 2} = 2v_{n + 1}t^{n + 2} + u_nt^{n + 2} \\
+        v_{n + 2}t^{n + 2} = u_{n + 1}t^{n + 2} + v_nt^{n + 2}
+    \end{cases} \Rightarrow \begin{cases}
+        U(t) - 1 = 2tV(t) + t^2U(t) \\
+        V(t) - t = t^2V(t) + t(U(t) - 1)
+    \end{cases}$
+
+    $V(t) = \frac{t}{1 - t^2}U(t)$. Подставляем во 2 уравнение
+
+    $U(t) - 1 = \frac{2t^2}{1 - t^2}U(t) + t^2U(t)$
+
+    $U(t) = \frac{1 - t^2}{1 - 4t^2 + t^4}$
+
+    Пусть $t^2 = s$, тогда $W(s) = \frac{1 - s}{1 - 4s + s^2} = \underbrace{\frac{A}{1 - \varphi s}}_{A \cdot \sum\limits_{n = 0}^\infty \varphi^ns^n} + \underbrace{\frac{B}{1 - \psi s}}_{B \cdot \sum\limits_{n = 0}^\infty \psi^ns^n} \Rightarrow \begin{cases}
+        A = \frac{1 + \sqrt{3}}{2\sqrt{3}} \\
+        B = \frac{\sqrt{3} - 1}{2\sqrt{3}}
+    \end{cases}$
+
+    $u_{2n} = A \varphi^n + B \psi^n = \frac{1 + \sqrt{3}}{2\sqrt{3}}(2 + \sqrt{3})^n + \frac{\sqrt{3} - 1}{2\sqrt{3}}(2 - \sqrt{3})^n \approx \frac{1 + \sqrt{3}}{2\sqrt{3}}(2 + \sqrt{3})^n$
+\end{Example}
+
 \end{document}

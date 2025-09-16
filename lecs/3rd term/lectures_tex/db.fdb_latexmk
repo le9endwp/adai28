@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1757698957.98387 "/Users/legendwp/HSE/adai28/lecs/3rd_term/lectures_tex/bd.tex" "bd.pdf" "bd" 1757698960.01121 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd_term/lectures_tex/bd.tex" 1757698957.72982 105617 cb4ef7488d105e43c5cdee33ef253be0 ""
+["pdflatex"] 1758059711.89386 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" "db.pdf" "db" 1758059718.74266 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" 1758059711.53137 224348 8ba285d2c7d36d8e949cf3814291c9ab ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -278,15 +278,15 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "bd.aux" 1757698959.88496 2301 7e8c6b193f02590e3c126ed9b309c2ed "pdflatex"
-  "bd.out" 1757698959.8857 3477 ca769cf100987f79bd29aa6300dbc4da "pdflatex"
-  "bd.tex" 1757698957.72982 105617 cb4ef7488d105e43c5cdee33ef253be0 ""
-  "bd.toc" 1757698959.8859 1535 1c239cb2118fe75195fd40328a476c44 "pdflatex"
   "config.sty" 1756986661.656 7096 02103e0bbe5034f9783b073a743d9fa8 ""
+  "db.aux" 1758059718.41549 4170 7599aa1a13138ae66b6ce8275d3a12f8 "pdflatex"
+  "db.out" 1758059718.41749 6195 4c157fe4d53da1dfbbc3946b4fa310d7 "pdflatex"
+  "db.tex" 1758059711.53137 224348 8ba285d2c7d36d8e949cf3814291c9ab ""
+  "db.toc" 1758059718.41797 2871 b551c4570262211a928ddd222942d750 "pdflatex"
   (generated)
-  "bd.aux"
-  "bd.log"
-  "bd.out"
-  "bd.pdf"
-  "bd.toc"
+  "db.aux"
+  "db.log"
+  "db.out"
+  "db.pdf"
+  "db.toc"
   (rewritten before read)

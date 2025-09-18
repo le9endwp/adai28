@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1757606931.41723 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" "matan.pdf" "matan" 1757606932.93905 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" 1757606931.05874 38137 d9e23fea229760ff50f4dc73c30a43df ""
+["pdflatex"] 1758200535.65778 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" "matan.pdf" "matan" 1758200543.15254 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" 1758200535.0809 55603 276bd3b969642feec5895527395f4e3b ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -295,11 +295,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1756986661.656 7096 02103e0bbe5034f9783b073a743d9fa8 ""
-  "matan.aux" 1757606932.80556 818 4afd640ebfc1ea40242e34583e1b8a98 "pdflatex"
-  "matan.out" 1757606932.80614 798 9aa57b9ad408908164664a5494eb6d4e "pdflatex"
-  "matan.tex" 1757606931.05874 38137 d9e23fea229760ff50f4dc73c30a43df ""
-  "matan.toc" 1757606932.80636 420 47eac330e87152007aca89ed4a65471e "pdflatex"
+  "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
+  "matan.aux" 1758200542.52703 954 3a6722f763cb177755a94724234fc2ac "pdflatex"
+  "matan.out" 1758200542.52903 969 e2255312e86ea42b3d34eceb75a5f557 "pdflatex"
+  "matan.tex" 1758200535.0809 55603 276bd3b969642feec5895527395f4e3b ""
+  "matan.toc" 1758200542.53443 514 afc0c5e58c17e5e6bdabcdb743156584 "pdflatex"
   (generated)
   "matan.aux"
   "matan.log"

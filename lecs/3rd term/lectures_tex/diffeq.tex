@@ -155,5 +155,271 @@ kryzhevicz@gmail.com и serkryzh@pg.edu.pl
     \end{enumerate}
 \end{defin}
 
+\begin{defin}{Системы обыкновенных дифференциальных уравнений}
+    $t, x_1, \ldots, x_n \in \R;\ t$ -- время, $x_1 \ldots x_n$ -- фазовые переменные
+
+    $\begin{cases}
+        x_1 = f_1(t, x_1, \ldots, x_n) \\
+        \ldots \\
+        x_n = f_n(t, x_1, \ldots, x_n)
+    \end{cases}$ -- скалярная запись системы
+
+    $x = \begin{pmatrix}
+        x_1 \\
+        \ldots \\
+        x_n
+    \end{pmatrix};\ f = \begin{pmatrix}
+        f_1 \\
+        \ldots \\
+        f_n
+    \end{pmatrix}$ -- векторная запись системы
+\end{defin}
+
+\begin{nota}{Как свести уравнение высшего порядка к системам?}
+    Пусть есть уравнение $x^{(n)} = g(t, x, x', \ldots, x^{(n-1)})$
+
+    Полагаем $x_1 = x, \ldots, x_n = x^{(n-1)}$
+
+    Получаем $\begin{cases}
+        x_1' = x_2 \\
+        \ldots \\
+        x_{n-1}' = x_n \\
+        x_n' = g(t, x_1, \ldots, x_n)
+    \end{cases}$
+\end{nota}
+
+\begin{Example}{}
+    $x'' + \sin x = 0$
+
+    $\begin{cases}
+        x_1' = x_2 \\
+        x_2' = -\sin x_1
+    \end{cases}$
+\end{Example}
+
+\begin{Remark}{}
+    Предполагается что $f : D \to \R^n$ -- непрерывна и $D \subset \R^{n + 1}$
+\end{Remark}
+
+\begin{defin}{Решение системы}
+    Функция $\varphi : \q{\alpha, \beta} \to \R^n$ называется решением системы если 
+
+    \begin{enumerate}
+        \item $\varphi \in C^1$
+        \item $(t, \varphi(t)) \in D\ \forall t \in \q{\alpha, \beta}$
+        \item $\varphi(t) = f(t, \varphi(t))\ \forall t \in \q{\alpha, \beta}$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}{Задача Коши для систем}
+    Пусть $t_0, x_{01}, \ldots, x_{0n} \in \R;\ (t_0, x_{01}, \ldots, x_{0n}) \in D$
+
+    Начальные условия: $\begin{cases}
+        x_1(t_0) = x_{01} \\
+        \ldots \\
+        x_n(t_0) = x_{0n}
+    \end{cases}$
+
+    Или в векторной форме: $x(t_0) = x_0$, где $x_0 = \begin{pmatrix}
+        x_{01} \\
+        \ldots \\
+        x_{0n}
+    \end{pmatrix}$
+
+    Задача Коши -- уравнение + начальные условия
+
+    $\begin{cases}
+        x' = f(t, x) \\
+        x(t_0) = x_0
+    \end{cases}$
+\end{defin}
+
+\begin{defin}{Эквивалентное интегральное уравнение}
+    $x(t) = x_0 + \int\limits_{t_0}^t f(x, x(s))ds$
+
+    Функция $\varphi : \q{\alpha, \beta} \to \R^n$ называется решением эквивалентного интегрального уравнения, если
+
+    \begin{enumerate}
+        \item $\varphi$ -- непрерывна
+        \item $(t, \varphi(t)) \in D\ \forall t \in \q{\alpha, \beta}$
+        \item $\varphi(t) = x_0 + \int\limits_{t_0}^t f(s, \varphi(s))ds\ \forall t \in \q{\alpha, \beta}$
+    \end{enumerate}
+\end{defin}
+
+\begin{lem}{}
+    Функция $\varphi(t)$ -- решение задачи Коши тогда и только тогда, когда она является решением эквивалентного интегрального уравнения 
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$] Пусть $\varphi(t)$ -- решение задачи Коши
+
+        \begin{enumerate}
+            \item $\varphi$ непрерывна -- очевидно 
+            \item $(t, \varphi(t)) \in D\ \forall t \in \q{\alpha, \beta}$ -- то же условие
+            \item $\varphi(t) = x_0 + \int\limits_{t_0}^t f(s, \varphi(s))ds\ \forall t \in \q{\alpha, \beta}$ -- получается интегрированием уравнения \\
+            $\varphi'(t) = f(t, \varphi(t))$ с учетом начальных условий
+        \end{enumerate}
+    \item[$\Leftarrow$] Пусть $\varphi(t)$ -- решение интегрального уравнения
+    
+        \begin{enumerate}
+            \item $\varphi$ непрерывна и есть интеграл от непрерывной функции -- значит дифференцируема
+            \item $(t, \varphi(t)) \in D\ \forall t \in \q{\alpha, \beta}$ -- то же условие
+            \item $\varphi'(t) = f(t, \varphi(t))\ \forall t \in \q{\alpha, \beta}$ -- получается дифференцированием интегрального уравнения
+        \end{enumerate}
+\end{itemize}
+
+\begin{theo}{Теорема существования решений}
+    Пусть правая часть $f(t, x)$ системы $x' = f(t, x)$ непрерывна в области $D \subset \R^{n + 1}$. Пусть $(t_0, x_0) \in D$. Тогда существует решение задачи Коши 
+
+    $\begin{cases}
+        x' = f(t, x) \\
+        x(t_0) = x_0
+    \end{cases}$
+
+    определенное на промежутке $[t_0 - h, t_0 + h]$
+\end{theo}
+
+\begin{Remark}{}
+    Этот промежуток называется промежутком Пеано
+\end{Remark}
+
+\textit{Доказательство:}
+
+Будем вместо решения задачи Коши искать решение эквивалентного интегрального уравнения $x(t) = x_0 + \int\limits_{t_0}^t f(s, x(s))ds$
+
+Поскольку $D$ -- область (открытое множество), выберем константы $a, b > 0$ такие, что $K := \{(t, x) : |t - t_0| \leq a;\ |x - x_0| \leq b\} \subset D$
+
+$K$ -- компакт, значит непрерывная функция огр. Пусть $M = \max\limits_{(t, x) \in K} |f(t, x)|;\ h := \min(a, \frac{b}{M})$
+
+\begin{Remark}{}
+    Длина промежутка Пеано непрерывно зависит от начальной точки 
+\end{Remark}
+
+\begin{defin}{Векторные нормы}
+    Понятие нормы в $\R^n$:
+
+    \begin{enumerate}
+        \item $\parl{x} \geq 0;\ \parl{x} = 0 \Leftrightarrow x = 0$
+        \item $\parl{ax} = |a|\parl{x}\ \forall a \in \R, x \in \R^n$
+        \item $\parl{x + y} \leq \parl{x} + \parl{y}\ \forall x, y \in \R^n$
+    \end{enumerate}
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\parl{x}_1 = |x| = \max(|x_1|, \ldots, |x_n|)$ -- с этой нормой и будем работать
+        \item $\parl{x}_2 = \sqrt{x_1^2 + \ldots + x_n^2}$ -- евклидова норма
+        \item $\parl{x}_3 = |x_1| + \ldots + |x_n|$
+    \end{enumerate}
+\end{Example}
+
+\begin{defin}{Равностепенная непрерывность}
+    Последовательность функций $\varphi_k : [\alpha, \beta] \to \R^n,\ k \in \N$ -- равностепенно непрерывна, если 
+    
+    $\forall \varepsilon > 0\ \exists \delta > 0 : \forall t_1, t_2 \in [\alpha, \beta],\ k \in \N$ верно $|t_1 - t_2| < \delta \Rightarrow |\varphi_k(t_1) - \varphi_k(t_2)| < \varepsilon$
+\end{defin}
+
+\begin{defin}{Равномерная ограниченность}
+    Последовательность функций $\varphi_k : [\alpha, \beta] \to \R^n,\ k \in \N$ -- равномерно ограничена, если
+
+    $\exists C > 0 : \forall t \in [\alpha, \beta],\ k \in \N$ верно $|\varphi_k(t)| \leq C$
+\end{defin}
+
+\begin{theo}{Теорема Арцела Асколи}
+    Пусть последовательность функций $\varphi_k : [\alpha, \beta] \to \R^n,\ k \in \N$ равностепенно непрерывна и равномерно ограничена. Тогда существует равномерно сходящаяся подпоследовательность $\varphi_{n_k} \toto \varphi_*$ на $[\alpha, \beta]$
+\end{theo}
+
+\begin{defin}{Кусочно-гладкая функция}
+    Функция $\varphi : [\alpha, \beta] \to \R^n$ называется кусочно-гладкой, если она непрерывна, имеет производную везде, кроме конечного числа точек, а в тех точках имеет односторонние пределы 
+\end{defin}
+
+\begin{defin}{$\varepsilon$-решение системы}
+    Пусть $\varepsilon > 0$. Кусочно-гладкая функция $\varphi : [\alpha, \beta] \to \R^n$ называется $\varepsilon$-решением системы, если 
+
+    \begin{enumerate}
+        \item $(t, \varphi(t)) \in D\ \forall t \in [\alpha, \beta]$
+        \item $|\varphi'(t) - f(t, \varphi(t))| \leq \varepsilon$ во всех точках, где производная определена
+    \end{enumerate}
+\end{defin}
+
+\begin{lem}{}
+    Пусть $\varepsilon_m \to 0$ и $\varphi_m(t)$ -- последовательность $\varepsilon_m$-решений системы на отрезке $[\alpha, \beta]$, такая, что $\varphi_m(t_0) = x_0;\ |f(t, \varphi_m(t))| \leq M$ и $\varphi_m \toto \varphi_*$. Тогда $\varphi_*$ -- решение задачи Коши
+\end{lem}
+
+\textit{Доказательство:}
+
+Пусть $\Delta_m$ -- последовательность функций, заданных формулой 
+
+$\varphi_m(t) = x_0 + \int\limits_{t_0}^t f(s, \varphi_m(s))ds + \Delta_m(t)$
+
+Интегрируя неравенство $|\varphi'(t) - f(t, \varphi(t))| \leq \varepsilon_m$ от $t_0$ до $t$, с учетом того, что $\varphi_m(t_0) = \varphi(t_0) = x_0$, получаем $|\Delta_m(t)| \leq \varepsilon_m(\beta - \alpha)$
+
+Переходя к пределу в первой формуле, получаем, что $\varphi_*(t)$ -- решение эквивалентного интегрального уравнения, а значит, и задачи Коши 
+
+\begin{Remark}{}
+    Далее, мы предложим метод построения таких приближенных решений. Мы будем строить эти решения на промежутке $[t_0, t_0 + h]$, построение на промежутке $[t_0 - h, t_0]$ аналогично
+\end{Remark}
+
+\begin{defin}{Ломаные Эйлера}
+    Фиксируем $m \in \N$. Разделим отрезок $[t_0, t_0 + h]$ на $m$ равных частей: \\ $t_j = t_0 + \frac{hj}{m};\ j = 0, \ldots, m$
+
+    Положим $\varphi_m(t_0) = x_0$ и последовательно определим $\varphi_m(t) = \varphi_m(t_j) + f(t_j, \varphi_m(t_j))(t - t_j)$ при $j = 0, \ldots, m - 1$ и $t \in [t_j, t_{j + 1}]$
+
+    В частности $\varphi_m(t_{j + 1}) = \varphi_m(t_j) + f(t_j, \varphi_m(t_j))\frac{h}{m}$
+
+    Если положить $A_j = (t_j, \varphi_m(t_j))$, то график $\varphi_m(t)$ -- ломаная, соединяющая точки $A_j$
+\end{defin}
+
+\begin{propos}{}
+    $K := \{(t, x) := |t - t_0| \leq a;\ |x - x_0| \leq b\} \subset D$
+
+    Для любого $m \in \N, t \in [t_0, t_0 + h]$ верно $(t, \varphi_m(t)) \in K$
+\end{propos}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $|t - t_0| \leq h = \min(a, \frac{b}{M})$
+    \item $t^* = \min\limits_{t \in [t_0, t_0 + h]} \{|\varphi_m(t) - x_0| \geq b\}$
+    
+    С другой стороны, $|\varphi_m(t^*) - x_0| = |\varphi_m(t^*) - \varphi_m(t_0)| \leq \int\limits_t^{t^*} |\varphi_m'(s)|ds \leq M(t^* - t_0) \leq Mh \leq b$
+\end{enumerate}
+
+\begin{propos}{}
+    $\forall \varepsilon > 0\ \exists m_0$, такое что при $m \geq m_0$ функция $\varphi_m$ является $\varepsilon$-решением системы 
+\end{propos}
+
+\textit{Доказательство:}
+
+$|\varphi_m(t_1) - \varphi_m(t_2)| \leq M|t_1 - t_2|$
+
+Если $t \in [t_j, t_{j + 1}]$, то $|t - t_j| \leq \frac{h}{m};\ |f(t_j, \varphi_m(t_j)) - f(t, \varphi_m(t))| \xrightarrow[m \to \infty]{} 0$ равномерно по $t$ 
+
+\begin{propos}{}
+    Функции $\varphi_m(t)$ равномерно ограничены 
+\end{propos}
+
+\textit{Доказательство:}
+
+$|\varphi_m(t)| \leq M|t - t_0| + |x_0| \leq Mh + |x_0|$
+
+\begin{propos}{}
+    Функции $\varphi_m(t)$ равностепенно непрерывны
+\end{propos}
+
+\textit{Доказательство:}
+
+$|\varphi_m(t_1) - \varphi_m(t_2)| \leq M|t_1 - t_2|$
+
+\begin{theo}{Теорема Кнезера}
+    В условиях теоремы существования, для любого $t_1 \in [t_0 - h, t_0 + h]$ множество значений решений задачи Коши $\{x(t_1) : x(t)\text{ -- решение}\}$ замкнуто и связно
+\end{theo}
+
+\begin{Exercise}{}
+    Доказать замкнутость (пользуемся утверждениями 2.1-2.4, леммой 2.1 и теоремой Арцела-Асколи)
+\end{Exercise}
+
 \end{document}
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758358335.56652 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/diffeq.tex" "diffeq.pdf" "diffeq" 1758358338.96736 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/diffeq.tex" 1758358335.19164 19276 c777182df18e194bc50e5553af569a4d ""
+["pdflatex"] 1758462528.92371 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/diffeq.tex" "diffeq.pdf" "diffeq" 1758462532.80144 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/diffeq.tex" 1758462528.48143 30322 879b9acd425b0ff0baef2dc70d630870 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -40,6 +40,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb" 1290383964 25452 d4e98a3bf6b13d4b7dcffd6302990a65 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1215737283 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
@@ -285,10 +286,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
-  "diffeq.aux" 1758358338.62242 551 488b5cd955915f77b8a5438dcd74648e "pdflatex"
-  "diffeq.out" 1758358338.62378 478 bb6efe84806757e372831be59f73185f "pdflatex"
-  "diffeq.tex" 1758358335.19164 19276 c777182df18e194bc50e5553af569a4d ""
-  "diffeq.toc" 1758358338.62419 237 6b0e808e5892e8a2ec296f2d0a5c275e "pdflatex"
+  "diffeq.aux" 1758462532.47 552 d6a4a41a31eebcd971bd6511c25bafd4 "pdflatex"
+  "diffeq.out" 1758462532.47139 478 bb6efe84806757e372831be59f73185f "pdflatex"
+  "diffeq.tex" 1758462528.48143 30322 879b9acd425b0ff0baef2dc70d630870 ""
+  "diffeq.toc" 1758462532.47215 237 6b0e808e5892e8a2ec296f2d0a5c275e "pdflatex"
   (generated)
   "diffeq.aux"
   "diffeq.log"

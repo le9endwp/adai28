@@ -25,3 +25,6 @@
 \contentsline {subsection}{\numberline {2.10}Планировщик запросов}{66}{subsection.2.10}%
 \contentsline {subsection}{\numberline {2.11}Методы доступа к данным}{68}{subsection.2.11}%
 \contentsline {subsection}{\numberline {2.12}Способы соединения}{73}{subsection.2.12}%
+\contentsline {section}{\numberline {3}Лекция 3. Запросы к нескольким таблицам}{77}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Запросы к нескольким таблицам}{77}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Использование операторов наборов записей}{79}{subsection.3.2}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  17 SEP 2025 00:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.17)  22 SEP 2025 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1636,27 +1636,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 3234--3235
 []\T2A/cmr/m/n/12 Проверяет на-ли-чие со-от-вет-ству-ю-ще-го хеш-значения в хеш-таблице
  []
 
-[74] [75] [76] (./db.aux)
+[74] [75] [76]
+Overfull \hbox (2.40492pt too wide) in paragraph at lines 3340--3353
+ [] 
+ []
+
+[77] [78] [79] (./db.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `db.out' has not changed.
-(rerunfilecheck)             Checksum: 4C157FE4D53DA1DFBBC3946B4FA310D7;6195.
+(rerunfilecheck)             Checksum: D0EBA531CF1828E6012299686315C556;7213.
  ) 
 Here is how much of TeX's memory you used:
- 44916 strings out of 474116
- 1041283 string characters out of 5743681
+ 44947 strings out of 474116
+ 1041747 string characters out of 5743681
  1964187 words of memory out of 5000000
- 66010 multiletter control sequences out of 15000+600000
+ 66022 multiletter control sequences out of 15000+600000
  568027 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,11n,115p,1131b,1320s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on db.pdf (76 pages, 413278 bytes).
+Output written on db.pdf (79 pages, 427683 bytes).
 PDF statistics:
- 1130 PDF objects out of 1200 (max. 8388607)
- 991 compressed objects within 10 object streams
- 545 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1175 PDF objects out of 1200 (max. 8388607)
+ 1032 compressed objects within 11 object streams
+ 564 named destinations out of 1000 (max. 500000)
+ 389 words of extra memory for PDF output out of 10000 (max. 10000000)
 

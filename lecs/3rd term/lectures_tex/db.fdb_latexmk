@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758059711.89386 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" "db.pdf" "db" 1758059718.74266 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" 1758059711.53137 224348 8ba285d2c7d36d8e949cf3814291c9ab ""
+["pdflatex"] 1758574005.97533 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" "db.pdf" "db" 1758574013.56027 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" 1758574005.51461 230421 fabdb737597ba403dbc34579a5c6fa7d ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -278,11 +278,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1756986661.656 7096 02103e0bbe5034f9783b073a743d9fa8 ""
-  "db.aux" 1758059718.41549 4170 7599aa1a13138ae66b6ce8275d3a12f8 "pdflatex"
-  "db.out" 1758059718.41749 6195 4c157fe4d53da1dfbbc3946b4fa310d7 "pdflatex"
-  "db.tex" 1758059711.53137 224348 8ba285d2c7d36d8e949cf3814291c9ab ""
-  "db.toc" 1758059718.41797 2871 b551c4570262211a928ddd222942d750 "pdflatex"
+  "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
+  "db.aux" 1758574013.20162 4687 9275ec142410745df3a12c8f523b9e80 "pdflatex"
+  "db.out" 1758574013.20354 7213 d0eba531cf1828e6012299686315c556 "pdflatex"
+  "db.tex" 1758574005.51461 230421 fabdb737597ba403dbc34579a5c6fa7d ""
+  "db.toc" 1758574013.204 3265 e2defb82b7f1035ee514a9d10221e795 "pdflatex"
   (generated)
   "db.aux"
   "db.log"

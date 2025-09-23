@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1757687565.20847 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1757687566.52972 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1757687564.95874 13214 8fc89ca888240e1771b54a32798fe5be ""
+["pdflatex"] 1758610810.68146 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1758610814.06241 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1758610810.31017 18833 dc2ef7e300d3da480665cb4c886e250a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -288,11 +288,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731796036.61691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "config.sty" 1756986661.656 7096 02103e0bbe5034f9783b073a743d9fa8 ""
-  "dm.aux" 1757687566.40123 405 8cdac608feb0d00abf32c3d19ccf15db "pdflatex"
-  "dm.out" 1757687566.40177 229 6fbdf098d018018c2212fb6e05f68f21 "pdflatex"
-  "dm.tex" 1757687564.95874 13214 8fc89ca888240e1771b54a32798fe5be ""
-  "dm.toc" 1757687566.40195 131 fe0c41505086fa19e47e4eba7b5048aa "pdflatex"
+  "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
+  "dm.aux" 1758610813.73364 689 4da94648f66ba919654ff0cc4177c743 "pdflatex"
+  "dm.out" 1758610813.73488 679 571b1fd1fd780223d8905455b3827b20 "pdflatex"
+  "dm.tex" 1758610810.31017 18833 dc2ef7e300d3da480665cb4c886e250a ""
+  "dm.toc" 1758610813.73529 331 33a01130654b0bdef7c8ea37ef3ecb55 "pdflatex"
   (generated)
   "dm.aux"
   "dm.log"

@@ -262,4 +262,111 @@ $\underbrace{a_2b_0 + a_1b_1}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ нах
     $u_{2n} = A \varphi^n + B \psi^n = \frac{1 + \sqrt{3}}{2\sqrt{3}}(2 + \sqrt{3})^n + \frac{\sqrt{3} - 1}{2\sqrt{3}}(2 - \sqrt{3})^n \approx \frac{1 + \sqrt{3}}{2\sqrt{3}}(2 + \sqrt{3})^n$
 \end{Example}
 
+\newpage
+
+\section{\S 2. Биномиальные коэффициенты}
+
+\begin{Reminder}{}
+    $C_n^k = \frac{n!}{k!(n - k)!}$
+
+    $C_n^k = {n \choose k} = \frac{n(n - 1)(n - 2) \ldots (n - k + 1)}{k!}$ -- определено при всех $n \in \C$
+
+    $(1 + t)^\alpha = \sum\limits_{k = 0}^\infty {\alpha \choose k} t^k$
+\end{Reminder}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\underbrace{\alpha(1 + t)^{\alpha - 1}}_{\alpha\sum\limits_{k = 0}^\infty {\alpha - 1 \choose k} t^k} = ((1 + t)^\alpha)' = \sum\limits_{k = 1}^\infty {\alpha \choose k}kt^{k - 1}$
+        
+        Приравнляем коэффициенты при $t^{k - 1}$: $\alpha{\alpha - 1 \choose k - 1} = k {\alpha \choose k}$
+
+        \item $((1 + t)^\alpha)^{(m)} = (\sum\limits_{k = 0}^\infty {\alpha \choose k}t^k)^{(m)} = \sum\limits_{k = m}^\infty {\alpha \choose k} \underbrace{k(k - 1) \ldots (k - m + 1)}_{m!{k \choose m}}t^{k - m}$
+        
+        $((1 + t)^\alpha)^{(m)} = \underbrace{\alpha(\alpha - 1)\ldots(\alpha - m)}_{m! {\alpha \choose m}}(1 + t)^{\alpha - m} = m! {\alpha \choose m} \sum\limits_{k = 0}^\infty {\alpha - m \choose k} t^k$
+
+        Приравниваем коэффициенты при $t^{k - m}$: ${\alpha \choose m}{\alpha - m \choose k - m} = {\alpha \choose k}{k \choose m}$
+
+        \item $(1 + t)^{2n} = (1 + t)^n(1 + t)^n = (\sum\limits_{k = 0}^n {n \choose k}t^k)^2$
+        
+        $(1 + t)^{2n} = \sum\limits_{k = 0}^{2n} {2n \choose k}t^k$
+
+        Коэффициент при $t^n$: ${2n \choose n} = {n \choose 0}{n \choose n} + {n \choose 1}{n \choose n - 1} + \ldots + {n \choose n}{n \choose 0}$
+
+        ${2n \choose n} = {n \choose 0}^2 + {n \choose 1}^2 + \ldots + {n \choose n}^2$
+
+        \item $(1 + t)^p(1 + t)^{1 - p} = ( 1 + t)^n$
+        
+        ${n \choose m} = {p \choose 0} {n - p \choose m} + {p \choose 1}{n - p \choose m - 1} + \ldots + {p \choose m}{n - p \choose 0}$ -- свертка Вандермонда
+
+        \item $(1 - t)^{-n - 1} = \sum\limits_{k = 0}^\infty {n + k \choose k} t^k = \sum\limits_{k = 0}^\infty {n + k \choose n} t^k$ -- производящая $({n + k \choose n})_{k = 0}^\infty$
+        
+        $\frac{1}{(1 - t)^{n + 2}} = \frac{1}{1 - t} \cdot \frac{1}{(1 - t)^{n + 1}}$ -- производящая функция $({n + 0 \choose n} + \ldots + {n + k \choose n})_{k = 0}^\infty$
+
+        Коэффициент при $t^m$: ${n + m + 1 \choose n + 1} = {n + 0 \choose n} + {n + 1 \choose n} + \ldots + {n + m \choose n}$
+
+        $m + 1 = k \Rightarrow {n + k \choose n + 1} = {n \choose n} + {n + 1 \choose n} + \ldots + {n + k - 1 \choose n}$
+
+        $n = 1 \Rightarrow \frac{k(k + 1)}{2} = 1 + 2 + \ldots + k$
+
+        $n = 2 \Rightarrow 1 \cdot 2 + 2 \cdot 3 + \ldots + k(k + 1) = 2{ k + 2 \choose 3} = \frac{k(k + 1)(k + 2)}{3}$
+    \end{enumerate}
+\end{Example}
+
+\newpage 
+
+\section{\S 3. Числа Каталана}
+
+\begin{defin}{Правильная скобочная последовательность}
+    Последовательность из $2n$ открывающих и закрывающих скобок -- правильная, если в любом префиксе открывающих $\geq$ закрывающих и всего $n$ открывающих и $n$ закрывающих
+\end{defin}
+
+\begin{defin}{Числа Каталана}
+    Числа Каталана ($C_n$) -- количество правильных скобочных последовательностей длины $2n$
+\end{defin}
+
+\begin{nota}{}
+    $C_0 = 1$
+
+    $C_1 = 1$: () 
+
+    $C_2 = 2$: ()(), (())
+
+    $C_3 = 5$: ((())), (()()), (())(), ()(()), ()()()
+\end{nota}
+
+\begin{propos}{}
+    $\forall n \geq 1\ C_n = C_0C_{n - 1} + C_1C_{n -2} + \ldots + C_{n - 2}C_1 + C_{n - 1}C_0$
+\end{propos}
+
+\textit{Доказательство:}
+
+Рассмотрим $\min k$, т.ч. среди первых $2k$ скобок поровну открывающих и закрывающих 
+
+$\underset{1}{(}\underbrace{\ldots\ldots\ldots\ldots\ldots}_{\text{ПСП длины }2(k - 1)}\underset{2k}{)}\ \underbrace{\underset{2k + 1}{(} \ldots \underset{2n}{)}}_{\text{ПСП длины }2(n - k)}$
+
+$C_{k - 1} \cdot C_{n - k},\ k = 1, 2, \ldots, n$
+
+$C_n = \sum\limits_{k = 1}^n C_{k - 1}C_{n - k}$
+
+\begin{nota}{}
+    $C_0 = 1;\ C_n = C_0C_{n - 1} + C_1C_{n - 2} + \ldots + C_{n - 1}C_0\ n \geq 0$
+
+    $C(t) = \sum\limits_{n = 0}^\infty C_nt^n;\ C_{n + 1}t^{n + 1} = (C_0C_n + C_1C_{n - 1} + \ldots + C_nC_0)t^{n + 1}$
+
+    $\sum\limits_{n = 0}^\infty : C(t) - 1 = tC(t)^2 \Leftrightarrow t C(t)^2 - C(t) + 1 = 0$
+
+    $C(t) = \frac{1 \pm \sqrt{1 - 4t}}{2t}$, т.к. $C(0) = 1$, то берем $C(t) = \frac{1 - \sqrt{1 - 4t}}{2t}$
+
+    $\sqrt{1 - 4t} = (1 - 4t)^\frac{1}{2} = \sum\limits_{n = 0}^\infty (-1)^k {\frac{1}{2} \choose k}4^kt^k = 1 + \sum\limits_{k = 1}^\infty \frac{(\frac{1}{2})(- \frac{1}{2}) \ldots (\frac{3 - 2k}{2})}{k!}(-1)^k2^{2^k}t^k = \\
+    = 1 - \sum\limits_{k = 1}^\infty \frac{1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2k - 3)}{k!}\underbrace{2^k}_{2 \cdot \frac{2 \cdot \ldots \cdot (2k - 2)}{(k - 1)!}}t^k = 1 - \sum\limits_{k = 1}^\infty \frac{2}{k} \frac{(2k - 2)!}{(k - 1)!^2}t^k = 1 - \sum\limits_{k = 1}^\infty \frac{2}{k} {2k - 2 \choose k - 1}t^k$
+
+    $C(t) = \sum\limits_{k = 1}^\infty \frac{1}{k} {2k - 2 \choose k - 1}t^{k - 1} = \sum\limits_{n = 0}^\infty \frac{1}{n + 1}{2n \choose n}t^n$
+
+    Мы доказали теорему $C_n = \frac{1}{n + 1}{2n \choose n}$
+\end{nota}
+
+\begin{theo}{}
+    $C_n = \frac{1}{n + 1}{2n \choose n}$
+\end{theo}
+
 \end{document}

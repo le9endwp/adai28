@@ -1078,4 +1078,445 @@ $\lambda_m (a, b] - \varepsilon < \lambda_m (a', b] \leq \sum\limits_{n = 1}^N \
     т.ч. $E_n = e_n \sqcup \bigcup\limits_{k = 1}^\infty K_{nk} \Rightarrow E = \underbrace{\bigcup\limits_{n = 1}^\infty e_n}_{e} \sqcup \bigcup\limits_{n = 1}^\infty \bigcup\limits_{k = 1}^\infty K_{nk}$
 \end{itemize}
 
+\begin{theo}{Инвариантность меры Лебега относительно сдвига}
+    $E \subset \R^m$ -- измеримое относительно меры Лебега, $v \in \R^m$
+
+    Тогда $E + v$ -- измеримо и $\lambda E = \lambda(E + v)$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\mu E := \lambda(E + v)$
+
+$\mu$ и $\lambda$ совпадают на ячейках $\Rightarrow \mu^*$ и $\lambda^*$ совпадают $\Rightarrow$ совпадают измеримые множества для $\mu^*$ и $\lambda^* \Rightarrow E$ и $E + v$ одновременно измеримые (или нет) и их меры равны
+
+\begin{theo}{}
+    Пусть $\mu$ задана на $\L^m$. Если 
+
+    \begin{enumerate}
+        \item $\mu$ инвариантна относительно сдвигов
+        \item $\mu$ конечна на ячейках ($= \mu$ конечна на ограниченных измеримых множествах)
+    \end{enumerate}
+
+    то существует $k \in [0, + \infty)$, т.ч. $\mu = k \cdot \lambda$
+\end{theo}
+
+\textit{Доказательство:}
+
+$Q := (0, 1]^m;\ k := \mu Q$
+
+\begin{itemize}
+    \item[$k = 1$: ] Тогда $\mu Q = 1$
+    
+    $Q_n := (0, \frac{1}{n}]^m$. Из $n^m$ копий $Q_n$ можно собрать $Q \Rightarrow n^m \mu Q_n = \mu Q = \lambda Q = n^m \lambda Q_n \Rightarrow \\
+    \Rightarrow \mu Q_n = \lambda Q_n$
+
+    Рассмотрим ячейку из $\P^m_\Q$. Все длины сторон у нее рациональные
+
+    $n =$ НОК всех знаменателей длин сторон. Эта ячейка собирается из сдвигов $Q_n \Rightarrow$
+
+    $\Rightarrow \mu = \lambda$ на $\P^m_\Q \xRightarrow[\text{единств. продолж.}]{} \mu = \lambda$
+
+    \item[$k > 0$: ] $\tilde{\mu} := \frac{1}{k} \mu \Rightarrow \tilde{\mu} Q = 1 \Rightarrow \tilde{\mu} = \lambda \Rightarrow \mu = k \lambda$
+    
+    \item[$k = 0$: ] $\mu Q = 0$
+    
+    $\R^m$ -- счетное объединение сдвигов $Q \Rightarrow \mu \R^m = 0 \Rightarrow \mu \equiv 0$
+\end{itemize}
+
+\begin{theo}{}
+    $G \subset \R^m$ -- открытое. $\Phi : G \to \R^m$ -- непрерывно дифференцируема. Тогда 
+
+    \begin{enumerate}
+        \item Если $e \subset G$, т.ч. $\lambda e = 0$, то $\lambda(\Phi(e)) = 0$
+        \item Если $E \subset G$, т.ч. $E$ -- измеримое, то $\Phi(E)$ -- измеримое 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item 
+    
+    \begin{itemize}
+        \item Случай $e \subset P \subset \Cl P \subset G$, где $P$ -- ячейка 
+    
+        $\Cl P$ -- компакт, $\Phi'(x)$ -- непрерывна на $\Cl P$
+    
+        $\parl{\Phi'(x)}$ непрерывна на $\Cl P \Rightarrow \parl{\Phi'(x)} \leq M\ \forall x \in \Cl P \Rightarrow \parl{\Phi(x) - \Phi(y)} \leq M \parl{x - y}$
+    
+        $\lambda e = 0 \Rightarrow e$ можно покрыть кубическими ячейками $Q_n$ так, что $\sum\limits_{n = 1}^\infty \lambda Q_n < \varepsilon; \\ 
+        (e \subset \bigcup\limits_{n = 1}^\infty Q_n) \Rightarrow \Phi(e) \subset \bigcup\limits_{n = 1}^\infty \Phi(Q_n) \subset \bigcup\limits_{n = 1}^\infty \tilde{Q_n}$
+    
+        Пусть $a_n$ -- длина ребра $Q_n$
+    
+        Если $x$ и $y \in Q_n$, то $\parl{x - y} < \sqrt{m} a_n \Rightarrow \parl{\Phi(x) - \Phi(y)} < \sqrt{m} M a_n \Rightarrow \Phi(y)$ лежит в шаре радиуса $\sqrt{m} M a_n$ с центром в $\Phi(x) \Rightarrow \Phi(y)$ лежит в кубической ячейке $\tilde{Q_n}$ со стороной $2\sqrt{m} M a_n$ (с центром в $\Phi(x)$)
+    
+        $\sum\limits_{n = 1}^\infty \lambda\tilde{Q_n} = \sum\limits_{n = 1}^\infty (2\sqrt{m}Ma_n)^m = (2\sqrt{m}M)^m \sum\limits_{n = 1}^\infty (a_n)^m = (2\sqrt{m}M)^m \underbrace{\sum\limits_{n = 1}^\infty \lambda Q_n}_{< \varepsilon} < \varepsilon \cdot (2\sqrt{m}M)^m \Rightarrow \\
+        \Rightarrow \lambda \Phi(e) = 0$
+    
+        \item Случай произвольный
+        
+        Представим $G$ в виде $\bigsqcup\limits_{j = 1}^\infty P_j$, где $P_j$ -- ячейки и $\Cl P_j \subset G$
+    
+        $e_j := e \cap P_j;\ \lambda e_j = 0$ и $e_j$ подходит под предыдущий случай $\Rightarrow \lambda \Phi(e_j) = 0$, но \\ 
+        $\Phi(e) = \bigcup\limits_{j = 1}^\infty \Phi(e_j) \Rightarrow \lambda \Phi(e) = 0$
+    \end{itemize}
+
+    \item $E$ -- измеримое $\Rightarrow E = e \sqcup \bigcup\limits_{n = 1}^\infty K_n$, где $\lambda e = 0$ и $K_n$ -- компакты $\Rightarrow \\ 
+    \Rightarrow \Phi(E) = \underbrace{\Phi(e)}_\text{мера 0, т.е. измеримы} \cup \bigcup\limits_{n = 1}^\infty \underbrace{\Phi(K_n)}_\text{компакты, т.е. измеримы}$
+\end{enumerate}
+
+\begin{theo}{}
+    Мера Лебега инвариантна относительно движения
+\end{theo}
+
+\textit{Доказательство:}
+
+Движение -- композиция сдвигов и поворотов. Надо понять, что $\lambda$ не меняется при повороте
+
+$U$ -- поворот вокруг 0. Если $E$ -- измеримо, то $U(E)$ -- измеримо 
+
+$\mu E := \lambda(U(E))$. $\mu$ задана на $\L^m$
+
+Проверим, что $\mu$ инвариантна относительно сдвигов
+
+$\mu(E + v) = \lambda(U(E + v)) = \lambda(U(E) + U(v)) = \lambda(U(E)) = \mu E$
+
+$\mu$ конечна на ограниченных измеримых множествах $\Rightarrow \mu = k \lambda$
+
+Но $U$ переводит в себя единичный шарик с центром в $0 \Rightarrow k = 1$
+
+$B$ -- единичный шар. $\underbrace{\mu B}_{k \lambda B} = \lambda(\underbrace{U(B)}_{B}) = \lambda B$
+
+\begin{theo}{Об изменении меры Лебега при линейной отображении}
+    $T : \R^m \to \R^m;\ E$ -- измеримое. Тогда $T(E)$ -- измеримое и $\lambda(T(E)) = |\det T| \cdot \lambda E$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\mu E := \lambda(T(E))$ -- инвариантна относительно сдвигов
+
+$\mu$ -- конечна на ограниченных измеримых множествах $\Rightarrow \mu = k \lambda$
+
+Нужно найти $k$. Возьмем $Q$ -- единичный куб. $Q$ был куб, натянутым на вектора. $T$ повернул эти вектора, получили $T(Q)$ -- косоугольный параллелепипед и $|\det T|$ -- его объем
+
+\begin{Remark}{}
+    $\lambda$ и объем на параллелепипеде из алгебры -- одно и то же (рисунок на записи)
+\end{Remark}
+
+\begin{Example}{Неизмеримое множество для $\lambda_1$}
+    $[0, 1];\ x \sim y$, если $x - y \in \Q$
+
+    В каждом классе эквивалентности возьмем по одному представителю
+
+    $A$ -- получившееся множество
+
+    Предположим, что $A$ -- измеримо. Тогда у него есть конечная мера
+
+    \begin{itemize}
+        \item $\lambda A = 0$:
+        
+        $\bigsqcup\limits_{r \in \Q} (A + r) \supset [0, 1]$
+        
+        $(A + r_1) \cap (A + r_2) \neq \varnothing \Rightarrow x + r_1 = y + r_2$, где $x, y \in A \Rightarrow x \sim y \Rightarrow x = y \Rightarrow \\
+        \Rightarrow \underbrace{\lambda_1[0, 1]}_{1} \leq \sum\limits_{r \in \Q} \underbrace{\lambda(A + r)}_{\lambda A = 0} = 0$. Противоречие
+
+        \item $\lambda A > 0$:
+        
+        $\bigsqcup\limits_{r \in \Q \cap [0, 1]} (A + r) \subset [0, 2] \Rightarrow \underbrace{\lambda[0, 2]}_{2} \geq \sum\limits_{r \in \Q \cap [0, 1]} \underbrace{\lambda(A + r)}_{\lambda A} = + \infty$. Противоречие 
+    \end{itemize}
+\end{Example}
+
+\newpage 
+
+\subsection{\S 5. Измеримые функции}
+
+\begin{nota}{}
+    Теперь все меры заданы на $\sigma$-алгебрах
+
+    Измеримые множества -- множества из $\sigma$-алгебры, где задана мера
+\end{nota}
+
+\begin{defin}{Лебеговы множества}
+    $f : E \to \ol{\R}$. Лебеговы множества для функции $f$
+
+    $E\{f \leq a\} := f^{-1}[-\infty, a] = \{x \in E : f(x) \leq a\}$
+
+    $E\{f < a\} := f^{-1}[-\infty, a) = \{x \in E : f(x) < a\}$
+
+    $E\{f \geq a\} := f^{-1}[a, + \infty] = \{x \in E : f(x) \geq a\}$
+
+    $E\{f > a\} := f^{-1}(a, + \infty] = \{x \in E : f(x) > a\}$
+\end{defin}
+
+\begin{theo}{}
+    Пусть $E$ -- измеримое множество. Тогда равносильно следующее:
+
+    \begin{enumerate}
+        \item $E\{f \leq a\}$ -- измеримы $\forall a \in \R$
+        \item $E\{f < a\}$ -- измеримы $\forall a \in \R$
+        \item $E\{f \geq a\}$ -- измеримы $\forall a \in \R$
+        \item $E\{f > a\}$ -- измеримы $\forall a \in \R$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Leftrightarrow 4$: ] $E\{f > a\} = E \setminus E\{f \leq a\}$
+    \item[$2 \Leftrightarrow 3$: ] $E\{f < a\} = E \setminus E\{f \geq a\}$
+    \item[$1 \Rightarrow 2$: ] $E\{f < a\} = \bigcup\limits_{n = 1}^\infty E\{f \leq a - \frac{1}{n}\}$
+    \item[$3 \Rightarrow 4$: ] $E\{f > a\} = \bigcup\limits_{n = 1}^\infty E\{f \geq a + \frac{1}{n}\}$
+\end{itemize}
+
+\begin{defin}{Измеримая функция}
+    $f : E \to \ol{\R}$ -- измерима, если измеримы все ее Лебеговы множества
+\end{defin}
+
+\begin{Remark}{}
+    $f : E \to \ol{\R}$
+
+    $f$ -- измерима $\Leftrightarrow E$ -- измеримо и $\forall a \in \R$ измеримы все лебеговы множества одного типа
+\end{Remark}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Leftarrow$: ] Теорема 
+    \item[$\Rightarrow$: ] $E = E\{f < a\} \cup E\{f \geq a\}$
+\end{itemize}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item Константа
+        \item $A, E$ -- измеримые; $f(x) = \begin{cases}
+            1, & x \in A \cap E \\
+            0, & x \in E \setminus A 
+        \end{cases}$
+        \item $f \in C(\R^m)$. Тогда $f$ -- измерима относительно $\lambda_m$
+        
+        \textit{Доказательство:}
+
+        $\R^m\{f < a\} = f^{-1}\underbrace{(-\infty, a)}_\text{откр.}$ -- открыто $\Rightarrow$ измеримо 
+    \end{enumerate}
+\end{Example}
+
+\begin{theo}{Свойства измеримых функций}
+    $f : E \to \ol{\R}$ -- измеримая 
+    \begin{enumerate}
+        \item $E$ -- измеримо
+        \item $E\{f = - \infty\} = \bigcap\limits_{n = 1}^\infty E\{f < -n\}$ и $E\{f = + \infty\} = \bigcap\limits_{n = 1}^\infty E\{f > n\}$ -- измеримы 
+        \item Прообразы любого промежутка измеримы 
+        
+        $\underbrace{E\{a < f < b\}}_{E\{f < b\} \setminus E\{f \leq a\}}, E\{a \leq f \leq b\}, \ldots$
+        \item $E\{f = c\}$ -- измеримы 
+        \item Прообразы любого открытого множества измеримы 
+        
+        \textit{Доказательство:}
+
+        $G \subset \R$ -- открытое $\Rightarrow G = \bigsqcup\limits_{k = 1}^\infty (a_k, b_k] \Rightarrow f^{-1}(G) = \bigsqcup\limits_{k = 1}^\infty f^{-1}(a_k, b_k]$
+
+        \item $-f$ и $|f|$ -- измеримы
+        
+        \textit{Доказательство:}
+
+        $E\{-f < a\} = E\{f > -a\}$
+
+        $E\{|f| < a\} = \begin{cases}
+            \varnothing & a \leq 0 \\
+            E\{-a < f < a\} & a > 0
+        \end{cases}$
+
+        \item $f, g : E \to \ol{\R}$ -- измеримы 
+        
+        Тогда $\max\{f, g\}$ и $\min\{f, g\}$ -- измеримы 
+        
+        ($\max\{f, g\}$ -- такая $h : E \to \ol{\R}$, что $h(x) = \max\{f(x), g(x)\}$)
+
+        \textit{Доказательство:}
+
+        $E\{max\{f, g\} < a\} = E\{f < a\} \cap E\{g < a\}$
+
+        \item $f_+ := \max\{f, 0\}$ и $f_- := \max\{-f, 0\}$ -- измеримы 
+        \item $E = \bigcup\limits_{n = 1}^\infty E_n$, $E_n$ -- измеримы, $f : E \to \ol{\R}$. Если $f\mid_{E_n}$ -- измеримо, то $f$ -- измерима 
+
+        \textit{Доказательство:}
+
+        $E\{f < a\} = \bigcup\limits_{n = 1}^\infty E_n\{f < a\}$
+
+        \item $f : E \to \ol{\R}$ -- измеримая, тогда $f = g\mid_E$, где $g : X \to \ol{\R}$ -- измеримая
+        
+        \textit{Доказательство:}
+
+        $g(x) := \begin{cases}
+            f(x) & x \in E \\
+            0 & x \notin E
+        \end{cases}$
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{}
+    $f_1, f_2, \ldots : E \to \ol{\R}$ -- последовательность измеримых функций. Тогда 
+
+    \begin{enumerate}
+        \item $\sup f_n, \inf f_n$ -- измеримы 
+        
+        ($\sup f_n$ -- такая функция $h$, что $h(x) = \sup\limits_{n \in \N}\{f_n(x)\}$)
+
+        \item $\underline{\lim}f_n$ и $\ol{\lim}f_n$ -- измеримы
+        \item Если существует $\lim f_n$, то он измерим 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $h := \sup\{f_n\}$
+    
+    $E\{h \leq a\} = \bigcap\limits_{n = 1}^\infty E\{f_n \leq a\}$
+
+    Если $x \in E\{h \leq a\}$, то $\sup\limits_{n \in \N} f_n(x) \leq a \Leftrightarrow f_n(x) \leq a\ \forall n$
+
+    $E\{\inf f_n \geq a\} = \bigcap\limits_{n = 1}^\infty E\{f_n \geq a\}$
+
+    \item $\underline{\lim}f_n(x) = \sup\limits_{n \in \N} \underbrace{\inf\limits_{k \geq n} f_k(x)}_\text{измеримо}$
+    
+    $\ol{\lim}f_n(x) = \inf\limits_{n \in \N} \underbrace{\sup\limits_{k \geq n} f_k(x)}_\text{измеримо}$
+
+    \item Если $\lim$ существует, то он совпадает с $\ol{\lim}$ и c $\underline{\lim}$
+\end{enumerate}
+
+\begin{theo}{}
+    $f : E \to H \subset \R^m;\ f_1, f_2, \ldots, f_m$ -- измеримы
+    
+    $\varphi : H \to \R$, т.ч. $\varphi \in C(H)$
+
+    Тогда $F(x) := \varphi(f_1(x), f_2(x), \ldots, f_m(x))$ -- измерима
+\end{theo}
+
+\textit{Доказательство:}
+
+$E\{F < a\} = F^{-1}(- \infty, a) = f^{-1}(\varphi^{-1}(-\infty, a))$
+
+$\varphi^{-1}(-\infty, a)$ -- прообраз открытого множества -- открытое в $H$ множество, т.е. это пересечение некоторого открытого $G \subset \R^m$ с $H$
+
+$\varphi^{-1}(-\infty, a) = G \cap H$, т.е. $E\{F < a\} = f^{-1}(G \cap H) = f^{-1}(G)$
+
+Т.е. надо для открытого $G$ понять, что $f^{-1}(G)$ -- измеримо
+
+$G = \bigsqcup\limits_{k = 1}^\infty \underbrace{(a_k, b_k]}_{\text{ячейки в } \R^m}$, т.е. надо понять, что $f^{-1}(c, d]$ -- измеримо
+
+$(c, d] = (c_1, d_1] \times (c_2, d_2] \times \ldots \times (c_m, d_m]$
+
+$f^{-1}(c, d] = \{x \in E : c_1 < f_1(x) \leq d_1, \ldots, c_m < f_m(x) \leq d_m\} = \bigcap\limits_{k = 1}^\infty E\{c_k < f_k \leq d_k\}$
+
+\begin{nota}{Операции с $\pm \infty$}
+    \begin{enumerate}
+        \item $\pm \infty + a = \pm \infty\ \forall a \in \R$
+        \item $\pm \infty \cdot a = \pm \infty\ \forall a > 0$
+        
+        $\pm \infty \cdot a = \mp \infty\ \forall a < 0$
+
+        \item $\pm \infty \cdot 0 = 0$
+        \item $+ \infty - (+ \infty) = (- \infty) - (- \infty) = + \infty + (- \infty) = 0$
+        \item $\frac{a}{\pm \infty} = 0\ \forall a \in \ol{\R}$
+        \item Деление на 0 не определено
+    \end{enumerate}
+\end{nota}
+
+\begin{theo}{}
+    \begin{enumerate}
+        \item Произведение и сумма измеримых функций -- измеримы
+        \item $\varphi$ -- непрерывна, $f$ -- измерима, $\varphi \circ f$ -- измерима 
+        \item $p > 0$, $f$ -- измерима и $\geq 0 \Rightarrow f^p$ -- измерима (считаем, что $(+\infty)^p = + \infty$)
+        \item Если $f$ -- измерима, то $\frac{1}{f}$ измерима на $E\{f \neq 0\}$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $f, g : E \to \ol{\R}$ -- измеримые 
+    
+    $E\{f = + \infty\}, E\{f = -\infty\}$ и $E\{f \in \R\}$ и аналогично для $g$
+
+    На $E\{f \in \R\} \cap E\{g \in \R\} : f + g$ -- измерима 
+
+    $\varphi(x, y) = x + y;\ f + g = \varphi(f, g)$
+
+    На остальных пересечениях $f + g$ -- постоянна 
+
+    \item Частный случай теоремы
+    \item $\{f^p \leq a\} = \begin{cases}
+        \varnothing & a \leq 0 \\
+        E\{f \leq a^{\frac{1}{p}}\} & a > 0
+    \end{cases}$
+
+    \item $\tilde{E} := E\{f \neq 0\}$
+    
+    $\tilde{E}\{\frac{1}{f} \leq a\} = \begin{cases}
+        E\{\frac{1}{a} \leq f < 0\} & a < 0 \\
+        E\{f < 0\} & a = 0 \\
+        E\{f \leq 0\} \cup E\{\frac{1}{a} \leq f\} & a > 0
+    \end{cases}$
+\end{enumerate}
+
+\begin{theo}{Следствия}
+    \begin{enumerate}
+        \item Произведение конечного числа измеримых -- измеримая 
+        \item Натуральная степень измеримых -- измеримая 
+        \item Линейная комбинация измеримых -- измеримая 
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{}
+    $E \subset \R^m$ -- измеримо относительно меры Лебега
+
+    $f \in C(E)$. Тогда $f$ -- измерима относительно меры Лебега
+\end{theo}
+
+\textit{Доказательство:}
+
+$E\{f < a\} = f^{-1}(-\infty, a)$ -- открыто в $E$, т.е. $E \cap G$ для некоторого $G \subset \R^m$ -- открытое 
+
+\begin{defin}{Простая функция}
+    $f : E \to \R$ -- измеримая
+
+    $f$ -- простая, если она принимает конечное число значений 
+\end{defin}
+
+\begin{defin}{Допустимое разбиение}
+    $E = \bigsqcup\limits_{k = 1}^n A_n$, т.ч. $f\mid_{A_k}$ -- константа и $A_k$ -- измеримые $\forall k$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Если $E = \bigsqcup\limits_{k = 1}^n A_k,\ A_k$ -- измеримы $\forall k$, $f \mid_{A_k}$ -- константы, то $f$ -- простая
+        \item Для любой пары простых функций есть общее допустимое разбиение 
+        
+        \textit{Доказательство:}
+
+        $E = \bigsqcup\limits_{k = 1}^m A_k$ -- допустимое разбиение для $f$
+
+        $E = \bigsqcup\limits_{j = 1}^n B_j$ -- допустимое разбиение для $g$
+
+        $\bigsqcup\limits_{k = 1}^m \bigsqcup\limits_{j = 1}^n A_k \cap B_j$ -- допустимое разбиение для $f$ и $g$
+
+        \item Сумма, разность и произведение простых функций -- простая функция 
+        \item Линейная комбинация простых функций -- простая функция 
+        \item $\max$ и $\min$ конечного числа простых функций -- простая функция 
+        
+        \textit{Доказательство:}
+
+        Для двух функций -- общее допустимое разбиение
+    \end{enumerate}
+\end{theo}
+
+\begin{theo}{}
+    $F : E \to \ol{\R}$ -- неотрицательная измеримая 
+
+    Тогда существует последовательность $f_1, f_2, \ldots : E \to \R$ -- простые, т.ч. $f_1 \leq f_2 \leq \ldots$ и $\lim f_n = f$
+\end{theo}
+
 \end{document}

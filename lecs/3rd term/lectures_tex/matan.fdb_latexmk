@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758200535.65778 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" "matan.pdf" "matan" 1758200543.15254 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" 1758200535.0809 55603 276bd3b969642feec5895527395f4e3b ""
+["pdflatex"] 1758805172.57975 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" "matan.pdf" "matan" 1758805174.36199 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/matan.tex" 1758805172.36606 76007 0fd40edb75a823a1b87e4378ea995ec6 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -296,10 +296,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
-  "matan.aux" 1758200542.52703 954 3a6722f763cb177755a94724234fc2ac "pdflatex"
-  "matan.out" 1758200542.52903 969 e2255312e86ea42b3d34eceb75a5f557 "pdflatex"
-  "matan.tex" 1758200535.0809 55603 276bd3b969642feec5895527395f4e3b ""
-  "matan.toc" 1758200542.53443 514 afc0c5e58c17e5e6bdabcdb743156584 "pdflatex"
+  "matan.aux" 1758805174.22942 1102 4cbadc4df7dc08ecb104cad52247391c "pdflatex"
+  "matan.out" 1758805174.23002 1188 89a4c1f214157c0f6b0a4cbe631eda28 "pdflatex"
+  "matan.tex" 1758805172.36606 76007 0fd40edb75a823a1b87e4378ea995ec6 ""
+  "matan.toc" 1758805174.23021 620 ba9fb08715ef0cad03a248e198ed9876 "pdflatex"
   (generated)
   "matan.aux"
   "matan.log"

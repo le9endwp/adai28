@@ -278,11 +278,11 @@ $\underbrace{a_2b_0 + a_1b_1}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ нах
     \begin{enumerate}
         \item $\underbrace{\alpha(1 + t)^{\alpha - 1}}_{\alpha\sum\limits_{k = 0}^\infty {\alpha - 1 \choose k} t^k} = ((1 + t)^\alpha)' = \sum\limits_{k = 1}^\infty {\alpha \choose k}kt^{k - 1}$
         
-        Приравнляем коэффициенты при $t^{k - 1}$: $\alpha{\alpha - 1 \choose k - 1} = k {\alpha \choose k}$
+        Приравниваем коэффициенты при $t^{k - 1}$: $\alpha{\alpha - 1 \choose k - 1} = k {\alpha \choose k}$
 
         \item $((1 + t)^\alpha)^{(m)} = (\sum\limits_{k = 0}^\infty {\alpha \choose k}t^k)^{(m)} = \sum\limits_{k = m}^\infty {\alpha \choose k} \underbrace{k(k - 1) \ldots (k - m + 1)}_{m!{k \choose m}}t^{k - m}$
         
-        $((1 + t)^\alpha)^{(m)} = \underbrace{\alpha(\alpha - 1)\ldots(\alpha - m)}_{m! {\alpha \choose m}}(1 + t)^{\alpha - m} = m! {\alpha \choose m} \sum\limits_{k = 0}^\infty {\alpha - m \choose k} t^k$
+        $((1 + t)^\alpha)^{(m)} = \underbrace{\alpha(\alpha - 1)\ldots(\alpha - m + 1)}_{m! {\alpha \choose m}}(1 + t)^{\alpha - m} = m! {\alpha \choose m} \sum\limits_{k = 0}^\infty {\alpha - m \choose k} t^k$
 
         Приравниваем коэффициенты при $t^{k - m}$: ${\alpha \choose m}{\alpha - m \choose k - m} = {\alpha \choose k}{k \choose m}$
 
@@ -294,7 +294,7 @@ $\underbrace{a_2b_0 + a_1b_1}_\text{знаем} + a_0b_1 = 0 \Rightarrow$ нах
 
         ${2n \choose n} = {n \choose 0}^2 + {n \choose 1}^2 + \ldots + {n \choose n}^2$
 
-        \item $(1 + t)^p(1 + t)^{1 - p} = ( 1 + t)^n$
+        \item $(1 + t)^p(1 + t)^{n - p} = ( 1 + t)^n$
         
         ${n \choose m} = {p \choose 0} {n - p \choose m} + {p \choose 1}{n - p \choose m - 1} + \ldots + {p \choose m}{n - p \choose 0}$ -- свертка Вандермонда
 

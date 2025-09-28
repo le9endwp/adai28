@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758610810.68146 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1758610814.06241 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1758610810.31017 18833 dc2ef7e300d3da480665cb4c886e250a ""
+["pdflatex"] 1759074618.86328 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" "dm.pdf" "dm" 1759074620.24935 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/dm.tex" 1759074618.56099 18839 c488fc921bc715ee527a2a4ab66c4550 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1737364780.54493 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -289,10 +289,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
-  "dm.aux" 1758610813.73364 689 4da94648f66ba919654ff0cc4177c743 "pdflatex"
-  "dm.out" 1758610813.73488 679 571b1fd1fd780223d8905455b3827b20 "pdflatex"
-  "dm.tex" 1758610810.31017 18833 dc2ef7e300d3da480665cb4c886e250a ""
-  "dm.toc" 1758610813.73529 331 33a01130654b0bdef7c8ea37ef3ecb55 "pdflatex"
+  "dm.aux" 1759074620.11867 689 4da94648f66ba919654ff0cc4177c743 "pdflatex"
+  "dm.out" 1759074620.11924 679 571b1fd1fd780223d8905455b3827b20 "pdflatex"
+  "dm.tex" 1759074618.56099 18839 c488fc921bc715ee527a2a4ab66c4550 ""
+  "dm.toc" 1759074620.11941 331 33a01130654b0bdef7c8ea37ef3ecb55 "pdflatex"
   (generated)
   "dm.aux"
   "dm.log"

@@ -579,6 +579,266 @@ $u(t) \leq L\int\limits_{t_0}^t u(s) ds$ по следствию из леммы
     Теорема о продолжимости решения влево за $a$ выглядит аналогично
 \end{theo}
 
+\newpage
+
+\textit{Доказательство:}
+
+Рассмотрим некоторое решение $\psi(t)$ задачи Коши для уравнения $x' = f(x, t)$ с начальными данными $x(b) = x_0$, заданное на промежутке Пеано $[b - h, b + h]$ и положим 
+
+$\chi(t) = \left[ \begin{gathered}
+    \varphi(t) \text{ если } t \in \langle a, b) \\
+    \psi(t) \text{ если } t \in [b, b + h]
+\end{gathered} \right.$
+
+Достаточно показать, что $\chi(t)$ -- решение системы. Для этого достаточно проверить справедливость интегрального уравнения $\chi(t) = x_0 + \int\limits_b^t f(s, \chi(s))ds$
+
+Пусть $\varphi(t_1) = x_1$, $\varphi(t) = x_1 + \int\limits_{t_1}^t f(s, \varphi(s))ds;\ \varphi(b) = x_0 = x_1 + \int\limits_{t_1}^b f(s, \varphi(s))ds$
+
+\begin{defin}{Частничный порядок}
+    Пусть $\mathfrak{M}$ -- некоторое множество. Отношение $\preccurlyeq$ на этом множестве называется частичным порядком, а само множество частично упорядоченным, если выполнены следующие соотношения
+
+    \begin{enumerate}
+        \item $a \preccurlyeq a$ для любого $a \in \mathfrak{M}$ (рефлексивность)
+        \item $a \preccurlyeq b,\ b \preccurlyeq c \Rightarrow a \preccurlyeq c$ для любых $a, b, c \in \mathfrak{M}$ (транзитивность)
+        \item $a \preccurlyeq b, b \preccurlyeq a \Rightarrow a = b$ (антисимметричность)
+    \end{enumerate}
+\end{defin}
+
+\begin{Example}{}
+    Обычный порядок на $\R$, делимость натуральных чисел, порядок по ключению для всех подмножеств некоторого множества $\mathfrak{A}$ ($A \preccurlyeq B \Leftrightarrow A \subset B$)
+\end{Example}
+
+\begin{defin}{Максимальный элемент}
+    Элемент $a \in \mathfrak{M}$ называется максимальным, если $a \preccurlyeq b \Rightarrow b = a$
+\end{defin}
+
+\begin{defin}{Линейный порядок}
+    Частично упорядоченное множество называется линейно упорядоченным (или цепью), если для любых $a, b \in \mathfrak{M}$ либо $a \preccurlyeq b$, либо $b \preccurlyeq a$
+\end{defin}
+
+\begin{defin}{Верхняя грань}
+    Пусть $\mathfrak{A} \subset \mathfrak{M}$. Элемент $a \in \mathfrak{M}$ называется верхней гранью множества $\mathfrak{A}$, если $b \preccurlyeq a$ для любого $b \in \mathfrak{A}$
+\end{defin}
+
+\begin{lem}{Лемма Цорна}
+    Если в частично-упорядоченном множестве $\mathfrak{M}$ каждое линейно упорядоченное подмножество имеет верхнюю грань, то само множество имеет максимальный элемент 
+\end{lem}
+
+\textit{Доказательство:}
+
+Доказывается как следствие из аксиомы выбора 
+
+\begin{theo}{}
+    Для любого $(t_0, x_0) \in D$ существует максимально продолженное решение задачи коши $\begin{cases}
+        x' = f(t, x) \\
+        x(t_0) = x_0
+    \end{cases}$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\mathfrak{M}$ -- множество всех решений задачи Коши. Для любых двух решений $\varphi, \psi$ задачи Коши говорим, что $\varphi \preccurlyeq \psi$, если $\psi$ продолжает $\varphi$ либо они совпадают. Для каждого решения $\varphi$ обозначим символом $I(\varphi$) область определения этого решения 
+
+Пусть $\mathfrak{B}$ -- некоторое линейно упорядоченное множество решений задачи. Положим \\ $J = \bigcup\limits_{\varphi \in \mathfrak{B}} I(\varphi)$. Отметим, что для каждой точки $t \in J$ все значения $\varphi(t)$ при $\varphi \in \mathfrak{B}$ совпадают
+
+В самом деле, если $\varphi, \psi \in \mathfrak{B}$, nо одно решение является продолжением другого и, если они определены в одной точке, то их значения там совпадают 
+
+Тогда можно корректно определить решение $\eta(t)$, продолжающее все решения из $\mathfrak{B}$ (или совпадающее с кем-то из них). Это будет верхняя грань. Существование максимального элемента $\mathfrak{M}$ следует из леммы Цорна 
+
+\begin{theo}{}
+    Пусть $\varphi(t)$ -- максимально продолженное решение системы, заданное на отрезке $(a, b);\ K \subset D$ -- компакт. Тогда существует $\varepsilon > 0$, такое, что $\varphi(t) \notin K$ для любого $t \in (a, a + \varepsilon) \cup (b - \varepsilon, b)$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть не так. НУО существует $t_k \to b$ такая, что $\varphi(t_k) \in K$ для любого $k$. Можно считать, что $(t_k, \varphi(t_k)) \to (b, \varphi^*) \in K$
+
+Тогда $(t, \varphi(t)) \to (b, \varphi^*)$ при $t \to b$. Существует $h_0 > 0, M > 0$ такие, что если $(t_0, \varphi(t_0)) \in K$, то решение $\varphi(t)$ определено на $[t_0 - h, t_0 + h]$ и на этом отрезке $|\varphi'(t)| \leq M$. Следует из построения промежутка Пеано
+
+При больших $k\ t_{k + 1} - t_k < h;\ |\varphi(t) - \varphi(t_k)| \leq M(t - t_k)$ для любых $t \in [t_k, t_{k + 1}]$
+
+Отсюда $(t, \varphi(t)) \to (b, \varphi^*)$ при $t \to b$. Тогда $\varphi(t)$ можно продолжить вправо за $b$. Противоречие
+
+\begin{defin}{Почти линейные системы}
+    Пусть $f : \R^{n + 1} \to \R^n$ -- непрерывная
+
+    Система $x' = f(t, x)$ почти линейная, если существуют такие непрерывные функции $A(t), B(t) \geq 0$, что $|f(t, x) \leq A(t)|x| + B(t)$
+\end{defin}
+
+\begin{theo}{}
+    Любое решение почти линейной системы продолжимо на $\R$
+\end{theo}
+
+\newpage
+
+\section{Дифференциальные уравнения высшего порядка}
+
+\begin{defin}{Линейные дифференциальные уравнения высшего порядка}
+    $a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_0(x)y = f(x)$ -- линейное неоднородное порядка $n$
+
+    $a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_0(x)y = 0$ -- линейное однородное порядка $n$
+
+    Предполагается, что все функции $a_i$ и $f$ непрерывны на некотором промежутке $I = (a, b)$, который может быть прямой или лучом. При этом $a_n(x) \neq 0$ для любого $x \in I$. Переменная $y$ может быть вещественной и комплексной
+\end{defin}
+
+\begin{theo}{Основные свойства решений линейного уравнения}
+    Решения -- функции класса гладкости $C^n$, определенные на $I$ и дающие при подстановке в уравнение тождество. Уравнение сводится к системе $\begin{cases}
+        y_1' = y_2 \\
+        \ldots \\
+        y_{n - 1}' = y_n \\
+        y_n' = \frac{-a_{n - 1}(x)y_n - \ldots - a_0(x)y_1 + f(x)}{a_n(x)}
+    \end{cases}$
+
+    Отсюда следует, что решения уравнения с любыми начальными данными $x_0 \in I,\ (y_0, \ldots, y_n) \in \R^n$ определены, единственны и продолжимы на $I$
+\end{theo}
+
+\begin{defin}{Пространство решений однородной системы}
+    Обозначим левую часть уравнения символом $\L := a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_0(x)y$
+
+    Это линейный оператор: $\L(\alpha u + \beta v) = \alpha \L(u) + \beta \L(v)$
+
+    Соответственно, множество решений однородного уравнения -- линейное пространство. Поскольку каждым начальным данным соответствует ровно одно решение, размерность пространства равна $n$
+
+    Решения с начальными данными $(1, 0, \ldots, 0), (0, 1, 0, \ldots, 0), \ldots, (0, 0, \ldots, 1)$ образуют базис пространства решений. Это начальные данные $(y(x_0), y'(x_0), \ldots, y^{(n - 1)}(x_0))$
+\end{defin}
+
+\begin{Remark}{}
+    Решения $\varphi_1(x), \ldots, \varphi_k(x)$ системы линейно зависмы, если существует константы $C_1, \ldots, C_k$, не все равные нулю, такие, что $C_1\varphi_1(x) + \ldots + C_n\varphi_n(x) \equiv 0$
+\end{Remark}
+
+\begin{defin}{Определитель Вронского}
+    Пусть $\varphi_1(x), \ldots, \varphi_n(x)$ -- решения системы. Вронскианом или определителем Вронского этого семейства решений называется функция от $x$:
+
+    $W(x) = W_{\varphi_1, \ldots, \varphi_n}(x) = \begin{vmatrix}
+        \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+        \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x)
+    \end{vmatrix}$
+\end{defin}
+
+\begin{theo}{Свойства определителя Вронского}
+    Пусть $\varphi_1(x), \ldots, \varphi_n(x)$ -- решения уравнения. Тогда равносильны следующие условия: 
+
+    \begin{enumerate}
+        \item $W_{\varphi_1, \ldots, \varphi_n}(x) \equiv 0$ 
+        \item Существует $x_0 \in I$ такой, что $W_{\varphi_1, \ldots, \varphi_n}(x_0) = 0$
+        \item Решения $\varphi_1(x), \ldots, \varphi_n(x)$ линейно зависимы 
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$1 \Rightarrow 2$] Очевидно
+    \item[$2 \Rightarrow 3$] $W_{\varphi_1, \ldots, \varphi_n}(x_0) = 0$. Тогда существуют константы $C_1, \ldots, C_n$, не все нулевые, такие что $\begin{cases}
+        C_1\varphi_1(x_0) + \ldots + C_n\varphi_n(x_0) = 0 \\
+        C_1\varphi_1'(x_0) + \ldots + C_n\varphi_n'(x_0) = 0 \\
+        \ldots \\
+        C_1\varphi_1^{(n - 1)}(x_0) + \ldots + C_n\varphi_n^{(n - 1)}(x_0) = 0
+    \end{cases}$
+
+    Положим $\psi(x) = C_1\varphi_1(x) + \ldots + C_n\varphi_n(x)$
+
+    Тогда $\psi(x_0) = \psi'(x_0) = \ldots = \psi^{(n - 1)}(x_0) = 0 \Rightarrow \psi(x) \equiv 0$
+
+    \item[$3 \Rightarrow 1$] $C_1\varphi_1(x) + \ldots + C_n\varphi_n(x) \equiv 0 \Rightarrow C_1\varphi_1^{(k)}(x) + \ldots + C_n\varphi_n^{(k)}(x) \equiv 0$ для любого $k = 1, \ldots, n - 1 \Rightarrow \\ \Rightarrow W_{\varphi_1, \ldots, \varphi_n}(x) \equiv 0$
+\end{itemize}
+
+\begin{theo}{Формула Остроградского-Лиувилля}
+    Для любых $x_0, x \in I$ справедливо соотношение $W(x) = W(x_0) e^{-\int_{x_0}^x \frac{a_{n - 1}(t)}{a_n(t)}dt}$
+\end{theo}
+
+\textit{Доказательство:}
+
+Для начала, докажем формулу подсчета производных определителей:
+
+Пусть $U(x) = \begin{vmatrix}
+    u_{11}(x) & \ldots & u_{1n}(x) \\
+    u_{21}(x) & \ldots & u_{2n}(x) \\
+    \vdots & \ddots & \vdots \\
+    u_{n1}(x) & \ldots & u_{nn}(x)
+\end{vmatrix}$ -- определитель, состоящий из дифференцируемых функций. Тогда 
+
+$U'(x) = \begin{vmatrix}
+    u_{11}'(x) & \ldots & u_{1n}'(x) \\
+    u_{21}(x) & \ldots & u_{2n}(x) \\
+    \vdots & \ddots & \vdots \\
+    u_{n1}(x) & \ldots & u_{nn}(x)
+\end{vmatrix} + \ldots + \begin{vmatrix}
+    u_{11}(x) & \ldots & u_{1n}(x) \\
+    u_{21}(x) & \ldots & u_{2n}(x) \\
+    \vdots & \ddots & \vdots \\
+    u_{n1}'(x) & \ldots & u_{nn}'(x)
+\end{vmatrix}$
+
+Формула следует из формулы производной произведения функций и из представления определителя в виде 
+
+$U(x) = \begin{vmatrix}
+    u_{11}(x) & \ldots & u_{1n}(x) \\
+    u_{21}(x) & \ldots & u_{2n}(x) \\
+    \vdots & \ddots & \vdots \\
+    u_{n1}(x) & \ldots & u_{nn}(x)
+\end{vmatrix} = \sum\limits_{p \in \prod_n} (-1)^{|p|} \prod\limits_{i = 1}^n u_{ip_i}(x)$
+
+Здесь $\prod_n$ -- всевозможные перестановки $n$ элементов, $|p|$ -- четность перестановки
+
+Отсюда $W'(x) = \begin{vmatrix}
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x)
+\end{vmatrix} + \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1''(x) & \varphi_2''(x) & \ldots & \varphi_n''(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x)
+\end{vmatrix} + \\ + \ldots + \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x) \\
+    \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x)
+\end{vmatrix} + \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n)}(x) & \varphi_2^{(n)}(x) & \ldots & \varphi_n^{(n)}(x)
+\end{vmatrix} = \\ = 0 + 0 + \ldots + 0 + \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n)}(x) & \varphi_2^{(n)}(x) & \ldots & \varphi_n^{(n)}(x)
+\end{vmatrix} = \\ = \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    -\frac{1}{a_n(x)} \sum\limits_{k = 0}^{n - 1}a_k(x)\varphi_1^{(k)}(x) & -\frac{1}{a_n(x)} \sum\limits_{k = 0}^{n - 1}a_k(x)\varphi_2^{(k)}(x) & \ldots & -\frac{1}{a_n(x)} \sum\limits_{k = 0}^{n - 1}a_k(x)\varphi_n^{(k)}(x)
+\end{vmatrix} = \\ = -\sum\limits_{k = 0}^{n - 1} \frac{a_k(x)}{a_n(x)} \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(k)}(x) & \varphi_2^{(k)}(x) & \ldots & \varphi_n^{(k)}(x) 
+\end{vmatrix} = -\frac{a_{n - 1}(x)}{a_n(x)} \begin{vmatrix}
+    \varphi_1(x) & \varphi_2(x) & \ldots & \varphi_n(x) \\
+    \varphi_1'(x) & \varphi_2'(x) & \ldots & \varphi_n'(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \varphi_1^{(n - 1)}(x) & \varphi_2^{(n - 1)}(x) & \ldots & \varphi_n^{(n - 1)}(x)
+\end{vmatrix} = \\ = -\frac{a_{n - 1}(x)}{a_n(x)} W(x) = W'(x)$
+
+\begin{Remark}{Зачем нужна формула Остроградского-Лиувилля?}
+    $y'' + xy' - y = 0$
+
+    Догадались, что решение $y = x$. Пусть другое решение -- $\varphi(x)$
+
+    $\begin{vmatrix}
+        \varphi(x) & x \\
+        \varphi'(x) & 1
+    \end{vmatrix} = W(0) e^{-\frac{x^2}{2}}$. НУО $W(0) = -1$
+
+    $y'x - y = e^{-\frac{x^2}{2}}$. $\varphi(x)$ -- решение. Решение линейного однородного уравнения $y'x - y = 0$ -- это $y = Cx$
+
+    $y = ux \Rightarrow u'x^2 + ux - ux = e^{-\frac{x^2}{2}} \Rightarrow u' = x^{-2} e^{-\frac{x^2}{2}}$
+\end{Remark}
 
 \end{document}
 

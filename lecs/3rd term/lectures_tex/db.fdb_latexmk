@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758574005.97533 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" "db.pdf" "db" 1758574013.56027 0
-  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" 1758574005.51461 230421 fabdb737597ba403dbc34579a5c6fa7d ""
+["pdflatex"] 1760200722.88082 "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" "db.pdf" "db" 1760200726.61215 0
+  "/Users/legendwp/HSE/adai28/lecs/3rd term/lectures_tex/db.tex" 1760200722.62118 333378 b232292cd8935ecd7d59bdb811fada3f ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1731796329.15326 3308 eee81981029f67083258db36df06e523 ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1731797978.7918 3304 6a543c07045572737981351171e0505e ""
   "/Users/legendwp/Library/texlive/2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1732637811.49657 3312 d199be9bd555944e2403193d58a0256a ""
@@ -279,10 +279,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731795998 8221445 66fdf2b58a600e72ec9647555b6e95c3 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "config.sty" 1758193564.96893 7127 418807b0fc81b38a7a79d3aaa05f5e2d ""
-  "db.aux" 1758574013.20162 4687 9275ec142410745df3a12c8f523b9e80 "pdflatex"
-  "db.out" 1758574013.20354 7213 d0eba531cf1828e6012299686315c556 "pdflatex"
-  "db.tex" 1758574005.51461 230421 fabdb737597ba403dbc34579a5c6fa7d ""
-  "db.toc" 1758574013.204 3265 e2defb82b7f1035ee514a9d10221e795 "pdflatex"
+  "db.aux" 1760200726.46489 8344 5b3ee1e3f47163c3a88449c2b46301d5 "pdflatex"
+  "db.out" 1760200726.46618 13408 3b83d86d5fbe97fb37c696cd2a585a2a "pdflatex"
+  "db.tex" 1760200722.62118 333378 b232292cd8935ecd7d59bdb811fada3f ""
+  "db.toc" 1760200726.46644 5978 b1f4590c49b760eebc3714545d885e52 "pdflatex"
   (generated)
   "db.aux"
   "db.log"

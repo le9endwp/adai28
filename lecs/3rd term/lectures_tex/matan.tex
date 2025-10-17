@@ -2225,4 +2225,370 @@ $\underbrace{\int\limits_E (f + g)^pd\mu}_{C^p} \leq AC^\frac{p}{q} + BC^\frac{p
 
 \subsection{\S 3. Предельный переход под знаком интеграла}
 
+\begin{theo}{Следствия из Леви}
+    \begin{enumerate}
+        \item Если $f_n \geq 0$ измеримые, то $\int\limits_E \sum\limits_{n = 1}^\infty f_nd\mu = \sum\limits_{n = 1}^\infty \int\limits_E f_nd\mu$
+        \item Если $\sum\limits_{n = 1}^\infty \int\limits_E |f_n|d\mu < + \infty$, то $\sum\limits_{n = 1}^\infty f_n$ сходится почти везде на $E$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item $S_n := \sum\limits_{k = 1}^n f_k;\ 0 \leq S_1 \leq S_2 \leq \ldots \xRightarrow[]{\text{Леви}} \underbrace{\lim \int\limits_E \sum\limits_{k = 1}^n f_k d\mu}_{\lim \sum\limits_{k = 1}^n \int\limits_E f_kd\mu = \sum\limits_{k = 1}^\infty \int\limits_E f_kd\mu} = \int\limits_E \sum\limits_{k = 1}^\infty f_k d\mu$
+    \item $\underbrace{\sum\limits_{k = 1}^\infty \int\limits_E |f_k|d\mu}_{< + \infty} = \int\limits_E \underbrace{\sum\limits_{k = 1}^\infty |f_k|}_{=: S}d\mu \Rightarrow S$ -- почти везде конечно $\Rightarrow \sum\limits_{k = 1}^\infty |f_k|$ -- сходится почти везде $\Rightarrow \sum\limits_{k = 1}^\infty f_k$ сходится почти везде 
+\end{enumerate}
+
+\begin{lem}{Лемма Фату}
+    $f_n \geq 0$ измеримые $\Rightarrow \int\limits_E \underline{\lim}f_nd\mu \leq \underline{\lim} \int\limits_E f_nd\mu$
+\end{lem}
+
+\textit{Доказательство:}
+
+$\underline{\lim} f_n = \lim\underbrace{\inf\limits_{k \geq n} f_k}_{=: g_n} \Rightarrow f_n \geq g_n \Rightarrow \int\limits_E f_nd\mu \geq \int\limits_E g_nd\mu \Rightarrow \underline{\lim} \int\limits_E f_nd\mu \geq \underline{\lim} \int\limits_E g_nd\mu$
+
+$0 \leq g_1 \leq g_2 \leq \ldots \xRightarrow[]{\text{Леви}} \lim \int\limits_E g_nd\mu = \int\limits_E \lim g_nd\mu = \int\limits_E \underline{\lim}f_nd\mu$
+
+\begin{Exercise}{}
+    Придумать пример, когда будет строгий знак 
+\end{Exercise}
+
+\begin{theo}{Усиленный вариант теоремы Леви}
+    $f_n \geq 0$ измеримые, $f = \lim f_n$ и $f_n \leq f$ почти везде
+
+    Тогда $\lim \int\limits_E f_nd\mu = \int\limits_E fd\mu$
+\end{theo}
+
+\textit{Доказательство:}
+
+$\int\limits_E fd\mu = \int\limits_E \underline{\lim}f_nd\mu \stackrel{\text{Фату}}{\leq} \underline{\lim} \int\limits_E f_nd\mu \leq \ol{\lim}\int\limits_E f_nd\mu \leq \int\limits_E fd\mu$, так как 
+
+$f_n \leq f \Rightarrow \int\limits_E f_nd\mu \leq \int\limits_E fd\mu \Rightarrow \ol{\lim} \int\limits_E f_nd\mu \leq \int\limits_E fd\mu$
+
+\begin{theo}{Теорема Лебега о предельном переходе (о мажорируемой сходимости)}
+    $f_n : E \to \ol{\R}$ измеримые, $f = \lim f_n$ почти везде, $|f_n| \leq F$ почти везде и $F$ -- суммируема на $E$
+
+    Тогда $\lim \int\limits_E f_nd\mu = \int\limits_E fd\mu$. Более того $\int\limits_E |f_n - f|d\mu \xrightarrow[n \to \infty]{} 0$
+\end{theo}
+
+\textit{Доказательство:}
+
+$h_n := 2F - |f_n - f| \leq 2F$, $h_n \to 2F$ почти везде
+
+$|f_n| \leq F$ почти везде $\Rightarrow |f| \leq F$ почти везде $\Rightarrow |f_n - f| \leq |f_n| + |f| \leq 2F$ почти везде $\Rightarrow h_n \geq 0$ почти везде
+
+Тогда по усиленной теореме Леви $\lim \int\limits_E h_nd\mu = \int\limits_E 2Fd\mu$
+
+$\underbrace{\int\limits_E h_nd\mu}_{\to \int\limits_E 2Fd\mu} = \int\limits_E 2Fd\mu - \int\limits_E |f_n - f|d\mu \Rightarrow \underbrace{\int\limits_E |f_n - f|d\mu}_{\geq |\int\limits_E f_nd\mu - \int\limits_E fd\mu|} \to 0$
+
+\begin{Remark}{}
+    \begin{enumerate}
+        \item Суммируемость $F$ по делу
+        
+        $E := [0, 1],\ \mu = \lambda_1,\ f_n = n\mathbb{1}_{(0, \frac{1}{n}]} \to 0$ поточечно 
+
+        $\int\limits_{[0, 1]} f_nd\lambda_1 = 1 \not\to 0$
+
+        \item Вместо $f_n \to f$ почти везде можно написать сходимость по мере 
+    \end{enumerate}
+\end{Remark}
+
+\begin{theo}{}
+    $f \in C[a, b]$. Тогда $\int\limits_{[a, b]} fd\lambda_1 = \int\limits_a^b f(x)dx$
+\end{theo}
+
+\textit{Доказательство:}
+
+Рассмотрим дробление отрезка $[a, b] : a = x_0 < x_1 < \ldots < x_n = b$
+
+$S^* := \sum\limits_{k = 1}^n (x_k - x_{k - 1})\max\limits_{t \in [x_{k - 1}, x_k]} f(t) \xrightarrow[|\tau| \to 0]{} \int\limits_a^b f(x)dx =: I$
+
+$S_* := \sum\limits_{k = 1}^n (x_k - x_{k - 1})\min\limits_{t \in [x_{k - 1}, x_k]} f(t) \xrightarrow[|\tau| \to 0]{} I$
+
+$g^*(x) = \max\limits_{t \in [x_{k - 1}, x_k]} f(t)$ при $x_{k - 1} \leq x < x_k \Rightarrow \int\limits_{[a, b]} g^*d\lambda_1 = S^*$
+
+$g_*(x) = \min\limits_{t \in [x_{k - 1}, x_k]} f(t)$ при $x_{k - 1} \leq x < x_k \Rightarrow \int\limits_{[a, b]} g_*d\lambda_1 = S_*$
+
+$g_*(x) \leq f(x) \leq g^*(x) \Rightarrow \underbrace{\int\limits_{[a, b]} g_*(x) d\lambda_1}_{S_* \to I} \leq \int\limits_{[a, b]} fd\lambda_1 \leq \underbrace{\int\limits_{[a, b]} g^*d\lambda_1}_{S^* \to I} \Rightarrow I = \int\limits_{[a, b]}fd\lambda_1$
+
+\begin{theo}{}
+    $f : [a, b] \to \R$ интегрируема по Риману $\Rightarrow \int\limits_{[a, b]} fd\lambda_1 = \int\limits_a^b f(x)dx$
+\end{theo}
+
+\begin{theo}{Критерий Лебега интегрируемости по Риману}
+    $f : [a, b] \to \R$ ограниченная. Тогда
+
+    $f$ интегрируема по Риману на $[a, b] \Leftrightarrow$ множество точек разрыва $f$ имеет нулевую меру Лебега 
+\end{theo}
+
+\newpage 
+
+\subsection{\S 4. Произведение мер}
+
+\begin{defin}{}
+    $(X, \A, \mu)$ и $(Y, \B, \nu)$ -- пространства с $\sigma$-конечными мерами 
+
+    $\P := \{A \times B : \mu A < + \infty \text{ и } \nu B < + \infty\}$
+
+    Множества из $\P$ назовем измеримыми прямоугольниками 
+
+    $m_0(A \times B) := \mu A \cdot \nu B$
+\end{defin}
+
+\begin{theo}{}
+    $\P$ -- полукольцо, $m_0$ -- мера на $\P$ и $m_0$ -- $\sigma$-конечна 
+\end{theo}
+
+\textit{Доказательство:}
+
+$\{ A \in \A : \mu A < + \infty\}$ и $\{B \in \B : \nu B < + \infty\}$ -- полукольца 
+
+$\P$ -- их декартово произведение $\Rightarrow$ полукольцо 
+
+$A \times B = \bigsqcup\limits_{n = 1}^\infty A_n \times B_n;\ \mathbb{1}_{A \times B}(x, y) = \sum\limits_{n = 1}^\infty \mathbb{1}_{A_n \times B_n}(x, y)$
+
+$\underbrace{\int\limits_X \underbrace{\mathbb{1}_{A \times B}(x, y)}_{\mathbb{1}_A(x) \cdot \mathbb{1}_B(y)} d\mu(x)}_{\mathbb{1}_B(y) \int\limits_X \mathbb{1}_A(x)d\mu(x) = \mu A \cdot \mathbb{1}_B(y)} = \int\limits_X \sum\limits_{n = 1}^\infty \mathbb{1}_{A_n \times B_n}(x, y)d\mu(x) = \sum\limits_{n = 1}^\infty \int\limits_X \mathbb{1}_{A_n \times B_n}(x, y)d\mu(x) = \sum\limits_{n = 1}^\infty \mu A_n \cdot \mathbb{1}_{B_n}(y)$
+
+$\underbrace{\int\limits_Y \mu A \cdot \mathbb{1}_B(y)d\nu}_{\mu A \cdot \nu B = m_0(A \times B)} = \int\limits_Y \sum\limits_{n = 1}^\infty \mu A_n \cdot \mathbb{1}_{B_n}(y) d\nu = \sum\limits_{n = 1}^\infty \mu A_n \cdot \int\limits_Y \mathbb{1}_{B_n}d\nu = \int\limits_{n = 1}^\infty \mu A_n \cdot \nu B_n = \sum\limits_{n = 1}^\infty m_0(A_n \times B_n) \Rightarrow \\ \Rightarrow m_0$ -- мера
+
+\begin{defin}{Произведение мер}
+    $(X, \A, \mu)$ и $(Y, \B, \nu)$ -- пространства с $\sigma$-конечными мерами 
+
+    Произведением мер $\mu \times \nu$ -- стандартное продолжение $m_0$
+
+    $\sigma$-алгебра, на которую продолжили обозначим $\A \otimes \B$
+
+    $(X \times Y, \A \otimes \B, \mu \times \nu)$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item Декартово произведение измеримых множеств -- измеримо 
+        
+        \textit{Доказательство:}
+
+        $A = \bigcup A_n,\ \mu A_n < + \infty$ и $B = \bigcup B_n,\ \nu B_n < + \infty \Rightarrow A \times B = \bigcup\limits_{k, n = 1}^\infty A_k \times B_n$ и $\mu_0(\underbrace{A_k \times B_n}_{\in \P}) < + \infty$
+
+        \item Если $\mu e = 0$, то $(\mu \times \nu)(e \times Y) = 0$
+        
+        \textit{Доказательство:}
+
+        $Y = \bigcup Y_n,\ \nu Y_n < + \infty \Rightarrow (\mu \times \nu)(e \times Y_n) = \mu e \cdot \nu Y_n = 0$
+    \end{enumerate}
+\end{theo}
+
+\begin{defin}{Сечение}
+    $C \subset X \times Y$
+    
+    $x \in X$. Сечение $C_x :=  \{y \in Y : (x, y) \in C\}$
+
+    $y \in Y$. Сечение $C^y := \{x \in X : (x, y) \in C\}$
+\end{defin}
+
+\begin{theo}{Свойства}
+    \begin{enumerate}
+        \item $(\bigcup C_n)_x = \bigcup (C_n)_x$
+        \item $(\bigcap C_n)_x = \bigcap (C_n)_x$
+    \end{enumerate}
+\end{theo}
+
+\begin{defin}{}
+    $E$ -- измеримое множество и $f$ определена почти везде на $E$
+
+    $f$ измерима в широком смысле, если найдется $e \subset E$, т.ч. $\mu e = 0$ и $f\mid_{E \setminus e}$ измерима 
+\end{defin}
+
+\begin{defin}{}
+    $\E$ -- семейство подмножеств $Z$
+
+    $\E$ -- монотонный класс, если $\forall E_n \in \E : E_1 \subset E_2 \subset \ldots \Rightarrow \bigcup\limits_{n = 1}^\infty E_n \in \E$
+
+    Аналогично $\forall E_n \in \E : E_1 \supset E_2 \supset \ldots \Rightarrow \bigcap\limits_{n = 1}^\infty E_n \in \E$
+\end{defin}
+
+\begin{theo}{}
+    Если $\E$ -- монотонный класс и $\E \supset \A$ -- алгебра $\Rightarrow \E \supset \B(\A)$
+\end{theo}
+
+\begin{theo}{Принцип Кавальери}
+    $(X, \A, \mu)$ и $(Y, \B, \nu)$ -- пространства с $\sigma$-конечными мерами, $\nu$ -- полная мера 
+
+    $m := \mu \times \nu,\ C \in \A \otimes \B$. Тогда 
+
+    \begin{enumerate}
+        \item $C_x \in \B$ при почти всех $x \in X$
+        \item $\varphi(x) := \nu C_x$ измерима в широком смысле 
+        \item $mC = \int\limits_X \varphi d\mu$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+$\P$ -- полукольцо измеримых прямоугольников 
+
+\begin{enumerate}
+    \item[Шаг 1. ] $\mu$ и $\nu$ -- конечные меры, $C \in \B(\P)$. Проверим 1 и 2
+    
+    $\E$ -- система подмножеств $X \times Y$, т.ч. $E_x \in \B\ \forall x \in X$ и $\varphi(x) := \nu C_x$ -- измеримая функция 
+
+    \begin{enumerate}
+        \item $A \in \A, B \in \B \Rightarrow A \times B \in \E$. $(A \times B)_X = \begin{cases}
+            \varnothing & x \notin A \\
+            B & X \in A 
+        \end{cases}$
+
+        $\varphi(x) = \nu (A \times B)_x = \nu B \cdot \mathbb{1}_A$ -- измеримая функция 
+
+        \item $\E$ -- симметричная система. $E \in \E \xRightarrow[]{?} X \times Y \setminus E \in \E$
+        
+        $(X \times Y \setminus E)_x = Y \setminus E_x \in \B$
+        
+        $x \mapsto \nu(X \times Y \setminus E)_x = \nu(Y \setminus E_x) = \nu Y - \nu E_x = \nu Y - \varphi(x)$ -- измеримая функция 
+
+        \newpage
+
+        \item $E_n \in \E$ и $E_1 \supset E_2 \subset \ldots \xRightarrow[]{?} \bigcup\limits_{n = 1}^\infty E_n \in \E$
+        
+        $(E_1)_x \subset (E_2)_x \subset \ldots$ и $(\bigcup\limits_{n = 1}^\infty E_n)_x = \bigcup\limits_{n = 1}^\infty (E_n)_x \in \B$
+
+        $\nu(\bigcup E_n)_x = \lim\limits_{n \to \infty} \nu (E_n)_x$ -- измерима, т.к. предел измерим
+
+        \item $E_n \in \E$ и $E_1 \supset E_2 \supset \ldots \Rightarrow \bigcap E_n \in \E$, т.к. $\E$ -- симметричная система 
+        \item $\E$ -- монотонный класс 
+        \item Если $E \cap F = \varnothing$ и $E, F \in \E \xRightarrow[]{?} E \sqcup F \in \E$
+        
+        $(E \sqcup F)_x = E_x \sqcup F_x$ -- измеримое 
+        
+        $\nu (E \sqcup F)_x = \nu E_x + \nu F_x$ -- сумма измеримых функций 
+
+        \item a + f $\Rightarrow \E$ содержит кольцо, составленное из конечных объединений элементов $\P$
+        \item g + b $\Rightarrow \E$ содержит алгебру, натянутую на $\P$
+        \item По теореме о монотонном классе $E \supset \B(\P)$
+    \end{enumerate}
+
+    \item[Шаг 2. ] $\mu$ и $\nu$ -- конечные меры. $C \in \B(\P)$. Проверим 3
+    
+    $\varphi \geq 0$ измерима $\Rightarrow \tilde{m}E := \int\limits_X \nu E_x d\mu$, где $E \in \B(\P)$
+
+    $\tilde{m}$ -- мера на $\B(\P)$. $E = \bigsqcup\limits_{n = 1}^\infty E_n \Rightarrow E_x = \bigsqcup\limits_{n = 1}^\infty (E_n)_x \Rightarrow \nu E_x = \sum\limits_{n = 1}^\infty \nu (E_n)_x$
+
+    $\tilde{m}E = \int\limits_X \sum\limits_{n = 1}^\infty \nu (E_n)_x d\mu = \sum\limits_{n = 1}^\infty \int\limits_X \nu (E_n)_x d\mu = \sum\limits_{n = 1}^\infty \tilde{m}E_n$
+
+    На полукольце $\tilde{m}$ и $m$ совпадают 
+
+    $\tilde{m}(A \times B) = \int\limits_X \nu B \cdot \mathbb{1}_A(x)d\mu(x) = \nu B \cdot \mu A = m(A \times B) \Rightarrow \tilde{m} = m$ по единственности продолжения 
+
+    \item[Шаг 3. ] $\mu$ и $\nu$ конечные меры, $C \in \A \otimes \B$ и $mC = 0$. Проверим 1, 2 и 3
+    
+    Тогда существует $\tilde{C} \in \B(\P)$, т.ч. $C \subset \tilde{C}$ и $m\tilde{C} = 0$
+
+    $\underbrace{m\tilde{C}}_0 = \int\limits_X \nu \tilde{C_x}d\mu \Rightarrow \nu \tilde{C_x} = 0$ при почти всех $x$, но $C_x \subset \tilde{C_x} \Rightarrow \\ \Rightarrow \nu C_x = 0$ при почти всех $x$ и в частности $C_x$ измерима при почти всех $x$. Это 1
+
+    Второй пункт очевидный 
+
+    Третий: $m C = 0 = \int\limits_X \nu C_x d\mu$, т.к. $\nu C_x = 0$ почти везде 
+
+    \item[Шаг 4. ] $\mu$ и $\nu$ -- конечные меры, $C \in \A \otimes \B$. Проверим 1, 2 и 3 
+    
+    Найдется $\tilde{C} \in \B(\P)$ и $e \in \A \otimes \B$, т.ч. $me = 0$ и $C = \tilde{C} \sqcup e$
+
+    $C_x = \underbrace{\tilde{C_x}}_{\in \B} \sqcup \underbrace{e_x}_{\in \B \text{ при п.в. } x}$
+
+    $\nu C_x = \nu \tilde{C_x} + 0$ почти везде 
+
+    $mC = m\tilde{C} = \int\limits_X \nu \tilde{C_x}d\mu = \int\limits_X \nu C_x d\mu$
+
+    \item[Шаг 5. ] $\mu$ и $\nu$ -- $\sigma$-конечные меры. $X = \bigsqcup\limits_{k = 1}^\infty X_k;\ Y = \bigsqcup\limits_{n = 1}^\infty Y_n;\ \mu X_k < + \infty$ и $\nu Y_n < + \infty$ 
+    
+    $C \in \A \otimes \B \Rightarrow C = \bigsqcup\limits_{k, n} C_{kn}$, где $C_{kn} = C \cap X_k \times Y_n$
+
+    $(C_{kn})_x \in \B$ при почти всех $x$, $x \mapsto \nu(C_{kn})_x$ измерима в широком смысле и \\ $mC_{kn} = \int\limits_X \nu(C_{kn})_xd\mu$
+
+    $\nu C_x = \sum\limits_{n = 1}^\infty \nu (C_{kn})_x$ при $x \in X_k$
+\end{enumerate}
+
+\begin{defin}{График функции}
+    $f : E \to \ol{\R}$. График функции $\Gamma_f := \{(x, y) : x \in E, y \in \R, y = f(x)\}$
+\end{defin}
+
+\begin{Remark}{}
+    $\Gamma_f \subset E \times \R$
+\end{Remark}
+
+\begin{defin}{Подграфик функции}
+    $f : E \to \ol{\R}$, $f \geq 0$. Подграфик функции $\P_f := \{(x, y) : x \in E, y \in \R, 0 \leq y \leq f(x)\}$
+\end{defin}
+
+\begin{Remark}{}
+    $P_f \subset E \times \R$
+\end{Remark}
+
+\begin{lem}{}
+    $\mu$ -- $\sigma$-конечная мера, $f$ -- измерима, $m = \mu \times \lambda_1$. Тогда $m\Gamma_f = 0$
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\mu E < + \infty$: ] Хотим проверить, что $m\Gamma_f(E) = 0$
+    
+    Возьмем $\varepsilon > 0$. Рассмотрим $E_n := E\{n\varepsilon \leq f < (n + 1)\varepsilon\}$
+
+    $\Gamma_F(E) \subset \bigcup\limits_{n \in \Z} E_n \times [n\varepsilon, (n + 1)\varepsilon]$
+
+    $m(\bigcup\limits_{n \in \Z} E_n \times [n\varepsilon, (n + 1)\varepsilon]) \leq \sum\limits_{n \in \Z} m(E_n \times [\varepsilon n, \varepsilon(n + 1)]) = \sum\limits_{n \in \Z} \mu E_n \cdot \varepsilon = \mu E \varepsilon \Rightarrow m\Gamma_f(E) = 0$
+
+    \item[$\mu E = + \infty$: ] $E = \bigcup\limits_{n = 1}^\infty A_n$, т.ч. $\mu A_n < + \infty \Rightarrow \Gamma_f(E) = \bigcup\limits_{n = 1}^\infty \Gamma_f(A_n)$
+\end{itemize}
+
+\begin{lem}{}
+    $f \geq 0$ измеримая в широком смысле $\Rightarrow \P_f$ измерим относительно $m = \mu \times \lambda_1$
+\end{lem}
+
+\textit{Доказательство:}
+
+\begin{enumerate}
+    \item[Шаг 1. ] Если $f$ -- простая функция; $A_1, \ldots, A_n$ -- допустимое разбиение; $a_1, \ldots, a_n$ -- значения 
+    
+    $\P_f = \bigsqcup\limits_{k = 1}^n A_k \times [0, a_k]$ -- измеримо относительно $m$
+
+    \item[Шаг 2. ] $f \geq 0$ измеримая. Берем $0 \leq \varphi_1 \leq \varphi_2 \leq \ldots$ последовательность простых, т.ч. $\varphi_n \to f$
+    
+    $\varphi_n \leq f;\ \P_{\varphi_n} \subset \P_f$ и $\P_{\varphi_1} \subset \P_{\varphi_2} \subset \ldots$
+
+    $\P_f \setminus \Gamma_f \stackrel{?}{\subset} \bigcup\limits_{n = 1}^\infty \P_{\varphi_n} \subset \P_f$
+
+    Возьмем $x \in E$
+    
+    Если $f(x) = + \infty$, то $\varphi_n(x) \to + \infty$. $(\bigcup\limits_{n = 1}^\infty \P_{\varphi_n})_x = [0, + \infty)$
+
+    Если $f(x) < + \infty$, то $\varphi_n(x) \to f(x)$. $(\bigcup\limits_{n = 1}^\infty \P_{\varphi_n})_x = [0, f(x))$ или $[0, f(x)]$
+
+    $\bigcup\limits_{n = 1}^\infty \P_{\varphi_n} \subset \P_f \subset \Gamma_f \cup \bigcup\limits_{n = 1}^\infty \P_{\varphi_n}$
+\end{enumerate}
+
+\begin{theo}{Теорема о мере подграфика}
+    $(X, \A, \mu)$ -- пространство с $\sigma$-конечной мерой, $m = \mu \times \lambda_1$, $f \geq 0 : E \to \ol{\R}$, $E$ -- измеримое 
+
+    $f$ измерима в широком смысле $\Leftrightarrow \P_f(E)$ -- измерима 
+
+    И в этом случае $m\P_f(E) = \int\limits_E fd\mu$
+\end{theo}
+
+\textit{Доказательство:}
+
+\begin{itemize}
+    \item[$\Rightarrow$: ] Лемма 
+    \item[$\Leftarrow$: ] Подставим $\P_f(E)$ в принцип Кавальери. $\nu = \lambda_1$
+    
+    $x \in E,\ (\P_f(E))_x = \begin{cases}
+        [0, + \infty) & f(x) = + \infty \\
+        [0, f(x)] & f(x) < + \infty
+    \end{cases}$
+
+    $\lambda_1(\P_f(E))_x = f(x) \Rightarrow f$ измерима в широком смысле 
+
+    $m\P_f(E) = \int\limits_X \lambda_1(\P_f(E))_xd\mu = \int\limits_E fd\mu$
+\end{itemize}
+
 \end{document}

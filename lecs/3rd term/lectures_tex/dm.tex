@@ -369,4 +369,147 @@ $C_n = \sum\limits_{k = 1}^n C_{k - 1}C_{n - k}$
     $C_n = \frac{1}{n + 1}{2n \choose n}$
 \end{theo}
 
+\newpage
+
+\section{\S 4. Разбиение чисел}
+
+\begin{nota}{Вопрос}
+    Сколько способов разбить $n$ в сумму $n = x_1 + \ldots + x_k;\ k \in \N$?
+
+    \begin{enumerate}
+        \item Упорядоченное разбиение (т.е. порядок важен)
+        
+        \textbf{Ответ:} ${n - 1 \choose k - 1}$
+
+        \item Неупорядоченное разбиение
+    \end{enumerate}
+\end{nota}
+
+\begin{defin}{}
+    $p_k(n)$ -- количество представление $n = x_1 + \ldots + x_k$, где $x_1 \geq x_2 \geq \ldots \geq x_k \geq 1$
+
+    $n - k = \underbrace{(x_1 - 1)}_{y_1} + \underbrace{(x_2 - 1)}_{y_2} + \ldots + \underbrace{(x_k - 1)}_{y_k} = y_1 + \ldots + y_k$, где $y_1 \geq \ldots \geq y_k \geq 0$
+
+    Пусть $y_s > 0, y_{s + 1} = \ldots = y_n = 0$ -- таких способок $p_s(n - k)$
+
+    $p_k(n) = p_k(n - k) + \underbrace{p_{k - 1}(n - k) + \ldots + p_1(n - k)}_{p_{k - 1}(n - 1)} = p_k(n - k) + p_{k - 1}(n - 1)$
+\end{defin}
+
+\begin{Example}{}
+    $p_2(n) = p_2(n - 2) + p_1(n - 1) = p_2(n - 2) + 1$
+
+    $p_2(n) = \begin{cases}
+        \frac{n}{2} & n \divby 2 \\
+        \frac{n - 1}{2} & n \not\divby 2
+    \end{cases}$
+
+    $p_3(n) = \begin{cases}
+        \frac{n^2}{12} & n \equiv 0 \pmod 6 \\
+        \frac{n^2 - 1}{12} & n \equiv \pm 1 \pmod 6 \\
+        \frac{n^2 - 4}{12} & n \equiv \pm 2 \pmod 6 \\
+        \frac{n^2 + 3}{12} & n \equiv \pm 3 \pmod 6
+    \end{cases}$
+\end{Example}
+
+\begin{lem}{}
+    $P_j(n) := 1^j + \ldots + n^j$ -- многочлен степени $j + 1$ от $n$ со старшим коэффициентом $\frac{1}{j + 1}$
+\end{lem}
+
+\textit{Доказательство:}
+
+$(a + 1)^{j + 1} - a^{j + 1} = {j + 1 \choose 1} a^j + {j + 1 \choose 2} a^{j - 1} + \ldots + {j + 1 \choose j} a + 1$
+
+Воспользуемся для $a = 0, 1, 2, \ldots, n$
+
+$(n + 1)^{j + 1} = {j + 1 \choose 1}P_j(n) + {j + 1 \choose 2}P_{j - 1}(n) + \ldots + {j + 1 \choose j}P_1(n) + \underbrace{P_0(n)}_n$
+
+$P_j(n) = \frac{1}{j + 2}((n + 1)^{j + 1} - {j + 1 \choose 2}P_{j - 1}(n) - \ldots - {j + 1 \choose j}P_1(n) - n)$
+
+\begin{theo}{}
+    $p_k(n)$ -- многочлен, коэффициенты которого зависят от $n \mod k!$, старший член $\frac{n^{k - 1}}{(k - 1)!k!}$
+\end{theo}
+
+\newpage
+
+\textit{Доказательство:}
+
+Индукция по $k$. База: $k = 1, 2$ -- смотреть выше 
+
+Переход: $k - 1 \to k$
+
+$p_k(n) - p_k(n - k) = p_{k - 1}(n - 1) = \frac{(n - 1)^{k - 2}}{(k - 2)!(k - 1)!} + \ldots = \frac{n^{k - 2}}{(k - 2)!(k - 1)!} + R_{k - 3}^{(0)}(n)$, где $R_{k - 3}^{(0)}(n)$ -- многочлен от $n$ степени $\leq k - 3$, коэффициенты которого зависят от $n \mod (k - 1)!$
+
+Аналогично: $p_k(n - jk) - p_k(n - (j + 1)k) = \frac{n^{k - 2}}{(k - 2)!(k - 1)!} + R_{k - 3}^{(j)}(n)$
+
+$p_k(n) - p_k(n - k!) = \frac{n^{k - 2}}{(k - 2)!} + S_{k - 3}(n)$
+
+$n = k! m + r$
+
+$p_k(n) = \frac{\overbrace{(k! m + r)^{k - 2}}^{k!^{k - 2}m^{k - 2} + \ldots}}{(k - 2)!} + \frac{(k! (m - 1) + r)^{k - 2}}{(k - 2)!} + \ldots + \frac{(k! + r)^{k - 2}}{(k - 2)!} + S_{k - 3}(k! m + r) + S_{k - 3}(k! (m - 1) + r) + \ldots + \\ + S_{k - 3}(k! + r) + p_k(r)$
+
+$\frac{k!^{k - 2}}{(k - 2)!} \underbrace{(m^{k - 2} + (m - 1)^{k - 2} + \ldots + 1)}_{\frac{m^{k - 1}}{k - 1} + \ldots} + (\text{многочлен степени } \leq k - 2) = \frac{k!^{k - 2}}{(k - 2)!} \cdot \frac{m^{k - 1}}{k - 1} + \ldots = \\ = \frac{(mk! + r)^{k - 1}}{(k - 1)!k!} + \ldots$
+
+\begin{Exercise}{Заметки на полях}
+    $Q(n + 1) - Q(n)$ -- многочлен степени $k$ от $n \Rightarrow Q(n)$ -- многочлен степени $k + 1$ от $n$
+\end{Exercise}
+
+\begin{theo}{Следствие}
+    $p_k(n) \sim \frac{n^{k - 1}}{(k - 1)!k!}$
+\end{theo}
+
+\begin{Remark}{Сравнение с упорядоченным разбиением}
+    $\frac{{n - 1 \choose k - 1}}{p_k(n)} \sim \frac{\frac{(n - 1)(n - 2)\ldots(n - k + 1)}{(k - 1)!}}{\frac{n^{k - 1}}{(k - 1)!k!}} \sim \frac{\frac{n^{k - 1}}{(k - 1)!}}{\frac{n^{k - 1}}{(k - 1)!k!}} \xrightarrow[n \to \infty]{} k!$
+\end{Remark}
+
+\begin{theo}{}
+    $p_k(n)$ -- количество способов разбить $n$ в сумму нескольких слагаемых, т.ч. $\max = k$
+\end{theo}
+
+\textit{Доказательство:}
+
+Симметрия \href{https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0_%D0%AE%D0%BD%D0%B3%D0%B0}{диаграмм Юнга}
+
+\begin{nota}{Задача о размене}
+    $a_n$ -- количество способов разменять $n$ рублей при номиналах монет $1, 2, 5, 10$
+
+    $\A(t) = \sum\limits_{n = 0}^\infty a_nt^n;\ n = a + 2b + 5c + 10d$
+
+    $\A(t) = (1 + t + t^2 + \ldots)(1 + t^2 + t^4 + \ldots)(1 + t^5 + t^{10} + \ldots)(1 + t^{10} + t^{20} + \ldots) = \\
+    = \frac{1}{1 - t} \cdot \frac{1}{1 - t^2} \cdot \frac{1}{1 - t^5} \cdot \frac{1}{1 - t^{10}} = \frac{P(t)}{(1 - t^{10})^4}$, где $P(t) = ( 1 + t + t^2 + \ldots + t^9)(1 + t^2 + t^4 + t^6 + t^8)(1 + t^5)$ 
+
+    $\frac{1}{(1 - t^{10})^4} = \sum\limits_{n = 0}^\infty {n + 3 \choose 3}t^{10n}$
+\end{nota}
+
+\begin{defin}{Количество разбиений}
+    $H \subset N$. $p(H; n)$ -- количество способок разбить $n$ в сумму слагаемых из $H$
+
+    $p_k(n) = p(\{1, 2, \ldots, k\}; n) - p(\{1, 2, \ldots, k - 1\}; n)$
+\end{defin}
+
+\begin{defin}{}
+    $p(n) = p(\N; n)$
+
+    Производящая функция: $\P_H(t) = \sum\limits_{n = 0}^\infty p(H; n)t^n = \prod\limits_{k \in H} \frac{1}{1 - t^k}$
+\end{defin}
+
+\begin{theo}{Формула Харди-Раманджана}
+    $p(n) \sim \frac{1}{4n\sqrt{3}} e^{\pi \sqrt{\frac{2}{3}}\sqrt{n}}$
+\end{theo}
+
+\begin{theo}{Теорема Эйлера}
+    Число разбиений $n$ на нечетные слагаемые = количеству разбиеный $n$ на различные слагаемые
+\end{theo}
+
+\textit{Доказательство:}
+
+$\prod\limits_{k = 1}^\infty (1 + t^k)$ -- производящая функция для числа разбиений на различные слагаемые 
+
+$\prod\limits_{k = 1}^\infty (1 + t^k) = \prod\limits_{k = 1}^\infty \frac{1 - t^{2k}}{1 - t^k} = \frac{\prod\limits_{k = 1}^\infty \frac{1}{1 - t^k}}{\prod\limits_{k = 1}^\infty \frac{1}{1 - t^{2k}}} = \prod\limits_{k \not\divby\ 2} \frac{1}{1 - t^k}$
+
+\begin{theo}{Пентагональная теорема}
+    $\frac{1}{p(t)} = \prod\limits_{k = 1}^\infty (1 - t^k) = \sum\limits_{q \in \Z} (-1)^q t^{\frac{3q^2 - q}{2}}$
+\end{theo}
+
+
+
 \end{document}

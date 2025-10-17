@@ -840,5 +840,181 @@ $U(x) = \begin{vmatrix}
     $y = ux \Rightarrow u'x^2 + ux - ux = e^{-\frac{x^2}{2}} \Rightarrow u' = x^{-2} e^{-\frac{x^2}{2}}$
 \end{Remark}
 
-\end{document}
+\newpage 
 
+\section{Обыкновенные дифференциальные уравнения}
+
+\begin{defin}{Квазимногочлены}
+    Так называются выражения $f(x) = P_1(x)e^{\lambda_1x} + \ldots + P_n(x)e^{\lambda_nx}$, где $\lambda_1, \ldots, \lambda_n \in \C$ и $P_1(x), \ldots, P_n(x)$ -- многочлены с комплексными коэффициентами
+\end{defin}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $x\sin x$
+        \item $e^x + x^2 + e^{2x}$
+    \end{enumerate}
+\end{Example}
+
+\begin{lem}{}
+    Пусть наборы $(k_1, \lambda_1), \ldots, (k_m, \lambda_m);\ k_j \in \N \cup \{0\};\ \lambda_j \in \C$ попарно различны (то есть для любых двух пар либо первая, либо вторая компоненты разные)
+    
+    Тогда функции $\{x^{k_j}e^{\lambda_jx},\ j = 1, \ldots, m\}$ линейно независимы
+\end{lem}
+
+\begin{lem}{}
+    Для любого квазимногочлена $f(x) = P_1(x)e^{\lambda_1x} + \ldots + P_n(x)e^{\lambda_nx}$ верно следующее
+
+    $f(x) \equiv 0 \Leftarrow P_1(x) \equiv P_2(x) \equiv \ldots \equiv P_n(x) \equiv 0$
+\end{lem}
+
+\textit{Доказательство:}
+
+Отметим следующий факт. Пусть $\lambda \neq 0,\ k \in \N \cup \{0\}$. Тогда $(x^ke^{\lambda x})' = (\lambda x^k + kx^{k - 1})e^{\lambda x}$, то есть справа при $e^{\lambda x}$ стоит многочлен степени $k$. Отсюда, следует, что если $\lambda \neq 0$ и $P(x)$ -- многочлен, то $(P(x)e^{\lambda x})' = Q(x)e^{\lambda x}$, где $Q(x)$ -- многочлен и $\deg Q = \deg P$
+
+Будем доказывать индукцией по $n$ -- числу слагаемых 
+
+\textbf{База:} $n = 1$. Очевидно. $P(x)e^{\lambda x} \equiv 0 \Rightarrow P(x) \equiv 0$
+
+\textbf{Переход:} $n \to n + 1$. Пусть $P_1(x)e^{\lambda_1x} + \ldots + P_ne^{\lambda_nx} + P_{n + 1}(x)e^{\lambda_{n + 1}x} \equiv 0$, причем $\deg P_{n + 1} = m$
+
+$P_1(x)e^{(\lambda_1 - \lambda_{n + 1})x} + \ldots + P_n(x)e^{(\lambda_n - \lambda_{n + 1})x} + P_{n + 1}(x) \equiv 0$
+
+Продифференцируем полученное равенство $m + 1$ раз по $x$. Получим 
+
+$Q_1(x)e^{(\lambda_1 - \lambda_{n + 1})x} + \ldots + Q_n(x)e^{(\lambda_n - \lambda_{n + 1})x} \equiv 0$, причем $\deg P_j = \deg Q_j$
+
+Степень нулевого многочлена -- $- \infty$. В силу индукционного предположения получаем, что $P_1(x) \equiv \ldots \equiv P_n(x) \equiv 0$. Тогда в силу базы $P_{n + 1}(x) \equiv 0$
+
+\begin{nota}{}
+    Сейчас будем рассматривать уравнения с постоянными коэффициентами: 
+
+    $\L y := a_ny^{(n)} + a_{n - 1}y^{(n - 1)} + \ldots + a_1y' + a_0y = 0$, где $a_0, \ldots, a_n \in \R$ и $a_n \neq 0$
+\end{nota}
+
+\begin{Remark}{}
+    Почти все результаты лекции применимы к случаю уравнений с комплексными коэффициентами 
+\end{Remark}
+
+\begin{defin}{Характеристический многочлен}
+    Многочлен $\chi(\lambda) := a_n\lambda^n + a_{n - 1}\lambda^{n - 1} + \ldots + a_1\lambda + a_0$ называется характеристическим многочленом уравнения $\L y = 0$
+\end{defin}
+
+\begin{Example}{}
+    $y'' + 3y' + 2y = 0$
+
+    $\lambda^2 + 3\lambda + 2 = \chi(\lambda)$ -- характеристическое уравнение 
+
+    Заметим, что для любого $\lambda \in \C, m \in \N, (e^{\lambda x})^{(m)} = \lambda^me^{\lambda x}$
+    
+    Отсюда следует, что $\L[e^{\lambda x}] = \chi(\lambda)e^{\lambda x}$
+
+    В частсности, если $\lambda$ -- корень характеристического многочлена, то $e^{\lambda x}$ -- решение уравнения. Например, $e^{-x}$ и $e^{-2x}$ -- решения данного уравнения
+\end{Example}
+
+\begin{theo}{}
+    Пусть $\lambda_0$ -- корень характеристического уравнения кратности $k \in \N$. Тогда функции $e^{\lambda_0x}, xe^{\lambda_0x}, \ldots, x^{k - 1}e^{\lambda_0x}$ -- решения уравнения $\L y = 0$ 
+\end{theo}
+
+\textit{Доказательство:}
+
+Если $\lambda_0$ -- корень кратности $k$, то $\chi(\lambda_0) = \chi'(\lambda_0) = \ldots = \chi^{(k - 1)}(\lambda_0) = 0$
+
+С другой стороны, пусть $m \in \{0, \ldots, k - 1\}$. Продифференцируем $\L[e^{\lambda x}] = \chi(\lambda)e^{\lambda x}$ $m$ раз по $\lambda$. С одной стороны, дифференцирования по $x$ и $\lambda$ коммутируют между собой и с умножением на константы. Следовательно $\grad{^m}{\lambda^m}\L[e^{\lambda x}] = \L[\grad{^m}{\lambda^m}e^{\lambda x}] = \L[x^me^{\lambda x}]$
+
+С другой стороны, по формуле производной произведения $\grad{^m}{\lambda^m}(\chi(\lambda)e^{\lambda x}) = \sum\limits_{j = 0}^m C_m^j\chi^{(j)}(\lambda) x^{m - j}e^{\lambda x}$
+
+Подставляя $\lambda = \lambda_0$, получаем, что $\L[x^me^{\lambda_0x}] = 0$, значит $x^me^{\lambda_0x}$ -- решение уравнения
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $y''' + 5y'' + 6y' = 0$
+        
+        $\chi(\lambda) = \lambda^3 + 5\lambda^2 + 6\lambda$. Корни -- $0, -2, -3$. Решения: $1, e^{-2x}, e^{-3x}$
+
+        \item $y''' + y'' - y' - y = 0$
+        
+        $\chi(\lambda) = \lambda^3 + \lambda^2 - \lambda - 1$. Корни -- $-1$ (кратности 2), $1$. Решения: $e^{-x}, xe^{-x}, e^x$
+    \end{enumerate}
+\end{Example}
+
+\begin{lem}{}
+    Пусть $\varphi(x)$ -- комплексное решение уравнения с вещественными коэффициентами, тогда $\re \varphi(x)$ и $\im \varphi(x)$ -- тоже решения 
+\end{lem}
+
+\begin{Example}{}
+    $y'' - 8y' + 25y = 0 \Rightarrow \lambda^2 - 8\lambda + 25 = 0 \Rightarrow \lambda_{1, 2} = 4 \pm 3i$
+
+    Будут решения $e^{(4 \pm 3i)x} = e^{4x}(\cos 3x \pm i\sin 3x)$ 
+\end{Example}
+
+\begin{Remark}{}
+    Если $\lambda = \alpha + i\beta$ -- корень характеристического уравнения кратности $k$, то $\ol{\lambda} = \alpha - i\beta$ -- тоже. Этой паре корней отвечает набор из $2k$ решений:
+
+    $e^{\alpha x}\cos \beta x, xe^{\alpha x}\cos \beta x, \ldots, x^{k - 1}e^{\alpha x}\cos \beta x$
+
+    $e^{\alpha x}\sin \beta x, xe^{\alpha x}\sin \beta x, \ldots, x^{k - 1}e^{\alpha x}\sin \beta x$
+\end{Remark}
+
+\begin{Example}{}
+    $y'''' + 2y'' + y = 0 \Rightarrow \lambda^4 + 2\lambda^2 + 1 = 0 \Rightarrow \lambda = \pm i$ (кратности 2)
+
+    Решения: $\cos x, x\cos x, \sin x, x\sin x$
+\end{Example}
+
+\begin{defin}{Уравнения Эйлера}
+    Это уравнения вида $a_nx^ny^{(n)} + a_{n - 1}x^{n - 1}y^{(n - 1)} + \ldots + a_1xy' + a_0y = 0$
+
+    Они заданы при $x > 0$ и при $x < 0$. Соответственно, замены $x = e^t$ и $x = -e^t$ ($t = \ln|x|$) сводят уравнения Эйлера к уравнению с постоянными коэффициентами 
+
+    Характеристический многочлен имеет вид 
+    
+    $\chi(\lambda) = a_n\lambda(\lambda - 1)\ldots(\lambda - n + 1) + a_{n - 1}\lambda(\lambda - 1)\ldots(\lambda - n + 2) + \ldots + a_1\lambda + a_0$
+\end{defin}
+
+\begin{lem}{}
+    Пусть $\lambda_0$ -- корень характеристического уравнения кратности $k \in \N$. Тогда ему отвечает набор решений $|x|^{\lambda_0}, |x|^{\lambda_0}\ln|x|, \ldots, |x|^{\lambda_0}(\ln|x|)^{k - 1}$
+
+    Если есть пара комплексно сопряженных корней $\alpha \pm i\beta$ кратности $k$, то ей отвечают решения 
+
+    $|x|^{\alpha}\cos(\beta \ln|x|), |x|^{\alpha}\ln|x|\cos(\beta \ln|x|), \ldots, |x|^{\alpha}(\ln|x|)^{k - 1}\cos(\beta \ln|x|)$
+
+    $|x|^{\alpha}\sin(\beta \ln|x|), |x|^{\alpha}\ln|x|\sin(\beta \ln|x|), \ldots, |x|^{\alpha}(\ln|x|)^{k - 1}\sin(\beta \ln|x|)$
+\end{lem}
+
+\begin{Example}{}
+    $x^2y'' + xy' - y = 0 \Rightarrow \chi(\lambda) = \lambda(\lambda - 1) + \lambda - 1 = \lambda^2 - 1 \Rightarrow \lambda = \pm 1$
+\end{Example}
+
+\begin{defin}{Почти линейная система}
+    Пусть $f : \R^{n + 1} \to \R^n$ -- непрерывная функция
+
+    Система $x' = f(t, x)$ почти линейная, если существуют такие непрерывные на всей оси функции $A(t), B(t) \geq 0$, что $|f(t, x)| \leq A(t)|x| + B(t)$
+\end{defin}
+
+\begin{theo}{}
+    Любое решение почти линейной системы продолжимо на $\R$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\parl{x}$ -- евклидова норма. Ясно, что для любого решения $x(t)$ системы имеем 
+
+$\frac{d}{dt}(\parl{x(t)}^2) = \frac{d}{dt}\q{x(t), x(t)} = 2\q{x(t), x'(t)}$
+
+Пусть максимальный промежуток существования решения $x(t)$ -- интервал $(a, b)$, содержащий точку $t_0$. Из последнего неравенства следует, что 
+
+$\parl{x(t)}^2 \leq \parl{x(t_0)}^2 + \left|\int\limits_{t_0}^t \left|\frac{d}{ds}\parl{x(s)}^2\right|\right| = \parl{x(t_0)}^2 + 2\left|\int\limits_{t_0}^t |\q{x(s), x'(s)}| ds\right| \leq \\ \leq \parl{x(t_0)}^2 + 2\left|\int\limits_{t_0}^t |\q{x(s), f(s, x(s))}|ds\right| \leq \parl{x(t_0)}^2 + 2\left|\int\limits_{t_0}^t |x(s)||f(s, x(s))||ds \right| \leq \\ \leq \parl{x(t_0)}^2 + 2\left|\int\limits_{t_0}^t ||x(s)||(A(s)||x(s)|| + B(s))ds \right| \leq (*)$
+
+Пусть решение не продолжимо вправо за $b$. Тогда $b < + \infty$ и решение $x(t)$ стремится к бесконечности при $t \to b$ (оно же обязано покидать любой компакт!)
+
+Тогда положим $C_1 = 2\max\limits_{t \in [t_0, b]} (\max(A(t)), B(t)), C_2 = C_1|b - t_0|$
+
+Воспользовавшись неравенством $\parl{x(s)} \leq \frac{1}{2}(\parl{x(s)}^2 + 1)$, для оценки $B(s)\parl{x(s)}$, получаем 
+
+$(*) \leq \parl{x(t_0)}^2 + C_1\left|\int\limits_{t_0}^t \parl{x(s)}^2ds\right| + C_1|t - t_0|$
+
+Отсюда и из леммы Гронуолла следует, что $\parl{x(t)}^2$ ограничено на $[t_0, b]$. Противоречие 
+
+Продолжимость влево на $(- \infty, t_0]$ проверяется аналогично
+
+\end{document}

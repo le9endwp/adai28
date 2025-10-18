@@ -22,7 +22,9 @@
 
 kryzhevicz@gmail.com и serkryzh@pg.edu.pl
 
-\section{Дифференциальные уравнения первого порядка}
+\newpage
+
+\section{Лекция 1. Дифференциальные уравнения первого порядка}
 
 \begin{defin}{Дифференциальные уравнения первого порядка}
     $D \subset \R^2$ -- область, $f : D \to \R$ -- непрерывная функция
@@ -154,6 +156,10 @@ kryzhevicz@gmail.com и serkryzh@pg.edu.pl
         \item $y = \varphi(t), x = \psi(t)$, хотим $P(\psi(t), \varphi(t))\psi'(t) + Q(\psi(t), \varphi(t))\varphi'(t) = 0$
     \end{enumerate}
 \end{defin}
+
+\newpage
+
+\section{Лекция 2. Системы обыкновенных дифференциальных уравнений}
 
 \begin{defin}{Системы обыкновенных дифференциальных уравнений}
     $t, x_1, \ldots, x_n \in \R;\ t$ -- время, $x_1 \ldots x_n$ -- фазовые переменные
@@ -421,6 +427,10 @@ $|\varphi_m(t_1) - \varphi_m(t_2)| \leq M|t_1 - t_2|$
     Доказать замкнутость (пользуемся утверждениями 2.1-2.4, леммой 2.1 и теоремой Арцела-Асколи)
 \end{Exercise}
 
+\newpage 
+
+\section{Лекция 3}
+
 \begin{lem}{Лемма Гронуолла-Беллмана}
     Пусть $u(t) \geq 0;\ f(t) \geq 0; u(t), f(t) \in C[t_0, \infty)$, при этом \\
     для $t \geq t_0$ выполняется неравенство $u(t) \leq c + \int\limits_{t_0}^t f(t_1)u(t_1)dt_1$, где $c > 0$ -- константа
@@ -552,6 +562,10 @@ $u(t) \leq L\int\limits_{t_0}^t u(s) ds$ по следствию из леммы
     Единственность решений есть, а условия Липшица (даже локального) нет
 \end{Remark}
 
+\newpage 
+
+\section{Лекция 4. Продолжение решений}
+
 \begin{defin}{Продолжение решения}
     Пусть есть решения $\varphi : \q{a, b} \to \R^n,\ \psi : \q{a_1, b_1} \to \R^n$. Говорим, что решение $\psi$ есть продолжение решения $\varphi$ (продолжает решение $\varphi$), если 
 
@@ -578,8 +592,6 @@ $u(t) \leq L\int\limits_{t_0}^t u(s) ds$ по следствию из леммы
 
     Теорема о продолжимости решения влево за $a$ выглядит аналогично
 \end{theo}
-
-\newpage
 
 \textit{Доказательство:}
 
@@ -671,7 +683,7 @@ $\chi(t) = \left[ \begin{gathered}
 
 \newpage
 
-\section{Дифференциальные уравнения высшего порядка}
+\section{Лекция 5. Линейные дифференциальные уравнения высших порядков}
 
 \begin{defin}{Линейные дифференциальные уравнения высшего порядка}
     $a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_0(x)y = f(x)$ -- линейное неоднородное порядка $n$
@@ -840,9 +852,13 @@ $U(x) = \begin{vmatrix}
     $y = ux \Rightarrow u'x^2 + ux - ux = e^{-\frac{x^2}{2}} \Rightarrow u' = x^{-2} e^{-\frac{x^2}{2}}$
 \end{Remark}
 
+\begin{Exercise}{}
+    Каков должен быть минимальный порядок линейного однородного уравнения, определенного на всей оси, чтобы у него были одновременно решения $y = x$ и $y = \sin x$
+\end{Exercise}
+
 \newpage 
 
-\section{Обыкновенные дифференциальные уравнения}
+\section{Лекция 6. Линейные дифференциальные уравнения с постоянными коэффициентами}
 
 \begin{defin}{Квазимногочлены}
     Так называются выражения $f(x) = P_1(x)e^{\lambda_1x} + \ldots + P_n(x)e^{\lambda_nx}$, где $\lambda_1, \ldots, \lambda_n \in \C$ и $P_1(x), \ldots, P_n(x)$ -- многочлены с комплексными коэффициентами
@@ -1016,5 +1032,242 @@ $(*) \leq \parl{x(t_0)}^2 + C_1\left|\int\limits_{t_0}^t \parl{x(s)}^2ds\right| 
 Отсюда и из леммы Гронуолла следует, что $\parl{x(t)}^2$ ограничено на $[t_0, b]$. Противоречие 
 
 Продолжимость влево на $(- \infty, t_0]$ проверяется аналогично
+
+\newpage 
+
+\section{Лекция 7. Линейные неоднородные уравнения}
+
+\begin{Example}{Пример дифференциальных уравнений: пружинный маятник}
+    Пусть есть грузик массы $m$ на пружине жесткости $k$, испытывающий при движении силу трения, пропорциональную скорости
+    
+    Тогда по второму закону Ньютона $ma = F_{\text{упр}} + F_{\text{тр}} + F(t)$
+
+    Это можно записать в виде $mx'' + bx' + kx = F(t)$. При $F(t) = 0$ (свободные колебания)
+
+    \begin{enumerate}
+        \item $b^2 < 4km, \omega^2 = \frac{b^2}{4} - km \Rightarrow x = C_1e^{-\frac{bt}{2}}\cos(\omega t) + C_2e^{-\frac{bt}{2}}\sin(\omega t)$ 
+        \item $b^2 = 4km \Rightarrow x = C_1e^{-\frac{bt}{2}} + C_2te^{-\frac{bt}{2}}$
+        \item $b^2 > 4km \Rightarrow x = C_1e^{-a_1 t} + C_2e^{-a_2 t}$, где $a_{1, 2} = -\frac{b}{2} \pm \sqrt{km - \frac{b^2}{4}}$
+    \end{enumerate}
+\end{Example}
+
+\begin{Example}{Пример дифференциальных уравнений: колебательный контур в электрической цепи}
+    Пусть есть электрический колебательный контур, содержащий 
+
+    \begin{enumerate}
+        \item Источник переменного тока $V$
+        \item Резистор сопротивления $R$
+        \item Катушку индуктивности $L$
+        \item Конденсатор емкости $C$
+    \end{enumerate}
+
+    Такие цепи используются, например, в радиоприемниках и телефонах. Уравнение свободных колебаний имеет вид $\frac{d^2}{dt^2}I(t) + \frac{R}{L}\frac{d}{dt}I(t) + \frac{1}{LC}I(t) = 0$
+
+    Или, используя обозначения $\alpha = \frac{R}{2L}$ и $\omega_0 = \frac{1}{\sqrt{LC}}$: $\frac{d^2}{dt^2}I(t) + 2\alpha\frac{d}{dt}I(t) + \omega_0^2I(t) = 0$
+
+    Интенсивность колебаний неоднородной системы максимальна, когда период колебаний $V$ близок к $\frac{2\pi}{\omega_0}$ 
+\end{Example}
+
+\begin{defin}{Линейные неоднородные уравнения}
+    Так называются уравнения вида $a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_1(x)y' + a_0(x)y = f(x)$, или, если обозначить $\L y := a_n(x)y^{(n)} + a_{n - 1}(x)y^{(n - 1)} + \ldots + a_1(x)y' + a_0(x)y$, то $\L y = f(x)$
+
+    Для решения уравнения линейного неоднородного уравнения сначала надо решить линейное однородное уравнение вида $\L y = 0$ 
+\end{defin}
+
+\begin{lem}{}
+    Пусть $y^*(x)$ -- некоторое решение линейного неоднородного уравнения. Тогда общее решение уравнения имеет вид $y_\text{ОН}(x) = C_1\varphi_1(x) + \ldots + C_n\varphi_n(x) + y^*(x)$
+\end{lem}
+
+\textit{Доказательство:}
+
+Достаточно проверить, что разница двух решений неоднородно уравнения -- решение однородного уравнения
+
+$\L y_1 = \L y_2 = f \Rightarrow \L(y_1 - y_2) = 0$ 
+
+\begin{Example}{}
+    $y'' + y = e^x$. Решение однородного $y'' + y = 0$ -- $y_\text{ОО} = C_1\sin x + C_2\cos x$
+
+    Решение неоднородного $y = \frac{e^x}{2} \Rightarrow y = C_1\sin x + C_2\cos x + \frac{e^x}{2}$
+\end{Example}
+
+\begin{lem}{Принцип суперпозиции}
+    Пусть $\L y_1 = f_1(x), \L y_2 = f_2(x)$, $a, b$ -- константы. Тогда $\L(ay_1 + by_2) = af_1(x) + bf_2(x)$
+\end{lem}
+
+\textit{Доказательство:}
+
+Следует из линейности оператора $\L$
+
+\begin{theo}{}
+    Пусть $y_\text{ОО}(x) = C_1\varphi_1(x) + \ldots + C_n\varphi_n(x)$ -- общее решение уравнения. Тогда функция $y^*(x) = C_1(x)\varphi_1(x) + \ldots + C_n(x)\varphi_n(x)$ будет решением уравнения, где функции $C_1(x), \ldots, C_n(x)$ -- первообразные (любые) решений следующей алгебраической системы 
+
+    $\begin{cases}
+        C_1'(x)\varphi_1(x) + C_2'(x)\varphi_2(x) + \ldots + C_n'(x)\varphi_n(x) = 0 \\
+        C_1'(x)\varphi_1'(x) + C_2'(x)\varphi_2'(x) + \ldots + C_n'(x)\varphi_n'(x) = 0 \\
+        \ldots \\
+        C_1'(x)\varphi_1^{(n - 2)}(x) + C_2'(x)\varphi_2^{(n - 2)}(x) + \ldots + C_n'(x)\varphi_n^{(n - 2)}(x) = 0 \\
+        C_1'(x)\varphi_1^{(n - 1)}(x) + C_2'(x)\varphi_2^{(n - 1)}(x) + \ldots + C_n'(x)\varphi_n^{(n - 1)}(x) = \frac{f(x)}{a_n(x)}
+    \end{cases}$
+\end{theo}
+
+\begin{Remark}{}
+    Определитель системы -- вронскиан системы решений $\varphi_1, \ldots, \varphi_n$. Следовательно решение алгебраической системы всегда существуют и единственно 
+\end{Remark}
+
+\textit{Доказательство:}
+
+Продифференцируем формулу $y^*(x) = C_1(x)\varphi_1(x) + \ldots + C_n(x)\varphi_n(x)$
+
+Получим $y^{*'}(x) = C_1'(x)\varphi_1(x) + \ldots + C_n'(x)\varphi_n(x) + C_1(x)\varphi_1'(x) + \ldots + C_n(x)\varphi_n'(x) = \\ = C_1(x)\varphi_1'(x) + \ldots + C_n(x)\varphi_n'(x)$, по первому равенству из системы
+
+$y^{*''}(x) = C_1\varphi_1''(x) + \ldots + C_n\varphi_n''(x)$, по второму равенству из системы итд 
+
+$y^{*(n)}(x) = C_1'(x)\varphi_1^{(n - 1)}(x) + \ldots + C_n'(x)\varphi_n^{(n - 1)}(x) + C_1(x)\varphi_1^{(n)}(x) + \ldots + C_n(x)\varphi_n^{(n)}(x) = \\ = C_1(x)\varphi_1^{(n)}(x) + \ldots + C_n(x)\varphi_n^{(n)}(x) + \frac{f(x)}{a_n(x)}$ и подставляем все это в уравнение 
+
+$\L y^* = \sum\limits_{j = 0}^n a_j(x)y^{*(j)}(x) = a_n(x) \frac{f(x)}{a_n(x)} + \sum\limits_{j = 0}^n a_j(x) \sum\limits_{k = 1}^n C_k(x)\varphi_k^{(j)}(x) = f(x) + \sum\limits_{k = 1}^n C_k(x) \sum\limits_{j = 0}^n a_j(x)\varphi_k^{(j)}(x) = \\ = f(x) + \sum\limits_{k = 1}^n C_k(x) \L \varphi_k(x) = f(x)$
+
+\begin{Remark}{}
+    Если мы возьмем в качестве функций $C_j(x)$ какие-то другие первообразные решения нашего уравнения, то к решению $y^*(x)$ добавится какое-то решение линейного однородного уравнения. Вид общего решения неоднородного уравнения не изменится
+\end{Remark}
+
+\begin{Example}{}
+    $y'' + 2y' + y = -\frac{e^{-x}}{x^2}$
+
+    Решение линейного однородного уравнения $\lambda^2 + 2\lambda + 1 = 0 \Rightarrow \lambda = -1$ (кратности 2)
+
+    $y_\text{ОО} = C_1e^{-x} + C_2xe^{-x}$
+
+    $y^*(x) = C_1(x)e^{-x} + C_2(x)xe^{-x}$
+
+    $\begin{cases}
+        C_1'(x)e^{-x} + C_2'(x)xe^{-x} = 0 \\
+        -C_1'(x)e^{-x} + C_2'(x)(1 - x)e^{-x} = -\frac{e^{-x}}{x^2}
+    \end{cases} \Rightarrow \begin{cases}
+        C_1' + C_2'x = 0 \\
+        C_2' = -\frac{1}{x^2}
+    \end{cases} \Rightarrow \begin{cases}
+        C_1' = \frac{1}{x} \\
+        C_2' = -\frac{1}{x^2}
+    \end{cases}$
+
+    Можно взять $C_1(x) = \ln|x|, C_2(x) = \frac{1}{x}$. Тогда получим $y^*(x) = \ln|x|e^{-x} + e^{-x}$
+
+    Замечаем, что $\ln|x|e^{-x}$ -- тоже реение уравнения
+
+    \textbf{Ответ:} $y = C_1e^{-x} + C_2xe^{-x} + \ln|x|e^{-x}$
+\end{Example}
+
+\begin{defin}{Метод неопределенных коэффициентов}
+    Пусть все коэффициенты $a_j(x)$ постоянны, а функция $f(x)$ в правой части уравнения имеет вид квазимногочлена, то есть уравнение имеет вид 
+
+    $a_ny^{(n)} + \ldots + a_1y' + a_0y = P(x)e^{\lambda_0 x}$
+
+    В правой части может стоять линейная комбинация квазимногочленов, тогда мы пользуемся принципом суперпозиции
+
+    В частности, $\lambda_0$ может быть комплексным числом, то есть можем работать с экспонентами, умноженными на синусы и косинусы
+\end{defin}
+
+\begin{defin}{Резонанс и нерезонанс}
+    Пусть $\chi(x) = a_n\lambda^n + \ldots + a_1\lambda + a_0$ -- характеристический многочлен, соответствующего линейного однородного уравнения с постоянными коэффициентами 
+
+    Тогда для уравнения возможны два случая: 
+
+    \begin{enumerate}
+        \item $\chi(\lambda_0) \neq 0$ -- нерезонансный случай
+        \item $\chi(\lambda_0) = 0$ -- резонансный случай. Пусть $k \in \{1, \ldots, n\}$ таково, что 
+        
+        $\chi(\lambda_0) = \ldots = \chi^{(k - 1)}(\lambda_0) = 0$, но $\chi^{(k)}(\lambda_0) \neq 0$. Тогда говорим о резонансе порядка $k$
+    \end{enumerate}
+
+    Отсутствие резонанса -- это резонанс порядка $0$
+\end{defin}
+
+\begin{theo}{}
+    Пусть в уравнении $a_ny^{(n)} + \ldots + a_1y' + a_0y = P(x)e^{\lambda_0 x}$ $\deg P(x) = m$. Тогда 
+
+    \begin{enumerate}
+        \item Если $\chi(\lambda_0) \neq 0$, то есть имеет место нерезонанс, то указанное уравнение имеет решение вида $y^*(x) = Q(x)e^{\lambda_0 x}$, где $Q(x)$ -- некоторый многочлен той же степени, что и $P(x)$
+        \item Если имеет место резонанс порядка $k$, то указанное уравнение имеет решение вида $y^*(x) = x^kQ(x)e^{\lambda_0 x}$, где $\deg Q = \deg P$
+    \end{enumerate}
+\end{theo}
+
+\textit{Доказательство:}
+
+Достаточно доказать случай 2, случай 1 доказывается так же ($k = 0$)
+
+Пусть $P(x) = \sum\limits_{l = 0}^m p_lx^l$. Положим $Q(x) = \sum\limits_{j = 0}^m q_jx^j$. 
+
+Подставляем функцию $y^*(x) = x^kQ(x)e^{\lambda_0 x} = \sum\limits_{j = 0}^m q_jx^{k + j}e^{\lambda_0 x}$ в уравнение
+
+В левой части этого уравнения получаем 
+
+$\L y^* = \sum\limits_{j = 0}^m q_j\L[x^{k + j} e^{\lambda_0 x}] = \sum\limits_{j = 0}^m q_j \grad{^{k +j}}{\lambda^{k + j}} \L[e^{\lambda x}] \Big|_{\lambda = \lambda_0} = \sum\limits_{j = 0}^m q_j \grad{^{k + j}}{\lambda^{k + j}} (\chi(\lambda)e^{\lambda x}) \Big|_{\lambda = \lambda_0} x^l = \\ = \sum\limits_{j = 0}^m q_j \sum\limits_{l = 0}^{k + j} C_{k + j}^l x^k \chi^{(k + j - l)}(\lambda_0)e^{\lambda_0 x} = \sum\limits_{j = 0}^m q_j \sum\limits_{l = 0}^j C_{k + j}^l x^l \chi^{(k + j - l)}(\lambda_0)e^{\lambda_0 x} = \\ = \sum\limits_{l = 0}^m \left( \sum\limits_{j = l}^m q_j C_{k + j}^l \chi^{(k + j - l)}(\lambda_0) \right) x^l e^{\lambda_0 x}$
+
+Это выражение должно равняться $f(x) = \sum\limits_{l = 0}^m p_l x^l e^{\lambda_0 x}$
+
+Таким образом, для коэффициентов $q_j$ получаем уравнения 
+
+При $x^m : C_{m + k}^m \chi^{(k)}(\lambda_0) q_m = p_m$
+
+При $x^{m - 1} : C_{m - 1 + k}^{m - 1} \chi^{(k)}(\lambda_0) q_{m - 1} + C_{m + k}^{m - 1} \chi^{(k + 1)}(\lambda_0) q_m = p_{m - 1}$
+
+$\ldots$
+
+При $1 : \chi^{(k)}(\lambda_0) q_0 + \chi^{(k + 1)}(\lambda_0) q_1 + \ldots + \ldots + \chi^{(k + m)}(\lambda_0) q_m = p_0$
+
+Если коэффициенты $p_0, \ldots, p_m$ известны, то коэффициенты $q_0, \ldots, q_m$ могут быть однозначно найдены последовательно, начиная с $q_m$
+
+\begin{Example}{}
+    $y'' - 3y' + 2y = (x^2 + 1)e^{3x} + e^x$
+
+    \begin{enumerate}
+        \item $y'' - 3y' + 2y = 0 \Rightarrow y_\text{ОО} = C_1e^{2x} + C_2e^{x}$
+        
+        \item $f(x) = f_1(x) + f_2(x) = (x^2 + 1)e^{3x} + e^x$
+
+        Рассмотрим два уравнения 
+
+        \begin{itemize}
+            \item $y'' - 3y' + 2y = (x^2 + 1)e^{3x}$
+            \item $y'' - 3y' + 2y = e^x$
+        \end{itemize}
+
+        \item Первое уравнение нерезонансно $3 \notin \{1, 2\}$. Имеет решение вида 
+        
+        $y_1^* = (ax^2 + bx + c)e^{3x}$
+        
+        $y_1^{*'} = (3ax^2 + (2a + 3b)x + (b + 3c))e^{3x}$
+
+        $y_1^{*''} = (9ax^2 + (8a + 9b)x + (2a + 4b + 9c))e^{3x}$
+
+        $\L y_1^* = (2ax^2 + (2a + 2b)x + (2a + b + 2c))e^{3x}$
+
+        $\begin{cases}
+            2a = 1 \\
+            2a + 2b = 0 \\
+            2a + b + 2c = 1
+        \end{cases} \Rightarrow \begin{cases}
+            a = \frac{1}{2} \\
+            b = -\frac{1}{2} \\
+            c = \frac{1}{4}
+        \end{cases}$
+
+        $y_1^* = \left(\frac{1}{2}x^2 - \frac{1}{2}x + \frac{1}{4}\right)e^{3x}$
+
+        Второе уравнение резонансно $\lambda_1 = 1$, резонанс порядка 1
+
+        $y_2^* = Axe^x,\ y_2^{*'} = A(x + 1)e^x,\ y_2^{*''} = A(x + 2)e^x \Rightarrow \L y_2^* = -Ae^x$
+
+        Слагаемые вида $xe^x$ сокращаются (и это неслучайно)
+
+        \textbf{Ответ:} $y = C_1e^{2x} + C_2e^x + \left( \frac{1}{2}x^2 - \frac{1}{2}x + \frac{1}{4} \right)e^{3x} + xe^x$
+    \end{enumerate}
+\end{Example}
+
+\begin{Exercise}{}
+    Сформулировать и обосновать принцип неопределенных коэффициентов для неоднородного уравнения Эйлера 
+
+    \textbf{Подсказка:} Какая там была замена переменных?
+\end{Exercise}
 
 \end{document}

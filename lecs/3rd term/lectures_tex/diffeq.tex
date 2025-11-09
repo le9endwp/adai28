@@ -1558,4 +1558,446 @@ $(e^{At})' = (\Id + \sum\limits_{k = 1}^\infty \frac{A^kt^k}{k!})' = \sum\limits
     \end{enumerate}
 \end{Exercise}
 
+\newpage 
+
+\section{Лекция 9. Жордановы все на свете}
+
+\begin{nota}{Зачем нужны экспоненты матриц?}
+    Если мы имеет систему $x' = Ax$, где $A$ -- постоянная матрица, то одной из фундаментальных матриц будет $\Phi(t) := e^{At}$
+
+    $e^{At} = I + At + \frac{A^2t^2}{2} + \ldots + \frac{A^nt^n}{n!} + \ldots$
+
+    $\frac{d}{dt}e^{At} = A + A^2t + \ldots + \frac{A^{n + 1}t^n}{n!} + \ldots = Ae^{At}$
+
+    В этом случае общее решение нашей системы имеет вид $e^{At}C$, где $C$ -- постоянный вектор-столбец
+\end{nota}
+
+\begin{Reminder}{Жордановы нормальные формы}
+    Напоминание из алгебры
+
+    \textbf{Факт.} Пусть $A$ -- некоторая квадратная матрица $\lambda_1, \lambda_2, \ldots, \lambda_n$ -- собственные числа. Тогда существует единственная с точностью до перестановок блоков блочно-диагональная матрица 
+
+    $J = \begin{pmatrix}
+        J_1 & 0 & \ldots & 0 \\
+        0 & J_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & J_m
+    \end{pmatrix}$, где каждая матрица $J_k = \begin{pmatrix}
+        \lambda_k & 1 & 0 & \ldots & 0 \\
+        0 & \lambda_k & 1 & \ldots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \ldots & 1 \\
+        0 & 0 & 0 & \ldots & \lambda_k
+    \end{pmatrix}$, \\ такая, что $J = SAS^{-1}$, где $S$ -- некоторая невырожденная матрица. Вместо единичек могут быть любые числа 
+\end{Reminder}
+
+\begin{Remark}{}
+    Собственные числа $\lambda_1, \ldots, \lambda_n$ могут повторяться, а также быть мнимыми, равно как и матрицы $J$ и $S$
+\end{Remark}
+
+\begin{nota}{Как строится матрица $S$?}
+    В простейшем случае это может быть матрица из собственных векторов, записанных в том же порядке, что и соответствующие собственные числа 
+
+    В случае, если есть собственный вектор и отвечающая ему цепочка дополнительных векторов, выписываем их по порядку справа налево (для единичек сверху -- слева направо)
+\end{nota}
+
+\begin{Example}{}
+    Пусть $A = \begin{pmatrix}
+        -1 & 1 & -2 \\
+        4 & 1 & 0 \\
+        2 & 1 & -1
+    \end{pmatrix}$, собственные числа 1 и -1 кратности 2
+
+    $A - \Id = \begin{pmatrix}
+        -2 & 1 & -2 \\
+        4 & 0 & 0 \\
+        2 & 1 & -2
+    \end{pmatrix}$, собственный вектор для 1 равен $u_0 = \begin{pmatrix}
+        0 \\ 
+        2 \\
+        1
+    \end{pmatrix}$
+
+    $A + \Id = \begin{pmatrix}
+        0 & 1 & -2 \\
+        4 & 2 & 0 \\
+        2 & 1 & 0
+    \end{pmatrix}$ -- ранг равен 2, собственный вектор только 1
+
+    $(A + \Id)^2 = \begin{pmatrix}
+        0 & 0 & 0 \\
+        8 & 8 & -8 \\
+        4 & 4 & -4
+    \end{pmatrix}$. Ранг уже равен 1. Возьмем собственный вектор этой матрицы, не являющийся собственным вектором матрицы $A + \Id$
+
+    Например, вектор $v_1 = \begin{pmatrix}
+        0 \\
+        1 \\
+        1
+    \end{pmatrix}$. Ему будет отвечать собственный вектор 
+    
+    $v_0 = (A + \Id)v_1 = \begin{pmatrix}
+        -1 \\
+        2 \\
+        1
+    \end{pmatrix}$ матрицы $A$ для собственного числа $-1$
+
+    Итого, жорданова форма имеет вид $J = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & -1 & 0 \\
+        0 & 1 & -1
+    \end{pmatrix}$, 
+    
+    а матрица перехода $S = \begin{pmatrix}
+        0 & 0 & -1 \\
+        2 & 1 & 2 \\
+        1 & 1 & 1
+    \end{pmatrix}$
+\end{Example}
+
+\begin{Example}{}
+    Пусть $A = \begin{pmatrix}
+        2 & -1 & -1 \\
+        2 & -1 & -2 \\
+        -1 & 1 & 2
+    \end{pmatrix}$, собственное число 1 кратности 3
+
+    Имеем $A - \Id = \begin{pmatrix}
+        1 & -1 & -1 \\
+        2 & -2 & -2 \\
+        -1 & 1 & 1
+    \end{pmatrix}$ ранг 1. Тогда $(A - \Id)^2 = 0$
+
+    Выберем вектор, обнуляемый $(A - \Id)^2$ (то есть любой), не обнуляемый матрицей $A - \Id$
+
+    Например, вектор 
+    
+    $v_1 = \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix}$. Ему соответствует собственный вектор матрицы $A - I$, равный $\begin{pmatrix}
+        1 \\
+        2 \\
+        -1
+    \end{pmatrix}$
+    
+    Возьмем еще один собственный вектор этой матрицы, независимый с предыдущим. Например, $\begin{pmatrix}
+        1 \\
+        1 \\
+        0
+    \end{pmatrix}$. Ему будет соответствовать отдельная клетка в жордановой форме 
+
+    Выписываем жорданову форму 
+    
+    $J = \begin{pmatrix}
+        1 & 0 & 0 \\
+        1 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}$ и матрицу перехода $A = S = \begin{pmatrix}
+        1 & -1 & 1 \\
+        0 & 2 & 1 \\
+        0 & -1 & 0
+    \end{pmatrix}$
+\end{Example}
+
+\begin{nota}{}
+    Если матрицы $A$ и $B$ сопряженные, то есть $A = SBS^{-1}$, то для любого $n \in \N$ $A^n = SB^nS^{-1}$. Тогда, подставляя это соотношение в формулу $e^A := \Id + \sum\limits_{n = 1}^\infty \frac{A^n}{n!}$, получаем $e^A = Se^BS^{-1}$
+
+    Таким образом, достаточно научиться считать экспоненты только от жоржановых форм. Степени (а значит, и экспоненты) от блочно-диагональных матриц считаются поблочно 
+
+    Значит, достаточно научиться считать экспоненты от жордановых блоков 
+
+    Каждый жорданов блок имеет вид $J_k = \begin{pmatrix}
+        \lambda_k & 0 & \ldots & 0 \\
+        1 & \lambda_k & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \lambda_k
+    \end{pmatrix}$ (пусть это матрица $m \times m$) и, значит, может быть записан в виде $J = \lambda_k \Id + U$, где $U = \begin{pmatrix}
+        0 & 0 & \ldots & 0 \\
+        1 & 0 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 0
+    \end{pmatrix}$. В этой матрице все элементы, кроме поддиагональных, нулевые. В матрице $U^2$ единички спустятся на диагональ ниже, потом ниже, матрица $U^{m - 1}$ будет иметь единичку в левом нижнем углу и, наконец $U^m = 0$
+\end{nota}
+
+\begin{nota}{}
+    Так как $J_k = \lambda_k\Id + U$, то $e^{Jt} = e^{\Id\lambda t} e^{Ut}$ (матрицы коммутируют)
+
+    С другой стороны, $e^{\Id\lambda t} = e^{\lambda t}\Id$. Осталось посчитать
+
+    $e^{Ut} = \Id + \sum\limits_{n = 1}^\infty \frac{U^nt^n}{n!} = \begin{pmatrix}
+        1 & 0 & 0 & \ldots & 0 & 0 \\
+        t & 1 & 0 & \ldots & 0 & 0 \\
+        \frac{t^2}{2} & t & 1 & \ldots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        \frac{t^{m - 2}}{(m - 2)!} & \frac{t^{m - 3}}{(m - 3)!} & \frac{t^{m - 4}}{(m - 4)!} & \ldots & 1 & 0 \\
+        \frac{t^{m - 1}}{(m - 1)!} & \frac{t^{m - 2}}{(m - 2)!} & \frac{t^{m - 3}}{(m - 3)!} & \ldots & t & 1
+    \end{pmatrix}$
+
+    Тогда $e^{J_kt} = \begin{pmatrix}
+        e^{\lambda_k t} & 0 & 0 & \ldots & 0 & 0 \\
+        t e^{\lambda_k t} & e^{\lambda_k t} & 0 & \ldots & 0 & 0 \\
+        \frac{t^2}{2} e^{\lambda_k t} & t e^{\lambda_k t} & e^{\lambda_k t} & \ldots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        \frac{t^{m - 2}}{(m - 2)!} e^{\lambda_k t} & \frac{t^{m - 3}}{(m - 3)!} e^{\lambda_k t} & \frac{t^{m - 4}}{(m - 4)!} e^{\lambda_k t} & \ldots & e^{\lambda_k t} & 0 \\
+        \frac{t^{m - 1}}{(m - 1)!} e^{\lambda_k t} & \frac{t^{m - 2}}{(m - 2)!} e^{\lambda_k t} & \frac{t^{m - 3}}{(m - 3)!} e^{\lambda_k t} & \ldots & t e^{\lambda_k t} & e^{\lambda_k t}
+    \end{pmatrix}$
+\end{nota}
+
+\begin{Example}{}
+    Решим систему $\begin{cases}
+        x' = 2x + y \\
+        y' = 3x + 4y
+    \end{cases}$
+
+    $A = \begin{pmatrix}
+        2 & 1 \\
+        3 & 4
+    \end{pmatrix},\ \det A = 5,\ \Tr A = 6,\ \lambda_1 = 1,\ \lambda_2 = 5$
+
+    $A - \Id = \begin{pmatrix}
+        1 & 1 \\
+        3 & 3
+    \end{pmatrix},\ u_1 = \begin{pmatrix}
+        1 \\
+        -1
+    \end{pmatrix};\ A - 5\Id = \begin{pmatrix}
+        -3 & 1 \\
+        3 & -1
+    \end{pmatrix},\ u_2 = \begin{pmatrix}
+        1 \\
+        3
+    \end{pmatrix}$
+
+    $J = \begin{pmatrix}
+        1 & 0 \\
+        0 & 5
+    \end{pmatrix},\ S = \begin{pmatrix}
+        1 & 1 \\
+        -1 & 3
+    \end{pmatrix};\ e^{Jt} = \begin{pmatrix}
+        e^t & 0 \\
+        0 & e^{5t}
+    \end{pmatrix},\ \Phi(t) = Se^{Jt} = \begin{pmatrix}
+        e^t & e^{5t} \\
+        -e^t & 3e^{5t}
+    \end{pmatrix}$
+
+    \textbf{Ответ:} $x = C_1e^t + C^2e^{5t},\ y = -C_1e^t + 3C_2e^{5t}$
+\end{Example}
+
+\begin{Example}{}
+    Решаем систему $\begin{cases}
+        x' = -x + y - 2z \\
+        y' = 4x + y \\
+        z' = 2x + y - z 
+    \end{cases}$
+
+    $A = \begin{pmatrix}
+        -1 & 1 & -2 \\
+        4 & 1 & 0 \\
+        2 & 1 & -1
+    \end{pmatrix},\ J = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & -1 & 0 \\
+        0 & 1 & -1
+    \end{pmatrix},\ S = \begin{pmatrix}
+        0 & 0 & -1 \\
+        2 & 1 & 2 \\
+        1 & 1 & 1
+    \end{pmatrix}$ -- считали выше 
+
+    $e^{Jt} = \begin{pmatrix}
+        e^t & 0 & 0 \\
+        0 & e^{-t} & 0 \\
+        0 & te^{-t} & e^{-t}
+    \end{pmatrix};\ \Phi(t) = Se^{Jt} = \begin{pmatrix}
+        0 & -te^{-t} & -e^{-t} \\
+        2e^t & (1 + 2t)e^{-t} & 2e^{-t} \\
+        e^t & (1 + t)e^{-t} & e^{-t}
+    \end{pmatrix}$
+
+    \textbf{Ответ:} $\begin{cases}
+        x = -C_2te^{-t} - C_3e^{-t} \\
+        y = 2C_1e^t + C_2(1 + 2t)e^{-t} + 2C_3e^{-t} \\
+        z = C_1e^t + C_2(1 + t)e^{-t} + C_3e^{-t}
+    \end{cases}$
+\end{Example}
+
+\begin{defin}{Вещественная жоржанова форма}
+    \textbf{Факт из алгебры.} Если у вещественной матрицы есть два сопряженных мнимых собственных числа $\lambda = \alpha + i\beta$ и $\ol{\lambda} = \alpha - i\beta$, то собственные и присоединенные вектора также могут быть выбраны сопряженными, количество жордановых клеток одинаково и они имеют одинаковую структуру. $Au = \lambda u \Rightarrow A\ol{u} = \ol{\lambda}\ol{u}$
+\end{defin}
+
+\begin{theo}{}
+    Пусть $A$ -- некоторая вещественная матрица, $\mu_1, \ldots, \mu_k \in \R$, $\lambda_1, \ol{\lambda_1}, \ldots, \lambda_m, \ol{\lambda_m} \notin \R$ -- собственные числа, $\lambda_j = \alpha_j + i\beta_j$. Тогда существует единственная с точностью до перестановок блоков матрица $J = \begin{pmatrix}
+        J_1 & 0 & \ldots & 0 \\
+        0 & J_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & J_p
+    \end{pmatrix}$, где каждая матрица $J_k$ имеет вид или $\begin{pmatrix}
+        \mu_j & 0 & \ldots & 0 \\
+        1 & \mu_j & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \mu_j
+    \end{pmatrix}$, или $\begin{pmatrix}
+        \Lambda_j & 0 & \ldots & 0 \\
+        E_2 & \Lambda_j & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \Lambda_j
+    \end{pmatrix}$, где $\Lambda_j = \begin{pmatrix}
+        \alpha_j & \beta_j \\
+        -\beta_j & \alpha_j
+    \end{pmatrix},\ E_2 = \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}$, такая, что $J = SAS^{-1}$, где $S$ -- некоторая невырожденная вещественная матрица (заметим, что вместо единичек, как в вещественных, так и в комплексных блоках можно ставить любое ненулевое число $\varepsilon$)
+\end{theo}
+
+\begin{nota}{Метод построения вещественной жордановой формы}
+    Пусть для заданная матрица $A = SJS^{-1}$, где $J$ -- обычная жорданова форма, $S$ -- матрица перехода. Пусть в матрице $S$ есть последовательность из собственного и дополнительных векторов $u_{m - 1}, \ldots, u_1, u_0$, отвечающая жоржановой клетке $J_j$ для мнимого собственного числа $\lambda_j$. Тогда будет и последовательность из собственного и дополнительных векторов $\ol{u_{m - 1}}, \ldots, \ol{u_1}, \ol{u_0}$, отвечающая жордановой клетке $\ol{J_j}$ для мнимого собственного числа $\ol{\lambda_j}$. Пусть $u_k = v_k + iw_k$. Тогда в матрице перехода к вещественной жордановой форме в тех столбцах, где стоит блок $\begin{pmatrix}
+        \Lambda_j & 0 & \ldots & 0 \\
+        E_2 & \Lambda_j & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \Lambda_j
+    \end{pmatrix}$, ставим набор $(v_{m - 1}, w_{m - 1}, \ldots, v_1, w_1, v_0, w_0)$ -- именно в таком порядке
+\end{nota}
+
+\begin{nota}{Факт из алгебры}
+    Матрицы вида $\Lambda = \begin{pmatrix}
+        \alpha & \beta \\
+        -\beta & \alpha
+    \end{pmatrix}$ образуют поле, изоморфное $\C$
+
+    Соответственно, $e^{\Lambda t} = \begin{pmatrix}
+        e^{\alpha t} \cos \beta t & e^{\alpha t} \sin \beta t \\
+        -e^{\alpha t} \sin \beta t & e^{\alpha t} \cos \beta t
+    \end{pmatrix}$
+
+    Экспонента от вещественно жордановой формы считается, так же, как и в обычном случае. Единственная разница: когда имеем дело с блоком или $J_j = \begin{pmatrix}
+        \Lambda_j & 0 & \ldots & 0 \\
+        E_2 & \Lambda_j & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \Lambda_j
+    \end{pmatrix}$, то имеем $e^{J_jt} = \begin{pmatrix}
+        e^{\Lambda_j t} & 0 & \ldots & 0 \\
+        te^{\Lambda_j t} & e^{\Lambda_j t} & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{t^{m - 1}}{(m - 1)!} e^{\Lambda_j t} & \frac{t^{m - 2}}{(m - 2)!} e^{\Lambda_j t} & \ldots & e^{\Lambda_j t}
+    \end{pmatrix}$
+\end{nota}
+
+\begin{Remark}{Зачем это все нужно?}
+    Решаем систему $x' = Ax$, знаем $e^{At}$ -- фундаментальная матрица. Тогда $e^{At} = Se^{Jt}S^{-1}$. В качестве фундаментальной можем взять матрицу $\Phi(t) := Se^{Jt}$. Если $J$ -- вещественная жорданова форма, то матрица $\Phi(t)$ тоже вещественна 
+\end{Remark}
+
+\begin{Example}{}
+    Решим систему $\begin{cases}
+        \frac{dx}{dt} = 3x - 3y + z \\
+        \frac{dy}{dt} = 3x - 2y + 2z \\
+        \frac{dz}{dt} = -x + 2y 
+    \end{cases}$
+
+    Найдем собственные числа матрицы коэффициентов
+
+    $\det (A - \lambda E) = \begin{vmatrix}
+        3 - \lambda & -3 & 1 \\
+        3 & -2 - \lambda & 2 \\
+        -1 & 2 & -\lambda
+    \end{vmatrix} = (3 - \lambda) \begin{vmatrix}
+        -2 - \lambda & 2 \\
+        2 & -\lambda
+    \end{vmatrix} + 3 \begin{vmatrix}
+        3 & 1 \\
+        -1 & -\lambda
+    \end{vmatrix} + \begin{vmatrix}
+        3 & -2 - \lambda \\
+        -1 & 2
+    \end{vmatrix} = \\ = (3 - \lambda)\lambda^2 + 2\lambda - 4 + 10 - 10\lambda = -\lambda^3 + \lambda^2 - 2 = 0$
+
+    Характеристическое уравнение имеет вид $\lambda^3 - \lambda^2 + 2 = 0$, собственные числа равны $-1$ и $1 \pm i$
+
+    Координаты собственного вектора для $\lambda_1 = -1$ удовлетворяют системе $A - \lambda_1E, \overrightarrow{\alpha} = 0$, или $\begin{pmatrix}
+        4 & -3 & 1 \\
+        3 & -1 & 2 \\
+        -1 & 2 & 1
+    \end{pmatrix} \begin{pmatrix}
+        \alpha_1 \\
+        \alpha_2 \\
+        \alpha_3
+    \end{pmatrix} = \begin{pmatrix}
+        0 \\
+        0 \\
+        0
+    \end{pmatrix}$. Отсюда сам вектор равен $\begin{pmatrix}
+        1 \\
+        1 \\
+        -1
+    \end{pmatrix}$
+
+    Теперь найдем собственный вектор для $\lambda_2 = 1 + i$ (для $1 - i$ вектор будет сопряженный)
+
+    Получаем систему $A - \lambda_2E, \overrightarrow{\gamma} = 0,\ \begin{pmatrix}
+        2 - i & -3 & 1 \\
+        3 & -3 - i & 2 \\
+        -1 & 2 & -1 - i
+    \end{pmatrix} \begin{pmatrix}
+        \gamma_1 \\
+        \gamma_2 \\
+        \gamma_3
+    \end{pmatrix} = \begin{pmatrix}
+        0 \\
+        0 \\
+        0
+    \end{pmatrix}$
+
+    Прибавляя ко второму уравнению три раза третье, получим $(3 - i)\gamma_2 - (1 + 3i)\gamma_3 = 0$. Можно взять $\gamma_2 = 1 + 3i,\ \gamma_3 = 3 - i$
+    
+    Из третьего уравнения $\gamma_1 = 2\gamma_2 - (1 + i)\gamma_3 = 2 + 6i - 3 + i - 3i + 1 = 4i \Rightarrow \begin{pmatrix}
+        4i \\
+        1 + 3i \\
+        3 - i
+    \end{pmatrix}$
+    
+    $J = \begin{pmatrix}
+        -1 & 0 & 0 \\
+        0 & 1 & 1 \\
+        0 & -1 & 1
+    \end{pmatrix},\ S = \begin{pmatrix}
+        1 & 0 & 4 \\
+        1 & 1 & 3 \\
+        -1 & 3 & -1
+    \end{pmatrix},\ e^{Jt} = \begin{pmatrix}
+        e^{-t} & 0 & 0 \\
+        0 & e^t \cos t & e^t \sin t \\
+        0 & -e^t \sin t & e^t \cos t
+    \end{pmatrix}$
+
+    $\Phi(t) = Se^{Jt} = \begin{pmatrix}
+        e^{-t} & -4e^t \sin t & 4e^t \cos t \\
+        e^{-t} & e^t (\cos t - 3\sin t) & e^t (\sin t + 3\cos t) \\
+        -e^{-t} & e^t (3\cos t + \sin t) & -e^t(\cos t + 3\sin t)
+    \end{pmatrix}$. Первый столбец: $e^{\lambda t}u$
+
+    $\begin{cases}
+        x = C_1e^{-t} - 4C_2e^t \sin t + 4C_3e^t \cos t \\
+        y = C_1e^{-t} + C_2e^t (\cos t - 3\sin t) + C_3e^t (\sin t + 3\cos t) \\
+        z = -C_1e^{-t} + C_2e^t (3\cos t + \sin t) - C_3e^t (\cos t + 3\sin t)
+    \end{cases}$
+\end{Example}
+
+\begin{nota}{Лайфхак}
+    Будет комплексное решение $e^{(1 + i)t} = e^t \begin{pmatrix}
+        -4\sin t \\
+        \cos t - 3\sin t \\
+        3\cos t + \sin t
+    \end{pmatrix} + ie^t \begin{pmatrix}
+        4\cos t \\
+        \sin t + 3\cos t \\
+        -\cos t - 3\sin t
+    \end{pmatrix}$
+    
+    Вещественная и внимая часть решения дадут второй и третий столбец фундаментальной матрицы
+\end{nota}
+
 \end{document}

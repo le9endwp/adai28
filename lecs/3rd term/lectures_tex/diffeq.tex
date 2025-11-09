@@ -1270,4 +1270,292 @@ $\ldots$
     \textbf{Подсказка:} Какая там была замена переменных?
 \end{Exercise}
 
+\newpage 
+
+\section{Лекция 8. Линейные системы обыкновенных дифференциальных уравнений}
+
+\begin{defin}{Линейные системы обыкновенных дифференциальных уравнений}
+    Пусть $t, x_1, \ldots, x_n$ -- вещественные переменные, $a_{11}(t), a_{12}(t), \ldots, a_{nn}(t), f_1(t), \ldots, f_n(t)$ -- непрерывные функции на $I := \q{\alpha, \beta}$, где $\alpha$ и $\beta$ -- конечные или бесконечные величины 
+
+    Линейная неоднородная система обывновенных дифференциальных уравнений это 
+
+    \[ \begin{cases}
+        x_1' = a_{11}(t)x_1 + \ldots + a_{1n}(t)x_n + f_1(t) \\
+        \vdots \\
+        x_n' = a_{n1}(t)x_1 + \ldots + a_{nn}(t)x_n + f_n(t)
+    \end{cases} \]
+
+    Система называется однородной, если все $f_i$ равны нулю
+\end{defin}
+
+\begin{nota}{Векторная запись систем}
+    Положим $x = \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_n
+    \end{pmatrix},\ f = \begin{pmatrix}
+        f_1 \\
+        \vdots \\
+        f_n
+    \end{pmatrix},\ A = \begin{pmatrix}
+        a_{11} & \ldots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \ldots & a_{nn}
+    \end{pmatrix}$
+
+    Тогда систему можно переписать в виде $x' = A(t)x + f(t)$ (или $x' = A(t)x$ для однородной системы)
+
+    Говорим, что $C^1$ гладкая функция $x(t)$ -- решение уравнения, если $x'(t) = A(t)x(t) + f(t)$
+\end{nota}
+
+\begin{defin}{Задача Коши}
+    Пусть $x_0 \in \R^n,\ t_0 \in I$. Можем рассмотреть задачу Коши с начальными условиями $(t_0, x_0)$: $\begin{cases}
+        x' = A(t)x + f(t) \\
+        x(t_0) = x_0
+    \end{cases}$
+\end{defin}
+
+\begin{theo}{}
+    Для любых $x_0 \in \R^n,\ t_0 \in I$ задача Коши имеет единственное решение, которое определено на всем отрезке $I$
+\end{theo}
+
+\textit{Доказательство:}
+
+Следует из теорем существования, единственности и продолжимости
+
+\begin{defin}{Пространство решений линейной однородной системы}
+    Решения однородной системы образуют линейное пространство 
+
+    $x' = A(t)x,\ y' = A(t)y,\ z = ax + by \Rightarrow z' = A(t)z$
+\end{defin}
+
+\begin{Remark}{}
+    Существует канонический изоморфизм между решениями и их начальными данными. Соответственно, пространство решений имеет размерность $n$
+
+    Поэтому существует базис из $n$ решений (векторных функций) $\varphi_1(t), \ldots, \varphi_n(t)$
+\end{Remark}
+
+\begin{defin}{Фундаментальная матрица системы}
+    Общее решение можно записать в виде $x(t) = c_1\varphi_1(t) + \ldots + c_n\varphi_n(t) = \Phi(t)C$, где $\Phi(t) = \begin{pmatrix}
+        \varphi_1(t), \ldots, \varphi_n(t)
+    \end{pmatrix},\ C = \begin{pmatrix}
+        c_1 \\
+        \vdots \\
+        c_n
+    \end{pmatrix}$
+
+    Такая матрица $\Phi$ называется фундаментальной
+\end{defin}
+
+\begin{theo}{Свойства фундаментальных матриц}
+    Пусть $\Phi(t)$ -- фундаментальная матрица. Тогда $\Phi'(t) = A(t)\Phi(t)$. Это потому что каждый столбец матрицы $\Phi$ удовлетворяет условию $\varphi_k'(t) = A(t)\varphi_k(t)$ и $\varphi_{ki}'(t) = \sum\limits_{j = 1}^n a_{ij}(t)\varphi_{kj}(t)$ 
+\end{theo}
+
+\begin{lem}{}
+    Если $\Phi(t)$ -- фундаментальная матрица, $B$ -- постоянная невырожденная матрица, то $\Psi(t) = \Phi(t)B$ -- тоже фундаментальная матрица
+\end{lem}
+
+\textit{Доказательство:}
+
+Как дифференцировать произведение матриц? 
+
+$\frac{d}{dt}(X(t)Y(t)) = X'(t)Y(t) + X(t)Y'(t)$
+
+$\Psi'(t) = \Phi'(t)B = A(t)\Phi(t)B = A(t)\Psi(t)$
+
+Наоборот, если $\Psi(t), \Psi(t)$ -- фундаментальные матрицы, то существует невырожденная постоянная матрица $B$, такая что $\Psi(t) = \Phi(t)B$
+
+Как считать производные обратных матриц? 
+
+$X^{-1}X(t) = \Id \Rightarrow \frac{d}{dt}X^{-1}(t)X(t) + X^{-1}(t)X'(t) = 0 \Rightarrow \frac{d}{dt}X^{-1}(t) = -X^{-1}(t)X'(t)X^{-1}(t)$
+
+Итак, $\frac{d}{dt}(\Phi^{-1}\Psi) = \frac{d}{dt}\Phi^{-1}\Psi + \Phi^{-1}\Psi' = -\Phi^{-1}\Phi'\Phi^{-1}\Psi + \Phi^{-1}\Psi' = -\Phi^{-1}A\Phi\Phi^{-1}\Psi + \Phi^{-1}A\Psi = 0$
+
+Отсюда матрица $B$ постоянна, а невырождена она, как матрица перехода между двумя базисами
+
+\begin{defin}{Определитель Вронского (вронскиан)}
+    Пусть $\varphi_1(t), \ldots, \varphi_n(t)$ -- решения рассматриваемой системы уравнений (необязательно базис), $\Phi(t) = \begin{pmatrix}
+        \varphi_1(t), \ldots, \varphi_n(t)
+    \end{pmatrix}$
+
+    Тогда $W(t) := \det \Phi(t)$ называется определителем Вронского или вронскианом
+\end{defin}
+
+\begin{lem}{Основное свойство вронскиана}
+    Для каждого $t_0 \in I$ следующие утверждения равносильны 
+
+    \begin{enumerate}
+        \item Решение $\varphi_1(t), \ldots, \varphi_n(t)$ линейно зависимы как функции 
+        \item $W(t) = 0$ для каждого $t \in I$
+        \item Существует $t_0 \in I$ такое, что $W(t_0) = 0$
+    \end{enumerate}
+\end{lem}
+
+\textit{Доказательство:}
+
+$1 \Rightarrow 2 \Rightarrow 3$ очевидно. Докажем $3 \Rightarrow 1$
+
+Фиксировав $t_0$, берем постоянные $c_1, \ldots, c_n$ (не все нули) такие, что $\sum\limits_{k = 1}^n c_k \varphi_k(t_0) = 0$
+
+Затем полагаем $\psi(t) := \sum\limits_{k = 1}^n c_k \varphi_k(t)$. Имеем $\psi(t_0) = 0$
+
+С другой стороны, $x_0$ -- это решение задачи Коши. Из единственности решений, $\psi(t) \equiv 0$
+
+\begin{lem}{Дифференцирование определителя}
+    $\frac{d}{dt}\begin{vmatrix}
+        x_{11} & \ldots & x_{1n} \\
+        \vdots & \ddots & \vdots \\
+        x_{n1} & \ldots & x_{nn}
+    \end{vmatrix} = \begin{vmatrix}
+        x_{11}' & \ldots & x_{1n}' \\
+        \vdots & \ddots & \vdots \\
+        x_{n1} & \ldots & x_{nn}
+    \end{vmatrix} + \ldots + \begin{vmatrix}
+        x_{11} & \ldots & x_{1n} \\
+        \vdots & \ddots & \vdots \\
+        x_{n1}' & \ldots & x_{nn}'
+    \end{vmatrix}$
+\end{lem}
+
+\textit{Доказательство:}
+
+Это следует из формулы $\begin{vmatrix}
+    x_{11} & \ldots & x_{1n} \\
+    \vdots & \ddots & \vdots \\
+    x_{n1} & \ldots & x_{nn}
+\end{vmatrix} = \sum\limits_{p \in \prod_n} (-1)^{|p|} \prod\limits_{j = 1}^n x_{j p(j)}$
+
+\begin{theo}{Теорема Остроградского-Лиувилля}
+    $W(t) = W(t_0)e^{\int\limits_{t_0}^t \Tr A(s) ds}$
+\end{theo}
+
+\textit{Доказательство:}
+
+Пусть $\Phi(t) = \begin{pmatrix}
+    \varphi_1(t), \ldots, \varphi_n(t)
+\end{pmatrix} = \begin{pmatrix}
+    \varphi_{11}(t) & \ldots & \varphi_{1n}(t) \\
+    \vdots & \ddots & \vdots \\
+    \varphi_{n1}(t) & \ldots & \varphi_{nn}(t)
+\end{pmatrix}$. Тогда 
+
+$W'(t) = \begin{vmatrix}
+    \varphi_{11}'(t) & \ldots & \varphi_{1n}(t) \\
+    \vdots & \ddots & \vdots \\
+    \varphi_{n1}(t) & \ldots & \varphi_{nn}(t)
+\end{vmatrix} + \ldots + \begin{vmatrix}
+    \varphi_{11}(t) & \ldots & \varphi_{1n}(t) \\
+    \vdots & \ddots & \vdots \\
+    \varphi_{n1}'(t) & \ldots & \varphi_{nn}(t)
+\end{vmatrix}$
+
+С другой стороны
+
+$\begin{vmatrix}
+    \varphi_{11}'(t) & \ldots & \varphi_{1n}(t) \\
+    \vdots & \ddots & \vdots \\
+    \varphi_{n1}(t) & \ldots & \varphi_{nn}(t)
+\end{vmatrix} = \begin{vmatrix}
+    \sum\limits_{j = 1}^n a_{1j}(t)\varphi_{j1}(t) & \ldots & \sum\limits_{j = 1}^n a_{1j}(t)\varphi_{jn}(t) \\
+    \vdots & \ddots & \vdots \\
+    \varphi_{n1}(t) & \ldots & \varphi_{nn}(t)
+\end{vmatrix} = \sum\limits_{j = 1}^n a_{1j} \begin{vmatrix}
+        \varphi_{j1}(t) & \ldots & \varphi_{jn}(t) \\
+        \vdots & \ddots & \vdots \\
+        \varphi_{n1}(t) & \ldots & \varphi_{nn}(t)
+\end{vmatrix} = a_{11}(t)W(t)$
+
+С остальными слагаемыми поступаем аналогично
+
+В конечном итоге $W'(t) = \sum\limits_{j = 1}^n a_{jj}(t)W(t) = \Tr A(t) W(t) \Rightarrow W(t) = W(t_0)e^{\int\limits_{t_0}^t \Tr A(s) ds}$
+
+\begin{defin}{Экспонента матрицы}
+    Пусть $A$ -- квадратная матрица размера $n \times n$. Тогда экспонентой матрицы $A$ называется сумма ряда $e^A := \Id + \sum\limits_{n = 1}^\infty \frac{A^n}{n!}$, где $A^n$ -- $n$-ая степень матрицы $A$, а $\Id$ -- единичная матрица
+\end{defin}
+
+\begin{Remark}{}
+    Аналогично можно определить любую аналитическую функцию от матрицы, например, синус. Однако непонятно, почему ряды сходятся
+\end{Remark}
+
+\begin{defin}{Матричная норма}
+    Пусть $\parl{\cdot}$ -- векторная норма
+    
+    Определим матричную норму по формуле $\parl{A} = \max\limits_{\parl{x} = 1} \parl{Ax} = \max\limits_{x \neq 0} \frac{\parl{Ax}}{\parl{x}}$
+\end{defin}
+
+\begin{theo}{Свойства матричной нормы}
+    \begin{enumerate}
+        \item $\parl{A} \geq 0;\ \parl{A} = 0 \Leftrightarrow A = 0$
+        \item $\parl{\alpha A} = |\alpha| \parl{A}$
+        \item $\parl{A + B} \leq \parl{A} + \parl{B}$
+        \item $\parl{AB} \leq \parl{A}\parl{B}$
+        
+        $\parl{AB} = \max\limits_{x \neq 0} \frac{\parl{ABx}}{\parl{x}} = \max\limits_{x \neq 0} \frac{\parl{ABx}}{\parl{Bx}} \cdot \frac{\parl{Bx}}{\parl{x}} \leq \parl{A} \parl{B}$
+
+        \item[4'.] $\parl{A^k} \leq \parl{A}^k;\ \parl{\Id} = 1 \Rightarrow \parl{A^{-1}}\parl{A} \geq 1$
+    \end{enumerate}
+\end{theo}
+
+\begin{Example}{}
+    \begin{enumerate}
+        \item $\parl{x} = \max|x_k| \Rightarrow \parl{A} = \max\limits_j \sum\limits_{i = 1}^n |a_{ij}|$ 
+        \item $\parl{x} = \sum\limits_{k = 1}^n |x_k| \Rightarrow \parl{A} = \max\limits_i \sum\limits_{j = 1}^n |a_{ij}|$
+        \item $\parl{x} = \sqrt{\sum\limits_{k = 1}^n |x_k|^2} \Rightarrow \parl{A} = \max \sqrt{\lambda^*}$, где $\lambda^*$ -- собственные числа матрицы $AA^*$
+    \end{enumerate}
+\end{Example}
+
+\begin{nota}{}
+    Ряд из матриц сходится, если он сходится покоээффициентно
+\end{nota}
+
+\begin{propos}{}
+    Матричный ряд $\sum\limits_{k = 1}^\infty A_k$ сходится, если сходится ряд из норм $\sum\limits_{k = 1}^\infty \parl{A_k}$
+\end{propos}
+
+\begin{lem}{}
+    Матричный ряд $e^A$ сходится абсолютно, причем $\parl{e^A} \leq e^{\parl{A}}$
+\end{lem}
+
+\textit{Доказательство:}
+
+Доказывается оценкой конечных сумм ряда $e^A = \Id + \sum\limits_{n = 1}^\infty \frac{A^n}{n!}$
+
+\begin{theo}{Свойства экспонент матриц}
+    \begin{enumerate}
+        \item $e^0 = \Id;\ e^{kA} = (e^A)^k$. В частности $e^{-A} = (e^A)^{-1}$
+        \item $AB = BA \Rightarrow e^{A + B} = e^Ae^B = e^Be^A$
+        
+        \textit{Доказательство:} 
+
+        $e^{A + B} = \Id + \sum\limits_{n = 1}^\infty \frac{(A + B)^n}{n!} = \Id + \sum\limits_{n = 1}^\infty \frac{\sum\limits_{k = 0}^n C_n^k A^kB^{n - k}}{n!} = \Id + \sum\limits_{k, n = 1}^\infty \frac{A^kB^n}{k!n!} = e^Ae^B$
+    \end{enumerate}
+\end{theo}
+
+\begin{nota}{}
+    Пусть $L(\R^n, \R^n)$ -- пространство квадратных матриц размера $n \times n$
+\end{nota}
+
+\begin{theo}{}
+    Для каждой матрицы $A$ матричная функция $t \mapsto e^{tA} \in L(\R^n, \R^n)$ дифференцируема и удовлетворяет соотношению $\frac{d}{dt}X = AX$
+\end{theo}
+
+\textit{Доказательство:}
+
+$(e^{At})' = (\Id + \sum\limits_{k = 1}^\infty \frac{A^kt^k}{k!})' = \sum\limits_{k = 1}^\infty \frac{A^kt^{k - 1}}{(k - 1)!} = Ae^{At}$
+
+\begin{theo}{Следствие}
+    Одна из фундаментальных матриц системы имеет вид $X(t) = e^{At}$
+\end{theo}
+
+\begin{Remark}{}
+    Это не работает, если матрица $A$ зависит от $t$
+\end{Remark}
+
+\begin{Exercise}{}
+    \begin{enumerate}
+        \item Покажите, что матричные синус, косинус и экспонента связаны соотношением $e^{iA} = \cos A + i \sin A$
+        \item Покажите, что матрицы $X_1(t) = \sin At$ и $X_2(t) = \cos At$ удовлетворяют соотношению $X'' + A^2X = 0$
+    \end{enumerate}
+\end{Exercise}
+
 \end{document}

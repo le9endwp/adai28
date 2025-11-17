@@ -2000,4 +2000,229 @@ $(e^{At})' = (\Id + \sum\limits_{k = 1}^\infty \frac{A^kt^k}{k!})' = \sum\limits
     Вещественная и внимая часть решения дадут второй и третий столбец фундаментальной матрицы
 \end{nota}
 
+\newpage 
+
+\section{Лекция 10. Классификация Пуанкаре}
+
+\begin{nota}{Классификация Пуанкаре}
+    В этом разделе мы представим классификацию точек покоя
+
+    $z' = Az = \begin{pmatrix}
+        a & b \\
+        c & d 
+    \end{pmatrix} \begin{pmatrix}
+        x \\ 
+        y 
+    \end{pmatrix}$, где $A \in \R^{2 \times 2}$. Предполагаем, что $\det A \neq 0$
+
+    Если у нас собственные числа вещественные, то $A = SJS^{-1}$ и замена $\zeta = S^{-1}z,\ z = S\zeta,\\ z' = S\zeta' = Az = AS\zeta,\ \zeta' = S^{-1}AS\zeta = J\zeta$
+
+    Если $\lambda_{1, 2}$ -- собственные числа и жорданова форма без единичек, то система примет вид $\begin{cases}
+        \xi' = \lambda_1 \xi \\
+        \eta' = \lambda_2 \eta
+    \end{cases},\ \zeta = \begin{pmatrix}
+        \xi \\
+        \eta
+    \end{pmatrix}.\ \begin{cases}
+        \xi = C_1e^{\lambda_1 t} \\
+        \eta = C_2e^{\lambda_2 t}
+    \end{cases},\ \eta = C_2 \left(\frac{\xi}{C_1}\right)^\frac{\lambda_2}{\lambda_1}$, при $C_1 \neq 0$
+\end{nota}
+
+\begin{defin}{Узел}
+    Если $\lambda_1\lambda_2 > 0$ (то есть $\det A > 0$) $|\lambda_1| < |\lambda_2|$, то имеем устойчивый узел при $\lambda_1 < \lambda_2 < 0$ и неустойчивый узел при $0 < \lambda_1 < \lambda_2$
+
+    Пока что (потом будет дано точно определение) под устойчивостью понимаем то, что решения с любыми начальными данными остаются ограниченными на положительной полуоси
+\end{defin}
+
+\begin{defin}{Дикритические узлы}
+    Если $\lambda_1 = \lambda_2 = \lambda \in \R$ и у матрицы $A$ есть два линейно независимых собственных вектора (а это значит, что любой вектор является собственным для матрицы $A = \lambda \Id$), имеем дело с так называемым дикритическим узлом, который устойчив, при $\lambda_1 = \lambda_2 < 0$ и неустойчив при $\lambda_1 = \lambda_2 > 0$ 
+\end{defin}
+
+\begin{defin}{Вырожденные узлы}
+    Если $\lambda_1 = \lambda_2 = \lambda \in \R$ и матрица $A$ имеет одномерное пространство собственных векторов, $\begin{cases}
+        \xi\ = \lambda \xi \\
+        \eta' = \xi + \lambda \eta 
+    \end{cases},\ \begin{cases}
+        \xi = C_1 e^{\lambda t} \\ 
+        \eta = C_1 t e^{\lambda t} + C_2 e^{\lambda t}
+    \end{cases},\ \eta = \frac{C_2}{C_1} \xi + \frac{\xi}{\lambda} \ln{\frac{\xi}{C_1}}$, при $C_1 \neq 0$ картинка называется вырожденным узлом, устойчивый при $\lambda_1 = \lambda_2 < 0$ и неустойчивый при $\lambda_1 = \lambda_2 > 0$
+\end{defin}
+
+\begin{defin}{Седло}
+    Если $\lambda_1 < 0 < \lambda_2$, то имеет место так называемое седло (всегда неустойчивое). Две траектории втыкаются в ноль, две выходят из нуля, остальные выглядят как гиперболы
+\end{defin}
+
+\begin{Remark}{Случай комплексных собственных чисел}
+    Как мы знаем, вещественная жорданова форма в случае комплексных собственных чисел имеет вид $\begin{pmatrix}
+        \alpha & \beta \\
+        -\beta & \alpha
+    \end{pmatrix}$
+
+    Соответственно, в координатах $\zeta$, система примет вид $\begin{cases}
+        \xi' = \alpha \xi + \beta \eta \\
+        \eta' = -\beta \xi + \alpha \eta
+    \end{cases}$
+
+    Применим полярную замену координат $\xi = r\cos\varphi,\ \eta = r\sin\varphi$. Тогда в системе получим $\begin{cases}
+        r'\cos\varphi - r\sin\varphi\varphi' = \alpha r\cos\varphi + \beta r\sin\varphi \\
+        r'\sin\varphi + r\cos\varphi\varphi' = -\beta r\cos\varphi + \alpha r\sin\varphi
+    \end{cases}$
+
+    Отсюда, комбинируя уравнения выше, получаем $\begin{cases}
+        r' = \alpha r \\
+        \varphi' = -\beta 
+    \end{cases} \Rightarrow \begin{cases}
+        r = C_1 e^{\alpha t} \\
+        \varphi = C_2 - \beta t
+    \end{cases}$
+\end{Remark}
+
+\begin{defin}{Центры}
+    Если $\lambda_1 = \ol{\lambda_2} \in i\R$, то есть $\alpha = \re \lambda_1 = \re \lambda_2 = 0$, то точка покоя имеет тип центр 
+
+    У центра есть направление закрутки, против либо против часовой стрелки. Это можно определить сразу из вида системы еще до всяких переходов к жордановой форме: если коэффициент $c$ в системе положителен, то закрутка против часовой стрелки, а если отрицателен, то по. Равен нулю этот коэффициент быть не может. Можно определить закрутку и по коэффициенту $b$ (будет наоборот)
+\end{defin}
+
+\begin{defin}{Фокусы}
+    Точка покоя называется устойчивым фокусом в случае $\re \lambda_1 = \re \lambda_2 < 0$ и неустойчивым фокусом, если $\re \lambda_1 = \re \lambda_2 > 0$
+
+    Независимо от устойчивости фокус тоже может быть закручен по часовой стрелке или против. Направление закрутки определяется также, как и для центра
+\end{defin}
+
+\begin{defin}{Линейные неоднородные системы}
+    Решаем линейную неоднородную систему $x' = A(t)x + f(t)$ и, отвечающую ей однородную систему $x' = A(t)x$
+
+    Пусть $\Phi(t)$ -- фундаментальная матрица системы. Тогда общее решение системы имеет вид $x(t) = \Phi(t)C$, где $C = \begin{pmatrix}
+        c_1 \\
+        \ldots \\
+        c_n 
+    \end{pmatrix}$. При этом, общее решение системы имеет вид \\ $x(t) = \Phi(t)C + x^*(t)$, где $x^*(t)$ -- некоторое частное решение системы. Доказывается также, как и для линейных уравнений -- берем разность двух решений системы 
+\end{defin}
+
+\begin{defin}{Принцип суперпозиции}
+    Пусть есть две системы: $x' = A(t)x + f_1(t)$ и $x' = A(t)x + f_2(t)$, имеющие решения $x_1^*(t)$ и $x_2^*(t)$ соответственно. Тогда система $x' = A(t)x + af_1(t) + bf_2(t)$ имеет решение $ax_1^*(t) + bx_2^*(t)$
+\end{defin}
+
+\begin{nota}{Метод вариации произвольной постоянной}
+    Частное решение $x^*(t)$ системы $x' = A(t)x + f(t)$ ищем в виде $x^*(t) = \Phi(t)C(t)$, где $C(t) = \begin{pmatrix}
+        c_1(t) \\
+        \ldots \\
+        c_n(t)
+    \end{pmatrix}$ некоторая дифференцируемая векторная функция 
+
+    Подставляя выражение в уравнение, получаем $\Phi'(t)C(t) + \Phi(t)C'(t) = A(t)\Phi(t)C(t) + f(t)$, а поскольку $\Phi(t)$ удовлетворяет уравнению $\Phi'(t) = A(t)\Phi(t)$, имеем $\Phi(t)C'(t) = f(t)$
+
+    Отсюда следует, что решение системы имеет вид выражения, где $C(t)$ -- функция, удовлетворяющая уравнению. Это уравнение, то есть система с неизвестными $c_1'(t), \ldots, c_n'(t)$ имеет единственное решение, поскольку $\det \Phi \neq 0$. Это решение имеет вид $C'(t) = \Phi^{-1}(t)f(t)$, что после интегрирования дает $C(t) = C(t_0) + \int\limits_{t_0}^t \Phi^{-1}(s)f(s)ds$
+
+    При наличии начального условия $x(t_0) = x_0$, из уравнения получаем $x_0 = \Phi(t_0)C(t_0)$, то есть $C(t_0) = \Phi^{-1}(t_0)x_0$
+
+    Тогда $C(t) = \Phi^{-1}(t_0)x_0 + \int\limits_{t_0}^t \Phi^{-1}(s)f(s)ds$
+
+    Умножая это равенство на $\Phi(t)$, получаем $x(t) = \Phi(t)\Phi^{-1}(t_0)x_0 + \Phi(t)\int\limits_{t_0}^t \Phi^{-1}(s)f(s)ds$
+\end{nota}
+
+\begin{theo}{}
+    Решение задачи Коши $x' = A(t)x + f(t),\ x(t_0) = x_0$ находится по формуле выше 
+
+    Для систем с постоянными коэффициентами удобной эквивалентной формой будет $x(t) = e^{A(t - t_0)}x_0 + \int\limits_{t_0}^t e^{A(t - s)}f(s)ds$
+\end{theo}
+
+\begin{Example}{}
+    Решим систему $\begin{cases}
+        x' = 3x - 2y \\
+        y' = 2x - y + 15e^t\sqrt{t}
+    \end{cases}$
+
+    $A = \begin{pmatrix}
+        3 & -2 \\
+        2 & -1
+    \end{pmatrix},\ \det A = 1,\ \Tr A = 2,\ \lambda_1 = \lambda_2 = 1$
+
+    $A - \Id = \begin{pmatrix}
+        2 & - 2 \\
+        2 & -2
+    \end{pmatrix}$. Собственный вектор $\begin{pmatrix}
+        2 \\ 
+        2
+    \end{pmatrix}$, соответствующий ему присоединенный вектор $\begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix}$. Жорданова форма $J = \begin{pmatrix}
+        1 & 0 \\
+        1 & 1
+    \end{pmatrix},\ \begin{pmatrix}
+        2 & -2 \\
+        2 & -2
+    \end{pmatrix} \begin{pmatrix}
+        1 \\ 
+        0
+    \end{pmatrix} = \begin{pmatrix}
+        2 \\
+        2
+    \end{pmatrix},\ (A - \Id)u_1 = u_0$
+
+    Матрица перехода $S = \begin{pmatrix}
+        1 & 2 \\
+        0 & 2
+    \end{pmatrix}$. Тогда $e^{Jt} = \begin{pmatrix}
+        e^t & 0 \\
+        te^t & e^t
+    \end{pmatrix}$
+
+    Фундаментальная матрица $\Phi(t) = Se^{Jt} = \begin{pmatrix}
+        (2t + 1)e^t & 2e^t \\
+        2te^t & 2e^t
+    \end{pmatrix}$
+
+    $S^{-1} = \frac{1}{2} \begin{pmatrix}
+        2 & -2 \\
+        0 & 1
+    \end{pmatrix} = \begin{pmatrix}
+        1 & -1 \\
+        0 & \frac{1}{2}
+    \end{pmatrix};\ e^{At} = \Phi(t)S^{-1} = \begin{pmatrix}
+        (2t - 1)e^t & -2te^t \\
+        2te^t & (1 - 2t)e^t
+    \end{pmatrix};\\ f(t) = \begin{pmatrix}
+        0 \\
+        15e^t\sqrt{t}
+    \end{pmatrix}$
+
+    $e^{A(t - s)}f(s) = \begin{pmatrix}
+        -30(t - s)e^{t - s}e^s\sqrt{s} \\
+        15(1 - 2(t - s))e^{t - s}e^s\sqrt{s}
+    \end{pmatrix} = e^t \begin{pmatrix}
+        -30t\sqrt{s} + 30s\sqrt{s} \\
+        15\sqrt{s} - 30t\sqrt{s} + 30s\sqrt{s}
+    \end{pmatrix}$
+
+    $\int\limits_0^t e^{A(t - s)}f(s)ds = e^t \begin{pmatrix}
+        -20t^\frac{5}{2} + 12t^\frac{5}{2} \\
+        10t^\frac{3}{2} - 20t^\frac{5}{2} + 12t^\frac{5}{2}
+    \end{pmatrix} = e^t \begin{pmatrix}
+        -8t^\frac{5}{2} \\
+        10t^\frac{3}{2} - 8t^\frac{5}{2}
+    \end{pmatrix}$
+
+    $\begin{pmatrix}
+        x(t) \\
+        y(t)
+    \end{pmatrix} = \begin{pmatrix}
+        (2t + 1)e^t & 2e^t \\
+        2te^t & 2e^t 
+    \end{pmatrix} \begin{pmatrix}
+        C_1 \\
+        C_2
+    \end{pmatrix} + e^t \begin{pmatrix}
+        -8t^\frac{5}{2} \\
+        10t^\frac{3}{2} - 8t^\frac{5}{2}
+    \end{pmatrix}$
+
+    \textbf{Ответ:} $\begin{cases}
+        x(t) = C_1(2t + 1)e^t 2C_2e^t - 8t^\frac{5}{2}e^t \\
+        y(t) = 2C_1te^t + 2tC_2e^t + 10t^\frac{3}{2}e^t - 8t^\frac{5}{2}e^t
+    \end{cases}$
+\end{Example}
+
 \end{document}
